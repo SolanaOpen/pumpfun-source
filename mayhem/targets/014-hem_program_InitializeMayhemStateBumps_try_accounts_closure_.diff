@@ -1,0 +1,1009 @@
+# <mayhem_program::InitializeMayhemState as anchor_lang::Accounts<mayhem_program::InitializeMayhemStateBumps>>::try_accounts::{{closure}}  (yours 4664 B at .text+0x782d0; original 5032 B at .text+0x6c128)
+# distance 503 instructions; evidence: same-callees 15/15; neighbours between the same matched functions as in your build
+--- original
++++ yours
+@@ -1,82 +1,71 @@
+-mov64 r7, r2
+-mov64 r9, r1
+-ldxdw r6, [r7]
+-ldxdw r1, [r6]
++mov64 r6, r2
++mov64 r7, r1
++ldxdw r9, [r6]
++ldxdw r1, [r9]
+ call solana_account_info::AccountInfo::lamports#aa02
+ mov64 r8, r0
+-stxdw [r10-456], r6
+-jeq r8, 0, +0x328
+-ldxdw r1, [r6]
+-ldxdw r1, [r1]
+-ldxdw r6, [r7+16]
++jeq r8, 0, +0x320
++ldxdw r1, [r9]
++ldxdw r1, [r1]
++stxdw [r10-432], r6
++ldxdw r6, [r6+16]
+ ldxdw r2, [r6]
+ ldxdw r2, [r2]
+ ldxdw r3, [r1]
+ ldxdw r4, [r2]
+-jne r4, r3, +0x7b0
++jne r4, r3, +0x740
+ ldxdw r3, [r1+8]
+ ldxdw r4, [r2+8]
+-jne r4, r3, +0x7b0
++jne r4, r3, +0x740
+ ldxdw r3, [r1+16]
+ ldxdw r4, [r2+16]
+-jne r4, r3, +0x7b0
++jne r4, r3, +0x740
+ ldxdw r1, [r1+24]
+ ldxdw r2, [r2+24]
+-jne r2, r1, +0x7b0
+-mov64 r1, r10
+-add64 r1, -280
++jne r2, r1, +0x740
++mov64 r1, r10
++add64 r1, -248
+ lddw r2, .rodata[05100000]
+ call anchor_lang::error::ErrorCode::name#793f
++stdw [r10-8], 0
++stdw [r10-16], 1
+ stdw [r10-24], 0
+-stdw [r10-32], 1
+-stdw [r10-40], 0
+ lddw r1, table[0:core::ptr::drop_in_place<alloc::string::String>#91b5, 3:<alloc::string::String as core::fmt::Write>::write_str#ca2d, 4:<alloc::string::String as core::fmt::Write>::write_char#6537, 5:core::fmt::Write::write_fmt#a290]
+-stxdw [r10-80], r1
+-mov64 r1, r10
+-add64 r1, -40
+-stxdw [r10-88], r1
++stxdw [r10-48], r1
++mov64 r1, r10
++add64 r1, -24
++stxdw [r10-56], r1
+ lddw r1, 0xe0000020
+-stxdw [r10-72], r1
++stxdw [r10-40], r1
+ mov64 r2, r10
+-add64 r2, -88
++add64 r2, -56
+ lddw r1, .rodata[05100000]
+ call <anchor_lang::error::ErrorCode as core::fmt::Display>::fmt#cc83
+-jne r0, 0, +0x1358
++jne r0, 0, +0x11e8
++ldxdw r1, [r10-8]
++stxdw [r10-344], r1
++ldxdw r1, [r10-16]
++stxdw [r10-352], r1
+ ldxdw r1, [r10-24]
++stxdw [r10-360], r1
++ldxdw r1, [r10-248]
++stxdw [r10-384], r1
++ldxdw r1, [r10-240]
+ stxdw [r10-376], r1
+-ldxdw r1, [r10-32]
+-stxdw [r10-384], r1
+-ldxdw r1, [r10-40]
+-stxdw [r10-392], r1
+-ldxdw r1, [r10-280]
+-stxdw [r10-416], r1
+-ldxdw r1, [r10-272]
++ldxdw r1, [r10-232]
++stxdw [r10-368], r1
++lddw r1, .rodata[70726f6772616d73]
+ stxdw [r10-408], r1
+-ldxdw r1, [r10-264]
+-stxdw [r10-400], r1
+-lddw r1, .rodata[70726f6772616d73]
+-stxdw [r10-440], r1
+-stw [r10-296], 4101
+-stb [r10-368], 2
+-stw [r10-424], 607
+-stdw [r10-432], 36
+-stdw [r10-448], 0
+-mov64 r1, r10
+-add64 r1, -448
++stw [r10-264], 4101
++stb [r10-336], 2
++stw [r10-392], 75
++stdw [r10-400], 34
++stdw [r10-416], 0
++mov64 r1, r10
++add64 r1, -416
+ call <anchor_lang::error::Error as core::convert::From<anchor_lang::error::AnchorError>>::from#5ca3
+ mov64 r2, r1
+ ldxdw r1, [r6]
+-ldxdw r1, [r1]
+-ldxdw r3, [r1+24]
+-stxdw [r10-424], r3
+-ldxdw r3, [r1+16]
+-stxdw [r10-432], r3
+-ldxdw r3, [r1+8]
+-stxdw [r10-440], r3
+-ldxdw r1, [r1]
+-stxdw [r10-448], r1
+-ldxdw r1, [r10-456]
+-ldxdw r1, [r1]
+ ldxdw r1, [r1]
+ ldxdw r3, [r1+24]
+ stxdw [r10-392], r3
+@@ -86,464 +75,429 @@
+ stxdw [r10-408], r3
+ ldxdw r1, [r1]
+ stxdw [r10-416], r1
++ldxdw r1, [r9]
++ldxdw r1, [r1]
++ldxdw r3, [r1+24]
++stxdw [r10-360], r3
++ldxdw r3, [r1+16]
++stxdw [r10-368], r3
++ldxdw r3, [r1+8]
++stxdw [r10-376], r3
++ldxdw r1, [r1]
++stxdw [r10-384], r1
+ mov64 r3, r10
+-add64 r3, -448
++add64 r3, -416
+ mov64 r1, r0
+ call anchor_lang::error::Error::with_pubkeys#f2b2
+-stxdw [r9+8], r1
+-stxdw [r9], r0
+-stb [r9+105], 2
+-ja +0x1348
+-ldxdw r1, [r7+8]
+-mov64 r2, 106
++stxdw [r7+8], r1
++stxdw [r7], r0
++stb [r7+105], 2
++ja +0x11d8
++ldxdw r1, [r6+8]
++mov64 r2, 112
+ call solana_rent::Rent::minimum_balance#0f61
+-ldxdw r1, [r7+16]
+-ldxdw r2, [r1]
+-ldxdw r8, [r2+8]
+-ldxdw r3, [r8]
+-add64 r3, 1
++stxdw [r10-432], r0
++ldxdw r1, [r6+16]
++ldxdw r5, [r1]
++ldxdw r8, [r5+8]
++ldxdw r2, [r8]
++add64 r2, 1
++mov64 r3, 1
++jeq r2, 0, +0x380
++mov64 r3, 0
++ldxdw r1, [r5]
++stxdw [r8], r2
++jeq r3, 1, +0x11e0
++ldxdw r3, [r5+16]
++ldxdw r2, [r3]
++add64 r2, 1
+ mov64 r4, 1
+-jeq r3, 0, +0x380
++jeq r2, 0, +0x3c8
+ mov64 r4, 0
+-ldxdw r1, [r2]
+-stxdw [r8], r3
+-jeq r4, 1, +0x1350
+-ldxdw r3, [r2+16]
+-ldxdw r4, [r3]
+-add64 r4, 1
+-mov64 r5, 1
+-jeq r4, 0, +0x3c8
+-mov64 r5, 0
+-stxdw [r3], r4
+-jeq r5, 1, +0x1350
+-stxdw [r10-488], r3
+-mov64 r3, r9
+-stxdw [r10-472], r1
+-ldxdw r5, [r6]
+-ldxdw r4, [r5+8]
+-ldxdw r1, [r4]
+-add64 r1, 1
++stxdw [r3], r2
++jeq r4, 1, +0x11e0
++mov64 r0, r7
++stxdw [r10-456], r3
++stxdw [r10-448], r1
++mov64 r3, r6
++ldxdw r1, [r9]
++ldxdw r4, [r1+8]
++ldxdw r2, [r4]
++add64 r2, 1
+ mov64 r6, 1
+-jeq r1, 0, +0x428
++jeq r2, 0, +0x430
+ mov64 r6, 0
+-ldxb r9, [r2+42]
+-stxdw [r10-512], r9
+-ldxb r9, [r2+41]
+-stxdw [r10-504], r9
+-ldxb r9, [r2+40]
+-stxdw [r10-496], r9
+-ldxdw r9, [r2+32]
+-stxdw [r10-480], r9
+-ldxdw r2, [r2+24]
+-ldxdw r9, [r5]
+-stxdw [r4], r1
+-jeq r6, 1, +0x1350
+-stxdw [r10-520], r2
+-ldxdw r2, [r5+16]
+-ldxdw r1, [r2]
+-add64 r1, 1
++ldxb r7, [r5+42]
++stxdw [r10-488], r7
++ldxb r7, [r5+41]
++stxdw [r10-480], r7
++ldxb r7, [r5+40]
++stxdw [r10-472], r7
++ldxdw r7, [r5+32]
++stxdw [r10-464], r7
++ldxdw r5, [r5+24]
++ldxdw r7, [r1]
++stxdw [r4], r2
++jeq r6, 1, +0x11e0
++stxdw [r10-496], r5
++ldxdw r2, [r1+16]
++ldxdw r5, [r2]
++add64 r5, 1
+ mov64 r6, 1
+-jeq r1, 0, +0x4c0
++jeq r5, 0, +0x4c8
+ mov64 r6, 0
+-stxdw [r2], r1
+-jeq r6, 1, +0x1350
+-stxdw [r10-464], r3
+-ldxdw r1, [r5+24]
+-stxdw [r10-544], r1
+-ldxdw r6, [r5+32]
+-stxdw [r10-528], r0
+-stxdw [r10-536], r8
+-ldxb r8, [r5+40]
+-mov64 r3, r9
+-ldxb r9, [r5+41]
+-ldxb r5, [r5+42]
+-ldxdw r1, [r7+24]
+-ldxdw r1, [r1]
+-ldxdw r1, [r1]
+-ldxdw r0, [r1+24]
+-stxdw [r10-288], r0
+-ldxdw r0, [r1+16]
+-stxdw [r10-296], r0
+-ldxdw r0, [r1+8]
+-stxdw [r10-304], r0
+-ldxdw r1, [r1]
+-stxdw [r10-312], r1
+-ldxdw r1, [r7+32]
+-ldxdw r1, [r1+88]
+-ldxdw r1, [r1]
+-ldxdw r0, [r1+24]
+-stxdw [r10-16], r0
+-ldxdw r0, [r1+16]
+-stxdw [r10-24], r0
+-ldxdw r0, [r1+8]
+-stxdw [r10-32], r0
+-ldxdw r1, [r1]
+-stxdw [r10-40], r1
+-ldxdw r1, [r7+40]
++stxdw [r2], r5
++jeq r6, 1, +0x11e0
++stxdw [r10-440], r9
++stxdw [r10-424], r0
++ldxdw r5, [r1+24]
++stxdw [r10-512], r5
++ldxdw r6, [r1+32]
++stxdw [r10-504], r8
++ldxb r8, [r1+40]
++ldxb r9, [r1+41]
++ldxb r0, [r1+42]
++ldxdw r1, [r3+24]
++ldxdw r1, [r1]
++ldxdw r1, [r1]
++mov64 r5, r7
++ldxdw r7, [r1+24]
++stxdw [r10-256], r7
++ldxdw r7, [r1+16]
++stxdw [r10-264], r7
++ldxdw r7, [r1+8]
++stxdw [r10-272], r7
++ldxdw r1, [r1]
++stxdw [r10-280], r1
++ldxdw r1, [r3+32]
+ ldxb r1, [r1]
+-mov64 r0, r10
+-add64 r0, -1
+-stxdw [r10-56], r0
+-mov64 r0, r10
+-add64 r0, -40
+-stxdw [r10-72], r0
+-lddw r0, .rodata[6d617968656d2d73]
+-stxdw [r10-88], r0
+-stxb [r10-1], r1
+-mov64 r1, r10
+-add64 r1, -88
+-stxdw [r10-280], r1
+-mov64 r1, r10
+-add64 r1, -280
+-stxdw [r10-328], r1
+-stxb [r10-334], r5
+-stxb [r10-335], r9
+-stxb [r10-336], r8
+-stxdw [r10-344], r6
+-ldxdw r1, [r10-544]
+-stxdw [r10-352], r1
+-stxdw [r10-360], r2
+-stxdw [r10-368], r4
+-stxdw [r10-376], r3
++mov64 r7, r10
++add64 r7, -248
++stxdw [r10-40], r7
++lddw r7, .rodata[6d617968656d2d73]
++stxdw [r10-56], r7
++stxb [r10-248], r1
++mov64 r1, r10
++add64 r1, -56
++stxdw [r10-24], r1
++mov64 r1, r10
++add64 r1, -24
++stxdw [r10-296], r1
++stxb [r10-302], r0
++stxb [r10-303], r9
++stxb [r10-304], r8
++stxdw [r10-312], r6
+ ldxdw r1, [r10-512]
+-stxb [r10-382], r1
++stxdw [r10-320], r1
++stxdw [r10-328], r2
++stxdw [r10-336], r4
++stxdw [r10-344], r5
++ldxdw r1, [r10-488]
++stxb [r10-350], r1
++ldxdw r1, [r10-480]
++stxb [r10-351], r1
++ldxdw r1, [r10-472]
++stxb [r10-352], r1
++ldxdw r1, [r10-464]
++stxdw [r10-360], r1
++ldxdw r1, [r10-496]
++stxdw [r10-368], r1
++ldxdw r1, [r10-456]
++stxdw [r10-376], r1
+ ldxdw r1, [r10-504]
+-stxb [r10-383], r1
+-ldxdw r1, [r10-496]
+-stxb [r10-384], r1
+-ldxdw r1, [r10-480]
++stxdw [r10-384], r1
++ldxdw r1, [r10-448]
+ stxdw [r10-392], r1
+-ldxdw r1, [r10-520]
+-stxdw [r10-400], r1
+-ldxdw r1, [r10-488]
+-stxdw [r10-408], r1
+-ldxdw r1, [r10-536]
+-stxdw [r10-416], r1
+-ldxdw r1, [r10-472]
+-stxdw [r10-424], r1
+-stdw [r10-48], 1
+-stdw [r10-64], 32
+-stdw [r10-80], 12
+-stdw [r10-272], 3
+-stdw [r10-320], 1
+-stdw [r10-432], 0
+-stdw [r10-440], 8
+-stdw [r10-448], 0
+-ldxdw r1, [r7+48]
++stdw [r10-32], 1
++stdw [r10-48], 12
++stdw [r10-16], 2
++stdw [r10-288], 1
++stdw [r10-400], 0
++stdw [r10-408], 8
++stdw [r10-416], 0
++ldxdw r1, [r3+40]
+ ldxdw r4, [r1]
+ mov64 r1, r10
+-add64 r1, -448
+-ldxdw r2, [r10-528]
+-mov64 r3, 106
++add64 r1, -416
++ldxdw r2, [r10-432]
++mov64 r3, 112
+ call anchor_lang::system_program::create_account#caaf
+-jeq r0, 2, +0x1100
+-ja +0x1200
+-ldxdw r1, [r7+8]
+-mov64 r2, 106
++jeq r0, 2, +0xf90
++ja +0x1090
++ldxdw r1, [r10-432]
++ldxdw r1, [r1+8]
++mov64 r2, 112
+ call solana_rent::Rent::minimum_balance#0f61
+-jgt r0, 1, +0x7d8
++jgt r0, 1, +0x770
+ mov64 r0, 1
+-stxdw [r10-464], r9
+-jle r0, r8, +0xb70
++stxdw [r10-424], r7
++stxdw [r10-440], r9
++jle r0, r8, +0xb00
+ ldxdw r6, [r6]
+ ldxdw r3, [r6+8]
+ ldxdw r1, [r3]
+ add64 r1, 1
+ mov64 r2, 1
+-jeq r1, 0, +0x820
++jeq r1, 0, +0x7c0
+ mov64 r2, 0
+ ldxdw r4, [r6]
+ stxdw [r3], r1
+-jeq r2, 1, +0x1350
++jeq r2, 1, +0x11e0
+ ldxdw r5, [r6+16]
+ ldxdw r1, [r5]
+ add64 r1, 1
+ mov64 r2, 1
+-jeq r1, 0, +0x868
++jeq r1, 0, +0x808
+ mov64 r2, 0
+-stxdw [r10-480], r5
++stxdw [r10-448], r5
+ stxdw [r5], r1
+-jeq r2, 1, +0x1350
+-stxdw [r10-472], r4
+-ldxdw r1, [r10-456]
+-ldxdw r5, [r1]
++jeq r2, 1, +0x11e0
++ldxdw r5, [r9]
+ ldxdw r9, [r5+8]
+ ldxdw r1, [r9]
+ add64 r1, 1
+ mov64 r2, 1
+-jeq r1, 0, +0x8c8
++jeq r1, 0, +0x858
+ mov64 r2, 0
+-ldxb r4, [r6+42]
+-stxdw [r10-512], r4
+-ldxb r4, [r6+41]
+-stxdw [r10-520], r4
+-ldxb r4, [r6+40]
+-stxdw [r10-528], r4
+-ldxdw r4, [r6+32]
+-stxdw [r10-488], r4
+-ldxdw r4, [r6+24]
+-stxdw [r10-504], r4
+-ldxdw r4, [r5]
+-stxdw [r10-496], r4
++ldxb r7, [r6+42]
++stxdw [r10-472], r7
++ldxb r7, [r6+41]
++stxdw [r10-480], r7
++ldxb r7, [r6+40]
++stxdw [r10-488], r7
++ldxdw r7, [r6+32]
++ldxdw r6, [r6+24]
++stxdw [r10-464], r6
++ldxdw r6, [r5]
++stxdw [r10-456], r6
+ stxdw [r9], r1
+-jeq r2, 1, +0x1350
++jeq r2, 1, +0x11e0
+ ldxdw r6, [r5+16]
+ ldxdw r1, [r6]
+ add64 r1, 1
+ mov64 r2, 1
+-ldxdw r4, [r10-472]
+-jeq r1, 0, +0x970
++jeq r1, 0, +0x8f0
+ mov64 r2, 0
+-stxdw [r10-536], r3
++stxdw [r10-512], r7
++stxdw [r10-504], r4
++stxdw [r10-496], r3
+ stxdw [r6], r1
+-jeq r2, 1, +0x1350
++jeq r2, 1, +0x11e0
+ sub64 r0, r8
+-ldxdw r1, [r7+24]
++ldxdw r1, [r10-432]
++ldxdw r1, [r1+24]
+ ldxdw r1, [r1]
+ ldxdw r1, [r1]
+ ldxdw r2, [r1]
+-stxdw [r10-544], r2
++stxdw [r10-520], r2
+ ldxdw r2, [r1+8]
+-stxdw [r10-552], r2
++stxdw [r10-528], r2
+ ldxdw r2, [r1+16]
+-stxdw [r10-560], r2
+-ldxdw r1, [r1+24]
+-stxdw [r10-568], r1
+-ldxb r3, [r5+42]
+-ldxb r2, [r5+41]
++stxdw [r10-536], r2
++ldxdw r2, [r1+24]
++ldxb r7, [r5+42]
++ldxb r3, [r5+41]
+ ldxb r1, [r5+40]
+ ldxdw r4, [r5+32]
+ ldxdw r5, [r5+24]
+-ldxdw r8, [r10-528]
+-stxb [r10-192], r8
+-ldxdw r8, [r10-520]
+-stxb [r10-191], r8
+-ldxdw r8, [r10-512]
+-stxb [r10-190], r8
++ldxdw r8, [r10-488]
++stxb [r10-160], r8
++ldxdw r8, [r10-480]
++stxb [r10-159], r8
+ ldxdw r8, [r10-472]
+-stxdw [r10-232], r8
+-ldxdw r8, [r10-536]
+-stxdw [r10-224], r8
+-ldxdw r8, [r10-480]
+-stxdw [r10-216], r8
++stxb [r10-158], r8
+ ldxdw r8, [r10-504]
+-stxdw [r10-208], r8
+-ldxdw r8, [r10-488]
+ stxdw [r10-200], r8
+ ldxdw r8, [r10-496]
++stxdw [r10-192], r8
++ldxdw r8, [r10-448]
+ stxdw [r10-184], r8
+-stxdw [r10-176], r9
+-stxdw [r10-168], r6
+-stxdw [r10-160], r5
+-stxdw [r10-152], r4
+-stxb [r10-144], r1
+-stxb [r10-143], r2
+-stxb [r10-142], r3
+-ldxdw r1, [r10-568]
+-stxdw [r10-96], r1
+-ldxdw r1, [r10-560]
+-stxdw [r10-104], r1
+-ldxdw r1, [r10-552]
+-stxdw [r10-112], r1
+-ldxdw r1, [r10-544]
+-stxdw [r10-120], r1
+-stdw [r10-128], 0
+-stdw [r10-136], 8
+-stdw [r10-240], 0
+-stdw [r10-248], 8
+-stdw [r10-256], 0
+-mov64 r1, r10
+-add64 r1, -256
++ldxdw r8, [r10-464]
++stxdw [r10-176], r8
++ldxdw r8, [r10-512]
++stxdw [r10-168], r8
++ldxdw r8, [r10-456]
++stxdw [r10-152], r8
++stxdw [r10-144], r9
++stxdw [r10-136], r6
++stxdw [r10-128], r5
++stxdw [r10-120], r4
++stxb [r10-112], r1
++stxb [r10-111], r3
++stxb [r10-110], r7
++stxdw [r10-64], r2
++ldxdw r1, [r10-536]
++stxdw [r10-72], r1
++ldxdw r1, [r10-528]
++stxdw [r10-80], r1
++ldxdw r1, [r10-520]
++stxdw [r10-88], r1
++stdw [r10-96], 0
++stdw [r10-104], 8
++stdw [r10-208], 0
++stdw [r10-216], 8
++stdw [r10-224], 0
++mov64 r1, r10
++add64 r1, -224
+ mov64 r2, r0
+ call anchor_lang::system_program::transfer#6249
+-ldxdw r9, [r10-464]
+-jne r0, 2, +0x1258
+-ldxdw r1, [r10-456]
+-ldxdw r6, [r1]
+-ldxdw r1, [r6+8]
++ldxdw r7, [r10-424]
++ldxdw r9, [r10-440]
++jne r0, 2, +0x10e8
++ldxdw r4, [r9]
++ldxdw r1, [r4+8]
+ ldxdw r3, [r1]
+ add64 r3, 1
+-mov64 r4, 1
+-jeq r3, 0, +0xbb0
+-mov64 r4, 0
+-ldxdw r2, [r6]
++mov64 r5, 1
++jeq r3, 0, +0xb38
++mov64 r5, 0
++ldxdw r2, [r4]
+ stxdw [r1], r3
+-jeq r4, 1, +0x1350
+-ldxdw r3, [r6+16]
+-ldxdw r4, [r3]
+-add64 r4, 1
+-mov64 r5, 1
+-jeq r4, 0, +0xbf8
+-mov64 r5, 0
+-stxdw [r10-472], r2
+-stxdw [r3], r4
+-jeq r5, 1, +0x1350
+-ldxdw r4, [r6+24]
+-ldxdw r5, [r6+32]
+-ldxb r0, [r6+40]
+-ldxb r9, [r6+41]
+-ldxb r6, [r6+42]
+-ldxdw r2, [r7+24]
+-stxdw [r10-480], r2
+-ldxdw r8, [r2]
+-ldxdw r8, [r8]
+-ldxdw r2, [r8+24]
+-stxdw [r10-336], r2
+-ldxdw r2, [r8+16]
+-stxdw [r10-344], r2
+-ldxdw r2, [r8+8]
+-stxdw [r10-352], r2
+-ldxdw r2, [r8]
+-stxdw [r10-360], r2
+-ldxdw r2, [r7+32]
+-stxdw [r10-488], r2
+-ldxdw r2, [r2+88]
+-ldxdw r2, [r2]
+-ldxdw r8, [r2+24]
+-stxdw [r10-16], r8
+-ldxdw r8, [r2+16]
+-stxdw [r10-24], r8
+-ldxdw r8, [r2+8]
+-stxdw [r10-32], r8
+-ldxdw r2, [r2]
+-stxdw [r10-40], r2
+-ldxdw r8, [r7+40]
+-mov64 r2, r10
+-add64 r2, -1
+-stxdw [r10-496], r8
+-ldxb r8, [r8]
+-stxdw [r10-56], r2
+-mov64 r2, r10
+-add64 r2, -40
+-stxdw [r10-72], r2
+-lddw r2, .rodata[6d617968656d2d73]
+-stxdw [r10-88], r2
+-stxb [r10-1], r8
+-mov64 r2, r10
+-add64 r2, -88
+-stxdw [r10-280], r2
+-mov64 r2, r10
+-add64 r2, -280
+-stxdw [r10-376], r2
+-stxb [r10-382], r6
+-stxb [r10-383], r9
+-stxb [r10-384], r0
+-stxdw [r10-392], r5
+-stxdw [r10-400], r4
+-stxdw [r10-408], r3
+-stxdw [r10-416], r1
+-ldxdw r1, [r10-472]
+-stxdw [r10-424], r1
+-stdw [r10-48], 1
+-stdw [r10-64], 32
+-stdw [r10-80], 12
+-stdw [r10-272], 3
+-stdw [r10-368], 1
+-stdw [r10-432], 0
+-stdw [r10-440], 8
+-stdw [r10-448], 0
+-mov64 r1, r10
+-add64 r1, -448
+-mov64 r2, 106
++jeq r5, 1, +0x11e0
++ldxdw r3, [r4+16]
++ldxdw r5, [r3]
++add64 r5, 1
++mov64 r0, 1
++jeq r5, 0, +0xb80
++mov64 r0, 0
++stxdw [r10-448], r2
++stxdw [r3], r5
++jeq r0, 1, +0x11e0
++ldxdw r5, [r4+24]
++ldxdw r0, [r4+32]
++ldxb r9, [r4+40]
++ldxb r6, [r4+41]
++ldxb r4, [r4+42]
++ldxdw r2, [r10-432]
++ldxdw r7, [r2+24]
++stxdw [r10-456], r7
++ldxdw r7, [r7]
++ldxdw r7, [r7]
++ldxdw r8, [r7+24]
++stxdw [r10-304], r8
++ldxdw r8, [r7+16]
++stxdw [r10-312], r8
++ldxdw r8, [r7+8]
++stxdw [r10-320], r8
++ldxdw r7, [r7]
++stxdw [r10-328], r7
++ldxdw r2, [r2+32]
++mov64 r7, r10
++add64 r7, -248
++stxdw [r10-464], r2
++ldxb r8, [r2]
++stxdw [r10-40], r7
++lddw r7, .rodata[6d617968656d2d73]
++stxdw [r10-56], r7
++stxb [r10-248], r8
++mov64 r7, r10
++add64 r7, -56
++stxdw [r10-24], r7
++mov64 r7, r10
++add64 r7, -24
++stxdw [r10-344], r7
++stxb [r10-350], r4
++stxb [r10-351], r6
++stxb [r10-352], r9
++stxdw [r10-360], r0
++stxdw [r10-368], r5
++stxdw [r10-376], r3
++stxdw [r10-384], r1
++ldxdw r1, [r10-448]
++stxdw [r10-392], r1
++stdw [r10-32], 1
++stdw [r10-48], 12
++stdw [r10-16], 2
++stdw [r10-336], 1
++stdw [r10-400], 0
++stdw [r10-408], 8
++stdw [r10-416], 0
++mov64 r1, r10
++add64 r1, -416
++mov64 r2, 112
+ call anchor_lang::system_program::allocate#7682
+-jne r0, 2, +0x1200
+-ldxdw r1, [r10-456]
+-ldxdw r0, [r1]
+-ldxdw r1, [r0+8]
++jne r0, 2, +0x1090
++ldxdw r1, [r10-440]
++ldxdw r4, [r1]
++ldxdw r1, [r4+8]
+ ldxdw r3, [r1]
+ add64 r3, 1
+-mov64 r4, 1
+-jeq r3, 0, +0xe80
+-mov64 r4, 0
+-ldxdw r2, [r0]
++mov64 r5, 1
++jeq r3, 0, +0xd90
++mov64 r5, 0
++ldxdw r2, [r4]
+ stxdw [r1], r3
+-jeq r4, 1, +0x1350
+-ldxdw r3, [r0+16]
+-ldxdw r4, [r3]
+-add64 r4, 1
+-mov64 r5, 1
+-jeq r4, 0, +0xec8
+-mov64 r5, 0
+-stxdw [r10-472], r2
+-stxdw [r3], r4
+-jeq r5, 1, +0x1350
+-ldxdw r4, [r0+24]
+-ldxdw r5, [r0+32]
+-ldxb r6, [r0+40]
+-ldxb r9, [r0+41]
+-ldxb r0, [r0+42]
+-ldxdw r2, [r10-480]
+-ldxdw r8, [r2]
+-ldxdw r8, [r8]
+-ldxdw r2, [r8+24]
+-stxdw [r10-336], r2
+-ldxdw r2, [r8+16]
+-stxdw [r10-344], r2
+-ldxdw r2, [r8+8]
+-stxdw [r10-352], r2
+-ldxdw r2, [r8]
+-stxdw [r10-360], r2
+-ldxdw r2, [r10-488]
+-ldxdw r2, [r2+88]
+-ldxdw r2, [r2]
+-ldxdw r8, [r2+24]
+-stxdw [r10-16], r8
+-ldxdw r8, [r2+16]
+-stxdw [r10-24], r8
+-ldxdw r8, [r2+8]
+-stxdw [r10-32], r8
+-ldxdw r2, [r2]
+-stxdw [r10-40], r2
+-ldxdw r2, [r10-496]
+-ldxb r2, [r2]
++jeq r5, 1, +0x11e0
++ldxdw r3, [r4+16]
++ldxdw r5, [r3]
++add64 r5, 1
++mov64 r0, 1
++jeq r5, 0, +0xdd8
++mov64 r0, 0
++stxdw [r3], r5
++jeq r0, 1, +0x11e0
++ldxdw r5, [r4+24]
++ldxdw r0, [r4+32]
++ldxb r6, [r4+40]
++ldxb r9, [r4+41]
++ldxb r4, [r4+42]
++ldxdw r7, [r10-456]
++ldxdw r7, [r7]
++ldxdw r7, [r7]
++ldxdw r8, [r7+24]
++stxdw [r10-304], r8
++ldxdw r8, [r7+16]
++stxdw [r10-312], r8
++ldxdw r8, [r7+8]
++stxdw [r10-320], r8
++ldxdw r7, [r7]
++stxdw [r10-328], r7
++ldxdw r7, [r10-464]
++ldxb r7, [r7]
+ mov64 r8, r10
+-add64 r8, -1
++add64 r8, -248
++stxdw [r10-40], r8
++lddw r8, .rodata[6d617968656d2d73]
+ stxdw [r10-56], r8
+-mov64 r8, r10
+-add64 r8, -40
+-stxdw [r10-72], r8
+-lddw r8, .rodata[6d617968656d2d73]
+-stxdw [r10-88], r8
+-stxb [r10-1], r2
+-mov64 r2, r10
+-add64 r2, -88
+-stxdw [r10-280], r2
+-mov64 r2, r10
+-add64 r2, -280
+-stxdw [r10-376], r2
+-stxb [r10-382], r0
+-stxb [r10-383], r9
+-stxb [r10-384], r6
+-stxdw [r10-392], r5
+-stxdw [r10-400], r4
+-stxdw [r10-408], r3
+-stxdw [r10-416], r1
+-ldxdw r1, [r10-472]
+-stxdw [r10-424], r1
+-stdw [r10-48], 1
+-stdw [r10-64], 32
+-stdw [r10-80], 12
+-stdw [r10-272], 3
+-stdw [r10-368], 1
+-stdw [r10-432], 0
+-stdw [r10-440], 8
+-stdw [r10-448], 0
+-ldxdw r1, [r7+48]
++stxb [r10-248], r7
++mov64 r7, r10
++add64 r7, -56
++stxdw [r10-24], r7
++mov64 r7, r10
++add64 r7, -24
++stxdw [r10-344], r7
++stxb [r10-350], r4
++stxb [r10-351], r9
++stxb [r10-352], r6
++stxdw [r10-360], r0
++stxdw [r10-368], r5
++stxdw [r10-376], r3
++stxdw [r10-384], r1
++stxdw [r10-392], r2
++stdw [r10-32], 1
++stdw [r10-48], 12
++stdw [r10-16], 2
++stdw [r10-336], 1
++stdw [r10-400], 0
++stdw [r10-408], 8
++stdw [r10-416], 0
++ldxdw r1, [r10-432]
++ldxdw r1, [r1+40]
+ ldxdw r2, [r1]
+ mov64 r1, r10
+-add64 r1, -448
++add64 r1, -416
+ call anchor_lang::system_program::assign#7903
+-jne r0, 2, +0x1200
+-ldxdw r8, [r10-464]
+-ldxdw r1, [r10-456]
++jne r0, 2, +0x1090
++ldxdw r8, [r10-424]
++ldxdw r1, [r10-440]
+ ldxdw r2, [r1]
+ mov64 r1, r10
+-add64 r1, -448
++add64 r1, -416
+ call anchor_lang::accounts::account::Account<T>::try_from_unchecked#a052
+-ldxb r1, [r10-343]
+-jne r1, 2, +0x1228
+-ldxdw r7, [r10-440]
+-ldxdw r6, [r10-448]
++ldxb r1, [r10-311]
++jne r1, 2, +0x10b8
++ldxdw r7, [r10-408]
++ldxdw r6, [r10-416]
+ call _RNvCscR3e5J6VSLN_7___rustc35___rust_no_alloc_shim_is_unstable_v2
+ lddw r1, 0x300000000
+ ldxdw r2, [r1]
+@@ -551,41 +505,41 @@
+ add64 r1, -12
+ mov64 r3, 0
+ mov64 r4, 1
+-jle r1, r2, +0x1278
+-jeq r4, 0, +0x1288
++jle r1, r2, +0x1108
++jeq r4, 0, +0x1118
+ lddw r1, 0x300007ff4
+-jne r2, 0, +0x12a8
++jne r2, 0, +0x1138
+ lddw r2, 0x300000007
+-jne r6, 1, +0x12c8
+-jgt r1, r2, +0x12d0
++jne r6, 1, +0x1158
++jgt r1, r2, +0x1160
+ mov64 r1, 1
+ mov64 r2, 12
+ lddw r3, panic_location(/home/runner/work/platform-tools/platform-tools/out/rust/library/alloc/src/slice.rs:449:29)
+ call alloc::raw_vec::handle_error#4993
+-ldxdw r2, [r10-464]
++ldxdw r2, [r10-424]
+ stxdw [r2], r0
+ stxdw [r2+8], r1
+ stb [r2+105], 2
+-ja +0x1348
++ja +0x11d8
+ mov64 r2, r10
+-add64 r2, -448
++add64 r2, -416
+ mov64 r1, r8
+ mov64 r3, 112
+ call memcpy
+-ja +0x1348
+-stxdw [r9], r0
+-stxdw [r9+8], r1
+-stb [r9+105], 2
+-ja +0x1348
++ja +0x11d8
++stxdw [r7], r0
++stxdw [r7+8], r1
++stb [r7+105], 2
++ja +0x11d8
+ mov64 r4, 0
+-jne r4, 0, +0x11a0
++jne r4, 0, +0x1030
+ mov64 r3, r1
+ lddw r1, 0x300007ff4
+-jeq r2, 0, +0x11b8
++jeq r2, 0, +0x1048
+ mov64 r1, r3
+ lddw r2, 0x300000007
+-jeq r6, 1, +0x11d0
+-jle r1, r2, +0x11d8
++jeq r6, 1, +0x1060
++jle r1, r2, +0x1068
+ lddw r2, 0x300000000
+ stxdw [r2], r1
+ lddw r2, 0x735f6d656879616d
+@@ -602,7 +556,7 @@
+ exit
+ call abort
+ mov64 r3, r10
+-add64 r3, -448
++add64 r3, -416
+ lddw r1, str("a Display implementation returned an error unexpectedly")
+ mov64 r2, 55
+ lddw r4, table[3:<core::fmt::Error as core::fmt::Debug>::fmt#aaa5]

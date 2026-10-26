@@ -1,11 +1,11 @@
 {
  "summary": {
-  "targets": 38,
-  "strong": 31,
-  "total_distance": 21665,
+  "targets": 37,
+  "strong": 30,
+  "total_distance": 21211,
   "unclaimed_original_ranges": 17,
   "orphans": 20,
-  "coverage_pct": 72.25
+  "coverage_pct": 72.47
  },
  "targets": [
   {
@@ -377,44 +377,9 @@
    "diff_file": "007-mayhem_program_instructions_burn_handler.diff"
   },
   {
-   "symbol": "_ZN83_$LT$mayhem_program..InitializeMayhemState$u20$as$u20$anchor_lang..AccountsExit$GT$4exit17h78ce6cf4a6a65cc3E",
-   "name": "<mayhem_program::InitializeMayhemState as anchor_lang::AccountsExit>::exit",
-   "hash": "78ce6cf4a6a65cc3",
-   "your_offset": 496656,
-   "your_size": 1432,
-   "original_offset": 447696,
-   "original_size": 1552,
-   "distance": 168,
-   "evidence": [
-    {
-     "kind": "called-by",
-     "detail": "mayhem_program::__private::__global::initialize_mayhem_state#30b6"
-    },
-    {
-     "kind": "same-callees",
-     "detail": "5/5"
-    }
-   ],
-   "score": 13.92,
-   "confidence": "strong",
-   "panic_sites_original": [
-    "/home/runner/work/platform-tools/platform-tools/out/rust/library/alloc/src/slice.rs:449:29",
-    "/home/runner/work/platform-tools/platform-tools/out/rust/library/alloc/src/slice.rs:449:29"
-   ],
-   "panic_sites_yours": [
-    "/home/runner/work/platform-tools/platform-tools/out/rust/library/alloc/src/slice.rs:449:29",
-    "/home/runner/work/platform-tools/platform-tools/out/rust/library/alloc/src/slice.rs:449:29"
-   ],
-   "source_file": "programs/mayhem-program/src/lib.rs",
-   "unmatched_callees": [],
-   "kind": "code",
-   "missing_callees": [],
-   "diff_file": "008-ogram_InitializeMayhemState_as_anchor_lang_AccountsExit_exit.diff"
-  },
-  {
-   "symbol": "_ZN14mayhem_program28initialize_mayhem_state_impl17h9a6c1a89c1287466E",
+   "symbol": "_ZN14mayhem_program28initialize_mayhem_state_impl17h8382078f8023acdeE",
    "name": "mayhem_program::initialize_mayhem_state_impl",
-   "hash": "9a6c1a89c1287466",
+   "hash": "8382078f8023acde",
    "your_offset": 147912,
    "your_size": 104,
    "original_offset": 534552,
@@ -437,7 +402,7 @@
    "unmatched_callees": [],
    "kind": "code",
    "missing_callees": [],
-   "diff_file": "009-mayhem_program_initialize_mayhem_state_impl.diff"
+   "diff_file": "008-mayhem_program_initialize_mayhem_state_impl.diff"
   },
   {
    "symbol": "_ZN87_$LT$mayhem_program..state..GlobalParams$u20$as$u20$anchor_lang..AccountDeserialize$GT$25try_deserialize_unchecked17hd2d903d28cb7572cE",
@@ -474,7 +439,7 @@
    "unmatched_callees": [],
    "kind": "code",
    "missing_callees": [],
-   "diff_file": "010-_as_anchor_lang_AccountDeserialize_try_deserialize_unchecked.diff"
+   "diff_file": "009-_as_anchor_lang_AccountDeserialize_try_deserialize_unchecked.diff"
   },
   {
    "symbol": "_ZN100_$LT$mayhem_program..instructions..pump_interface..sell..SellEvent$u20$as$u20$anchor_lang..Event$GT$4data17hc4f7b70912cdcb41E",
@@ -507,13 +472,13 @@
    "unmatched_callees": [],
    "kind": "code",
    "missing_callees": [],
-   "diff_file": "011-ions_pump_interface_sell_SellEvent_as_anchor_lang_Event_data.diff"
+   "diff_file": "010-ions_pump_interface_sell_SellEvent_as_anchor_lang_Event_data.diff"
   },
   {
    "symbol": "_ZN5alloc7raw_vec11finish_grow17h72c0fead31ffbea2E",
    "name": "alloc::raw_vec::finish_grow",
    "hash": "72c0fead31ffbea2",
-   "your_offset": 499976,
+   "your_offset": 500344,
    "your_size": 312,
    "original_offset": 599520,
    "original_size": 328,
@@ -532,7 +497,7 @@
    "unmatched_callees": [],
    "kind": "code",
    "missing_callees": [],
-   "diff_file": "012-alloc_raw_vec_finish_grow.diff"
+   "diff_file": "011-alloc_raw_vec_finish_grow.diff"
   },
   {
    "symbol": "_ZN49_$LT$T$u20$as$u20$alloc..string..SpecToString$GT$14spec_to_string17h0dae4c1830823e0dE",
@@ -561,13 +526,13 @@
    "unmatched_callees": [],
    "kind": "code",
    "missing_callees": [],
-   "diff_file": "013-_T_as_alloc_string_SpecToString_spec_to_string.diff"
+   "diff_file": "012-_T_as_alloc_string_SpecToString_spec_to_string.diff"
   },
   {
    "symbol": "_ZN8pump_cpi7pump_v24pump3cpi6buy_v217h6557bf8243b0edfaE",
    "name": "pump_cpi::pump_v2::pump::cpi::buy_v2",
    "hash": "6557bf8243b0edfa",
-   "your_offset": 504128,
+   "your_offset": 504496,
    "your_size": 5816,
    "original_offset": 543560,
    "original_size": 5896,
@@ -606,13 +571,13 @@
      ]
     }
    ],
-   "diff_file": "014-pump_cpi_pump_v2_pump_cpi_buy_v2.diff"
+   "diff_file": "013-pump_cpi_pump_v2_pump_cpi_buy_v2.diff"
   },
   {
-   "symbol": "_ZN129_$LT$mayhem_program..InitializeMayhemState$u20$as$u20$anchor_lang..Accounts$LT$mayhem_program..InitializeMayhemStateBumps$GT$$GT$12try_accounts28_$u7b$$u7b$closure$u7d$$u7d$17h9a308fc415b60645E",
+   "symbol": "_ZN129_$LT$mayhem_program..InitializeMayhemState$u20$as$u20$anchor_lang..Accounts$LT$mayhem_program..InitializeMayhemStateBumps$GT$$GT$12try_accounts28_$u7b$$u7b$closure$u7d$$u7d$17h753ea9314862d6c6E",
    "name": "<mayhem_program::InitializeMayhemState as anchor_lang::Accounts<mayhem_program::InitializeMayhemStateBumps>>::try_accounts::{{closure}}",
-   "hash": "9a308fc415b60645",
-   "your_offset": 488976,
+   "hash": "753ea9314862d6c6",
+   "your_offset": 492240,
    "your_size": 4664,
    "original_offset": 442664,
    "original_size": 5032,
@@ -621,9 +586,13 @@
     {
      "kind": "same-callees",
      "detail": "15/15"
+    },
+    {
+     "kind": "neighbours",
+     "detail": "between the same matched functions as in your build"
     }
    ],
-   "score": 3.93,
+   "score": 4.93,
    "confidence": "weak",
    "panic_sites_original": [
     "/home/runner/work/platform-tools/platform-tools/out/rust/library/alloc/src/slice.rs:449:29",
@@ -637,13 +606,13 @@
    "unmatched_callees": [],
    "kind": "code",
    "missing_callees": [],
-   "diff_file": "015-hem_program_InitializeMayhemStateBumps_try_accounts_closure_.diff"
+   "diff_file": "014-hem_program_InitializeMayhemStateBumps_try_accounts_closure_.diff"
   },
   {
-   "symbol": "_ZN129_$LT$mayhem_program..InitializeMayhemState$u20$as$u20$anchor_lang..Accounts$LT$mayhem_program..InitializeMayhemStateBumps$GT$$GT$12try_accounts28_$u7b$$u7b$closure$u7d$$u7d$17hee8724aaa224dec3E",
+   "symbol": "_ZN129_$LT$mayhem_program..InitializeMayhemState$u20$as$u20$anchor_lang..Accounts$LT$mayhem_program..InitializeMayhemStateBumps$GT$$GT$12try_accounts28_$u7b$$u7b$closure$u7d$$u7d$17h07cce614e1025615E",
    "name": "<mayhem_program::InitializeMayhemState as anchor_lang::Accounts<mayhem_program::InitializeMayhemStateBumps>>::try_accounts::{{closure}}",
-   "hash": "ee8724aaa224dec3",
-   "your_offset": 493640,
+   "hash": "07cce614e1025615",
+   "your_offset": 489224,
    "your_size": 3016,
    "original_offset": 439336,
    "original_size": 3328,
@@ -666,7 +635,7 @@
    "unmatched_callees": [],
    "kind": "code",
    "missing_callees": [],
-   "diff_file": "016-hem_program_InitializeMayhemStateBumps_try_accounts_closure_.diff"
+   "diff_file": "015-hem_program_InitializeMayhemStateBumps_try_accounts_closure_.diff"
   },
   {
    "symbol": "_ZN14mayhem_program9__private8__global14resume_trading17hf909589a8e9b70d4E",
@@ -719,7 +688,7 @@
      ]
     }
    ],
-   "diff_file": "017-mayhem_program___private___global_resume_trading.diff"
+   "diff_file": "016-mayhem_program___private___global_resume_trading.diff"
   },
   {
    "symbol": "_ZN14mayhem_program9__private8__global12stop_trading17h735b090d690dc15dE",
@@ -768,7 +737,7 @@
      ]
     }
    ],
-   "diff_file": "018-mayhem_program___private___global_stop_trading.diff"
+   "diff_file": "017-mayhem_program___private___global_stop_trading.diff"
   },
   {
    "symbol": "_ZN114_$LT$mayhem_program..pump_amm..internal..__cpi_client_accounts_buy..Buy$u20$as$u20$anchor_lang..ToAccountMetas$GT$16to_account_metas17hafedf78432d2d66fE",
@@ -847,7 +816,7 @@
    ],
    "kind": "code",
    "missing_callees": [],
-   "diff_file": "019-ounts_buy_Buy_as_anchor_lang_ToAccountMetas_to_account_metas.diff"
+   "diff_file": "018-ounts_buy_Buy_as_anchor_lang_ToAccountMetas_to_account_metas.diff"
   },
   {
    "symbol": "_ZN14mayhem_program9__private8__global20update_global_params17h2db430199dd47808E",
@@ -878,7 +847,7 @@
    ],
    "kind": "code",
    "missing_callees": [],
-   "diff_file": "020-mayhem_program___private___global_update_global_params.diff"
+   "diff_file": "019-mayhem_program___private___global_update_global_params.diff"
   },
   {
    "symbol": "_ZN100_$LT$mayhem_program..pump_amm..accounts..GlobalConfig$u20$as$u20$anchor_lang..AccountDeserialize$GT$25try_deserialize_unchecked17h77cb12e86da8f2a6E",
@@ -917,7 +886,7 @@
    ],
    "kind": "code",
    "missing_callees": [],
-   "diff_file": "021-_as_anchor_lang_AccountDeserialize_try_deserialize_unchecked.diff"
+   "diff_file": "020-_as_anchor_lang_AccountDeserialize_try_deserialize_unchecked.diff"
   },
   {
    "symbol": "_ZN14mayhem_program12instructions14fee_recipients16sweep_fees_admin17h46959455e27a5466E",
@@ -959,7 +928,7 @@
    ],
    "kind": "code",
    "missing_callees": [],
-   "diff_file": "022-mayhem_program_instructions_fee_recipients_sweep_fees_admin.diff"
+   "diff_file": "021-mayhem_program_instructions_fee_recipients_sweep_fees_admin.diff"
   },
   {
    "symbol": "_ZN14mayhem_program12instructions14fee_recipients10sweep_fees17h2c61c9bb1d23b9d4E",
@@ -1025,7 +994,7 @@
      ]
     }
    ],
-   "diff_file": "023-mayhem_program_instructions_fee_recipients_sweep_fees.diff"
+   "diff_file": "022-mayhem_program_instructions_fee_recipients_sweep_fees.diff"
   },
   {
    "symbol": "_ZN14mayhem_program12instructions5admin20update_global_params17h9a588592bc9c7dbeE",
@@ -1075,7 +1044,7 @@
      ]
     }
    ],
-   "diff_file": "024-mayhem_program_instructions_admin_update_global_params.diff"
+   "diff_file": "023-mayhem_program_instructions_admin_update_global_params.diff"
   },
   {
    "symbol": "_ZN14mayhem_program12instructions5admin23sol_withdraw_rate_limit17h916e4e3b5d524b18E",
@@ -1112,7 +1081,7 @@
    ],
    "kind": "code",
    "missing_callees": [],
-   "diff_file": "025-mayhem_program_instructions_admin_sol_withdraw_rate_limit.diff"
+   "diff_file": "024-mayhem_program_instructions_admin_sol_withdraw_rate_limit.diff"
   },
   {
    "symbol": "_ZN14mayhem_program12instructions5admin25quote_withdraw_rate_limit17h9286f608a900e3a0E",
@@ -1149,7 +1118,7 @@
    ],
    "kind": "code",
    "missing_callees": [],
-   "diff_file": "026-mayhem_program_instructions_admin_quote_withdraw_rate_limit.diff"
+   "diff_file": "025-mayhem_program_instructions_admin_quote_withdraw_rate_limit.diff"
   },
   {
    "symbol": "_ZN14mayhem_program29initialize_fee_recipient_impl17hf9a91f118ccaa367E",
@@ -1188,7 +1157,7 @@
    ],
    "kind": "code",
    "missing_callees": [],
-   "diff_file": "027-mayhem_program_initialize_fee_recipient_impl.diff"
+   "diff_file": "026-mayhem_program_initialize_fee_recipient_impl.diff"
   },
   {
    "symbol": "_ZN14mayhem_program12instructions14extend_account14extend_account17h8388ae0a0becd6c7E",
@@ -1223,17 +1192,17 @@
    ],
    "kind": "code",
    "missing_callees": [],
-   "diff_file": "028-mayhem_program_instructions_extend_account_extend_account.diff"
+   "diff_file": "027-mayhem_program_instructions_extend_account_extend_account.diff"
   },
   {
-   "symbol": "_ZN129_$LT$mayhem_program..InitializeMayhemState$u20$as$u20$anchor_lang..Accounts$LT$mayhem_program..InitializeMayhemStateBumps$GT$$GT$12try_accounts17h10ffe3cbe9e2b218E",
+   "symbol": "_ZN129_$LT$mayhem_program..InitializeMayhemState$u20$as$u20$anchor_lang..Accounts$LT$mayhem_program..InitializeMayhemStateBumps$GT$$GT$12try_accounts17h534257fb908cd35fE",
    "name": "<mayhem_program::InitializeMayhemState as anchor_lang::Accounts<mayhem_program::InitializeMayhemStateBumps>>::try_accounts",
-   "hash": "10ffe3cbe9e2b218",
+   "hash": "534257fb908cd35f",
    "your_offset": 481480,
-   "your_size": 7496,
+   "your_size": 7744,
    "original_offset": 430552,
    "original_size": 8784,
-   "distance": 1118,
+   "distance": 832,
    "evidence": [
     {
      "kind": "called-by",
@@ -1244,7 +1213,7 @@
      "detail": "18/21"
     }
    ],
-   "score": 13.42,
+   "score": 13.45,
    "confidence": "strong",
    "panic_sites_original": [
     "/home/runner/work/platform-tools/platform-tools/out/rust/library/alloc/src/slice.rs:449:29",
@@ -1257,18 +1226,19 @@
    "panic_sites_yours": [
     "/home/runner/work/platform-tools/platform-tools/out/rust/library/alloc/src/slice.rs:449:29",
     "/home/runner/work/platform-tools/platform-tools/out/rust/library/alloc/src/slice.rs:449:29",
+    "/home/runner/work/platform-tools/platform-tools/out/rust/library/alloc/src/slice.rs:449:29",
     "src/syscalls.rs:279:32",
     "/home/runner/work/platform-tools/platform-tools/out/rust/library/alloc/src/slice.rs:449:29"
    ],
    "source_file": "programs/mayhem-program/src/lib.rs",
    "unmatched_callees": [
     "<anchor_lang::accounts::program::Program<T> as anchor_lang::Accounts<B>>::try_accounts#050c",
-    "<mayhem_program::InitializeMayhemState as anchor_lang::Accounts<mayhem_program::InitializeMayhemStateBumps>>::try_accounts::{{closure}}#9a30",
-    "<mayhem_program::InitializeMayhemState as anchor_lang::Accounts<mayhem_program::InitializeMayhemStateBumps>>::try_accounts::{{closure}}#ee87"
+    "<mayhem_program::InitializeMayhemState as anchor_lang::Accounts<mayhem_program::InitializeMayhemStateBumps>>::try_accounts::{{closure}}#07cc",
+    "<mayhem_program::InitializeMayhemState as anchor_lang::Accounts<mayhem_program::InitializeMayhemStateBumps>>::try_accounts::{{closure}}#753e"
    ],
    "kind": "code",
    "missing_callees": [],
-   "diff_file": "029-ounts_mayhem_program_InitializeMayhemStateBumps_try_accounts.diff"
+   "diff_file": "028-ounts_mayhem_program_InitializeMayhemStateBumps_try_accounts.diff"
   },
   {
    "symbol": "_ZN14mayhem_program12instructions14pump_interface4sell7handler17ha502dad5a65fcfa3E",
@@ -1381,7 +1351,7 @@
      ]
     }
    ],
-   "diff_file": "030-mayhem_program_instructions_pump_interface_sell_handler.diff"
+   "diff_file": "029-mayhem_program_instructions_pump_interface_sell_handler.diff"
   },
   {
    "symbol": "_ZN14mayhem_program12instructions14pump_interface3buy7handler17ha044ee825460289bE",
@@ -1497,7 +1467,7 @@
      ]
     }
    ],
-   "diff_file": "031-mayhem_program_instructions_pump_interface_buy_handler.diff"
+   "diff_file": "030-mayhem_program_instructions_pump_interface_buy_handler.diff"
   },
   {
    "symbol": "_ZN14mayhem_program12instructions17pump_interface_v27sell_v27handler17hd6eb648f17d90e5aE",
@@ -1613,7 +1583,7 @@
      ]
     }
    ],
-   "diff_file": "032-ayhem_program_instructions_pump_interface_v2_sell_v2_handler.diff"
+   "diff_file": "031-ayhem_program_instructions_pump_interface_v2_sell_v2_handler.diff"
   },
   {
    "symbol": "_ZN14mayhem_program12instructions18pump_amm_interface14sell_pump_swap7handler17h42bcd8ac116972d6E",
@@ -1774,7 +1744,7 @@
      ]
     }
    ],
-   "diff_file": "033-ogram_instructions_pump_amm_interface_sell_pump_swap_handler.diff"
+   "diff_file": "032-ogram_instructions_pump_amm_interface_sell_pump_swap_handler.diff"
   },
   {
    "symbol": "_ZN14mayhem_program12instructions17pump_interface_v26buy_v27handler17h627984c283b99ff7E",
@@ -1891,7 +1861,7 @@
      ]
     }
    ],
-   "diff_file": "034-mayhem_program_instructions_pump_interface_v2_buy_v2_handler.diff"
+   "diff_file": "033-mayhem_program_instructions_pump_interface_v2_buy_v2_handler.diff"
   },
   {
    "symbol": "_ZN14mayhem_program12instructions18pump_amm_interface13buy_pump_swap7handler17h84e69b4bf5a0fed9E",
@@ -2053,7 +2023,7 @@
      ]
     }
    ],
-   "diff_file": "035-rogram_instructions_pump_amm_interface_buy_pump_swap_handler.diff"
+   "diff_file": "034-rogram_instructions_pump_amm_interface_buy_pump_swap_handler.diff"
   },
   {
    "kind": "data",
@@ -2082,7 +2052,7 @@
    "source_file": "programs/mayhem-program/src/instructions/extend_account.rs",
    "unmatched_callees": [],
    "missing_callees": [],
-   "diff_file": "036-_extend_account_ExtendAccountEvent_as_anchor_lang_Event_data.diff"
+   "diff_file": "035-_extend_account_ExtendAccountEvent_as_anchor_lang_Event_data.diff"
   },
   {
    "kind": "data",
@@ -2111,7 +2081,7 @@
    "source_file": "programs/mayhem-program/src/state.rs",
    "unmatched_callees": [],
    "missing_callees": [],
-   "diff_file": "037-_as_anchor_lang_AccountDeserialize_try_deserialize_unchecked.diff"
+   "diff_file": "036-_as_anchor_lang_AccountDeserialize_try_deserialize_unchecked.diff"
   }
  ],
  "unclaimed_original": [
