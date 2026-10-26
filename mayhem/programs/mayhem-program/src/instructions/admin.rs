@@ -212,14 +212,14 @@ pub fn withdraw_admin(ctx: Context<WithdrawAdmin>, amount: u64) -> Result<()> {
     // (layout padding)
     // (layout padding)
     // (layout padding)
-    let bump = [ctx.bumps.sol_vault];
-    let seeds: &[&[u8]] = &[b"sol-vault", &bump];
     anchor_lang::system_program::transfer(
         CpiContext::new_with_signer(ctx.accounts.system_program.key(),
             anchor_lang::system_program::Transfer {
                 from: ctx.accounts.sol_vault.to_account_info(),
                 to: ctx.accounts.admin.to_account_info(),
-            }, &[seeds]), amount)
+            }, &[&[b"sol-vault", &[ctx.bumps.sol_vault]]]), amount)?;
+    Ok(())
+    // (layout padding)
 }
 
 #[inline(never)]

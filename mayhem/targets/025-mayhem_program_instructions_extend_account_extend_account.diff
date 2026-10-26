@@ -1,4 +1,4 @@
-# mayhem_program::instructions::extend_account::extend_account  (yours 3832 B at .text+0x110b0; original 4272 B at .text+0xedf0)
+# mayhem_program::instructions::extend_account::extend_account  (yours 3832 B at .text+0x110d8; original 4272 B at .text+0xedf0)
 # distance 502 instructions; evidence: called-by mayhem_program::__private::__global::extend_account#20dc; same-callees 20/27
 --- original
 +++ yours
