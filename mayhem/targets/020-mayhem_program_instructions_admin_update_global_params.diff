@@ -1,4 +1,4 @@
-# mayhem_program::instructions::admin::update_global_params  (yours 3472 B at .text+0xd940; original 3472 B at .text+0xc9e8)
+# mayhem_program::instructions::admin::update_global_params  (yours 3472 B at .text+0xd7a8; original 3472 B at .text+0xc9e8)
 # distance 30 instructions; evidence: same-callees 9/9
 --- original
 +++ yours

@@ -1,4 +1,4 @@
-# <mayhem_program::pump_amm::internal::__cpi_client_accounts_buy::Buy as anchor_lang::ToAccountMetas>::to_account_metas  (yours 5040 B at .text+0x69e58; original 5040 B at .text+0x78250)
+# <mayhem_program::pump_amm::internal::__cpi_client_accounts_buy::Buy as anchor_lang::ToAccountMetas>::to_account_metas  (yours 5040 B at .text+0x69e08; original 5040 B at .text+0x78250)
 # distance 24 instructions; evidence: called-by mayhem_program::pump_amm::cpi::buy#a580; neighbours between the same matched functions as in your build
 --- original
 +++ yours

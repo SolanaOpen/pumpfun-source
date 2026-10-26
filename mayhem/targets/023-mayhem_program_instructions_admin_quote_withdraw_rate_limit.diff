@@ -1,10 +1,9 @@
-# mayhem_program::instructions::admin::quote_withdraw_rate_limit  (yours 520 B at .text+0xf248; original 768 B at .text+0x2b648)
-# distance 82 instructions; evidence: called-by mayhem_program::instructions::admin::withdraw_quote_admin#4232; same-callees 4/7
+# mayhem_program::instructions::admin::quote_withdraw_rate_limit  (yours 480 B at .text+0xf220; original 768 B at .text+0x2b648)
+# distance 73 instructions; evidence: called-by mayhem_program::instructions::admin::withdraw_quote_admin#4232; same-callees 4/7
 --- original
 +++ yours
-@@ -1,87 +1,62 @@
--mov64 r6, r1
-+mov64 r8, r1
+@@ -1,87 +1,57 @@
+ mov64 r6, r1
  mov64 r1, r10
 -add64 r1, -232
 +add64 r1, -160
@@ -24,13 +23,7 @@
 -ldxdw r0, [r6+208]
 -jeq r0, 0, +0x240
 -mov64 r5, 1
-+ja +0x1a8
-+ldxdw r6, [r10-120]
-+ldxdw r1, [r8+200]
-+jeq r1, 0, +0x198
-+ldxdw r4, [r8+192]
-+jeq r4, 0, +0x198
- mov64 r3, 1
+-mov64 r3, 1
 -jsge r0, 0, +0x258
 -mov64 r4, r2
 -add64 r4, r0
@@ -39,15 +32,22 @@
 -and64 r3, 1
 -jne r3, 0, +0x298
 -jsge r1, r4, +0x240
++ja +0x180
++ldxdw r7, [r10-120]
++ldxdw r1, [r6+200]
++jeq r1, 0, +0x170
++ldxdw r5, [r6+192]
++jeq r5, 0, +0x170
++mov64 r4, 1
 +mov64 r2, 1
-+jsge r4, 0, +0x1b0
-+mov64 r7, r1
-+add64 r7, r4
-+jsge r7, r1, +0x1d0
-+xor64 r2, r3
++jsge r5, 0, +0x188
++mov64 r3, r1
++add64 r3, r5
++jsge r3, r1, +0x1a8
++xor64 r2, r4
 +and64 r2, 1
-+jne r2, 0, +0x1f0
-+jsge r6, r7, +0x198
++jne r2, 0, +0x1c8
++jsge r7, r3, +0x170
  mov64 r1, r10
 -add64 r1, -72
 +add64 r1, -128
@@ -93,8 +93,8 @@
 -stdw [r10-232], 0
 +stxdw [r10-152], r1
 +stb [r10-80], 2
-+stw [r10-136], 230
-+stdw [r10-144], 49
++stw [r10-136], 126
++stdw [r10-144], 36
 +stdw [r10-160], 0
 +stw [r10-8], 6014
  mov64 r1, r10
@@ -103,20 +103,11 @@
  call <anchor_lang::error::Error as core::convert::From<anchor_lang::error::AnchorError>>::from#5ca3
 -ja +0x250
 -stxdw [r6+216], r1
-+mov64 r2, r1
-+mov64 r1, r0
-+mov64 r3, r6
-+mov64 r4, r7
-+call anchor_lang::error::Error::with_values#ed6c
-+ja +0x1a8
-+stxdw [r8+200], r6
++jne r0, 2, +0x180
++stxdw [r6+200], r7
  mov64 r0, 2
  exit
-+mov64 r2, 0
-+mov64 r7, r1
-+add64 r7, r4
-+jslt r7, r1, +0xa8
- mov64 r3, 0
+-mov64 r3, 0
 -mov64 r4, r2
 -add64 r4, r0
 -jslt r4, r2, +0xa8
@@ -125,10 +116,15 @@
 -and64 r3, 1
 -jeq r3, 0, +0xc0
 -lddw r1, panic_location(programs/mayhem-program/src/state.rs:122:23)
-+xor64 r2, r3
++mov64 r2, 0
++mov64 r3, r1
++add64 r3, r5
++jslt r3, r1, +0xa8
++mov64 r4, 0
++xor64 r2, r4
 +and64 r2, 1
 +jeq r2, 0, +0xc0
-+lddw r1, panic_location(programs/mayhem-program/src/instructions/admin.rs:230:55)
++lddw r1, panic_location(programs/mayhem-program/src/state.rs:123:27)
  call core::panicking::panic_const::panic_const_add_overflow#3493
 -mov64 r3, r10
 -add64 r3, -232

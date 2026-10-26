@@ -1,0 +1,136 @@
+# <T as alloc::string::SpecToString>::spec_to_string  (yours 712 B at .text+0x8278; original 456 B at .text+0x80dd0)
+# distance 82 instructions; evidence: same-callees 1/2
+--- original
++++ yours
+@@ -1,56 +1,81 @@
+-mov64 r7, r3
+-mov64 r8, r2
+ mov64 r6, r1
+-lddw r1, str("Instruction: InitializeMayhemState")
+-mov64 r2, 34
+-call sol_log_
+-stw [r10-1540], -1
+-stxdw [r10-1528], r7
+-stxdw [r10-1536], r8
++stdw [r10-8], 0
++stdw [r10-16], 1
++stdw [r10-24], 0
++lsh64 r2, 32
++rsh64 r2, 32
++jsgt r2, 11, +0xe8
++jne r2, 3, +0x170
+ mov64 r1, r10
+-add64 r1, -1540
+-stxdw [r10-4088], r1
++add64 r1, -24
++mov64 r2, 0
++mov64 r3, 23
++mov64 r4, 1
++mov64 r5, 1
++call alloc::raw_vec::RawVecInner<A>::reserve::do_reserve_and_handle#80e8
++ldxdw r7, [r10-8]
++ldxdw r1, [r10-16]
++add64 r1, r7
++lddw r2, 0x7365767265736572
++stxdw [r1+15], r2
++lddw r2, 0x72206c6f7320656c
++stxdw [r1+8], r2
++lddw r2, 0x7474696c206f6f54
++stxdw [r1], r2
++add64 r7, 23
++ja +0x290
++jne r2, 12, +0x208
+ mov64 r1, r10
+-add64 r1, -760
+-mov64 r3, r10
+-add64 r3, -1536
+-mov64 r5, r10
+-mov64 r2, r6
+-call orig_fn_691d8
+-ldxw r7, [r10-760]
+-jne r7, 2, +0xc8
+-ldxdw r1, [r10-744]
+-ldxdw r0, [r10-752]
+-ja +0x1c0
+-ldxw r1, [r10-756]
+-stxdw [r10-1552], r1
+-ldxdw r9, [r10-752]
+-ldxdw r8, [r10-744]
++add64 r1, -24
++mov64 r2, 0
++mov64 r3, 56
++mov64 r4, 1
++mov64 r5, 1
++call alloc::raw_vec::RawVecInner<A>::reserve::do_reserve_and_handle#80e8
++ldxdw r7, [r10-8]
++ldxdw r1, [r10-16]
++add64 r1, r7
++lddw r2, str("Price impact exceeds slippage tolerance in Pump CPI call")
++mov64 r3, 56
++call memcpy
++add64 r7, 56
++ja +0x290
+ mov64 r1, r10
+-add64 r1, -1496
+-mov64 r2, r10
+-add64 r2, -736
+-mov64 r3, 736
+-call memcpy
+-stxdw [r10-1504], r8
+-stxdw [r10-1512], r9
+-ldxdw r1, [r10-1552]
+-stxw [r10-1516], r1
+-stxw [r10-1520], r7
+-ldxw r1, [r10-1540]
+-stxw [r10-728], r1
+-ldxdw r1, [r10-1528]
+-stxdw [r10-736], r1
+-ldxdw r1, [r10-1536]
+-stxdw [r10-744], r1
+-mov64 r7, r10
+-add64 r7, -1520
+-stxdw [r10-752], r7
+-stxdw [r10-760], r6
++add64 r1, -24
++mov64 r2, 0
++mov64 r3, 17
++mov64 r4, 1
++mov64 r5, 1
++call alloc::raw_vec::RawVecInner<A>::reserve::do_reserve_and_handle#80e8
++ldxdw r7, [r10-8]
++ldxdw r1, [r10-16]
++add64 r1, r7
++lddw r2, 0x65646e652065646f
++stxdw [r1+8], r2
++lddw r2, 0x6d206d656879614d
++stxdw [r1], r2
++stb [r1+16], 100
++add64 r7, 17
++ja +0x290
+ mov64 r1, r10
+-add64 r1, -760
+-call entrypoint
+-mov64 r1, r7
+-mov64 r2, r6
+-call orig_fn_6d4d0
++add64 r1, -24
++mov64 r2, 0
++mov64 r3, 16
++mov64 r4, 1
++mov64 r5, 1
++call alloc::raw_vec::RawVecInner<A>::reserve::do_reserve_and_handle#80e8
++ldxdw r7, [r10-8]
++ldxdw r1, [r10-16]
++add64 r1, r7
++lddw r2, 0x74696d696c206574
++stxdw [r1+8], r2
++lddw r2, 0x6152206564617254
++stxdw [r1], r2
++add64 r7, 16
++stxdw [r10-8], r7
++stxdw [r6+16], r7
++ldxdw r1, [r10-16]
++stxdw [r6+8], r1
++ldxdw r1, [r10-24]
++stxdw [r6], r1
+ exit

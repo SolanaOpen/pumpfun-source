@@ -227,7 +227,7 @@ fn quote_withdraw_rate_limit(state: &mut GlobalParams) -> Result<()> {
     let now = Clock::get()?.unix_timestamp;
     let last = i64::from_le_bytes(state.reset_stable_suffix[16..24].try_into().unwrap());
     let interval = i64::from_le_bytes(state.reset_stable_suffix[8..16].try_into().unwrap());
-    if last != 0 && interval != 0 { require_gte!(now, last + interval, MayhemError::WithdrawRateLimit); }
+    GlobalParams::quote_withdraw_check(now, last, interval)?;
     state.reset_stable_suffix[16..24].copy_from_slice(&now.to_le_bytes());
     Ok(())
 }

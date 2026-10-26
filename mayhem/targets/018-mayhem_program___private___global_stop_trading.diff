@@ -1,15 +1,15 @@
-# mayhem_program::__private::__global::resume_trading  (yours 472 B at .text+0x73d28; original 368 B at .text+0x7fc78)
-# distance 19 instructions; evidence: same-callees 3/3
+# mayhem_program::__private::__global::stop_trading  (yours 472 B at .text+0x73b00; original 368 B at .text+0x7fb08)
+# distance 19 instructions; evidence: same-callees 3/3; neighbours between the same matched functions as in your build
 --- original
 +++ yours
 @@ -1,9 +1,10 @@
  mov64 r7, r3
  mov64 r8, r2
  mov64 r6, r1
--lddw r1, str("Instruction: StopTrading")
--mov64 r2, 24
-+lddw r1, str("Instruction: ResumeTrading")
-+mov64 r2, 26
+-lddw r1, str("Instruction: ResumeTrading")
+-mov64 r2, 26
++lddw r1, str("Instruction: StopTrading")
++mov64 r2, 24
  call sol_log_
 +sth [r10-594], 65535
  stxdw [r10-584], r7
@@ -38,14 +38,14 @@
 +stxdw [r10-272], r1
  mov64 r1, r10
 -add64 r1, -536
--call orig_fn_2c048
+-call orig_fn_2c260
 -jne r0, 2, +0x168
 +add64 r1, -576
 +stxdw [r10-280], r1
 +stxdw [r10-288], r6
 +mov64 r1, r10
 +add64 r1, -288
-+call mayhem_program::mayhem_program::resume_trading#f897
++call mayhem_program::mayhem_program::stop_trading#d491
 +jne r0, 2, +0x1d0
  mov64 r1, r10
  add64 r1, -576
