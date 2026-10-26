@@ -1,5 +1,5 @@
-# mayhem_program::instructions::admin::quote_withdraw_rate_limit  (yours 520 B at .text+0xf230; original 768 B at .text+0x2b348)
-# distance 82 instructions; evidence: same-callees 4/7
+# mayhem_program::instructions::admin::quote_withdraw_rate_limit  (yours 520 B at .text+0xf248; original 768 B at .text+0x2b648)
+# distance 82 instructions; evidence: called-by mayhem_program::instructions::admin::withdraw_quote_admin#4232; same-callees 4/7
 --- original
 +++ yours
 @@ -1,87 +1,62 @@
@@ -19,9 +19,9 @@
  call <anchor_lang::error::Error as core::convert::From<solana_program_error::ProgramError>>::from#507a
 -ja +0x250
 -ldxdw r1, [r10-192]
--ldxdw r2, [r6+136]
+-ldxdw r2, [r6+216]
 -jeq r2, 0, +0x240
--ldxdw r0, [r6+152]
+-ldxdw r0, [r6+208]
 -jeq r0, 0, +0x240
 -mov64 r5, 1
 +ja +0x1a8
@@ -88,12 +88,12 @@
 -stxdw [r10-224], r1
 -stw [r10-80], 6014
 -stb [r10-152], 2
--stw [r10-208], 110
+-stw [r10-208], 125
 -stdw [r10-216], 36
 -stdw [r10-232], 0
 +stxdw [r10-152], r1
 +stb [r10-80], 2
-+stw [r10-136], 234
++stw [r10-136], 230
 +stdw [r10-144], 49
 +stdw [r10-160], 0
 +stw [r10-8], 6014
@@ -102,7 +102,7 @@
 +add64 r1, -160
  call <anchor_lang::error::Error as core::convert::From<anchor_lang::error::AnchorError>>::from#5ca3
 -ja +0x250
--stxdw [r6+136], r1
+-stxdw [r6+216], r1
 +mov64 r2, r1
 +mov64 r1, r0
 +mov64 r3, r6
@@ -124,11 +124,11 @@
 -xor64 r3, r5
 -and64 r3, 1
 -jeq r3, 0, +0xc0
--lddw r1, panic_location(programs/mayhem-program/src/state.rs:107:23)
+-lddw r1, panic_location(programs/mayhem-program/src/state.rs:122:23)
 +xor64 r2, r3
 +and64 r2, 1
 +jeq r2, 0, +0xc0
-+lddw r1, panic_location(programs/mayhem-program/src/instructions/admin.rs:234:55)
++lddw r1, panic_location(programs/mayhem-program/src/instructions/admin.rs:230:55)
  call core::panicking::panic_const::panic_const_add_overflow#3493
 -mov64 r3, r10
 -add64 r3, -232
