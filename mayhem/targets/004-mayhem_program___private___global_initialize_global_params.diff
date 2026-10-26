@@ -1,4 +1,4 @@
-# mayhem_program::__private::__global::initialize_global_params  (yours 408 B at .text+0x71c38; original 552 B at .text+0x7dec0)
+# mayhem_program::__private::__global::initialize_global_params  (yours 408 B at .text+0x71f88; original 552 B at .text+0x7dec0)
 # distance 33 instructions; evidence: called-by mayhem_program::entry#c95e; same-callees 3/3
 --- original
 +++ yours

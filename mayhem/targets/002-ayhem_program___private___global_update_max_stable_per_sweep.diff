@@ -1,4 +1,4 @@
-# mayhem_program::__private::__global::update_max_stable_per_sweep  (yours 512 B at .text+0x73400; original 512 B at .text+0x7e960)
+# mayhem_program::__private::__global::update_max_stable_per_sweep  (yours 512 B at .text+0x73750; original 512 B at .text+0x7e960)
 # distance 1 instructions; evidence: called-by mayhem_program::entry#c95e; same-callees 5/5
 --- original
 +++ yours

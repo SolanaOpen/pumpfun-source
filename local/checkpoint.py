@@ -43,9 +43,13 @@ def main():
 
     snap = Path(tempfile.mkdtemp(prefix=f"{a.name}-snap-")) / "ws"
     shutil.copytree(ws, snap, ignore=shutil.ignore_patterns("target", ".git"))
-    present = {str(p.relative_to(snap)) for p in snap.rglob("*") if p.is_file()}
-    expected = {f["path"] for f in manifest}
-    bad = [f["path"] for f in manifest if not (snap / f["path"]).is_file() or sha(snap / f["path"]) != f["sha256"]]
+    # Verify the build inputs (source, manifests, lockfile, IDLs). README/TODO/targets are
+    # outputs this script regenerates, so they are not part of the check.
+    is_input = lambda rel: not (rel in DOCS or rel.startswith("targets/"))
+    present = {str(p.relative_to(snap)) for p in snap.rglob("*") if p.is_file() and is_input(str(p.relative_to(snap)))}
+    expected = {f["path"] for f in manifest if is_input(f["path"])}
+    bad = [f["path"] for f in manifest if is_input(f["path"])
+           and (not (snap / f["path"]).is_file() or sha(snap / f["path"]) != f["sha256"])]
     if bad or present != expected:
         print(f"workspace is mid-edit (differs from attempt {last['attempt']}); not pushing"); return 1
 
@@ -76,7 +80,7 @@ def main():
     git("add", "-A", str(ws))
     if not git("status", "--porcelain", str(ws)).stdout.strip():
         print("no changes"); return 0
-    leak = subprocess.run(["git", "-C", str(a.repo), "grep", "-n", "--cached", "-e", "sk-ant", "-e", "ghp_", "--", str(ws)],
+    leak = subprocess.run(["git", "-C", str(a.repo), "grep", "-n", "-E", "--cached", "-e", "sk-ant-[A-Za-z0-9_-]{20,}", "-e", "(ghp|github_pat)_[A-Za-z0-9_]{20,}", "--", str(ws)],
                           capture_output=True, text=True).stdout
     if leak.strip():
         print("refusing to commit: a key is in the tree:\n" + leak[:300]); return 2

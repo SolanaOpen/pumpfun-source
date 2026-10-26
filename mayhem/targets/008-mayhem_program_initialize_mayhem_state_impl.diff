@@ -1,4 +1,4 @@
-# mayhem_program::initialize_mayhem_state_impl  (yours 104 B at .text+0x241c8; original 2136 B at .text+0x82818)
+# mayhem_program::initialize_mayhem_state_impl  (yours 104 B at .text+0x24518; original 2136 B at .text+0x82818)
 # distance 234 instructions; evidence: called-by mayhem_program::__private::__global::initialize_mayhem_state#30b6
 --- original
 +++ yours

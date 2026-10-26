@@ -50,8 +50,8 @@ pub mod mayhem_program {
     pub fn reset_sol_deployed(ctx: Context<Admin>) -> Result<()> { instructions::admin::reset_sol_deployed(ctx) }
     pub fn reset_stable_deployed(ctx: Context<Admin>) -> Result<()> { instructions::admin::reset_stable_deployed(ctx) }
     pub fn reset_state(ctx: Context<Admin>) -> Result<()> { instructions::admin::reset_state(ctx) }
-    pub fn stop_trading(ctx: Context<Admin>) -> Result<()> { instructions::admin::stop_trading(ctx) }
-    pub fn resume_trading(ctx: Context<Admin>) -> Result<()> { instructions::admin::resume_trading(ctx) }
+    pub fn stop_trading<'info>(ctx: Context<'info, Admin<'info>>) -> Result<()> { super::stop_trading_impl(ctx.accounts) }
+    pub fn resume_trading<'info>(ctx: Context<'info, Admin<'info>>) -> Result<()> { super::resume_trading_impl(ctx.accounts) }
     #[instruction(discriminator = [157, 189, 94, 72, 85, 69, 204, 45])]
     pub fn initialize_mayhem_state(ctx: Context<InitializeMayhemState>) -> Result<()> { super::initialize_mayhem_state_impl(ctx) }
 }
@@ -85,13 +85,23 @@ pub struct InitializeMayhemState<'info> {
     #[account(seeds = [b"mayhem-authority"], bump)]
     pub mayhem_authority: UncheckedAccount<'info>,
     pub mint: InterfaceAccount<'info, anchor_spl::token_interface::Mint>,
-    #[account(init, payer = payer, associated_token::mint = mint, associated_token::authority = mayhem_authority, associated_token::token_program = token_program)]
+    #[account(init_if_needed, payer = payer, associated_token::mint = mint, associated_token::authority = mayhem_authority, associated_token::token_program = token_program)]
     pub mayhem_token_vault: InterfaceAccount<'info, anchor_spl::token_interface::TokenAccount>,
     #[account(init, payer = payer, space = 106, seeds = [b"mayhem-state", mint.key().as_ref()], bump)]
     pub mayhem_state: Account<'info, crate::state::MayhemState>,
     pub token_program: Interface<'info, anchor_spl::token_interface::TokenInterface>,
     pub associated_token_program: Program<'info, anchor_spl::associated_token::AssociatedToken>,
     pub system_program: Program<'info, System>,
+}
+
+#[inline(never)]
+fn stop_trading_impl<'info>(accounts: &'info mut Admin<'info>) -> Result<()> {
+    instructions::admin::stop_trading(Context::new(&crate::ID, accounts, &[], Default::default()))
+}
+
+#[inline(never)]
+fn resume_trading_impl<'info>(accounts: &'info mut Admin<'info>) -> Result<()> {
+    instructions::admin::resume_trading(Context::new(&crate::ID, accounts, &[], Default::default()))
 }
 
 #[inline(never)]

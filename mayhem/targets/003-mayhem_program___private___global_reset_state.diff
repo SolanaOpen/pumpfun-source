@@ -1,4 +1,4 @@
-# mayhem_program::__private::__global::reset_state  (yours 480 B at .text+0x738c0; original 480 B at .text+0x7f668)
+# mayhem_program::__private::__global::reset_state  (yours 480 B at .text+0x73c10; original 480 B at .text+0x7f668)
 # distance 13 instructions; evidence: called-by mayhem_program::entry#c95e; same-callees 3/3
 --- original
 +++ yours

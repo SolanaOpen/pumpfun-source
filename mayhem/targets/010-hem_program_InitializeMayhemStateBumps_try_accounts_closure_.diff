@@ -1,4 +1,4 @@
-# <mayhem_program::InitializeMayhemState as anchor_lang::Accounts<mayhem_program::InitializeMayhemStateBumps>>::try_accounts::{{closure}}  (yours 5032 B at .text+0x784d0; original 5032 B at .text+0x6c128)
+# <mayhem_program::InitializeMayhemState as anchor_lang::Accounts<mayhem_program::InitializeMayhemStateBumps>>::try_accounts::{{closure}}  (yours 5032 B at .text+0x78648; original 5032 B at .text+0x6c128)
 # distance 2 instructions; evidence: same-callees 15/15; neighbours between the same matched functions as in your build
 --- original
 +++ yours
