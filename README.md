@@ -9,9 +9,9 @@ This builds on [lalalune/pumpfun-source](https://github.com/lalalune/pumpfun-sou
 | Program | Original's own source files | Missing at that path in lalalune's source | Here |
 |---|---:|---:|---|
 | Mayhem | 9 | 9 | Original layout, `declare_program!` clients, the `pump-cpi` crate and the AI loop; **72.47%** of the original's code matches; [progress](mayhem/README.md#progress), [to-do list](mayhem/TODO.md) |
-| Pump | 15 | 10 | [Analysis](analysis/source-layout.md#pump) |
-| PumpSwap | 10 | 8 | [Analysis](analysis/source-layout.md#pumpswap) |
-| Fees | 12 | 9 | [Analysis](analysis/source-layout.md#fees) |
+| Pump | 15 | 10 | Workspace set up, **22.00%** baseline; [analysis](analysis/source-layout.md#pump) |
+| PumpSwap | 10 | 8 | Workspace set up without the hand-patched dependency, **36.13%** baseline; [analysis](analysis/source-layout.md#pumpswap) |
+| Fees | 12 | 9 | Workspace set up, **47.62%** baseline; [analysis](analysis/source-layout.md#fees) |
 
 "Original's own source files" are the files whose panic sites the deployed binary carries. Every check that can fail compiles in its file path, line and column, so a rebuild matches only when each check sits at exactly the recorded position.
 
@@ -32,6 +32,10 @@ This builds on [lalalune/pumpfun-source](https://github.com/lalalune/pumpfun-sou
 - solopen's AI rebuild loop (Claude Opus 5.5), one function at a time, keeping an edit only when that function got closer and nothing that already matched broke.
 
 [mayhem/TODO.md](mayhem/TODO.md) lists every remaining function and the current leads. Anthropic's API declined to work on Mayhem's fee-sweep functions, so the AI loop leaves those as lalalune reconstructed them.
+
+## Run the loops yourself
+
+[local/](local) has a container that runs the AI rebuild loop on all four programs in parallel on your own machine and pushes every verified gain here. Setup for Windows (WSL2) and macOS is in [local/README.md](local/README.md).
 
 ## Reproduce
 
@@ -54,3 +58,5 @@ python3 solopen.py lockfit --id <PROGRAM_ID> --workspace <workspace> --lock <its
 | `crates/pump-cpi/` | Reconstructed dependency for Mayhem's v2 Pump calls (kept outside the workspace so its paths compile as `src/…`, as in the original) |
 | `analysis/source-layout.md` | Source files and panic positions each deployed binary records |
 | `analysis/lockfit-*.json` | Dependency evidence per program |
+| `pump/`, `pump-amm/`, `pump-fees/` | The other three programs' workspaces, ready for the loop |
+| `local/` | Container and scripts to run all four loops on your own machine |

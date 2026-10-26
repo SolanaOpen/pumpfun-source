@@ -1,0 +1,19 @@
+[package]
+name = "pump-recovered"
+version = "0.1.0"
+edition = "2021"
+publish = false
+[lib]
+crate-type = ["cdylib", "lib"]
+[features]
+default = []
+no-entrypoint = []
+cpi = ["no-entrypoint"]
+no-idl = []
+no-log-ix-name = []
+anchor-debug = []
+custom-heap = []
+custom-panic = []
+[dependencies]
+anchor-lang = {version = "=0.31.1", features = ["event-cpi", "init-if-needed"]}
+anchor-spl = { version = "=0.31.1", features = ["token_2022", "associated_token"] }

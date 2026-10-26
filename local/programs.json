@@ -1,0 +1,6 @@
+{
+  "mayhem":    {"id": "MAyhSmzXzV1pTf7LsNkrNwkWKTo4ougAJ1PPg47MD4e", "workspace": "mayhem",    "program": "mayhem_program",      "package": "mayhem-program",         "toolchain": "1.54"},
+  "pump":      {"id": "6EF8rrecthR5Dkzon8Nwu78hRvfCKubJ14M5uBEwF6P", "workspace": "pump",      "program": "pump_recovered",      "package": "pump-recovered",         "toolchain": "1.44"},
+  "pump-amm":  {"id": "pAMMBay6oceH9fJKBRHGP5D4bD4sWpmSwMn52FMfXEA", "workspace": "pump-amm",  "program": "pump_amm_recovered",  "package": "pump-amm-recovered",     "toolchain": "1.44"},
+  "pump-fees": {"id": "pfeeUxB6jkeY1Hxd7CsFCAjcbHA9rWtchMGdZ6VojVZ", "workspace": "pump-fees", "program": "pump_fees_candidate", "package": "pump-fun-fees-candidate", "toolchain": "1.44"}
+}

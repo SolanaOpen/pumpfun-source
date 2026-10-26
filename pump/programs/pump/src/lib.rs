@@ -1,0 +1,497 @@
+pub mod multi_hop_curve;
+pub use multi_hop_curve::*;
+pub mod global_init;
+pub use global_init::*;
+pub mod buy_v2;
+pub use buy_v2::*;
+pub mod cashback;
+pub use cashback::*;
+pub mod migrate_v2;
+pub use migrate_v2::*;
+pub mod legacy_buy;
+pub use legacy_buy::*;
+use anchor_lang::prelude::*;
+pub mod holder_distribution;
+pub use holder_distribution::*;
+pub mod migrate;
+pub use migrate::*;
+pub mod sell_v2;
+pub use sell_v2::*;
+pub mod legacy_sell;
+pub use legacy_sell::*;
+
+pub mod create_v2;
+pub use create_v2::*;
+
+pub mod create;
+pub use create::*;
+
+pub mod collect_v2;
+pub use collect_v2::*;
+pub mod extend;
+pub use extend::*;
+pub mod volume_sync;
+pub use volume_sync::*;
+pub mod sweep;
+pub use sweep::*;
+pub mod admin_cto;
+pub use admin_cto::*;
+pub mod creator_migration;
+pub use creator_migration::*;
+pub mod set_params;
+pub use set_params::*;
+pub mod set_creator;
+pub use set_creator::*;
+pub mod idl_authority;
+pub use idl_authority::*;
+pub mod distribution;
+pub use distribution::*;
+pub mod minimum;
+pub use minimum::*;
+pub mod trade_types;
+pub mod trade;
+pub use trade::*;
+
+pub mod quote_control;
+pub use quote_control::*;
+
+declare_id!("6EF8rrecthR5Dkzon8Nwu78hRvfCKubJ14M5uBEwF6P");
+
+#[program]
+pub mod pump_recovered {
+    use super::*;
+    pub fn multi_hop_curve_swap<'info>(ctx:Context<'_,'_,'info,'info,MultiHopCurve<'info>>,amount_in:u64,hop_fees:Vec<u8>)->Result<CurveRunResult>{multi_hop_curve::execute(ctx,amount_in,hop_fees)}
+    pub fn initialize_quote_control(ctx: Context<InitializeQuoteControl>) -> Result<()> { quote_control::initialize_quote_control(ctx) }
+    pub fn set_quote_control_admin(ctx: Context<SetQuoteControlAdmin>, new_admin: Pubkey) -> Result<()> { quote_control::set_quote_control_admin(ctx, new_admin) }
+    pub fn set_quote_control_reserves_admin(ctx: Context<SetQuoteControlReservesAdmin>, new_reserves_admin: Pubkey) -> Result<()> { quote_control::set_quote_control_reserves_admin(ctx, new_reserves_admin) }
+    pub fn add_quote_control_mint(ctx: Context<UpdateQuoteControlMints>, quote_mint: Pubkey, initial_virtual_quote_reserves: u64) -> Result<()> { quote_control::add_quote_control_mint(ctx, quote_mint, initial_virtual_quote_reserves) }
+    pub fn remove_quote_control_mint(ctx: Context<UpdateQuoteControlMints>, quote_mint: Pubkey) -> Result<()> { quote_control::remove_quote_control_mint(ctx, quote_mint) }
+    pub fn set_quote_control_mint_reserves(ctx: Context<SetQuoteControlMintReserves>, quote_mint: Pubkey, initial_virtual_quote_reserves: u64) -> Result<()> { quote_control::set_quote_control_mint_reserves(ctx, quote_mint, initial_virtual_quote_reserves) }
+    pub fn distribute_fee_to_holders<'info>(ctx:Context<'_, '_, '_, 'info,DistributeFeeToHolders<'info>>,amounts:Vec<u64>)->Result<()>{holder_distribution::execute(ctx,amounts)}
+    pub fn buy<'info>(ctx:Context<'_,'_,'_,'info,LegacyBuy<'info>>,amount:u64,max_sol_cost:u64,track_volume:OptionBool,partial_fill:OptionBool)->Result<()>{legacy_buy::execute(ctx,amount,max_sol_cost,track_volume.0,partial_fill.0,false)}
+    pub fn buy_exact_sol_in<'info>(ctx:Context<'_,'_,'_,'info,LegacyBuy<'info>>,spendable_sol_in:u64,min_tokens_out:u64,track_volume:OptionBool,partial_fill:OptionBool)->Result<()>{legacy_buy::execute(ctx,spendable_sol_in,min_tokens_out,track_volume.0,partial_fill.0,true)}
+    pub fn migrate_v2<'info>(ctx:Context<'_, '_, '_, 'info,MigrateV2<'info>>)->Result<()>{migrate_v2::execute(ctx)}
+    pub fn claim_cashback(ctx:Context<ClaimCashback>)->Result<()>{cashback::claim(ctx)}
+    pub fn claim_cashback_v2(ctx:Context<ClaimCashbackV2>)->Result<()>{cashback::claim_v2(ctx)}
+    pub fn buy_v2<'info>(ctx:Context<'_,'_,'_,'info,BuyV2<'info>>,amount:u64,max_sol_cost:u64,partial_fill:OptionBool)->Result<()>{buy_v2::execute(ctx,amount,max_sol_cost,partial_fill.0,false)}
+    pub fn buy_exact_quote_in_v2<'info>(ctx:Context<'_,'_,'_,'info,BuyV2<'info>>,spendable_quote_in:u64,min_tokens_out:u64,partial_fill:OptionBool)->Result<()>{buy_v2::execute(ctx,spendable_quote_in,min_tokens_out,partial_fill.0,true)}
+    pub fn initialize(ctx:Context<Initialize>)->Result<()>{global_init::execute(ctx)}
+    pub fn migrate<'info>(ctx:Context<'_,'_,'_,'info,Migrate<'info>>)->Result<()>{migrate::execute(ctx)}
+    pub fn sell_v2(ctx:Context<SellV2>,amount:u64,min_sol_output:u64)->Result<()>{sell_v2::execute(ctx,amount,min_sol_output)}
+    pub fn sell(ctx:Context<LegacySell>,amount:u64,min_sol_output:u64)->Result<()>{legacy_sell::execute(ctx,amount,min_sol_output)}
+    pub fn create_v2<'info>(ctx:Context<'_,'_,'_,'info,CreateV2<'info>>,name:String,symbol:String,uri:String,creator:Pubkey,is_mayhem_mode:bool,is_cashback_enabled:OptionBool,creator_fee_bps:CreationOptionU64,is_holder_reward:OptionBool)->Result<()>{create_v2::execute(ctx,name,symbol,uri,creator,is_mayhem_mode,is_cashback_enabled,creator_fee_bps,is_holder_reward)}
+    pub fn buy_exact_quote_in_v3(ctx:Context<SellV3>,spendable_quote_in:u64,min_tokens_out:u64,partial_fill:OptionBool)->Result<()>{trade::buy_exact_quote(ctx,spendable_quote_in,min_tokens_out,partial_fill.0)}
+    pub fn create(ctx:Context<Create>,name:String,symbol:String,uri:String,creator:Pubkey)->Result<()>{create::execute(ctx,name,symbol,uri,creator)}
+    pub fn admin_set_idl_authority(ctx:Context<AdminSetIdlAuthority>,idl_authority:Pubkey)->Result<()>{idl_authority::execute(ctx,idl_authority)}
+    pub fn set_creator(ctx:Context<SetCreator>,creator:Pubkey)->Result<()>{set_creator::set(ctx,creator)}
+    pub fn set_metaplex_creator(ctx:Context<SetMetaplexCreator>)->Result<()>{set_creator::sync(ctx)}
+    pub fn set_params(ctx:Context<SetParams>,initial_virtual_token_reserves:u64,initial_virtual_sol_reserves:u64,initial_real_token_reserves:u64,token_total_supply:u64,fee_basis_points:u64,withdraw_authority:Pubkey,enable_migrate:bool,pool_migration_fee:u64,creator_fee_basis_points:u64,set_creator_authority:Pubkey,admin_set_creator_authority:Pubkey)->Result<()>{set_params::execute(ctx,initial_virtual_token_reserves,initial_virtual_sol_reserves,initial_real_token_reserves,token_total_supply,fee_basis_points,withdraw_authority,enable_migrate,pool_migration_fee,creator_fee_basis_points,set_creator_authority,admin_set_creator_authority)}
+    pub fn migrate_bonding_curve_creator(ctx:Context<MigrateBondingCurveCreator>)->Result<()>{creator_migration::execute(ctx)}
+    pub fn admin_cto(ctx:Context<AdminCto>,is_holder_reward:Option<bool>,creator_fee_bps:Option<u64>,new_creator:Option<Pubkey>)->Result<()>{admin_cto::execute(ctx,is_holder_reward,creator_fee_bps,new_creator)}
+    pub fn sweep_creator_fee(ctx:Context<SweepFees>)->Result<()>{sweep::execute(ctx,true)}
+    pub fn sweep_protocol_fee(ctx:Context<SweepFees>)->Result<()>{sweep::execute(ctx,false)}
+    pub fn sync_user_volume_accumulator(ctx:Context<SyncUserVolumeAccumulator>)->Result<()>{volume_sync::execute(ctx)}
+    pub fn extend_account(ctx:Context<ExtendAccount>)->Result<()>{extend::execute(ctx)}
+    pub fn collect_creator_fee_v2(ctx:Context<CollectCreatorFeeV2>)->Result<()>{collect_v2::execute(ctx)}
+    pub fn distribute_creator_fees<'info>(ctx:Context<'_,'_,'_,'info,DistributeCreatorFees<'info>>)->Result<DistributeCreatorFeesEvent>{distribution::execute(ctx)}
+    pub fn distribute_creator_fees_v2<'info>(ctx:Context<'_,'_,'_,'info,DistributeCreatorFeesV2<'info>>,initialize_ata:bool)->Result<DistributeCreatorFeesEvent>{distribution::execute_v2(ctx,initialize_ata)}
+    pub fn get_minimum_distributable_fee<'info>(ctx:Context<'_,'_,'_,'info,GetMinimumDistributableFee<'info>>)->Result<MinimumDistributableFeeEvent>{minimum::execute(ctx)}
+
+    pub fn buy_v3(ctx: Context<SellV3>, amount:u64,max_sol_cost:u64,partial_fill:OptionBool)->Result<()>{let _ = partial_fill;trade::buy(ctx,amount,max_sol_cost)}
+    pub fn add_quote_mint(ctx:Context<AdminGlobal>,quote_mint:Pubkey)->Result<()>{
+     require!(quote_mint!=Pubkey::default() && quote_mint!=anchor_lang::solana_program::pubkey!("So11111111111111111111111111111111111111112"),PumpError::QuoteMintNotEligibleForWhitelist);
+     require!(!ctx.accounts.global.whitelisted_quote_mints.contains(&quote_mint),PumpError::QuoteMintAlreadyWhitelisted);
+     let slot=ctx.accounts.global.whitelisted_quote_mints.iter_mut().find(|key|**key==Pubkey::default()).ok_or_else(||error!(PumpError::QuoteMintWhitelistFull))?;*slot=quote_mint;Ok(())
+    }
+    pub fn remove_quote_mint(ctx:Context<AdminGlobal>,quote_mint:Pubkey)->Result<()>{
+     require!(quote_mint!=Pubkey::default(),PumpError::QuoteMintNotEligibleForWhitelist);
+     let slot=ctx.accounts.global.whitelisted_quote_mints.iter_mut().find(|key|**key==quote_mint).ok_or_else(||error!(PumpError::QuoteMintNotWhitelisted))?;*slot=Pubkey::default();Ok(())
+    }
+    pub fn collect_creator_fee(ctx:Context<CollectCreatorFee>)->Result<()>{
+      if ctx.accounts.creator.executable{msg!("Creator account is executable, so it cannot receive lamports");return Ok(());}
+      let amount=ctx.accounts.creator_vault.lamports().saturating_sub(Rent::get()?.minimum_balance(0));
+      if amount==0{msg!("No creator fee to collect");return Ok(());}
+      let creator=ctx.accounts.creator.key();let bump=[ctx.bumps.creator_vault];let seeds:&[&[u8]]=&[b"creator-vault",creator.as_ref(),&bump];
+      anchor_lang::system_program::transfer(CpiContext::new_with_signer(ctx.accounts.system_program.to_account_info(),anchor_lang::system_program::Transfer{from:ctx.accounts.creator_vault.to_account_info(),to:ctx.accounts.creator.to_account_info()},&[seeds]),amount)?;
+      let event=CollectCreatorFeeEvent{timestamp:Clock::get()?.unix_timestamp,creator,creator_fee:amount,quote_mint:Pubkey::default()};emit!(event.clone());emit_cpi!(event);Ok(())
+    }
+    pub fn init_user_volume_accumulator(ctx:Context<InitUserVolume>)->Result<()>{
+      ctx.accounts.user_volume_accumulator.user=ctx.accounts.user.key();let event=InitUserVolumeAccumulatorEvent{payer:ctx.accounts.payer.key(),user:ctx.accounts.user.key(),timestamp:Clock::get()?.unix_timestamp};emit!(event.clone());emit_cpi!(event);Ok(())
+    }
+    pub fn close_user_volume_accumulator(ctx:Context<CloseUserVolume>)->Result<()>{
+      let a=&ctx.accounts.user_volume_accumulator;let event=CloseUserVolumeAccumulatorEvent{user:ctx.accounts.user.key(),timestamp:Clock::get()?.unix_timestamp,total_unclaimed_tokens:a.total_unclaimed_tokens,total_claimed_tokens:a.total_claimed_tokens,current_sol_volume:a.current_sol_volume,last_update_timestamp:a.last_update_timestamp};emit!(event.clone());emit_cpi!(event);Ok(())
+    }
+    pub fn update_global_authority(ctx:Context<UpdateGlobalAuthority>)->Result<()>{
+     let event=UpdateGlobalAuthorityEvent{global:ctx.accounts.global.key(),authority:ctx.accounts.authority.key(),new_authority:ctx.accounts.new_authority.key(),timestamp:Clock::get()?.unix_timestamp};
+     ctx.accounts.global.authority=ctx.accounts.new_authority.key();emit!(event.clone());emit_cpi!(event);Ok(())
+    }
+    pub fn set_reserved_fee_recipients(ctx:Context<AdminReadonly>,whitelist_pda:Pubkey)->Result<()>{
+     require!(ctx.remaining_accounts.len()>=8,PumpError::NotEnoughRemainingAccounts);
+     for account in ctx.remaining_accounts.iter().take(8){require!(account.key()!=Pubkey::default(),PumpError::AllFeeRecipientsShouldBeNonZero);require!(!account.executable,anchor_lang::error::ErrorCode::ConstraintExecutable);require!(Rent::get()?.is_exempt(account.lamports(),account.data_len()),anchor_lang::error::ErrorCode::ConstraintRentExempt);}
+     let first=ctx.remaining_accounts[0].key();let rest=core::array::from_fn(|i|ctx.remaining_accounts[i+1].key());
+     ctx.accounts.global.whitelist_pda=whitelist_pda;ctx.accounts.global.reserved_fee_recipient=first;ctx.accounts.global.reserved_fee_recipients=rest;
+     let event=ReservedFeeRecipientsEvent{timestamp:Clock::get()?.unix_timestamp,reserved_fee_recipient:first,reserved_fee_recipients:rest};emit!(event.clone());emit_cpi!(event);Ok(())
+    }
+    pub fn set_virtual_quote_reserves(ctx:Context<AdminGlobal>,initial_virtual_quote_reserves:u64)->Result<()>{ctx.accounts.global.initial_virtual_quote_reserves=initial_virtual_quote_reserves;Ok(())}
+    pub fn update_buyback_config(ctx:Context<AdminGlobal>,buyback_basis_points:Option<u64>)->Result<()>{if let Some(value)=buyback_basis_points{require!(value<=10000,PumpError::BuybackBasisPointsOutOfRange);ctx.accounts.global.buyback_basis_points=value;}Ok(())}
+    pub fn update_creator_fee_config(ctx:Context<AdminGlobal>,creator_fee_configurable:bool,max_configurable_creator_fee_bps:u64)->Result<()>{
+      ctx.accounts.global.creator_fee_configurable=creator_fee_configurable;ctx.accounts.global.max_configurable_creator_fee_bps=max_configurable_creator_fee_bps;
+      let event=UpdateCreatorFeeConfigEvent{timestamp:Clock::get()?.unix_timestamp,authority:ctx.accounts.authority.key(),creator_fee_configurable,max_configurable_creator_fee_bps};emit!(event.clone());emit_cpi!(event);Ok(())
+    }
+    pub fn update_holder_reward_config(ctx:Context<AdminGlobal>,is_holder_reward_enabled:bool,holder_reward_claim_authority:Pubkey)->Result<()>{ctx.accounts.global.is_holder_reward_enabled=is_holder_reward_enabled;ctx.accounts.global.holder_reward_claim_authority=holder_reward_claim_authority;Ok(())}
+    pub fn sell_v3(ctx: Context<SellV3>, amount: u64, min_sol_output: u64) -> Result<()> { trade::sell(ctx, amount, min_sol_output) }
+    pub fn toggle_create_v2(ctx: Context<AdminGlobal>, enabled: bool) -> Result<()> {
+        require_neq!(ctx.accounts.global.create_v2_enabled, enabled, PumpError::NotAuthorized);
+        ctx.accounts.global.create_v2_enabled = enabled;
+        Ok(())
+    }
+    pub fn toggle_mayhem_mode(ctx: Context<AdminGlobal>, enabled: bool) -> Result<()> {
+        require_neq!(ctx.accounts.global.mayhem_mode_enabled, enabled, PumpError::NotAuthorized);
+        ctx.accounts.global.mayhem_mode_enabled = enabled;
+        Ok(())
+    }
+    pub fn toggle_cashback_enabled(ctx: Context<AdminGlobal>, enabled: bool) -> Result<()> {
+        require_neq!(ctx.accounts.global.is_cashback_enabled, enabled, PumpError::NotAuthorized);
+        ctx.accounts.global.is_cashback_enabled = enabled;
+        Ok(())
+    }
+    pub fn set_max_curve_depth(ctx: Context<AdminGlobal>, max_curve_depth: u8) -> Result<()> {
+        ctx.accounts.global.max_curve_depth = max_curve_depth;
+        Ok(())
+    }
+}
+
+#[event_cpi]
+#[derive(Accounts)]
+pub struct AdminGlobal<'info> {
+    #[account(mut, seeds = [b"global"], bump, has_one = authority @ PumpError::NotAuthorized)]
+    pub global: Account<'info, Global>,
+    #[account(mut)]
+    pub authority: Signer<'info>,
+}
+
+#[account]
+pub struct Global {
+    pub initialized: bool,
+    pub authority: Pubkey,
+    pub fee_recipient: Pubkey,
+    pub initial_virtual_token_reserves: u64,
+    pub initial_virtual_sol_reserves: u64,
+    pub initial_real_token_reserves: u64,
+    pub token_total_supply: u64,
+    pub fee_basis_points: u64,
+    pub withdraw_authority: Pubkey,
+    pub enable_migrate: bool,
+    pub pool_migration_fee: u64,
+    pub creator_fee_basis_points: u64,
+    pub fee_recipients: [Pubkey; 7],
+    pub set_creator_authority: Pubkey,
+    pub admin_set_creator_authority: Pubkey,
+    pub create_v2_enabled: bool,
+    pub whitelist_pda: Pubkey,
+    pub reserved_fee_recipient: Pubkey,
+    pub mayhem_mode_enabled: bool,
+    pub reserved_fee_recipients: [Pubkey; 7],
+    pub is_cashback_enabled: bool,
+    pub buyback_fee_recipients: [Pubkey; 8],
+    pub buyback_basis_points: u64,
+    pub initial_virtual_quote_reserves: u64,
+    pub whitelisted_quote_mints: [Pubkey; 1],
+    pub creator_fee_configurable: bool,
+    pub max_configurable_creator_fee_bps: u64,
+    pub holder_reward_claim_authority: Pubkey,
+    pub is_holder_reward_enabled: bool,
+    pub max_curve_depth: u8,
+}
+
+#[error_code]
+pub enum PumpError {
+    #[msg("The given account is not authorized to execute this instruction.")]
+    NotAuthorized,
+    #[msg("The program is already initialized.")]
+    AlreadyInitialized,
+    #[msg("slippage: Too much SOL required to buy the given amount of tokens.")]
+    TooMuchSolRequired,
+    #[msg("slippage: Too little SOL received to sell the given amount of tokens.")]
+    TooLittleSolReceived,
+    #[msg("The mint does not match the bonding curve.")]
+    MintDoesNotMatchBondingCurve,
+    #[msg("The bonding curve has completed and liquidity migrated to raydium.")]
+    BondingCurveComplete,
+    #[msg("The bonding curve has not completed.")]
+    BondingCurveNotComplete,
+    #[msg("The program is not initialized.")]
+    NotInitialized,
+    #[msg("Withdraw too frequent")]
+    WithdrawTooFrequent,
+    #[msg("new_size should be > current_size")]
+    NewSizeShouldBeGreaterThanCurrentSize,
+    #[msg("Account type not supported")]
+    AccountTypeNotSupported,
+    #[msg("initial_real_token_reserves should be less than token_total_supply")]
+    InitialRealTokenReservesShouldBeLessThanTokenTotalSupply,
+    #[msg("initial_virtual_token_reserves should be greater than initial_real_token_reserves")]
+    InitialVirtualTokenReservesShouldBeGreaterThanInitialRealTokenReserves,
+    #[msg("fee_basis_points greater than maximum")]
+    FeeBasisPointsGreaterThanMaximum,
+    #[msg("Withdraw authority cannot be set to System Program ID")]
+    AllZerosWithdrawAuthority,
+    #[msg("pool_migration_fee should be less than final_real_sol_reserves")]
+    PoolMigrationFeeShouldBeLessThanFinalRealSolReserves,
+    #[msg("pool_migration_fee should be greater than creator_fee + MAX_MIGRATE_FEES")]
+    PoolMigrationFeeShouldBeGreaterThanCreatorFeePlusMaxMigrateFees,
+    #[msg("Migrate instruction is disabled")]
+    DisabledWithdraw,
+    #[msg("Migrate instruction is disabled")]
+    DisabledMigrate,
+    #[msg("Invalid creator pubkey")]
+    InvalidCreator,
+    #[msg("Buy zero amount")]
+    BuyZeroAmount,
+    #[msg("Not enough tokens to buy")]
+    NotEnoughTokensToBuy,
+    #[msg("Sell zero amount")]
+    SellZeroAmount,
+    #[msg("Not enough tokens to sell")]
+    NotEnoughTokensToSell,
+    #[msg("Overflow")]
+    Overflow,
+    #[msg("Truncation")]
+    Truncation,
+    #[msg("Division by zero")]
+    DivisionByZero,
+    #[msg("Not enough remaining accounts")]
+    NotEnoughRemainingAccounts,
+    #[msg("All fee recipients should be non-zero")]
+    AllFeeRecipientsShouldBeNonZero,
+    #[msg("Unsorted or not unique fee recipients")]
+    UnsortedNotUniqueFeeRecipients,
+    #[msg("Creator should not be zero")]
+    CreatorShouldNotBeZero,
+    StartTimeInThePast,
+    EndTimeInThePast,
+    EndTimeBeforeStartTime,
+    TimeRangeTooLarge,
+    EndTimeBeforeCurrentDay,
+    SupplyUpdateForFinishedRange,
+    DayIndexAfterEndIndex,
+    DayInActiveRange,
+    InvalidIncentiveMint,
+    #[msg("Buy: Not enough SOL to cover for rent exemption.")]
+    BuyNotEnoughSolToCoverRent,
+    #[msg("Buy: Not enough SOL to cover for fees.")]
+    BuyNotEnoughSolToCoverFees,
+    #[msg("Slippage: Would buy less tokens than expected min_tokens_out")]
+    BuySlippageBelowMinTokensOut,
+    NameTooLong,
+    SymbolTooLong,
+    UriTooLong,
+    CreateV2Disabled,
+    CpitializeMayhemFailed,
+    MayhemModeDisabled,
+    #[msg("creator has been migrated to sharing config")]
+    CreatorMigratedToSharingConfig,
+    #[msg("creator_vault has been migrated to sharing config, use pump:distribute_creator_fees instead")]
+    UnableToDistributeCreatorVaultMigratedToSharingConfig,
+    #[msg("Sharing config is not active")]
+    SharingConfigNotActive,
+    #[msg("The recipient account is executable, so it cannot receive lamports, remove it from the team first")]
+    UnableToDistributeCreatorFeesToExecutableRecipient,
+    #[msg("Bonding curve creator does not match sharing config")]
+    BondingCurveAndSharingConfigCreatorMismatch,
+    #[msg("Remaining accounts do not match shareholders, make sure to pass exactly the same pubkeys in the same order")]
+    ShareholdersAndRemainingAccountsMismatch,
+    #[msg("Share bps must be greater than 0")]
+    InvalidShareBps,
+    #[msg("Cashback is not enabled")]
+    CashbackNotEnabled,
+    #[msg("Buyback fee recipient not authorized")]
+    BuybackFeeRecipientNotAuthorized,
+    AllBuybackFeeRecipientsShouldBeNonZero,
+    NotUniqueBuybackFeeRecipients,
+    #[msg("buyback_basis_points must be <= 10_000")]
+    BuybackBasisPointsOutOfRange,
+    #[msg("buyback fee recipients require exactly 8 remaining accounts (or none)")]
+    WrongBuybackFeeRecipientsCount,
+    BuybackFeeRecipientMissing,
+    #[msg("Unsupported quote mint")]
+    UnsupportedQuoteMint,
+    #[msg("Create v2: quote token program must be SPL Token or Token-2022")]
+    InvalidQuoteTokenProgram,
+    #[msg("Create v2: associated quote bonding curve address does not match derivation")]
+    InvalidAssociatedQuoteBondingCurve,
+    #[msg("Quote mint whitelist is full")]
+    QuoteMintWhitelistFull,
+    #[msg("Quote mint is already whitelisted")]
+    QuoteMintAlreadyWhitelisted,
+    #[msg("Quote mint is not in the whitelist")]
+    QuoteMintNotWhitelisted,
+    #[msg("Quote mint cannot be added or removed via whitelist (default or native SOL mint)")]
+    QuoteMintNotEligibleForWhitelist,
+    #[msg("Unable to distribute creator fees to uninitialized account")]
+    UnableToDistributeCreatorFeesToUninitializedAccount,
+    #[msg("Mayhem mode quote mint not allowed")]
+    MayhemModeQuoteMintNotAllowed,
+    #[msg("Cashback trade is missing the required remaining accounts")]
+    MissingCashbackAccounts,
+    #[msg("Cashback user_volume_accumulator account is invalid")]
+    InvalidCashbackAccumulator,
+    #[msg("bonding_curve_v2 remaining account is missing or invalid")]
+    InvalidBondingCurveV2,
+    #[msg("quote_control remaining account does not match derivation or is uninitialized")]
+    InvalidQuoteControl,
+    #[msg("Cashback recipient token account is not owned by user")]
+    InvalidCashbackRecipient,
+    #[msg("Configurable creator fees are disabled")]
+    CreatorFeeNotConfigurable,
+    #[msg("Creator fee basis points must be between 1 and the configured maximum")]
+    CreatorFeeBpsOutOfRange,
+    #[msg("Creator fee is not editable for this bonding curve")]
+    CreatorFeeNotEditable,
+    #[msg("Creator fee cannot be configured for a cashback coin")]
+    CreatorFeeNotAllowedForCashbackCoin,
+    #[msg("Bonding curve has already migrated")]
+    BondingCurveAlreadyMigrated,
+    #[msg("Cashback coins can no longer be created")]
+    CashbackDeprecated,
+    #[msg("The creator of a holder-reward coin cannot be changed")]
+    HolderRewardCreatorImmutable,
+    #[msg("Holder-reward coins are disabled")]
+    HolderRewardDisabled,
+    #[msg("Holder-reward amounts and recipient accounts do not match")]
+    HolderRewardRecipientsMismatch,
+    #[msg("The holder-rewards PDA cannot be left below its rent-exempt minimum")]
+    HolderRewardsRentFloor,
+    #[msg("A holder-rewards token account is required on a token quote")]
+    HolderRewardTokenAccountMissing,
+    #[msg("CTO is not allowed on a mayhem-mode coin")]
+    CtoNotAllowedForMayhemCoin,
+    #[msg("new_creator is required unless converting to holder rewards")]
+    CtoNewCreatorRequired,
+    #[msg("new_creator must be omitted when converting to holder rewards")]
+    CtoNewCreatorNotAllowed,
+    #[msg("Creator fee is not configurable on a SOL or whitelisted quote; the fee schedule applies")]
+    CreatorFeeNotConfigurableForQuote,
+    #[msg("current_creator must be passed writable so the outgoing creator can be paid")]
+    CtoCreatorAccountNotWritable,
+    #[msg("A frozen sharing-config vault account holds a balance; thaw it before the holder conversion")]
+    CtoSharedVaultFrozen,
+    #[msg("v3 trades do not support cashback coins; use the v2 instructions")]
+    CashbackCoinNotSupported,
+    #[msg("creator_fee must be swept before the creator changes or the vault is distributed")]
+    CreatorFeesNotSwept,
+    #[msg("The fee config tier table is empty")]
+    FeeTiersEmpty,
+    #[msg("The fee config account is shorter than its initialize size")]
+    FeeConfigTooShort,
+    #[msg("multi-hop: a hop's input mint is neither side of its bonding curve")]
+    MultiHopDiscontinuousPath,
+    #[msg("Quote bonding curve remaining account does not match derivation or is uninitialized")]
+    InvalidQuoteBondingCurve,
+    #[msg("Quote bonding curve is not eligible as a quote: mayhem mode, or the chain's depth-0 root is quoted in a mint no list admits")]
+    QuoteBondingCurveNotEligible,
+    #[msg("A quote-chain bonding curve has migrated: its pool and vault remaining accounts are required")]
+    QuotePoolAccountsRequired,
+    #[msg("Quote pool remaining account is not an initialized pump-amm pool")]
+    QuotePoolNotFound,
+    #[msg("Quote pool or vault remaining accounts do not match derivation or are invalid")]
+    InvalidQuotePool,
+    #[msg("Derived quote reserves are zero")]
+    QuoteReservesOutOfRange,
+    #[msg("The new curve's depth (quote coin depth plus one) exceeds Global.max_curve_depth or the program's cap of 5")]
+    CurveDepthExceeded,
+    #[msg("multi-hop: hop_fees must carry one flag byte per curve hop using only the protocol and creator bits")]
+    MultiHopHopFeesMismatch,
+    #[msg("A quote-chain coin's curve is complete but not yet migrated; retry once migrate_v2 creates its pool")]
+    QuoteCurveAwaitingMigration,
+    #[msg("multi-hop: mayhem-mode curves are not routable; use the v2 instructions")]
+    MultiHopMayhemCurveNotSupported,
+    #[msg("The quote coin is nested: a bonding curve remaining account is required for every coin on its quote chain down to the depth-0 root")]
+    QuoteChainAccountsRequired,
+    // Binary evidence extends the captured official IDL, which stops at 6109.
+    #[msg("quote_mint must be writable for a quote with a Token-2022 transfer fee: its withheld fees are harvested to the mint")]
+    QuoteMintNotWritable = 110,
+}
+
+// Local reconstruction limits keep their existing code/name/message separate
+// from the captured program's error metadata. This is not an original enum.
+#[error_code]
+pub enum ReconstructionError {
+    #[msg("Reconstruction branch is not implemented")]
+    ReconstructionBranchUnsupported = 110,
+}
+
+#[derive(AnchorSerialize,Clone)]
+pub struct OptionBool(pub bool);
+impl AnchorDeserialize for OptionBool {
+ fn deserialize_reader<R:std::io::Read>(reader:&mut R)->std::io::Result<Self>{
+  let mut b=[0u8];match reader.read(&mut b)?{0=>Ok(Self(false)),_=>match b[0]{0=>Ok(Self(false)),1=>Ok(Self(true)),_=>Err(std::io::Error::new(std::io::ErrorKind::InvalidData,"Invalid bool representation"))}}
+ }
+}
+
+#[event]
+#[derive(Clone)]
+pub struct UpdateCreatorFeeConfigEvent {pub timestamp:i64,pub authority:Pubkey,pub creator_fee_configurable:bool,pub max_configurable_creator_fee_bps:u64}
+
+#[event_cpi]
+#[derive(Accounts)]
+pub struct AdminReadonly<'info>{
+ #[account(mut,seeds=[b"global"],bump,has_one=authority @ PumpError::NotAuthorized)]
+ pub global:Account<'info,Global>,
+ pub authority:Signer<'info>,
+}
+#[event_cpi]
+#[derive(Accounts)]
+pub struct UpdateGlobalAuthority<'info>{
+ #[account(mut,seeds=[b"global"],bump,has_one=authority @ PumpError::NotAuthorized)]
+ pub global:Account<'info,Global>,
+ pub authority:Signer<'info>,
+ /// CHECK: new authority is assigned by the current signer; zero/self are accepted by the original.
+ pub new_authority:UncheckedAccount<'info>,
+}
+#[event]
+#[derive(Clone)]
+pub struct UpdateGlobalAuthorityEvent{pub global:Pubkey,pub authority:Pubkey,pub new_authority:Pubkey,pub timestamp:i64}
+#[event]
+#[derive(Clone)]
+pub struct ReservedFeeRecipientsEvent{pub timestamp:i64,pub reserved_fee_recipient:Pubkey,pub reserved_fee_recipients:[Pubkey;7]}
+
+#[account]
+#[derive(Default)]
+pub struct UserVolumeAccumulator{pub user:Pubkey,pub needs_claim:bool,pub total_unclaimed_tokens:u64,pub total_claimed_tokens:u64,pub current_sol_volume:u64,pub last_update_timestamp:i64,pub has_total_claimed_tokens:bool,pub cashback_earned:u64,pub total_cashback_claimed:u64,pub stable_cashback_earned:u64,pub total_stable_cashback_claimed:u64}
+#[event_cpi]
+#[derive(Accounts)]
+pub struct InitUserVolume<'info>{
+ #[account(mut)] pub payer:Signer<'info>,
+ /// CHECK: any user may be funded by the payer.
+ pub user:UncheckedAccount<'info>,
+ #[account(init_if_needed,payer=payer,space=137,seeds=[b"user_volume_accumulator",user.key().as_ref()],bump)]
+ pub user_volume_accumulator:Account<'info,UserVolumeAccumulator>,
+ pub system_program:Program<'info,System>,
+}
+#[event_cpi]
+#[derive(Accounts)]
+pub struct CloseUserVolume<'info>{
+ #[account(mut)] pub user:Signer<'info>,
+ #[account(mut,close=user,seeds=[b"user_volume_accumulator",user.key().as_ref()],bump)]
+ pub user_volume_accumulator:Account<'info,UserVolumeAccumulator>,
+}
+#[event]
+#[derive(Clone)]
+pub struct InitUserVolumeAccumulatorEvent{pub payer:Pubkey,pub user:Pubkey,pub timestamp:i64}
+#[event]
+#[derive(Clone)]
+pub struct CloseUserVolumeAccumulatorEvent{pub user:Pubkey,pub timestamp:i64,pub total_unclaimed_tokens:u64,pub total_claimed_tokens:u64,pub current_sol_volume:u64,pub last_update_timestamp:i64}
+
+#[event_cpi]
+#[derive(Accounts)]
+pub struct CollectCreatorFee<'info>{
+ /// CHECK: payout destination is bound to the vault PDA.
+ #[account(mut)]pub creator:UncheckedAccount<'info>,
+ /// CHECK: original defers owner/data restrictions to System transfer.
+ #[account(mut,seeds=[b"creator-vault",creator.key().as_ref()],bump)]pub creator_vault:UncheckedAccount<'info>,
+ pub system_program:Program<'info,System>,
+}
+#[event]
+#[derive(Clone)]
+pub struct CollectCreatorFeeEvent{pub timestamp:i64,pub creator:Pubkey,pub creator_fee:u64,pub quote_mint:Pubkey}
