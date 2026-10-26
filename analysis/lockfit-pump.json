@@ -1,0 +1,55 @@
+{
+ "locations": 138,
+ "std": 19,
+ "workspace": 19,
+ "dependency": 65,
+ "crates": [
+  {
+   "crate": "anchor-lang",
+   "locked": "0.31.1",
+   "confirmed": 6,
+   "suspect": 0
+  },
+  {
+   "crate": "solana-borsh",
+   "locked": "2.2.1",
+   "confirmed": 1,
+   "suspect": 0
+  },
+  {
+   "crate": "spl-token-2022",
+   "locked": "6.0.0",
+   "confirmed": 1,
+   "suspect": 0
+  }
+ ],
+ "proposals": [],
+ "unexplained": [
+  {
+   "file": "src/generated/instructions/create_metadata_account_v3.rs",
+   "line": 44,
+   "col": 47,
+   "note": "no locked crate has this file"
+  },
+  {
+   "file": "src/generated/instructions/create_metadata_account_v3.rs",
+   "line": 76,
+   "col": 42,
+   "note": "no locked crate has this file"
+  }
+ ],
+ "exact": [],
+ "git": [],
+ "workspace_missing": [
+  "programs/pump/src/admin_set_idl_authority.rs",
+  "programs/pump/src/creator/distribute_creator_fee_v2.rs",
+  "programs/pump/src/creator/distribute_creator_fees.rs",
+  "programs/pump/src/creator/distribute_fee_to_holders.rs",
+  "programs/pump/src/creator/set_creator.rs",
+  "programs/pump/src/creator/set_metaplex_creator.rs",
+  "programs/pump/src/extend_account.rs",
+  "programs/pump/src/multi_hop_curve_swap.rs",
+  "programs/pump/src/sell.rs",
+  "programs/pump/src/token_incentives/volume_accumulator.rs"
+ ]
+}

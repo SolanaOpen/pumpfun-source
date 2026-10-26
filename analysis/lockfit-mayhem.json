@@ -1,0 +1,60 @@
+{
+ "locations": 134,
+ "std": 13,
+ "workspace": 0,
+ "dependency": 56,
+ "crates": [
+  {
+   "crate": "anchor-lang",
+   "locked": "1.0.0",
+   "confirmed": 1,
+   "suspect": 0
+  },
+  {
+   "crate": "spl-token-2022-interface",
+   "locked": "2.1.0",
+   "confirmed": 1,
+   "suspect": 0
+  }
+ ],
+ "proposals": [],
+ "unexplained": [
+  {
+   "file": "src/account_wrapper.rs",
+   "line": 90,
+   "col": 26,
+   "note": "no locked crate has this file"
+  },
+  {
+   "file": "src/account_wrapper.rs",
+   "line": 91,
+   "col": 15,
+   "note": "no locked crate has this file"
+  }
+ ],
+ "exact": [
+  {
+   "crate": "hashbrown",
+   "binary_version": "0.15.4",
+   "locked": [
+    "0.17.1"
+   ],
+   "file": "src/raw/mod.rs",
+   "line": 37,
+   "col": 40,
+   "std": "sysroot"
+  }
+ ],
+ "git": [],
+ "workspace_missing": [
+  "programs/mayhem-program/src/instructions/admin.rs",
+  "programs/mayhem-program/src/instructions/burn.rs",
+  "programs/mayhem-program/src/instructions/extend_account.rs",
+  "programs/mayhem-program/src/instructions/fee_recipients.rs",
+  "programs/mayhem-program/src/instructions/pump_amm_interface.rs",
+  "programs/mayhem-program/src/instructions/pump_interface.rs",
+  "programs/mayhem-program/src/instructions/pump_interface_v2.rs",
+  "programs/mayhem-program/src/lib.rs",
+  "programs/mayhem-program/src/state.rs"
+ ]
+}

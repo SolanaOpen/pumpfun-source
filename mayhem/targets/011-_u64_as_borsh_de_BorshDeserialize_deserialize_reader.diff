@@ -1,0 +1,53 @@
+# <u64 as borsh::de::BorshDeserialize>::deserialize_reader  (yours 152 B at .text+0x9228; original 288 B at .text+0x83ec8)
+# distance 31 instructions; evidence: same-callees 1/1
+--- original
++++ yours
+@@ -1,35 +1,18 @@
+-mov64 r7, r2
+ mov64 r6, r1
+-ldxdw r8, [r7]
+-ldxdw r1, [r7+8]
+-jgt r1, 31, +0x60
+-add64 r8, r1
++ldxdw r7, [r6]
++ldxdw r2, [r6+8]
++jgt r2, 7, +0x60
++add64 r7, r2
+ lddw r1, str("failed to fill whole buffer")
+ call borsh::de::unexpected_eof_to_unexpected_length_of_input#3ead
+-mov64 r2, 1
+-mov64 r1, 0
+-ja +0xf8
+-ldxdw r2, [r8+6]
+-ldxb r3, [r8+14]
+-stxb [r10-8], r3
+-ldxh r3, [r8+4]
+-stxh [r6+5], r3
+-ldxw r3, [r8]
+-stxw [r6+1], r3
+-stxdw [r10-16], r2
+-ldxdw r0, [r10-15]
+-ldxb r3, [r8+31]
+-stxb [r6+32], r3
+-ldxdw r3, [r8+23]
+-stxdw [r6+24], r3
+-ldxdw r3, [r8+15]
+-stxdw [r6+16], r3
+-stxb [r6+7], r2
++mov64 r1, r0
++mov64 r0, 1
+ mov64 r2, 0
+-add64 r1, -32
+-add64 r8, 32
+-stxdw [r6+8], r0
+-stxdw [r7+8], r1
+-stxdw [r7], r8
+-stxb [r6], r2
++ja +0x80
++mov64 r0, 0
++ldxdw r1, [r7]
++add64 r2, -8
++add64 r7, 8
++stxdw [r6+8], r2
++stxdw [r6], r7
+ exit

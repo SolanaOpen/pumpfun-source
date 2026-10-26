@@ -1,0 +1,29 @@
+{
+ "locations": 104,
+ "std": 27,
+ "workspace": 15,
+ "dependency": 45,
+ "crates": [
+  {
+   "crate": "anchor-lang",
+   "locked": "0.31.1",
+   "confirmed": 4,
+   "suspect": 0
+  }
+ ],
+ "proposals": [],
+ "unexplained": [],
+ "exact": [],
+ "git": [],
+ "workspace_missing": [
+  "programs/pump-fees/src/common/mod.rs",
+  "programs/pump-fees/src/instructions/admin/update_fee_config.rs",
+  "programs/pump-fees/src/instructions/admin/upsert_fee_tiers.rs",
+  "programs/pump-fees/src/instructions/fee_sharing/admin_cto_sharing_config.rs",
+  "programs/pump-fees/src/instructions/fee_sharing/claim_social_fee_pda.rs",
+  "programs/pump-fees/src/instructions/fee_sharing/create_social_fee_pda.rs",
+  "programs/pump-fees/src/instructions/fee_sharing/update_fee_shares.rs",
+  "programs/pump-fees/src/instructions/fee_sharing/update_fee_shares_v2.rs",
+  "pump-fees-math/src/lib.rs"
+ ]
+}

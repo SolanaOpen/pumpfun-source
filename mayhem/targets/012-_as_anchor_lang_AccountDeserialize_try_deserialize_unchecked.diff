@@ -1,0 +1,87 @@
+# <mayhem_program::instructions::fee_recipients::FeeRecipient as anchor_lang::AccountDeserialize>::try_deserialize_unchecked  (yours 520 B at .text+0x36920; original 448 B at .text+0x3d040)
+# distance 48 instructions; evidence: same-callees 3/3
+--- original
++++ yours
+@@ -1,28 +1,13 @@
+ mov64 r3, r2
+ mov64 r6, r1
+ ldxdw r2, [r3+8]
+-jlt r2, 8, +0x1a0
++jlt r2, 8, +0x1e8
+ mov64 r1, r2
+ add64 r1, -8
+-jeq r1, 0, +0xc8
+-jeq r1, 1, +0xc8
++jeq r1, 0, +0x50
++jeq r1, 1, +0x50
+ add64 r2, -10
+-jlt r2, 32, +0xc8
+-ldxdw r1, [r3]
+-ldxb r2, [r1+8]
+-ldxdw r3, [r1+10]
+-ldxdw r4, [r1+18]
+-ldxdw r5, [r1+26]
+-ldxdw r0, [r1+34]
+-ldxb r1, [r1+9]
+-stxb [r6+41], r1
+-stxb [r6+40], r2
+-stxdw [r6+32], r0
+-stxdw [r6+24], r5
+-stxdw [r6+16], r4
+-stxdw [r6+8], r3
+-mov64 r1, 0
+-ja +0x190
++jgt r2, 31, +0x128
+ lddw r1, str("failed to fill whole buffer")
+ call borsh::de::unexpected_eof_to_unexpected_length_of_input#3ead
+ mov64 r7, r0
+@@ -32,11 +17,11 @@
+ and64 r2, 3
+ mov64 r3, r2
+ add64 r3, -2
+-jlt r3, 2, +0x178
+-jeq r2, 0, +0x178
++jlt r3, 2, +0x100
++jeq r2, 0, +0x100
+ ldxdw r2, [r7+7]
+ ldxdw r3, [r2]
+-jeq r3, 0, +0x178
++jeq r3, 0, +0x100
+ ldxdw r2, [r7-1]
+ mov64 r7, r1
+ mov64 r1, r2
+@@ -47,8 +32,32 @@
+ stxdw [r6+16], r1
+ stxdw [r6+8], r0
+ mov64 r1, 1
+-stxdw [r6], r1
++stxb [r6], r1
+ exit
++ldxdw r1, [r3]
++ldxb r2, [r1+8]
++ldxb r3, [r1+9]
++ldxdw r4, [r1+16]
++ldxb r5, [r1+24]
++stxb [r10-8], r5
++ldxh r5, [r1+14]
++stxh [r6+5], r5
++ldxw r5, [r1+10]
++stxw [r6+1], r5
++stxdw [r10-16], r4
++ldxdw r5, [r10-15]
++ldxb r0, [r1+41]
++stxb [r6+32], r0
++ldxdw r0, [r1+33]
++stxdw [r6+24], r0
++ldxdw r1, [r1+25]
++stxdw [r6+16], r1
++stxb [r6+34], r3
++stxb [r6+33], r2
++stxdw [r6+8], r5
++stxb [r6+7], r4
++mov64 r1, 0
++ja +0x118
+ mov64 r1, 8
+-lddw r3, panic_location(programs/mayhem-program/src/instructions/fee_recipients.rs:20:1)
++lddw r3, panic_location(programs/mayhem-program/src/instructions/fee_recipients.rs:7:1)
+ call core::slice::index::slice_start_index_len_fail#6783

@@ -1,0 +1,46 @@
+# core::ptr::drop_in_place<[solana_account_info::AccountInfo; 16]>  (yours 200 B at .text+0x82d8; original 200 B at .text+0x7ef0)
+# distance 17 instructions; evidence: same-callees 2/2; neighbours between the same matched functions as in your build
+--- original
++++ yours
+@@ -1,25 +1,25 @@
+-ldxdw r7, [r1+16]
+-jeq r7, 0, +0xc0
+-ldxdw r6, [r1+8]
+-add64 r6, 16
+-ja +0x40
+-add64 r6, 48
+-add64 r7, -1
+-jeq r7, 0, +0xc0
+-ldxdw r1, [r6-8]
++mov64 r6, r1
++mov64 r8, 0
++ja +0x28
++add64 r8, 48
++jeq r8, 768, +0xc0
++mov64 r7, r6
++add64 r7, r8
++ldxdw r1, [r7+8]
+ ldxdw r2, [r1]
+ add64 r2, -1
+ stxdw [r1], r2
+-jne r2, 0, +0x80
+-mov64 r1, r6
+-add64 r1, -8
++jne r2, 0, +0x78
++mov64 r1, r7
++add64 r1, 8
+ call alloc::rc::Rc<T,A>::drop_slow#7561
+-ldxdw r1, [r6]
++ldxdw r1, [r7+16]
+ ldxdw r2, [r1]
+ add64 r2, -1
+ stxdw [r1], r2
+-jne r2, 0, +0x28
+-mov64 r1, r6
++jne r2, 0, +0x18
++add64 r7, 16
++mov64 r1, r7
+ call alloc::rc::Rc<T,A>::drop_slow#d793
+-ja +0x28
++ja +0x18
+ exit

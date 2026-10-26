@@ -1,0 +1,854 @@
+# <T as alloc::string::SpecToString>::spec_to_string  (yours 648 B at .text+0x72d0; original 6296 B at .text+0x79600)
+# distance 786 instructions; evidence: same-callees 1/2
+--- original
++++ yours
+@@ -1,787 +1,71 @@
+-stxdw [r10-64], r1
+-stdw [r10-32], 0
+-stdw [r10-40], 8
+-stdw [r10-48], 0
++mov64 r6, r1
++stdw [r10-8], 0
++stdw [r10-16], 1
++stdw [r10-24], 0
++lsh64 r2, 32
++rsh64 r2, 32
++jeq r2, 6, +0x100
++jne r2, 7, +0x1c0
+ mov64 r1, r10
+ add64 r1, -24
+-stxdw [r10-56], r2
+-call orig_fn_97450
+-ldxdw r9, [r10-32]
+-ldxdw r1, [r10-48]
+-sub64 r1, r9
+-ldxdw r6, [r10-16]
+-ldxdw r7, [r10-8]
+-mov64 r8, r7
+-mul64 r8, 48
+-jgt r7, r1, +0xec8
+-mov64 r2, r9
+-mul64 r2, 48
+-ldxdw r1, [r10-40]
+-add64 r1, r2
+-mov64 r2, r6
+-mov64 r3, r8
+-call memcpy
+-add64 r9, r7
+-stxdw [r10-32], r9
+-ldxdw r6, [r10-56]
+-mov64 r2, r6
+-add64 r2, 48
++mov64 r2, 0
++mov64 r3, 32
++mov64 r4, 1
++mov64 r5, 1
++call alloc::raw_vec::RawVecInner<A>::reserve::do_reserve_and_handle#02cd
++ldxdw r1, [r10-8]
++ldxdw r2, [r10-16]
++add64 r2, r1
++lddw r3, 0x6465646565637865
++stxdw [r2+24], r3
++lddw r3, 0x2065636e6172656c
++stxdw [r2+16], r3
++lddw r3, 0x6f74206b73697220
++stxdw [r2+8], r3
++lddw r3, 0x6e696f6320726550
++stxdw [r2], r3
++add64 r1, 32
++ja +0x250
+ mov64 r1, r10
+ add64 r1, -24
+-call orig_fn_97450
+-ldxdw r9, [r10-32]
+-ldxdw r1, [r10-48]
+-sub64 r1, r9
++mov64 r2, 0
++mov64 r3, 31
++mov64 r4, 1
++mov64 r5, 1
++call alloc::raw_vec::RawVecInner<A>::reserve::do_reserve_and_handle#02cd
++ldxdw r1, [r10-8]
+ ldxdw r2, [r10-16]
+-ldxdw r8, [r10-8]
+-mov64 r3, r8
+-mul64 r3, 48
+-jgt r8, r1, +0xf10
+-mov64 r4, r9
+-mul64 r4, 48
+-ldxdw r1, [r10-40]
+-add64 r1, r4
+-call memcpy
+-add64 r9, r8
+-stxdw [r10-32], r9
+-mov64 r2, r6
+-add64 r2, 96
++add64 r2, r1
++lddw r3, 0x6465646565637865
++stxdw [r2+23], r3
++lddw r3, 0x652065636e617265
++stxdw [r2+16], r3
++lddw r3, 0x6c6f74206b736972
++stxdw [r2+8], r3
++lddw r3, 0x206c6c617265764f
++stxdw [r2], r3
++add64 r1, 31
++ja +0x250
+ mov64 r1, r10
+ add64 r1, -24
+-call orig_fn_97450
+-ldxdw r9, [r10-32]
+-ldxdw r1, [r10-48]
+-sub64 r1, r9
++mov64 r2, 0
++mov64 r3, 20
++mov64 r4, 1
++mov64 r5, 1
++call alloc::raw_vec::RawVecInner<A>::reserve::do_reserve_and_handle#02cd
++ldxdw r1, [r10-8]
+ ldxdw r2, [r10-16]
+-ldxdw r8, [r10-8]
+-mov64 r3, r8
+-mul64 r3, 48
+-jgt r8, r1, +0xf80
+-mov64 r4, r9
+-mul64 r4, 48
+-ldxdw r1, [r10-40]
+-add64 r1, r4
+-call memcpy
+-add64 r9, r8
+-stxdw [r10-32], r9
+-mov64 r2, r6
+-add64 r2, 144
+-mov64 r1, r10
+-add64 r1, -24
+-call orig_fn_97450
+-ldxdw r9, [r10-32]
+-ldxdw r1, [r10-48]
+-sub64 r1, r9
+-ldxdw r2, [r10-16]
+-ldxdw r8, [r10-8]
+-mov64 r3, r8
+-mul64 r3, 48
+-jgt r8, r1, +0xff0
+-mov64 r4, r9
+-mul64 r4, 48
+-ldxdw r1, [r10-40]
+-add64 r1, r4
+-call memcpy
+-add64 r9, r8
+-stxdw [r10-32], r9
+-mov64 r2, r6
+-add64 r2, 192
+-mov64 r1, r10
+-add64 r1, -24
+-call orig_fn_97450
+-ldxdw r9, [r10-32]
+-ldxdw r1, [r10-48]
+-sub64 r1, r9
+-ldxdw r2, [r10-16]
+-ldxdw r8, [r10-8]
+-mov64 r3, r8
+-mul64 r3, 48
+-jgt r8, r1, +0x1060
+-mov64 r4, r9
+-mul64 r4, 48
+-ldxdw r1, [r10-40]
+-add64 r1, r4
+-call memcpy
+-add64 r9, r8
+-stxdw [r10-32], r9
+-mov64 r2, r6
+-add64 r2, 240
+-mov64 r1, r10
+-add64 r1, -24
+-call orig_fn_97450
+-ldxdw r9, [r10-32]
+-ldxdw r1, [r10-48]
+-sub64 r1, r9
+-ldxdw r2, [r10-16]
+-ldxdw r8, [r10-8]
+-mov64 r3, r8
+-mul64 r3, 48
+-jgt r8, r1, +0x10d0
+-mov64 r4, r9
+-mul64 r4, 48
+-ldxdw r1, [r10-40]
+-add64 r1, r4
+-call memcpy
+-add64 r9, r8
+-stxdw [r10-32], r9
+-mov64 r2, r6
+-add64 r2, 288
+-mov64 r1, r10
+-add64 r1, -24
+-call orig_fn_97450
+-ldxdw r9, [r10-32]
+-ldxdw r1, [r10-48]
+-sub64 r1, r9
+-ldxdw r2, [r10-16]
+-ldxdw r8, [r10-8]
+-mov64 r3, r8
+-mul64 r3, 48
+-jgt r8, r1, +0x1140
+-mov64 r4, r9
+-mul64 r4, 48
+-ldxdw r1, [r10-40]
+-add64 r1, r4
+-call memcpy
+-add64 r9, r8
+-stxdw [r10-32], r9
+-mov64 r2, r6
+-add64 r2, 336
+-mov64 r1, r10
+-add64 r1, -24
+-call orig_fn_97450
+-ldxdw r9, [r10-32]
+-ldxdw r1, [r10-48]
+-sub64 r1, r9
+-ldxdw r2, [r10-16]
+-ldxdw r8, [r10-8]
+-mov64 r3, r8
+-mul64 r3, 48
+-jgt r8, r1, +0x11b0
+-mov64 r4, r9
+-mul64 r4, 48
+-ldxdw r1, [r10-40]
+-add64 r1, r4
+-call memcpy
+-add64 r9, r8
+-stxdw [r10-32], r9
+-mov64 r2, r6
+-add64 r2, 384
+-mov64 r1, r10
+-add64 r1, -24
+-call orig_fn_97450
+-ldxdw r9, [r10-32]
+-ldxdw r1, [r10-48]
+-sub64 r1, r9
+-ldxdw r2, [r10-16]
+-ldxdw r8, [r10-8]
+-mov64 r3, r8
+-mul64 r3, 48
+-jgt r8, r1, +0x1220
+-mov64 r4, r9
+-mul64 r4, 48
+-ldxdw r1, [r10-40]
+-add64 r1, r4
+-call memcpy
+-add64 r9, r8
+-stxdw [r10-32], r9
+-mov64 r2, r6
+-add64 r2, 432
+-mov64 r1, r10
+-add64 r1, -24
+-call orig_fn_97450
+-ldxdw r9, [r10-32]
+-ldxdw r1, [r10-48]
+-sub64 r1, r9
+-ldxdw r2, [r10-16]
+-ldxdw r8, [r10-8]
+-mov64 r3, r8
+-mul64 r3, 48
+-jgt r8, r1, +0x1290
+-mov64 r4, r9
+-mul64 r4, 48
+-ldxdw r1, [r10-40]
+-add64 r1, r4
+-call memcpy
+-add64 r9, r8
+-stxdw [r10-32], r9
+-mov64 r2, r6
+-add64 r2, 480
+-mov64 r1, r10
+-add64 r1, -24
+-call orig_fn_97450
+-ldxdw r9, [r10-32]
+-ldxdw r1, [r10-48]
+-sub64 r1, r9
+-ldxdw r2, [r10-16]
+-ldxdw r8, [r10-8]
+-mov64 r3, r8
+-mul64 r3, 48
+-jgt r8, r1, +0x1300
+-mov64 r4, r9
+-mul64 r4, 48
+-ldxdw r1, [r10-40]
+-add64 r1, r4
+-call memcpy
+-add64 r9, r8
+-stxdw [r10-32], r9
+-mov64 r2, r6
+-add64 r2, 528
+-mov64 r1, r10
+-add64 r1, -24
+-call orig_fn_97450
+-ldxdw r9, [r10-32]
+-ldxdw r1, [r10-48]
+-sub64 r1, r9
+-ldxdw r2, [r10-16]
+-ldxdw r8, [r10-8]
+-mov64 r3, r8
+-mul64 r3, 48
+-jgt r8, r1, +0x1370
+-mov64 r4, r9
+-mul64 r4, 48
+-ldxdw r1, [r10-40]
+-add64 r1, r4
+-call memcpy
+-add64 r9, r8
+-stxdw [r10-32], r9
+-mov64 r2, r6
+-add64 r2, 576
+-mov64 r1, r10
+-add64 r1, -24
+-call orig_fn_97450
+-ldxdw r9, [r10-32]
+-ldxdw r1, [r10-48]
+-sub64 r1, r9
+-ldxdw r2, [r10-16]
+-ldxdw r8, [r10-8]
+-mov64 r3, r8
+-mul64 r3, 48
+-jgt r8, r1, +0x13e0
+-mov64 r4, r9
+-mul64 r4, 48
+-ldxdw r1, [r10-40]
+-add64 r1, r4
+-call memcpy
+-add64 r9, r8
+-stxdw [r10-32], r9
+-mov64 r2, r6
+-add64 r2, 624
+-mov64 r1, r10
+-add64 r1, -24
+-call orig_fn_97450
+-ldxdw r9, [r10-32]
+-ldxdw r1, [r10-48]
+-sub64 r1, r9
+-ldxdw r2, [r10-16]
+-ldxdw r8, [r10-8]
+-mov64 r3, r8
+-mul64 r3, 48
+-jgt r8, r1, +0x1450
+-mov64 r4, r9
+-mul64 r4, 48
+-ldxdw r1, [r10-40]
+-add64 r1, r4
+-call memcpy
+-add64 r9, r8
+-stxdw [r10-32], r9
+-mov64 r2, r6
+-add64 r2, 672
+-mov64 r1, r10
+-add64 r1, -24
+-call orig_fn_97450
+-ldxdw r9, [r10-32]
+-ldxdw r1, [r10-48]
+-sub64 r1, r9
+-ldxdw r2, [r10-16]
+-ldxdw r8, [r10-8]
+-mov64 r3, r8
+-mul64 r3, 48
+-jgt r8, r1, +0x14c0
+-mov64 r4, r9
+-mul64 r4, 48
+-ldxdw r1, [r10-40]
+-add64 r1, r4
+-call memcpy
+-add64 r9, r8
+-stxdw [r10-32], r9
+-mov64 r2, r6
+-add64 r2, 720
+-mov64 r1, r10
+-add64 r1, -24
+-call orig_fn_97450
+-ldxdw r9, [r10-32]
+-ldxdw r1, [r10-48]
+-sub64 r1, r9
+-ldxdw r2, [r10-16]
+-ldxdw r8, [r10-8]
+-mov64 r3, r8
+-mul64 r3, 48
+-jgt r8, r1, +0x1530
+-mov64 r4, r9
+-mul64 r4, 48
+-ldxdw r1, [r10-40]
+-add64 r1, r4
+-call memcpy
+-add64 r9, r8
+-stxdw [r10-32], r9
+-mov64 r2, r6
+-add64 r2, 768
+-mov64 r1, r10
+-add64 r1, -24
+-call orig_fn_97450
+-ldxdw r9, [r10-32]
+-ldxdw r1, [r10-48]
+-sub64 r1, r9
+-ldxdw r2, [r10-16]
+-ldxdw r8, [r10-8]
+-mov64 r3, r8
+-mul64 r3, 48
+-jgt r8, r1, +0x15a0
+-mov64 r4, r9
+-mul64 r4, 48
+-ldxdw r1, [r10-40]
+-add64 r1, r4
+-call memcpy
+-add64 r9, r8
+-stxdw [r10-32], r9
+-mov64 r2, r6
+-add64 r2, 816
+-mov64 r1, r10
+-add64 r1, -24
+-call orig_fn_97450
+-ldxdw r9, [r10-32]
+-ldxdw r1, [r10-48]
+-sub64 r1, r9
+-ldxdw r2, [r10-16]
+-ldxdw r8, [r10-8]
+-mov64 r3, r8
+-mul64 r3, 48
+-jgt r8, r1, +0x1610
+-mov64 r4, r9
+-mul64 r4, 48
+-ldxdw r1, [r10-40]
+-add64 r1, r4
+-call memcpy
+-add64 r9, r8
+-stxdw [r10-32], r9
+-mov64 r2, r6
+-add64 r2, 864
+-mov64 r1, r10
+-add64 r1, -24
+-call orig_fn_97450
+-ldxdw r9, [r10-32]
+-ldxdw r1, [r10-48]
+-sub64 r1, r9
+-ldxdw r2, [r10-16]
+-ldxdw r8, [r10-8]
+-mov64 r3, r8
+-mul64 r3, 48
+-jgt r8, r1, +0x1680
+-mov64 r4, r9
+-mul64 r4, 48
+-ldxdw r1, [r10-40]
+-add64 r1, r4
+-call memcpy
+-add64 r9, r8
+-stxdw [r10-32], r9
+-mov64 r2, r6
+-add64 r2, 912
+-mov64 r1, r10
+-add64 r1, -24
+-call orig_fn_97450
+-ldxdw r9, [r10-32]
+-ldxdw r1, [r10-48]
+-sub64 r1, r9
+-ldxdw r2, [r10-16]
+-ldxdw r8, [r10-8]
+-mov64 r3, r8
+-mul64 r3, 48
+-jgt r8, r1, +0x16f0
+-mov64 r4, r9
+-mul64 r4, 48
+-ldxdw r1, [r10-40]
+-add64 r1, r4
+-call memcpy
+-add64 r9, r8
+-stxdw [r10-32], r9
+-mov64 r2, r6
+-add64 r2, 960
+-mov64 r1, r10
+-add64 r1, -24
+-call orig_fn_97450
+-ldxdw r9, [r10-32]
+-ldxdw r1, [r10-48]
+-sub64 r1, r9
+-ldxdw r2, [r10-16]
+-ldxdw r8, [r10-8]
+-mov64 r3, r8
+-mul64 r3, 48
+-jgt r8, r1, +0x1760
+-mov64 r4, r9
+-mul64 r4, 48
+-ldxdw r1, [r10-40]
+-add64 r1, r4
+-call memcpy
+-add64 r9, r8
+-stxdw [r10-32], r9
+-mov64 r2, r6
+-add64 r2, 1008
+-mov64 r1, r10
+-add64 r1, -24
+-call orig_fn_97450
+-ldxdw r9, [r10-32]
+-ldxdw r1, [r10-48]
+-sub64 r1, r9
+-ldxdw r2, [r10-16]
+-ldxdw r8, [r10-8]
+-mov64 r3, r8
+-mul64 r3, 48
+-jgt r8, r1, +0x17d0
+-mov64 r4, r9
+-mul64 r4, 48
+-ldxdw r1, [r10-40]
+-add64 r1, r4
+-call memcpy
+-add64 r9, r8
+-stxdw [r10-32], r9
+-add64 r6, 1056
+-mov64 r1, r10
+-add64 r1, -24
+-mov64 r2, r6
+-call orig_fn_97450
+-ldxdw r7, [r10-32]
+-ldxdw r1, [r10-48]
+-sub64 r1, r7
+-ldxdw r2, [r10-16]
+-ldxdw r8, [r10-8]
+-jgt r8, r1, +0x1840
+-mov64 r3, r7
+-mul64 r3, 48
+-ldxdw r1, [r10-40]
+-add64 r1, r3
+-mov64 r3, r8
+-mul64 r3, 48
+-call memcpy
+-add64 r7, r8
+-stxdw [r10-32], r7
+-ldxdw r2, [r10-64]
+-stxdw [r2+16], r7
+-ldxdw r1, [r10-40]
+-stxdw [r2+8], r1
+-ldxdw r1, [r10-48]
+-stxdw [r2], r1
++add64 r2, r1
++lddw r3, 0x6166206c6c616320
++stxdw [r2+8], r3
++lddw r3, 0x49504320706d7550
++stxdw [r2], r3
++stw [r2+16], 1684368489
++add64 r1, 20
++stxdw [r10-8], r1
++stxdw [r6+16], r1
++ldxdw r1, [r10-16]
++stxdw [r6+8], r1
++ldxdw r1, [r10-24]
++stxdw [r6], r1
+ exit
+-mov64 r1, r10
+-add64 r1, -48
+-mov64 r2, r9
+-mov64 r3, r7
+-mov64 r4, 8
+-mov64 r5, 48
+-call alloc::raw_vec::RawVecInner<A>::reserve::do_reserve_and_handle#02cd
+-ldxdw r9, [r10-32]
+-ja +0x80
+-mov64 r1, r10
+-add64 r1, -48
+-mov64 r6, r2
+-mov64 r2, r9
+-mov64 r7, r3
+-mov64 r3, r8
+-mov64 r4, 8
+-mov64 r5, 48
+-call alloc::raw_vec::RawVecInner<A>::reserve::do_reserve_and_handle#02cd
+-mov64 r3, r7
+-mov64 r2, r6
+-ldxdw r6, [r10-56]
+-ldxdw r9, [r10-32]
+-ja +0x138
+-mov64 r1, r10
+-add64 r1, -48
+-mov64 r6, r2
+-mov64 r2, r9
+-mov64 r7, r3
+-mov64 r3, r8
+-mov64 r4, 8
+-mov64 r5, 48
+-call alloc::raw_vec::RawVecInner<A>::reserve::do_reserve_and_handle#02cd
+-mov64 r3, r7
+-mov64 r2, r6
+-ldxdw r6, [r10-56]
+-ldxdw r9, [r10-32]
+-ja +0x1d8
+-mov64 r1, r10
+-add64 r1, -48
+-mov64 r6, r2
+-mov64 r2, r9
+-mov64 r7, r3
+-mov64 r3, r8
+-mov64 r4, 8
+-mov64 r5, 48
+-call alloc::raw_vec::RawVecInner<A>::reserve::do_reserve_and_handle#02cd
+-mov64 r3, r7
+-mov64 r2, r6
+-ldxdw r6, [r10-56]
+-ldxdw r9, [r10-32]
+-ja +0x278
+-mov64 r1, r10
+-add64 r1, -48
+-mov64 r6, r2
+-mov64 r2, r9
+-mov64 r7, r3
+-mov64 r3, r8
+-mov64 r4, 8
+-mov64 r5, 48
+-call alloc::raw_vec::RawVecInner<A>::reserve::do_reserve_and_handle#02cd
+-mov64 r3, r7
+-mov64 r2, r6
+-ldxdw r6, [r10-56]
+-ldxdw r9, [r10-32]
+-ja +0x318
+-mov64 r1, r10
+-add64 r1, -48
+-mov64 r6, r2
+-mov64 r2, r9
+-mov64 r7, r3
+-mov64 r3, r8
+-mov64 r4, 8
+-mov64 r5, 48
+-call alloc::raw_vec::RawVecInner<A>::reserve::do_reserve_and_handle#02cd
+-mov64 r3, r7
+-mov64 r2, r6
+-ldxdw r6, [r10-56]
+-ldxdw r9, [r10-32]
+-ja +0x3b8
+-mov64 r1, r10
+-add64 r1, -48
+-mov64 r6, r2
+-mov64 r2, r9
+-mov64 r7, r3
+-mov64 r3, r8
+-mov64 r4, 8
+-mov64 r5, 48
+-call alloc::raw_vec::RawVecInner<A>::reserve::do_reserve_and_handle#02cd
+-mov64 r3, r7
+-mov64 r2, r6
+-ldxdw r6, [r10-56]
+-ldxdw r9, [r10-32]
+-ja +0x458
+-mov64 r1, r10
+-add64 r1, -48
+-mov64 r6, r2
+-mov64 r2, r9
+-mov64 r7, r3
+-mov64 r3, r8
+-mov64 r4, 8
+-mov64 r5, 48
+-call alloc::raw_vec::RawVecInner<A>::reserve::do_reserve_and_handle#02cd
+-mov64 r3, r7
+-mov64 r2, r6
+-ldxdw r6, [r10-56]
+-ldxdw r9, [r10-32]
+-ja +0x4f8
+-mov64 r1, r10
+-add64 r1, -48
+-mov64 r6, r2
+-mov64 r2, r9
+-mov64 r7, r3
+-mov64 r3, r8
+-mov64 r4, 8
+-mov64 r5, 48
+-call alloc::raw_vec::RawVecInner<A>::reserve::do_reserve_and_handle#02cd
+-mov64 r3, r7
+-mov64 r2, r6
+-ldxdw r6, [r10-56]
+-ldxdw r9, [r10-32]
+-ja +0x598
+-mov64 r1, r10
+-add64 r1, -48
+-mov64 r6, r2
+-mov64 r2, r9
+-mov64 r7, r3
+-mov64 r3, r8
+-mov64 r4, 8
+-mov64 r5, 48
+-call alloc::raw_vec::RawVecInner<A>::reserve::do_reserve_and_handle#02cd
+-mov64 r3, r7
+-mov64 r2, r6
+-ldxdw r6, [r10-56]
+-ldxdw r9, [r10-32]
+-ja +0x638
+-mov64 r1, r10
+-add64 r1, -48
+-mov64 r6, r2
+-mov64 r2, r9
+-mov64 r7, r3
+-mov64 r3, r8
+-mov64 r4, 8
+-mov64 r5, 48
+-call alloc::raw_vec::RawVecInner<A>::reserve::do_reserve_and_handle#02cd
+-mov64 r3, r7
+-mov64 r2, r6
+-ldxdw r6, [r10-56]
+-ldxdw r9, [r10-32]
+-ja +0x6d8
+-mov64 r1, r10
+-add64 r1, -48
+-mov64 r6, r2
+-mov64 r2, r9
+-mov64 r7, r3
+-mov64 r3, r8
+-mov64 r4, 8
+-mov64 r5, 48
+-call alloc::raw_vec::RawVecInner<A>::reserve::do_reserve_and_handle#02cd
+-mov64 r3, r7
+-mov64 r2, r6
+-ldxdw r6, [r10-56]
+-ldxdw r9, [r10-32]
+-ja +0x778
+-mov64 r1, r10
+-add64 r1, -48
+-mov64 r6, r2
+-mov64 r2, r9
+-mov64 r7, r3
+-mov64 r3, r8
+-mov64 r4, 8
+-mov64 r5, 48
+-call alloc::raw_vec::RawVecInner<A>::reserve::do_reserve_and_handle#02cd
+-mov64 r3, r7
+-mov64 r2, r6
+-ldxdw r6, [r10-56]
+-ldxdw r9, [r10-32]
+-ja +0x818
+-mov64 r1, r10
+-add64 r1, -48
+-mov64 r6, r2
+-mov64 r2, r9
+-mov64 r7, r3
+-mov64 r3, r8
+-mov64 r4, 8
+-mov64 r5, 48
+-call alloc::raw_vec::RawVecInner<A>::reserve::do_reserve_and_handle#02cd
+-mov64 r3, r7
+-mov64 r2, r6
+-ldxdw r6, [r10-56]
+-ldxdw r9, [r10-32]
+-ja +0x8b8
+-mov64 r1, r10
+-add64 r1, -48
+-mov64 r6, r2
+-mov64 r2, r9
+-mov64 r7, r3
+-mov64 r3, r8
+-mov64 r4, 8
+-mov64 r5, 48
+-call alloc::raw_vec::RawVecInner<A>::reserve::do_reserve_and_handle#02cd
+-mov64 r3, r7
+-mov64 r2, r6
+-ldxdw r6, [r10-56]
+-ldxdw r9, [r10-32]
+-ja +0x958
+-mov64 r1, r10
+-add64 r1, -48
+-mov64 r6, r2
+-mov64 r2, r9
+-mov64 r7, r3
+-mov64 r3, r8
+-mov64 r4, 8
+-mov64 r5, 48
+-call alloc::raw_vec::RawVecInner<A>::reserve::do_reserve_and_handle#02cd
+-mov64 r3, r7
+-mov64 r2, r6
+-ldxdw r6, [r10-56]
+-ldxdw r9, [r10-32]
+-ja +0x9f8
+-mov64 r1, r10
+-add64 r1, -48
+-mov64 r6, r2
+-mov64 r2, r9
+-mov64 r7, r3
+-mov64 r3, r8
+-mov64 r4, 8
+-mov64 r5, 48
+-call alloc::raw_vec::RawVecInner<A>::reserve::do_reserve_and_handle#02cd
+-mov64 r3, r7
+-mov64 r2, r6
+-ldxdw r6, [r10-56]
+-ldxdw r9, [r10-32]
+-ja +0xa98
+-mov64 r1, r10
+-add64 r1, -48
+-mov64 r6, r2
+-mov64 r2, r9
+-mov64 r7, r3
+-mov64 r3, r8
+-mov64 r4, 8
+-mov64 r5, 48
+-call alloc::raw_vec::RawVecInner<A>::reserve::do_reserve_and_handle#02cd
+-mov64 r3, r7
+-mov64 r2, r6
+-ldxdw r6, [r10-56]
+-ldxdw r9, [r10-32]
+-ja +0xb38
+-mov64 r1, r10
+-add64 r1, -48
+-mov64 r6, r2
+-mov64 r2, r9
+-mov64 r7, r3
+-mov64 r3, r8
+-mov64 r4, 8
+-mov64 r5, 48
+-call alloc::raw_vec::RawVecInner<A>::reserve::do_reserve_and_handle#02cd
+-mov64 r3, r7
+-mov64 r2, r6
+-ldxdw r6, [r10-56]
+-ldxdw r9, [r10-32]
+-ja +0xbd8
+-mov64 r1, r10
+-add64 r1, -48
+-mov64 r6, r2
+-mov64 r2, r9
+-mov64 r7, r3
+-mov64 r3, r8
+-mov64 r4, 8
+-mov64 r5, 48
+-call alloc::raw_vec::RawVecInner<A>::reserve::do_reserve_and_handle#02cd
+-mov64 r3, r7
+-mov64 r2, r6
+-ldxdw r6, [r10-56]
+-ldxdw r9, [r10-32]
+-ja +0xc78
+-mov64 r1, r10
+-add64 r1, -48
+-mov64 r6, r2
+-mov64 r2, r9
+-mov64 r7, r3
+-mov64 r3, r8
+-mov64 r4, 8
+-mov64 r5, 48
+-call alloc::raw_vec::RawVecInner<A>::reserve::do_reserve_and_handle#02cd
+-mov64 r3, r7
+-mov64 r2, r6
+-ldxdw r6, [r10-56]
+-ldxdw r9, [r10-32]
+-ja +0xd18
+-mov64 r1, r10
+-add64 r1, -48
+-mov64 r6, r2
+-mov64 r2, r9
+-mov64 r7, r3
+-mov64 r3, r8
+-mov64 r4, 8
+-mov64 r5, 48
+-call alloc::raw_vec::RawVecInner<A>::reserve::do_reserve_and_handle#02cd
+-mov64 r3, r7
+-mov64 r2, r6
+-ldxdw r6, [r10-56]
+-ldxdw r9, [r10-32]
+-ja +0xdb8
+-mov64 r1, r10
+-add64 r1, -48
+-mov64 r6, r2
+-mov64 r2, r7
+-mov64 r3, r8
+-mov64 r4, 8
+-mov64 r5, 48
+-call alloc::raw_vec::RawVecInner<A>::reserve::do_reserve_and_handle#02cd
+-mov64 r2, r6
+-ldxdw r7, [r10-32]
+-ja +0xe48

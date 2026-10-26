@@ -1,0 +1,13 @@
+# <mayhem_program::instructions::fee_recipients::InitializeFeeRecipient as anchor_lang::Accounts<mayhem_program::instructions::fee_recipients::InitializeFeeRecipientBumps>>::try_accounts::{{closure}}  (yours 4840 B at .text+0x389a8; original 4840 B at .text+0x3f0e0)
+# distance 1 instructions; evidence: same-callees 14/14
+--- original
++++ yours
+@@ -58,7 +58,7 @@
+ stxdw [r10-432], r1
+ stw [r10-288], 4101
+ stb [r10-360], 2
+-stw [r10-416], 73
++stw [r10-416], 14
+ stdw [r10-424], 58
+ stdw [r10-440], 0
+ mov64 r1, r10

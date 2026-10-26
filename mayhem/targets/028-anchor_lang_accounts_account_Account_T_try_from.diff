@@ -1,0 +1,154 @@
+# anchor_lang::accounts::account::Account<T>::try_from  (yours 936 B at .text+0x59e0; original 864 B at .text+0x7010)
+# distance 84 instructions; evidence: called-by <anchor_lang::accounts::account::Account<T> as anchor_lang::Accounts<B>>::try_accounts#6658; same-callees 5/5
+--- original
++++ yours
+@@ -1,40 +1,48 @@
+ mov64 r6, r1
+ ldxdw r7, [r2+24]
+ ldxdw r1, [r7]
+-jne r1, 0, +0x88
+-mov64 r1, 0
+-ldxdw r3, [r7+8]
+-jne r3, 0, +0x88
+-ldxdw r3, [r7+16]
+-jne r3, 0, +0x88
+-ldxdw r3, [r7+24]
+-jne r3, 0, +0x88
+-mov64 r8, r2
+-mov64 r1, r2
+-call solana_account_info::AccountInfo::lamports#aa02
+-jeq r0, 0, +0x210
+-ldxdw r1, [r7]
+-mov64 r2, r8
+-lddw r8, .rodata[0c14defc825ec676]
+-ldxdw r3, [r8]
+-jne r1, r3, +0x138
+-ldxdw r1, [r8+8]
+-ldxdw r3, [r7+8]
+-jne r3, r1, +0x138
+-ldxdw r1, [r8+16]
+-ldxdw r3, [r7+16]
+-jne r3, r1, +0x138
+-ldxdw r1, [r8+24]
+-ldxdw r3, [r7+24]
+-jne r3, r1, +0x138
++jeq r1, 0, +0x160
++lddw r3, 0x76c65e82fcde140c
++jne r1, r3, +0x190
++ldxdw r1, [r7+8]
++lddw r3, 0x654065bb18082594
++jne r1, r3, +0x190
++ldxdw r1, [r7+16]
++lddw r3, 0xb471d556318d29f4
++jne r1, r3, +0x190
++ldxdw r1, [r7+24]
++lddw r3, 0x63a8e9180c09f8d4
++jne r1, r3, +0x190
+ ldxdw r7, [r2+16]
+ ldxdw r1, [r7+16]
+ lddw r3, 0x7fffffffffffffff
+-jlt r1, r3, +0x228
+-mov64 r1, 11
+-mov64 r2, 0
+-call <anchor_lang::error::Error as core::convert::From<solana_program_error::ProgramError>>::from#507a
+-ja +0x1f0
++jge r1, r3, +0x288
++stxdw [r10-304], r2
++add64 r1, 1
++stxdw [r7+16], r1
++ldxdw r1, [r7+24]
++ldxdw r2, [r7+32]
++stxdw [r10-288], r2
++stxdw [r10-296], r1
++mov64 r1, r10
++add64 r1, -280
++mov64 r2, r10
++add64 r2, -296
++call <mayhem_program::instructions::pump_amm_interface::pump_swap_types::SwapPool as anchor_lang::AccountDeserialize>::try_deserialize#cf77
++ldxdw r8, [r10-272]
++ldxdw r1, [r10-280]
++ldxb r9, [r10-2]
++jne r9, 2, +0x2f8
++stxdw [r6+8], r8
++stxdw [r6], r1
++stb [r6+286], 2
++ja +0x370
++ldxdw r1, [r7+8]
++jne r1, 0, +0x190
++ldxdw r1, [r7+16]
++jne r1, 0, +0x190
++ldxdw r1, [r7+24]
++jeq r1, 0, +0x2a8
+ mov64 r1, 3007
+ call <anchor_lang::error::Error as core::convert::From<anchor_lang::error::ErrorCode>>::from#ae9e
+ mov64 r2, r1
+@@ -46,13 +54,13 @@
+ stxdw [r10-272], r1
+ ldxdw r1, [r7]
+ stxdw [r10-280], r1
+-ldxdw r1, [r8]
++lddw r1, 0x76c65e82fcde140c
+ stxdw [r10-248], r1
+-ldxdw r1, [r8+8]
++lddw r1, 0x654065bb18082594
+ stxdw [r10-240], r1
+-ldxdw r1, [r8+16]
++lddw r1, 0xb471d556318d29f4
+ stxdw [r10-232], r1
+-ldxdw r1, [r8+24]
++lddw r1, 0x63a8e9180c09f8d4
+ stxdw [r10-224], r1
+ mov64 r3, r10
+ add64 r3, -280
+@@ -62,29 +70,19 @@
+ stxdw [r6], r0
+ stb [r6+286], 2
+ exit
+-mov64 r1, 3012
+-call <anchor_lang::error::Error as core::convert::From<anchor_lang::error::ErrorCode>>::from#ae9e
+-ja +0x1f0
+-stxdw [r10-304], r2
+-add64 r1, 1
+-stxdw [r7+16], r1
+-ldxdw r1, [r7+24]
+-ldxdw r2, [r7+32]
+-stxdw [r10-288], r2
+-stxdw [r10-296], r1
+-mov64 r1, r10
+-add64 r1, -280
+-mov64 r2, r10
+-add64 r2, -296
+-call <T as alloc::string::ToString>::to_string#2940
+-ldxdw r8, [r10-272]
+-ldxdw r1, [r10-280]
+-ldxb r9, [r10-2]
+-jne r9, 2, +0x2c8
+-stxdw [r6+8], r8
+-stxdw [r6], r1
+-stb [r6+286], 2
+-ja +0x340
++mov64 r1, 11
++mov64 r2, 0
++call <anchor_lang::error::Error as core::convert::From<solana_program_error::ProgramError>>::from#507a
++ja +0x268
++mov64 r8, r2
++mov64 r1, r2
++call solana_account_info::AccountInfo::lamports#aa02
++jeq r0, 0, +0x390
++ldxdw r1, [r7]
++mov64 r2, r8
++lddw r3, 0x76c65e82fcde140c
++jeq r1, r3, +0x38
++ja +0x190
+ stxdw [r10-312], r1
+ mov64 r1, r6
+ add64 r1, 24
+@@ -103,4 +101,7 @@
+ ldxdw r1, [r7+16]
+ add64 r1, -1
+ stxdw [r7+16], r1
+-ja +0x208
++ja +0x280
++mov64 r1, 3012
++call <anchor_lang::error::Error as core::convert::From<anchor_lang::error::ErrorCode>>::from#ae9e
++ja +0x268
