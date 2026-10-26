@@ -1,4 +1,4 @@
-# mayhem_program::initialize_fee_recipient_impl  (yours 2576 B at .text+0x242e0; original 2808 B at .text+0x10230)
+# mayhem_program::initialize_fee_recipient_impl  (yours 2576 B at .text+0x24318; original 2808 B at .text+0x10230)
 # distance 156 instructions; evidence: called-by mayhem_program::__private::__global::initialize_fee_recipient#6652; same-callees 7/10
 --- original
 +++ yours
