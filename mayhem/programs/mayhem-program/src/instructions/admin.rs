@@ -194,12 +194,7 @@ pub fn resume_trading(ctx: Context<Admin>) -> Result<()> {
     Ok(())
 }
 pub fn withdraw_quote_admin(ctx: Context<WithdrawQuoteAdmin>, amount: u64) -> Result<()> {
-    let now = Clock::get()?.unix_timestamp;
-    let state = &mut ctx.accounts.global_params;
-    let last = i64::from_le_bytes(state.reset_stable_suffix[16..24].try_into().unwrap());
-    let interval = i64::from_le_bytes(state.reset_stable_suffix[8..16].try_into().unwrap());
-    if last != 0 && interval != 0 { require_gte!(now, last + interval, MayhemError::WithdrawRateLimit); }
-    state.reset_stable_suffix[16..24].copy_from_slice(&now.to_le_bytes());
+    quote_withdraw_rate_limit(&mut ctx.accounts.global_params)?;
     let bump = [ctx.bumps.sol_vault];
     let seeds: &[&[u8]] = &[b"sol-vault", &bump];
     anchor_spl::token::transfer(CpiContext::new_with_signer(
@@ -227,6 +222,16 @@ pub fn withdraw_admin(ctx: Context<WithdrawAdmin>, amount: u64) -> Result<()> {
                 from: ctx.accounts.sol_vault.to_account_info(),
                 to: ctx.accounts.admin.to_account_info(),
             }, &[seeds]), amount)
+}
+
+#[inline(never)]
+fn quote_withdraw_rate_limit(state: &mut GlobalParams) -> Result<()> {
+    let now = Clock::get()?.unix_timestamp;
+    let last = i64::from_le_bytes(state.reset_stable_suffix[16..24].try_into().unwrap());
+    let interval = i64::from_le_bytes(state.reset_stable_suffix[8..16].try_into().unwrap());
+    if last != 0 && interval != 0 { require_gte!(now, last + interval, MayhemError::WithdrawRateLimit); }
+    state.reset_stable_suffix[16..24].copy_from_slice(&now.to_le_bytes());
+    Ok(())
 }
 
 #[inline(never)]

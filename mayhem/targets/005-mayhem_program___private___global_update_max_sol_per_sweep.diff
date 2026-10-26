@@ -1,4 +1,4 @@
-# mayhem_program::__private::__global::update_max_sol_per_sweep  (yours 512 B at .text+0x73258; original 512 B at .text+0x7e760)
+# mayhem_program::__private::__global::update_max_sol_per_sweep  (yours 512 B at .text+0x73278; original 512 B at .text+0x7e760)
 # distance 1 instructions; evidence: same-callees 5/5
 --- original
 +++ yours

@@ -1,4 +1,4 @@
-# mayhem_program::instructions::burn::handler  (yours 5784 B at .text+0xf9d8; original 5752 B at .text+0xd778)
+# mayhem_program::instructions::burn::handler  (yours 5784 B at .text+0xf9f8; original 5752 B at .text+0xd778)
 # distance 164 instructions; evidence: called-by mayhem_program::__private::__global::burn_tokens#49c3; same-callees 15/15
 --- original
 +++ yours
