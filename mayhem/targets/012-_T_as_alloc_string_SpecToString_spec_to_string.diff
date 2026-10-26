@@ -1,136 +1,76 @@
-# <T as alloc::string::SpecToString>::spec_to_string  (yours 712 B at .text+0x7ee0; original 456 B at .text+0x80dd0)
-# distance 82 instructions; evidence: same-callees 1/2
+# <T as alloc::string::SpecToString>::spec_to_string  (yours 288 B at .text+0x7978; original 512 B at .text+0x17348)
+# distance 47 instructions; evidence: same-callees 2/4
 --- original
 +++ yours
-@@ -1,56 +1,81 @@
--mov64 r7, r3
--mov64 r8, r2
- mov64 r6, r1
--lddw r1, str("Instruction: InitializeMayhemState")
--mov64 r2, 34
--call sol_log_
--stw [r10-1540], -1
--stxdw [r10-1528], r7
--stxdw [r10-1536], r8
-+stdw [r10-8], 0
-+stdw [r10-16], 1
-+stdw [r10-24], 0
-+lsh64 r2, 32
-+rsh64 r2, 32
-+jsgt r2, 11, +0xe8
-+jne r2, 3, +0x170
+@@ -1,54 +1,29 @@
+-mov64 r6, r2
+-mov64 r7, r1
++mov64 r3, r2
++mov64 r6, r1
++stdw [r10-40], 0
++stdw [r10-48], 1
++stdw [r10-56], 0
++lddw r1, table[0:core::ptr::drop_in_place<alloc::string::String>#91b5, 3:<alloc::string::String as core::fmt::Write>::write_str#ca2d, 4:<alloc::string::String as core::fmt::Write>::write_char#6537, 5:core::fmt::Write::write_fmt#a290]
++stxdw [r10-24], r1
  mov64 r1, r10
--add64 r1, -1540
--stxdw [r10-4088], r1
-+add64 r1, -24
-+mov64 r2, 0
-+mov64 r3, 23
-+mov64 r4, 1
-+mov64 r5, 1
-+call alloc::raw_vec::RawVecInner<A>::reserve::do_reserve_and_handle#80e8
-+ldxdw r7, [r10-8]
-+ldxdw r1, [r10-16]
-+add64 r1, r7
-+lddw r2, 0x7365767265736572
-+stxdw [r1+15], r2
-+lddw r2, 0x72206c6f7320656c
-+stxdw [r1+8], r2
-+lddw r2, 0x7474696c206f6f54
-+stxdw [r1], r2
-+add64 r7, 23
-+ja +0x290
-+jne r2, 12, +0x208
- mov64 r1, r10
--add64 r1, -760
--mov64 r3, r10
--add64 r3, -1536
--mov64 r5, r10
--mov64 r2, r6
--call orig_fn_691d8
--ldxw r7, [r10-760]
--jne r7, 2, +0xc8
--ldxdw r1, [r10-744]
--ldxdw r0, [r10-752]
--ja +0x1c0
--ldxw r1, [r10-756]
--stxdw [r10-1552], r1
--ldxdw r9, [r10-752]
--ldxdw r8, [r10-744]
-+add64 r1, -24
-+mov64 r2, 0
-+mov64 r3, 56
-+mov64 r4, 1
-+mov64 r5, 1
-+call alloc::raw_vec::RawVecInner<A>::reserve::do_reserve_and_handle#80e8
-+ldxdw r7, [r10-8]
-+ldxdw r1, [r10-16]
-+add64 r1, r7
-+lddw r2, str("Price impact exceeds slippage tolerance in Pump CPI call")
-+mov64 r3, 56
-+call memcpy
-+add64 r7, 56
-+ja +0x290
- mov64 r1, r10
--add64 r1, -1496
--mov64 r2, r10
--add64 r2, -736
--mov64 r3, 736
--call memcpy
--stxdw [r10-1504], r8
--stxdw [r10-1512], r9
--ldxdw r1, [r10-1552]
--stxw [r10-1516], r1
--stxw [r10-1520], r7
--ldxw r1, [r10-1540]
--stxw [r10-728], r1
--ldxdw r1, [r10-1528]
--stxdw [r10-736], r1
--ldxdw r1, [r10-1536]
--stxdw [r10-744], r1
--mov64 r7, r10
--add64 r7, -1520
--stxdw [r10-752], r7
--stxdw [r10-760], r6
-+add64 r1, -24
-+mov64 r2, 0
-+mov64 r3, 17
-+mov64 r4, 1
-+mov64 r5, 1
-+call alloc::raw_vec::RawVecInner<A>::reserve::do_reserve_and_handle#80e8
-+ldxdw r7, [r10-8]
-+ldxdw r1, [r10-16]
-+add64 r1, r7
-+lddw r2, 0x65646e652065646f
-+stxdw [r1+8], r2
-+lddw r2, 0x6d206d656879614d
-+stxdw [r1], r2
-+stb [r1+16], 100
-+add64 r7, 17
-+ja +0x290
- mov64 r1, r10
--add64 r1, -760
--call entrypoint
--mov64 r1, r7
--mov64 r2, r6
--call orig_fn_6d4d0
-+add64 r1, -24
-+mov64 r2, 0
-+mov64 r3, 16
-+mov64 r4, 1
-+mov64 r5, 1
-+call alloc::raw_vec::RawVecInner<A>::reserve::do_reserve_and_handle#80e8
-+ldxdw r7, [r10-8]
-+ldxdw r1, [r10-16]
-+add64 r1, r7
-+lddw r2, 0x74696d696c206574
-+stxdw [r1+8], r2
-+lddw r2, 0x6152206564617254
-+stxdw [r1], r2
-+add64 r7, 16
-+stxdw [r10-8], r7
-+stxdw [r6+16], r7
-+ldxdw r1, [r10-16]
+-add64 r1, -72
+-lddw r2, .rodata[0a000000]
+-call mayhem_program::instructions::pump_amm_interface::pump_swap_types::PumpSwapError::name#fdf6
+-stdw [r10-32], 0
+-stdw [r10-40], 1
+-stdw [r10-48], 0
+-lddw r1, table[0:core::ptr::drop_in_place<alloc::string::String>#91b5, 3:<alloc::string::String as core::fmt::Write>::write_str#ca2d, 4:<alloc::string::String as core::fmt::Write>::write_char#6537, 5:core::fmt::Write::write_fmt#a290]
++add64 r1, -56
++stxdw [r10-32], r1
++lddw r1, 0xe0000020
+ stxdw [r10-16], r1
+-mov64 r1, r10
+-add64 r1, -48
+-stxdw [r10-24], r1
+-lddw r1, 0xe0000020
+-stxdw [r10-8], r1
+ mov64 r2, r10
+-add64 r2, -24
+-lddw r1, .rodata[0a000000]
++add64 r2, -32
++mov64 r1, r3
+ call <mayhem_program::instructions::pump_amm_interface::pump_swap_types::PumpSwapError as core::fmt::Display>::fmt#0036
+-jne r0, 0, +0x1b0
+-ldxdw r1, [r10-32]
+-stxdw [r10-160], r1
++jne r0, 0, +0xd0
+ ldxdw r1, [r10-40]
+-stxdw [r10-168], r1
++stxdw [r6+16], r1
+ ldxdw r1, [r10-48]
+-stxdw [r10-176], r1
+-ldxdw r1, [r10-72]
+-stxdw [r10-200], r1
+-ldxdw r1, [r10-64]
+-stxdw [r10-192], r1
 +stxdw [r6+8], r1
-+ldxdw r1, [r10-24]
+ ldxdw r1, [r10-56]
+-stxdw [r10-184], r1
+-lddw r1, .rodata[70726f6772616d73]
+-stxdw [r10-224], r1
+-stw [r10-80], 6010
+-stb [r10-152], 2
+-stw [r10-208], 376
+-stdw [r10-216], 62
+-stdw [r10-232], 0
+-mov64 r1, r10
+-add64 r1, -232
+-call <anchor_lang::error::Error as core::convert::From<anchor_lang::error::AnchorError>>::from#5ca3
+-jeq r7, 0, +0x1a0
+-ldxdw r2, [r6]
+-ldxb r2, [r6+40]
+-ja +0x1a8
+-ldxdw r2, [r6]
 +stxdw [r6], r1
  exit
+ mov64 r3, r10
+-add64 r3, -232
++add64 r3, -1
+ lddw r1, str("a Display implementation returned an error unexpectedly")
+ mov64 r2, 55
+ lddw r4, table[3:<core::fmt::Error as core::fmt::Debug>::fmt#aaa5]

@@ -1,4 +1,4 @@
-# pump_cpi::pump_v2::pump::cpi::buy_v2  (yours 5816 B at .text+0x76a28; original 5896 B at .text+0x84b48)
+# pump_cpi::pump_v2::pump::cpi::buy_v2  (yours 5816 B at .text+0x76bc8; original 5896 B at .text+0x84b48)
 # distance 398 instructions; evidence: same-callees 12/12; neighbours between the same matched functions as in your build
 --- original
 +++ yours

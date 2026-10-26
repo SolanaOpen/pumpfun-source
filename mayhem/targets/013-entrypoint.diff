@@ -1,5 +1,5 @@
-# entrypoint  (yours 1176 B at .text+0x74240; original 2136 B at .text+0x82818)
-# distance 175 instructions; evidence: same-callees 3/6; neighbours between the same matched functions as in your build
+# entrypoint  (yours 1176 B at .text+0x743e0; original 2136 B at .text+0x82818)
+# distance 175 instructions; evidence: same-callees 4/7; neighbours between the same matched functions as in your build
 --- original
 +++ yours
 @@ -1,119 +1,3 @@

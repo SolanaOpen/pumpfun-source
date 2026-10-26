@@ -52,6 +52,8 @@ pub mod mayhem_program {
     pub fn reset_state(ctx: Context<Admin>) -> Result<()> { instructions::admin::reset_state(ctx) }
     pub fn stop_trading(ctx: Context<Admin>) -> Result<()> { instructions::admin::stop_trading(ctx) }
     pub fn resume_trading(ctx: Context<Admin>) -> Result<()> { instructions::admin::resume_trading(ctx) }
+    #[instruction(discriminator = [157, 189, 94, 72, 85, 69, 204, 45])]
+    pub fn unknown_2dcc(_ctx: Context<Admin>) -> Result<()> { Ok(()) }
 }
 
 #[error_code]
