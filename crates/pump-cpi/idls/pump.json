@@ -13440,22 +13440,6 @@
           {
             "name": "protocol_fees",
             "type": "u64"
-          },
-          {
-            "name": "depth",
-            "type": "u8"
-          },
-          {
-            "name": "initial_virtual_quote_reserves",
-            "type": "u64"
-          },
-          {
-            "name": "post_complete_base_out",
-            "type": "u64"
-          },
-          {
-            "name": "post_complete_quote_in",
-            "type": "u64"
           }
         ]
       }

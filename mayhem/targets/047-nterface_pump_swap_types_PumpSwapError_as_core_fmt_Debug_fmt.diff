@@ -1,0 +1,7 @@
+# <mayhem_program::instructions::pump_amm_interface::pump_swap_types::PumpSwapError as core::fmt::Debug>::fmt  (yours 112 B at .text+0x3dca8; original 112 B at .text+0x2fff8)
+# distance 1 instructions; evidence: code-matches same instructions; loads different constants
+--- original
++++ yours
+@@ -1 +1 @@
+-lddw r3, .rodata[0d00000000000000]
++lddw r3, .rodata[1100000000000000]

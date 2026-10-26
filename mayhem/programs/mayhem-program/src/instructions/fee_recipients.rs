@@ -1,34 +1,34 @@
-use anchor_lang::prelude::*;
-use anchor_spl::{associated_token::AssociatedToken, token_interface::{Mint, TokenAccount, TokenInterface}};
-use crate::checked_program::{CheckedSystemProgram, CheckedSystemProgramBumps, __client_accounts_checked_system_program, __cpi_client_accounts_checked_system_program};
-use crate::state::GlobalParams;
-use crate::{MayhemError, ID};
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 #[account]
 pub struct FeeRecipient {
     pub bump: u8,
     pub index: u8,
-    pub opaque: [u8; 32],
+    pub opaque0: u64, pub opaque1: u64, pub opaque2: u64, pub opaque3: u64,
 }
 
-#[derive(Accounts)]
-#[instruction(index: u8)]
-pub struct InitializeFeeRecipient<'info> {
-    #[account(mut)]
-    pub admin: Signer<'info>,
-    #[account(address = anchor_spl::token::spl_token::native_mint::ID)]
-    pub wsol_mint: InterfaceAccount<'info, Mint>,
-    #[account(init, payer = admin, space = 42, seeds = [b"fee-recipient".as_ref(), &[index]], bump)]
-    pub fee_recipient: Account<'info, FeeRecipient>,
-    #[account(init, payer = admin, associated_token::mint = wsol_mint, associated_token::authority = fee_recipient, associated_token::token_program = token_program)]
-    pub fee_recipient_ata: InterfaceAccount<'info, TokenAccount>,
-    #[account(mut, seeds = [b"global-params"], bump)]
-    pub global_params: Account<'info, GlobalParams>,
-    pub system_program: CheckedSystemProgram<'info>,
-    #[account(address = anchor_spl::token::ID)]
-    pub token_program: Interface<'info, TokenInterface>,
-    pub associated_token_program: Program<'info, AssociatedToken>,
-}
+use anchor_lang::prelude::*;
+use anchor_spl::{associated_token::AssociatedToken, token_interface::{Mint, TokenAccount, TokenInterface}};
+use crate::checked_program::{CheckedSystemProgram, CheckedSystemProgramBumps, __client_accounts_checked_system_program, __cpi_client_accounts_checked_system_program};
+use crate::state::GlobalParams;
+use crate::{MayhemError, ID};
 
 #[event(discriminator = [218,130,134,253,101,109,149,152])]
 pub struct SweepEvent { pub amount: u64, pub timestamp: i64 }
@@ -54,10 +54,10 @@ fn sweep_remaining<'info>(remaining: &'info [AccountInfo<'info>], destination: &
             **destination.try_borrow_mut_lamports()? += amount;
             total += amount;
         }
-        let (counter, timestamp) = if mint == anchor_spl::token::spl_token::native_mint::ID { (8, 0) } else { (16, 24) };
-        let previous=u64::from_le_bytes(recipient.opaque[counter..counter+8].try_into().unwrap());
-        recipient.opaque[counter..counter+8].copy_from_slice(&(previous + total-before_total).to_le_bytes());
-        if !admin { recipient.opaque[timestamp..timestamp+8].copy_from_slice(&Clock::get()?.unix_timestamp.to_le_bytes()); }
+        let (counter, timestamp) = if mint == anchor_spl::token::spl_token::native_mint::ID { (1, 0) } else { (2, 3) };
+        let previous=*recipient.slot(counter);
+        *recipient.slot(counter) = previous + total-before_total;
+        if !admin { *recipient.slot(timestamp) = Clock::get()?.unix_timestamp as u64; }
         recipient.exit(&ID)?;
     }
     Ok(total)
@@ -69,14 +69,14 @@ pub struct SweepFees<'info> {
     #[account(mut, seeds=[b"global-params"], bump, has_one=trader)] pub global_params: Account<'info, GlobalParams>,
     pub quote_mint: InterfaceAccount<'info, Mint>,
     #[account(mut, associated_token::mint=quote_mint, associated_token::authority=trader, associated_token::token_program=token_program)] pub trader_quote_ata: InterfaceAccount<'info, TokenAccount>,
-    pub system_program: CheckedSystemProgram<'info>,
-    #[account(address=anchor_spl::token::ID)] pub token_program: Interface<'info,TokenInterface>,
-    pub associated_token_program: Program<'info,AssociatedToken>,
-    /// CHECK: Preserve the captured runtime PDA derivation and ConstraintSeeds error.
-    #[account(seeds = [b"__event_authority"], bump)]
-    pub event_authority: UncheckedAccount<'info>,
-    /// CHECK: Captured parser consumes this account without an address constraint.
-    pub program: UncheckedAccount<'info>,
+    pub system_program: Program<'info, System>, #[account(address=anchor_spl::token::ID)] pub token_program: Interface<'info,TokenInterface>, pub associated_token_program: Program<'info,AssociatedToken>, #[doc = "CHECK: Preserve the captured runtime PDA derivation and ConstraintSeeds error."] #[account(seeds = [b"__event_authority"], bump)] pub event_authority: UncheckedAccount<'info>, #[doc = "CHECK: Captured parser consumes this account without an address constraint."] pub program: UncheckedAccount<'info>, }
+#[derive(Accounts)]
+#[instruction(index: u8)]
+pub struct InitializeFeeRecipient<'info> {
+    #[account(mut)] pub admin: Signer<'info>, #[account(address = anchor_spl::token::spl_token::native_mint::ID)] pub wsol_mint: InterfaceAccount<'info, Mint>,
+    #[account(init, payer = admin, space = 42, seeds = [b"fee-recipient".as_ref(), &[index]], bump)] pub fee_recipient: Account<'info, FeeRecipient>,
+    #[account(init_if_needed, payer = admin, associated_token::mint = wsol_mint, associated_token::authority = fee_recipient, associated_token::token_program = token_program)] pub fee_recipient_ata: InterfaceAccount<'info, TokenAccount>,
+    #[account(mut, seeds = [b"global-params"], bump)] pub global_params: Account<'info, GlobalParams>, pub system_program: CheckedSystemProgram<'info>, #[account(address = anchor_spl::token::ID)] pub token_program: Interface<'info, TokenInterface>, pub associated_token_program: Program<'info, AssociatedToken>,
 }
 
 #[derive(Accounts)]
@@ -85,7 +85,7 @@ pub struct SweepFeesAdmin<'info> {
     #[account(mut, seeds=[b"global-params"], bump, has_one=admin)] pub global_params: Account<'info, GlobalParams>,
     pub quote_mint: InterfaceAccount<'info, Mint>,
     #[account(mut, associated_token::mint=quote_mint, associated_token::authority=admin, associated_token::token_program=token_program)] pub admin_quote_ata: InterfaceAccount<'info, TokenAccount>,
-    pub system_program: CheckedSystemProgram<'info>,
+    pub system_program: Program<'info, System>,
     #[account(address=anchor_spl::token::ID)] pub token_program: Interface<'info,TokenInterface>,
     pub associated_token_program: Program<'info,AssociatedToken>,
     /// CHECK: Preserve the captured runtime PDA derivation and ConstraintSeeds error.
@@ -109,4 +109,11 @@ pub fn sweep_fees<'info>(ctx: Context<'info, SweepFees<'info>>) -> Result<()> {
 pub fn sweep_fees_admin<'info>(ctx: Context<'info, SweepFeesAdmin<'info>>) -> Result<()> {
     let amount = sweep_remaining(ctx.remaining_accounts, &ctx.accounts.admin.to_account_info(), &ctx.accounts.admin_quote_ata.to_account_info(), &ctx.accounts.token_program.to_account_info(), ctx.accounts.quote_mint.key(), u64::MAX, true)?;
     let event = SweepEvent { amount, timestamp: Clock::get()?.unix_timestamp }; emit!(event); emit_cpi!(event); Ok(())
+}
+
+impl FeeRecipient {
+    #[inline(always)]
+    fn slot(&mut self, i: usize) -> &mut u64 {
+        match i { 0 => &mut self.opaque0, 1 => &mut self.opaque1, 2 => &mut self.opaque2, _ => &mut self.opaque3 }
+    }
 }

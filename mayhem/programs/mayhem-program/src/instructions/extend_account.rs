@@ -10,7 +10,7 @@ pub struct ExtendAccount<'info> {
     #[account(mut, owner = ID)]
     pub account: UncheckedAccount<'info>,
     pub user: Signer<'info>,
-    pub system_program: CheckedSystemProgram<'info>,
+    pub system_program: Program<'info, System>,
     /// CHECK: Preserve the captured runtime PDA derivation and ConstraintSeeds error.
     #[account(seeds = [b"__event_authority"], bump)]
     pub event_authority: UncheckedAccount<'info>,

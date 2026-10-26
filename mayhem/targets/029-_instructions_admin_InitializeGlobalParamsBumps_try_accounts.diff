@@ -1,0 +1,395 @@
+# <mayhem_program::instructions::admin::InitializeGlobalParams as anchor_lang::Accounts<mayhem_program::instructions::admin::InitializeGlobalParamsBumps>>::try_accounts  (yours 2840 B at .text+0x27ac8; original 3216 B at .text+0x30068)
+# distance 124 instructions; evidence: same-callees 16/16; neighbours between the same matched functions as in your build
+--- original
++++ yours
+@@ -1,42 +1,41 @@
+ mov64 r9, r5
+ mov64 r8, r3
+ mov64 r7, r2
+-stxdw [r10-664], r1
+-stxdw [r10-656], r7
+-mov64 r1, r10
+-add64 r1, -640
++stxdw [r10-648], r1
++stxdw [r10-640], r7
++mov64 r1, r10
++add64 r1, -624
+ mov64 r5, r10
+ call <anchor_lang::accounts::signer::Signer as anchor_lang::Accounts<B>>::try_accounts#16f8
+-ldxdw r2, [r10-632]
+-ldxdw r6, [r10-640]
+-jne r6, 2, +0x158
++ldxdw r2, [r10-616]
++ldxdw r6, [r10-624]
++jne r6, 2, +0x150
+ ldxdw r6, [r9-4088]
+-stxdw [r10-648], r2
++stxdw [r10-632], r2
+ ldxdw r1, [r8+8]
+ jeq r1, 0, +0x2a8
+-stxdw [r10-672], r2
++stxdw [r10-656], r2
+ ldxdw r9, [r8]
+-stxdw [r10-624], r9
++stxdw [r10-608], r9
+ add64 r1, -1
+ stxdw [r8+8], r1
+ mov64 r1, r9
+ add64 r1, 48
+ stxdw [r8], r1
+ mov64 r1, r10
+-add64 r1, -608
++add64 r1, -560
+ mov64 r5, r10
+ mov64 r3, r8
+-call <anchor_lang::accounts::program::Program<T> as anchor_lang::Accounts<B>>::try_accounts#0669
+-ldxdw r1, [r10-600]
+-ldxdw r8, [r10-608]
+-jne r8, 2, +0x2e0
+-mov64 r8, r1
+-stxdw [r10-616], r1
++call <mayhem_program::checked_program::CheckedSystemProgram as anchor_lang::Accounts<mayhem_program::checked_program::CheckedSystemProgramBumps>>::try_accounts#2583
++ldxdw r8, [r10-552]
++ldxdw r1, [r10-560]
++jne r1, 2, +0x2d8
++stxdw [r10-600], r8
+ mov64 r1, r10
+ add64 r1, -560
+ call solana_sysvar::rent::<impl solana_sysvar::Sysvar for solana_rent::Rent>::get#3513
+ ldxw r1, [r10-560]
+-jne r1, 1, +0x458
++jne r1, 1, +0x300
+ ldxw r2, [r10-552]
+ ldxw r1, [r10-556]
+ call <anchor_lang::error::Error as core::convert::From<solana_program_error::ProgramError>>::from#507a
+@@ -53,13 +52,13 @@
+ mov64 r4, 0
+ jeq r4, 0, +0x280
+ lddw r1, 0x300007ffb
+-jeq r2, 0, +0x1d8
++jeq r2, 0, +0x1d0
+ mov64 r1, r3
+ mov64 r2, r6
+ and64 r2, 1
+ lddw r2, 0x300000007
+ mov64 r3, r7
+-jle r1, r2, +0xc40
++jle r1, r2, +0xaf0
+ lddw r2, 0x300000000
+ stxdw [r2], r1
+ stb [r1+4], 110
+@@ -69,62 +68,27 @@
+ stdw [r3+24], 5
+ stdw [r3+8], 5
+ stdw [r3], 1
+-ldxdw r1, [r10-664]
++ldxdw r1, [r10-648]
+ stxdw [r1+8], r3
+ stxdw [r1], r6
+-ja +0x418
+-jne r4, 0, +0x1b8
++stb [r1+269], 2
++ja +0x2f8
++jne r4, 0, +0x1b0
+ mov64 r3, r1
+ lddw r1, 0x300007ffb
+-jne r2, 0, +0x1d0
+-ja +0x1d8
++jne r2, 0, +0x1c8
++ja +0x1d0
+ mov64 r1, 3005
+ call <anchor_lang::error::Error as core::convert::From<anchor_lang::error::ErrorCode>>::from#ae9e
+-ldxdw r2, [r10-664]
++ldxdw r2, [r10-648]
+ stxdw [r2+8], r1
+ stxdw [r2], r0
++ja +0x2f0
++ldxdw r2, [r10-648]
++stxdw [r2+8], r8
++stxdw [r2], r1
+ stb [r2+269], 2
+-ja +0x420
+-mov64 r6, r1
+-call _RNvCscR3e5J6VSLN_7___rustc35___rust_no_alloc_shim_is_unstable_v2
+-lddw r1, 0x300000000
+-ldxdw r2, [r1]
+-mov64 r1, r2
+-add64 r1, -14
+-mov64 r3, 0
+-mov64 r4, 1
+-jgt r1, r2, +0x428
+-mov64 r4, 0
+-jeq r4, 0, +0x430
+-lddw r1, 0x300007ff2
+-jeq r2, 0, +0x360
+-mov64 r1, r3
+-mov64 r2, r8
+-and64 r2, 1
+-lddw r2, 0x300000007
+-mov64 r3, r6
+-jle r1, r2, +0xc68
+-lddw r2, 0x300000000
+-stxdw [r2], r1
+-lddw r2, 0x6d6172676f72705f
+-stxdw [r1+6], r2
+-lddw r2, 0x705f6d6574737973
+-stxdw [r1], r2
+-ldxdw r2, [r3]
+-stxdw [r3+16], r1
+-stdw [r3+24], 14
+-stdw [r3+8], 14
+-stdw [r3], 1
+-ldxdw r1, [r10-664]
+-stxdw [r1+8], r3
+-stxdw [r1], r8
+-stb [r1+269], 2
+ exit
+-jne r4, 0, +0x340
+-mov64 r3, r1
+-lddw r1, 0x300007ff2
+-jne r2, 0, +0x358
+-ja +0x360
+ ldxdw r1, [r10-548]
+ stxdw [r10-588], r1
+ ldxdw r1, [r10-540]
+@@ -142,7 +106,7 @@
+ mov64 r2, 1
+ mov64 r3, r7
+ call sol_try_find_program_address
+-jne r0, 0, +0xbe0
++jne r0, 0, +0xa90
+ ldxb r1, [r10-64]
+ stxb [r10-561], r1
+ ldxdw r0, [r10-536]
+@@ -152,48 +116,49 @@
+ stxb [r6], r1
+ ldxdw r1, [r9]
+ ldxdw r2, [r1]
+-jne r2, r3, +0x668
++jne r2, r3, +0x518
+ ldxdw r2, [r1+8]
+-jne r2, r4, +0x668
++jne r2, r4, +0x518
+ ldxdw r2, [r1+16]
+-jne r2, r5, +0x668
++jne r2, r5, +0x518
+ ldxdw r1, [r1+24]
+-jne r1, r0, +0x668
+-mov64 r1, r10
+-add64 r1, -656
++jne r1, r0, +0x518
++mov64 r1, r10
++add64 r1, -640
+ stxdw [r10-24], r1
+ mov64 r1, r10
+ add64 r1, -561
+ stxdw [r10-32], r1
+ mov64 r1, r10
+-add64 r1, -616
++add64 r1, -600
+ stxdw [r10-40], r1
+ mov64 r1, r10
+-add64 r1, -648
++add64 r1, -632
+ stxdw [r10-48], r1
+ mov64 r1, r10
+ add64 r1, -592
+ stxdw [r10-56], r1
+ mov64 r1, r10
+-add64 r1, -624
++add64 r1, -608
+ stxdw [r10-64], r1
+ mov64 r1, r10
+ add64 r1, -560
+ mov64 r2, r10
+ add64 r2, -64
+ call <mayhem_program::instructions::admin::InitializeGlobalParams as anchor_lang::Accounts<mayhem_program::instructions::admin::InitializeGlobalParamsBumps>>::try_accounts::{{closure}}#5f1b
+-ldxdw r9, [r10-552]
++ldxdw r6, [r10-552]
+ ldxdw r7, [r10-560]
+-ldxb r6, [r10-307]
+-jne r6, 2, +0x8e0
+-ldxdw r1, [r10-664]
+-stxdw [r1+8], r9
++ldxb r9, [r10-307]
++jne r9, 2, +0x790
++ldxdw r1, [r10-648]
++stxdw [r1+8], r6
+ stxdw [r1], r7
+-ja +0x418
++stb [r1+269], 2
++ja +0x2f8
+ mov64 r6, r0
+-stxdw [r10-688], r5
+-stxdw [r10-680], r4
+-stxdw [r10-672], r3
++stxdw [r10-672], r5
++stxdw [r10-664], r4
++stxdw [r10-656], r3
+ mov64 r1, 2006
+ call <anchor_lang::error::Error as core::convert::From<anchor_lang::error::ErrorCode>>::from#ae9e
+ mov64 r8, r0
+@@ -205,28 +170,28 @@
+ add64 r1, -13
+ mov64 r3, 0
+ mov64 r4, 1
+-jgt r1, r2, +0x770
++jgt r1, r2, +0x620
+ mov64 r4, 0
+-jeq r4, 0, +0x778
++jeq r4, 0, +0x628
+ lddw r1, 0x300007ff3
+-jeq r2, 0, +0x798
++jeq r2, 0, +0x648
+ mov64 r1, r3
+ mov64 r2, r8
+ and64 r2, 1
+ lddw r2, 0x300000007
+-jgt r1, r2, +0x7c0
++jgt r1, r2, +0x670
+ mov64 r1, 1
+ mov64 r2, 13
+ lddw r3, panic_location(/home/runner/work/platform-tools/platform-tools/out/rust/library/alloc/src/slice.rs:449:29)
+ call alloc::raw_vec::handle_error#4993
+-jne r4, 0, +0x700
++jne r4, 0, +0x5b0
+ mov64 r3, r1
+ lddw r1, 0x300007ff3
+-jne r2, 0, +0x718
++jne r2, 0, +0x5c8
+ mov64 r2, r8
+ and64 r2, 1
+ lddw r2, 0x300000007
+-jle r1, r2, +0x748
++jle r1, r2, +0x5f8
+ lddw r2, 0x300000000
+ stxdw [r2], r1
+ lddw r2, 0x736d617261705f6c
+@@ -248,11 +213,11 @@
+ ldxdw r1, [r1]
+ stxdw [r10-560], r1
+ stxdw [r10-504], r6
+-ldxdw r1, [r10-688]
++ldxdw r1, [r10-672]
+ stxdw [r10-512], r1
+-ldxdw r1, [r10-680]
++ldxdw r1, [r10-664]
+ stxdw [r10-520], r1
+-ldxdw r1, [r10-672]
++ldxdw r1, [r10-656]
+ stxdw [r10-528], r1
+ mov64 r3, r10
+ add64 r3, -560
+@@ -267,10 +232,10 @@
+ mov64 r3, 237
+ call memcpy
+ ldxb r1, [r7+41]
+-jeq r1, 0, +0xa40
+-stxdw [r10-688], r9
+-ldxh r1, [r10-306]
+-stxdw [r10-696], r1
++jeq r1, 0, +0x8f0
++stxdw [r10-680], r9
++stxdw [r10-672], r6
++ldxh r6, [r10-306]
+ mov64 r9, r10
+ add64 r9, -64
+ mov64 r1, r9
+@@ -278,7 +243,7 @@
+ call <solana_account_info::AccountInfo as core::clone::Clone>::clone#3106
+ mov64 r1, r9
+ call solana_account_info::AccountInfo::lamports#aa02
+-stxdw [r10-680], r0
++stxdw [r10-664], r0
+ mov64 r9, r10
+ add64 r9, -560
+ mov64 r1, r9
+@@ -289,11 +254,11 @@
+ mov64 r2, r9
+ call solana_account_info::AccountInfo::try_data_len#ceae
+ ldxw r1, [r10-16]
+-jne r1, 1, +0xa88
++jne r1, 1, +0x938
+ ldxw r2, [r10-8]
+ ldxw r1, [r10-12]
+ call <anchor_lang::error::Error as core::convert::From<solana_program_error::ProgramError>>::from#507a
+-ldxdw r2, [r10-664]
++ldxdw r2, [r10-648]
+ stxdw [r2+8], r1
+ stxdw [r2], r0
+ stb [r2+269], 2
+@@ -303,7 +268,7 @@
+ mov64 r1, r10
+ add64 r1, -64
+ call core::ptr::drop_in_place<solana_account_info::AccountInfo>#4a59
+-ja +0x420
++ja +0x2f8
+ mov64 r1, 2000
+ call <anchor_lang::error::Error as core::convert::From<anchor_lang::error::ErrorCode>>::from#ae9e
+ mov64 r2, r1
+@@ -315,7 +280,7 @@
+ ldxdw r3, [r10-8]
+ mov64 r1, r10
+ add64 r1, -592
+-ldxdw r2, [r10-680]
++ldxdw r2, [r10-664]
+ call solana_rent::Rent::is_exempt#47b6
+ mov64 r9, r0
+ mov64 r1, r10
+@@ -324,36 +289,36 @@
+ mov64 r1, r10
+ add64 r1, -64
+ call core::ptr::drop_in_place<solana_account_info::AccountInfo>#4a59
+-jeq r9, 0, +0xb90
+-ldxdw r3, [r10-672]
++jeq r9, 0, +0xa40
++ldxdw r3, [r10-656]
+ ldxb r1, [r3+41]
+-jeq r1, 0, +0xba0
+-ldxdw r9, [r10-664]
++jeq r1, 0, +0xa50
++ldxdw r9, [r10-648]
+ mov64 r1, r9
+ add64 r1, 32
+ mov64 r2, r10
+ add64 r2, -304
+ mov64 r3, 237
+ call memcpy
+-ldxdw r1, [r10-696]
+-stxh [r9+270], r1
+-stxb [r9+269], r6
+-ldxdw r1, [r10-688]
++stxh [r9+270], r6
++ldxdw r1, [r10-680]
++stxb [r9+269], r1
++ldxdw r1, [r10-672]
+ stxdw [r9+24], r1
+ stxdw [r9+16], r7
+ stxdw [r9+8], r8
+-ldxdw r1, [r10-672]
++ldxdw r1, [r10-656]
+ stxdw [r9], r1
+-ja +0x420
++ja +0x2f8
+ mov64 r1, 2005
+-ja +0xa48
++ja +0x8f8
+ mov64 r1, 2000
+ call <anchor_lang::error::Error as core::convert::From<anchor_lang::error::ErrorCode>>::from#ae9e
+ mov64 r2, r1
+ mov64 r1, r0
+ lddw r3, str("admin")
+ mov64 r4, 5
+-ja +0xa78
++ja +0x928
+ lddw r1, str("Unable to find a viable program address bump seed")
+ stxdw [r10-560], r1
+ stdw [r10-528], 0
+@@ -368,7 +333,3 @@
+ mov64 r2, 5
+ lddw r3, panic_location(/home/runner/work/platform-tools/platform-tools/out/rust/library/alloc/src/slice.rs:449:29)
+ call alloc::raw_vec::handle_error#4993
+-mov64 r1, 1
+-mov64 r2, 14
+-lddw r3, panic_location(/home/runner/work/platform-tools/platform-tools/out/rust/library/alloc/src/slice.rs:449:29)
+-call alloc::raw_vec::handle_error#4993

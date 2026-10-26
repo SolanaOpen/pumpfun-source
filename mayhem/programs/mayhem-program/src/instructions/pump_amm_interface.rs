@@ -3,55 +3,25 @@ use super::pump_interface::{buy, sell};
 pub mod pump_swap_types {
 //! External AMM codecs recovered from original Mayhem decoding routines.
 use anchor_lang::prelude::*;
-use anchor_lang::Discriminator;
 pub const AMM_ID:Pubkey=pubkey!("pAMMBay6oceH9fJKBRHGP5D4bD4sWpmSwMn52FMfXEA");
-// 0x17d8 computes current serialized size 287 from the default struct, allocates a
-// ZERO-filled 287-byte buffer for every shorter input, copies ALL available input
-// bytes, then calls 0x8eb78. No version-boundary truncation is used in Mayhem.
-#[derive(AnchorSerialize,AnchorDeserialize,Clone)]
-pub struct SwapPool {
- pub pool_bump:u8,                  // 8
- pub index:u16,                     // 9
- pub creator:Pubkey,                // 11
- pub base_mint:Pubkey,              // 43
- pub quote_mint:Pubkey,             // 75
- pub lp_mint:Pubkey,                // 107
- pub pool_base_token_account:Pubkey,// 139
- pub pool_quote_token_account:Pubkey,//171
- pub lp_supply:u64,                 // 203
- pub coin_creator:Pubkey,           // 211
- pub is_mayhem_mode:bool,           // 243
- pub is_cashback_coin:bool,         // 244
- pub virtual_quote_reserves:i128,   // 245
- pub creator_fee_bps:u64,           // 261
- pub can_edit_creator_fee:bool,     // 269
- pub is_holder_reward:bool,         // 270
- pub protocol_fees:u64,             // 271
- pub creator_fees:u64,              // 279, end287
-}
-impl Owner for SwapPool {fn owner()->Pubkey{AMM_ID}}
-impl Discriminator for SwapPool {const DISCRIMINATOR:&'static[u8]=&[241,154,109,4,17,177,109,188];}
-impl AccountDeserialize for SwapPool {
- fn try_deserialize(buf:&mut &[u8])->Result<Self>{
-  let mut padded=[0u8;287];let data=if buf.len()<287{padded[..buf.len()].copy_from_slice(buf);&padded[..]}else{*buf};
-  // Padding precedes discriminator validation: inputs shorter than8 reject as
-  // AccountDiscriminatorMismatch (unless all8 discriminator bytes are present).
-  if &data[..8]!=Self::DISCRIMINATOR{return Err(anchor_lang::error::Error::from(anchor_lang::error::ErrorCode::AccountDiscriminatorMismatch).with_account_name("Pool"));}
-  Self::deserialize(&mut &data[8..]).map_err(|_|anchor_lang::error::ErrorCode::AccountDidNotDeserialize.into())
- }
- fn try_deserialize_unchecked(buf:&mut &[u8])->Result<Self>{
-  let mut padded=[0u8;287];let data=if buf.len()<287{padded[..buf.len()].copy_from_slice(buf);&padded[..]}else{*buf};
-  Self::deserialize(&mut &data[8..]).map_err(|_|anchor_lang::error::ErrorCode::AccountDidNotDeserialize.into())
- }
-}
-impl AccountSerialize for SwapPool {
- fn try_serialize<W:std::io::Write>(&self,w:&mut W)->Result<()>{w.write_all(Self::DISCRIMINATOR).map_err(|_|anchor_lang::error::ErrorCode::AccountDidNotSerialize)?;self.serialize(w).map_err(|_|anchor_lang::error::ErrorCode::AccountDidNotSerialize.into())}
-}
+/// PumpSwap's `Pool` (287-byte layout) as `pump-cpi`'s `declare_program!(pump_amm)`
+/// generates it, read through `pump-cpi`'s zero-padding account wrapper.
+pub type SwapPool=pump_cpi::account_wrapper::AccountWrapper<pump_cpi::pump_amm_v2::pump_amm::accounts::Pool>;
 /// PumpSwap's GlobalConfig as `declare_program!(pump_amm)` generates it (418-byte layout).
 pub use crate::pump_amm::accounts::GlobalConfig as SwapGlobalConfig;
 
 #[error_code]
 pub enum PumpSwapError {
+ #[msg("Reserved")]PumpSwapReserved0=0,
+ #[msg("Reserved")]PumpSwapReserved1=1,
+ #[msg("Reserved")]PumpSwapReserved2=2,
+ #[msg("Reserved")]PumpSwapReserved3=3,
+ #[msg("Reserved")]PumpSwapReserved4=4,
+ #[msg("Reserved")]PumpSwapReserved5=5,
+ #[msg("Reserved")]PumpSwapReserved6=6,
+ #[msg("Reserved")]PumpSwapReserved7=7,
+ #[msg("Reserved")]PumpSwapReserved8=8,
+ #[msg("Reserved")]PumpSwapReserved9=9,
  #[msg("Pump Swap CPI call failed")]PumpSwapCpiFailed=10,
  #[msg("Math Overflow in Pump Swap CPI call")]PumpSwapCpiMathOverflow=11,
 }
@@ -86,7 +56,7 @@ pub struct BuyPumpSwap<'info> {
  pub mayhem_quote_vault:Box<InterfaceAccount<'info,TokenAccount>>,
  /// CHECK: original PDA+mut only; no SystemAccount ownership check.
  #[account(mut,seeds=[b"sol-vault"],bump)]pub sol_vault:UncheckedAccount<'info>,
- pub system_program:CheckedSystemProgram<'info>,
+ pub system_program:Program<'info,System>,
  // Original parses Interface then applies address constraint 2012 at 0x49568.
  #[account(address=SPL_TOKEN_ID)]pub quote_token_program:Interface<'info,TokenInterface>,
  pub base_token_program:Program<'info,Token2022>,
@@ -216,7 +186,7 @@ pub struct SellPumpSwap<'info> {
  pub mayhem_quote_vault:Box<InterfaceAccount<'info,TokenAccount>>,
  /// CHECK: original PDA+mut only; no SystemAccount ownership check.
  #[account(mut,seeds=[b"sol-vault"],bump)]pub sol_vault:UncheckedAccount<'info>,
- pub system_program:CheckedSystemProgram<'info>,
+ pub system_program:Program<'info,System>,
  // Original parses Interface then applies address constraint 2012 at 0x49568.
  #[account(address=SPL_TOKEN_ID)]pub quote_token_program:Interface<'info,TokenInterface>,
  pub base_token_program:Program<'info,Token2022>,

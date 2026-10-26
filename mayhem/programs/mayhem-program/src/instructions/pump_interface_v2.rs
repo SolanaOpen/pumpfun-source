@@ -81,11 +81,11 @@ pub fn handler(ctx:Context<BuyV2>,reference:u128,tolerance_bps:u16,retained_rese
  a.mayhem_state.field_89=now as u64;
  require!(Clock::get().unwrap().unix_timestamp<a.mayhem_state.end_timestamp,SellError::MayhemModeEnded);
  if a.mayhem_state.status!=MayhemStatus::Variant1 {
-  require!(a.bonding_curve.real_sol_reserves>=if native_accounting{u64::from_le_bytes(a.global_params.preserved_middle_a)}else{u64::from_le_bytes(a.global_params.reset_stable_suffix[0..8].try_into().unwrap())},SellError::SolReservesTooLow);
+  require!(a.bonding_curve.real_quote_reserves>=if native_accounting{u64::from_le_bytes(a.global_params.preserved_middle_a)}else{u64::from_le_bytes(a.global_params.reset_stable_suffix[0..8].try_into().unwrap())},SellError::SolReservesTooLow);
   a.mayhem_state.status=MayhemStatus::Variant1;
  }
  let c=&a.bonding_curve;
- let vt=c.virtual_token_reserves as u128;let vs=c.virtual_sol_reserves as u128;
+ let vt=c.virtual_token_reserves as u128;let vs=c.virtual_quote_reserves as u128;
  if vt==0{return Err(math());}
  let scaled=reference.checked_mul(tolerance_bps as u128).ok_or_else(math)?;
  let price=vs*1_000_000_000_000_000u128/vt;let delta=scaled/10_000;
@@ -96,7 +96,7 @@ pub fn handler(ctx:Context<BuyV2>,reference:u128,tolerance_bps:u16,retained_rese
  let mut output=u64::try_from(vs*tokens/(vt+tokens)).unwrap();
  let cap=if native_accounting{u64::from_le_bytes(a.global_params.reset_prefix[8..16].try_into().unwrap())}else{u64::from_le_bytes(a.global_params.reset_stable_prefix[0..8].try_into().unwrap())};
  if cap!=0 {output=output.min(cap);}
- output=output.min((c.real_sol_reserves as u128*retained as u128/10_000) as u64);
+ output=output.min((c.real_quote_reserves as u128*retained as u128/10_000) as u64);
  let input=u64::try_from((output as u128*vt).checked_div(vs+output as u128).unwrap()).unwrap().min(c.real_token_reserves);
  let before_sol=if native{a.sol_vault.lamports()}else{a.mayhem_quote_token_vault.amount};let before_tokens=a.mayhem_base_token_vault.amount;
  let accounts=pump_cpi::pump_v2::pump::cpi::accounts::BuyV2{global:a.global.to_account_info(),base_mint:a.mint.to_account_info(),quote_mint:a.quote_mint.to_account_info(),base_token_program:a.token_program.to_account_info(),quote_token_program:a.quote_token_program.to_account_info(),associated_token_program:a.associated_token_program.to_account_info(),fee_recipient:a.fee_recipient.to_account_info(),associated_quote_fee_recipient:a.fee_recipient_ata.to_account_info(),buyback_fee_recipient:a.buyback_recipient.to_account_info(),associated_quote_buyback_fee_recipient:a.buyback_recipient_ata.to_account_info(),bonding_curve:a.bonding_curve.to_account_info(),associated_base_bonding_curve:a.associated_base_bonding_curve.to_account_info(),associated_quote_bonding_curve:a.associated_quote_bonding_curve.to_account_info(),user:a.sol_vault.to_account_info(),associated_base_user:a.mayhem_base_token_vault.to_account_info(),associated_quote_user:a.mayhem_quote_token_vault.to_account_info(),creator_vault:a.creator_vault.to_account_info(),associated_creator_vault:a.associated_creator_vault.to_account_info(),sharing_config:a.sharing_config.to_account_info(),global_volume_accumulator:a.global_volume_accumulator.to_account_info(),user_volume_accumulator:a.user_volume_accumulator.to_account_info(),associated_user_volume_accumulator:a.associated_user_volume_accumulator.to_account_info(),fee_config:a.fee_config.to_account_info(),fee_program:a.fee_program.to_account_info(),system_program:a.system_program.to_account_info(),event_authority:a.pump_event_authority.to_account_info(),program:a.pump_program.to_account_info()};
@@ -114,7 +114,7 @@ pub fn handler(ctx:Context<BuyV2>,reference:u128,tolerance_bps:u16,retained_rese
  let coin_limit=if native_accounting{u64::from_le_bytes(a.global_params.reset_prefix[32..40].try_into().unwrap())}else{u64::from_le_bytes(a.global_params.reset_stable_prefix[16..24].try_into().unwrap())};
  if global_deployed>0 {require_gt!(overall_limit,global_deployed as u64,BuyError::OverallRiskExceeded);}
  if a.mayhem_state.field_56>0 {require_gt!(coin_limit,a.mayhem_state.field_56 as u64,BuyError::CoinRiskExceeded);}
- let event=SellEvent{side:0,sol_vault:a.sol_vault.key(),mint:a.mint.key(),sol_amount:if native{sol}else{0},token_amount:tokens,sol_vault_balance:if native{a.sol_vault.lamports()}else{0},token_vault_balance:a.mayhem_base_token_vault.amount,state_sol_deployed:if native{a.mayhem_state.field_56}else{0},state_token_net:a.mayhem_state.field_72,virtual_sol:if native{a.bonding_curve.virtual_sol_reserves}else{0},virtual_tokens:a.bonding_curve.virtual_token_reserves,global_sol_deployed:if native{a.global_params.sol_deployed}else{0},timestamp:Clock::get()?.unix_timestamp,end_timestamp:a.mayhem_state.end_timestamp,real_sol:if native{a.bonding_curve.real_sol_reserves}else{0},real_tokens:a.bonding_curve.real_token_reserves,version:a.global_params.version,retained_reserve_bps,quote_amount:sol,quote_vault_balance:after_quote,state_quote_deployed:a.mayhem_state.field_56,virtual_quote:a.bonding_curve.virtual_sol_reserves,global_quote_deployed:if native_accounting{a.global_params.sol_deployed}else{a.global_params.stable_deployed},real_quote:a.bonding_curve.real_sol_reserves,quote_mint:if native{Pubkey::default()}else{a.quote_mint.key()}};
+ let event=SellEvent{side:0,sol_vault:a.sol_vault.key(),mint:a.mint.key(),sol_amount:if native{sol}else{0},token_amount:tokens,sol_vault_balance:if native{a.sol_vault.lamports()}else{0},token_vault_balance:a.mayhem_base_token_vault.amount,state_sol_deployed:if native{a.mayhem_state.field_56}else{0},state_token_net:a.mayhem_state.field_72,virtual_sol:if native{a.bonding_curve.virtual_quote_reserves}else{0},virtual_tokens:a.bonding_curve.virtual_token_reserves,global_sol_deployed:if native{a.global_params.sol_deployed}else{0},timestamp:Clock::get()?.unix_timestamp,end_timestamp:a.mayhem_state.end_timestamp,real_sol:if native{a.bonding_curve.real_quote_reserves}else{0},real_tokens:a.bonding_curve.real_token_reserves,version:a.global_params.version,retained_reserve_bps,quote_amount:sol,quote_vault_balance:after_quote,state_quote_deployed:a.mayhem_state.field_56,virtual_quote:a.bonding_curve.virtual_quote_reserves,global_quote_deployed:if native_accounting{a.global_params.sol_deployed}else{a.global_params.stable_deployed},real_quote:a.bonding_curve.real_quote_reserves,quote_mint:if native{Pubkey::default()}else{a.quote_mint.key()}};
  emit!(event);emit_cpi!(event);Ok(())
 }
 }
@@ -198,11 +198,11 @@ pub fn handler(ctx:Context<SellV2>,reference:u128,tolerance_bps:u16,retained_res
  a.mayhem_state.field_89=now as u64;
  require!(Clock::get().unwrap().unix_timestamp<a.mayhem_state.end_timestamp,SellError::MayhemModeEnded);
  if a.mayhem_state.status!=MayhemStatus::Variant1 {
-  require!(a.bonding_curve.real_sol_reserves>=if native_accounting{u64::from_le_bytes(a.global_params.preserved_middle_a)}else{u64::from_le_bytes(a.global_params.reset_stable_suffix[0..8].try_into().unwrap())},SellError::SolReservesTooLow);
+  require!(a.bonding_curve.real_quote_reserves>=if native_accounting{u64::from_le_bytes(a.global_params.preserved_middle_a)}else{u64::from_le_bytes(a.global_params.reset_stable_suffix[0..8].try_into().unwrap())},SellError::SolReservesTooLow);
   a.mayhem_state.status=MayhemStatus::Variant1;
  }
  let c=&a.bonding_curve;
- let vt=c.virtual_token_reserves as u128;let vs=c.virtual_sol_reserves as u128;
+ let vt=c.virtual_token_reserves as u128;let vs=c.virtual_quote_reserves as u128;
  if vt==0{return Err(math());}
  let scaled=reference.checked_mul(tolerance_bps as u128).ok_or_else(math)?;
  let price=vs*1_000_000_000_000_000u128/vt;let delta=scaled/10_000;
@@ -213,7 +213,7 @@ pub fn handler(ctx:Context<SellV2>,reference:u128,tolerance_bps:u16,retained_res
  let mut output=u64::try_from(vs*tokens/(vt+tokens)).unwrap();
  let cap=if native_accounting{u64::from_le_bytes(a.global_params.reset_prefix[8..16].try_into().unwrap())}else{u64::from_le_bytes(a.global_params.reset_stable_prefix[0..8].try_into().unwrap())};
  if cap!=0 {output=output.min(cap);}
- output=output.min((c.real_sol_reserves as u128*retained as u128/10_000) as u64);
+ output=output.min((c.real_quote_reserves as u128*retained as u128/10_000) as u64);
  let input=u64::try_from((output as u128*vt).checked_div(vs-output as u128).unwrap()).unwrap();
  let minimum=output.saturating_sub(1);
  let before_sol=if native{a.sol_vault.lamports()}else{a.mayhem_quote_token_vault.amount};let before_tokens=a.mayhem_base_token_vault.amount;
@@ -227,7 +227,7 @@ pub fn handler(ctx:Context<SellV2>,reference:u128,tolerance_bps:u16,retained_res
  if native_accounting{a.global_params.sol_deployed=a.global_params.sol_deployed.checked_sub(sol as i128).ok_or_else(math)?;}else{a.global_params.stable_deployed=a.global_params.stable_deployed.checked_sub(sol as i128).ok_or_else(math)?;}
  a.mayhem_state.field_56=a.mayhem_state.field_56.checked_sub(sol as i128).ok_or_else(math)?;
  a.mayhem_state.field_72=a.mayhem_state.field_72.checked_add(tokens as i128).ok_or_else(math)?;
- let event=SellEvent{side:1,sol_vault:a.sol_vault.key(),mint:a.mint.key(),sol_amount:if native{sol}else{0},token_amount:tokens,sol_vault_balance:if native{a.sol_vault.lamports()}else{0},token_vault_balance:a.mayhem_base_token_vault.amount,state_sol_deployed:if native{a.mayhem_state.field_56}else{0},state_token_net:a.mayhem_state.field_72,virtual_sol:if native{a.bonding_curve.virtual_sol_reserves}else{0},virtual_tokens:a.bonding_curve.virtual_token_reserves,global_sol_deployed:if native{a.global_params.sol_deployed}else{0},timestamp:Clock::get()?.unix_timestamp,end_timestamp:a.mayhem_state.end_timestamp,real_sol:if native{a.bonding_curve.real_sol_reserves}else{0},real_tokens:a.bonding_curve.real_token_reserves,version:a.global_params.version,retained_reserve_bps,quote_amount:sol,quote_vault_balance:after_quote,state_quote_deployed:a.mayhem_state.field_56,virtual_quote:a.bonding_curve.virtual_sol_reserves,global_quote_deployed:if native_accounting{a.global_params.sol_deployed}else{a.global_params.stable_deployed},real_quote:a.bonding_curve.real_sol_reserves,quote_mint:if native{Pubkey::default()}else{a.quote_mint.key()}};
+ let event=SellEvent{side:1,sol_vault:a.sol_vault.key(),mint:a.mint.key(),sol_amount:if native{sol}else{0},token_amount:tokens,sol_vault_balance:if native{a.sol_vault.lamports()}else{0},token_vault_balance:a.mayhem_base_token_vault.amount,state_sol_deployed:if native{a.mayhem_state.field_56}else{0},state_token_net:a.mayhem_state.field_72,virtual_sol:if native{a.bonding_curve.virtual_quote_reserves}else{0},virtual_tokens:a.bonding_curve.virtual_token_reserves,global_sol_deployed:if native{a.global_params.sol_deployed}else{0},timestamp:Clock::get()?.unix_timestamp,end_timestamp:a.mayhem_state.end_timestamp,real_sol:if native{a.bonding_curve.real_quote_reserves}else{0},real_tokens:a.bonding_curve.real_token_reserves,version:a.global_params.version,retained_reserve_bps,quote_amount:sol,quote_vault_balance:after_quote,state_quote_deployed:a.mayhem_state.field_56,virtual_quote:a.bonding_curve.virtual_quote_reserves,global_quote_deployed:if native_accounting{a.global_params.sol_deployed}else{a.global_params.stable_deployed},real_quote:a.bonding_curve.real_quote_reserves,quote_mint:if native{Pubkey::default()}else{a.quote_mint.key()}};
  emit!(event);emit_cpi!(event);Ok(())
 }
 }

@@ -1,4 +1,4 @@
-# alloc::raw_vec::finish_grow  (yours 312 B at .text+0x81ee0; original 328 B at .text+0x925e0)
+# alloc::raw_vec::finish_grow  (yours 312 B at .text+0x75358; original 328 B at .text+0x925e0)
 # distance 31 instructions; evidence: same-callees 3/3
 --- original
 +++ yours

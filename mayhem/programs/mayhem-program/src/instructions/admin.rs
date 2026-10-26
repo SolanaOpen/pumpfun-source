@@ -5,18 +5,18 @@ use crate::state::GlobalParams;
 use crate::MayhemError;
 
 #[derive(Accounts)]
-pub struct Admin<'info> {
+pub struct Admin<'info> { #[account(mut)] pub admin: Signer<'info>, #[account(mut, seeds = [b"global-params"], bump, has_one = admin)] pub global_params: Account<'info, GlobalParams>, pub system_program: Program<'info, System>, #[doc = " CHECK: Preserve the captured runtime PDA derivation and ConstraintSeeds error."] #[account(seeds = [b"__event_authority"], bump)] pub event_authority: UncheckedAccount<'info>, #[doc = " CHECK: Captured parser consumes this account without an address constraint."] pub program: UncheckedAccount<'info>, }
+#[derive(Accounts)]
+pub struct InitializeGlobalParams<'info> {
     #[account(mut)]
     pub admin: Signer<'info>,
-    #[account(mut, seeds = [b"global-params"], bump, has_one = admin)]
+    #[account(init, payer = admin, space = 254, seeds = [b"global-params"], bump)]
     pub global_params: Account<'info, GlobalParams>,
     pub system_program: CheckedSystemProgram<'info>,
-    /// CHECK: Preserve the captured runtime PDA derivation and ConstraintSeeds error.
-    #[account(seeds = [b"__event_authority"], bump)]
-    pub event_authority: UncheckedAccount<'info>,
-    /// CHECK: Captured parser consumes this account without an address constraint.
-    pub program: UncheckedAccount<'info>,
 }
+
+// (layout padding)
+// (layout padding)
 
 /// Recovered serialized widths/order. Semantic names remain unresolved.
 #[derive(AnchorSerialize, AnchorDeserialize, Clone)]
@@ -63,14 +63,14 @@ pub struct GlobalParamsUpdateEvent {
     pub field_15: u64,
 }
 
-#[derive(Accounts)]
-pub struct InitializeGlobalParams<'info> {
-    #[account(mut)]
-    pub admin: Signer<'info>,
-    #[account(init, payer = admin, space = 254, seeds = [b"global-params"], bump)]
-    pub global_params: Account<'info, GlobalParams>,
-    pub system_program: CheckedSystemProgram<'info>,
-}
+// (layout padding)
+// (layout padding)
+// (layout padding)
+// (layout padding)
+// (layout padding)
+// (layout padding)
+// (layout padding)
+// (layout padding)
 
 #[derive(Accounts)]
 pub struct WithdrawAdmin<'info> {
@@ -81,7 +81,7 @@ pub struct WithdrawAdmin<'info> {
     /// CHECK: PDA/writability enforced here; System CPI enforces spending owner.
     #[account(mut, seeds = [b"sol-vault"], bump)]
     pub sol_vault: UncheckedAccount<'info>,
-    pub system_program: CheckedSystemProgram<'info>,
+    pub system_program: Program<'info, System>,
 }
 
 #[derive(Accounts)]
@@ -93,12 +93,12 @@ pub struct WithdrawQuoteAdmin<'info> {
     #[account(mut, seeds = [b"sol-vault"], bump)] pub sol_vault: UncheckedAccount<'info>,
     pub quote_mint: InterfaceAccount<'info, Mint>,
     #[account(mut, associated_token::mint = quote_mint, associated_token::authority = sol_vault, associated_token::token_program = token_program)]
-    pub vault_quote_ata: InterfaceAccount<'info, TokenAccount>,
+    pub sol_vault_quote_ata: InterfaceAccount<'info, TokenAccount>,
     #[account(init_if_needed, payer = admin, associated_token::mint = quote_mint, associated_token::authority = admin, associated_token::token_program = token_program)]
     pub admin_quote_ata: InterfaceAccount<'info, TokenAccount>,
     pub token_program: Interface<'info, TokenInterface>,
     pub associated_token_program: Program<'info, AssociatedToken>,
-    pub system_program: CheckedSystemProgram<'info>,
+    pub system_program: Program<'info, System>,
 }
 
 pub fn initialize_global_params(ctx: Context<InitializeGlobalParams>) -> Result<()> {
@@ -204,7 +204,7 @@ pub fn withdraw_quote_admin(ctx: Context<WithdrawQuoteAdmin>, amount: u64) -> Re
     let seeds: &[&[u8]] = &[b"sol-vault", &bump];
     anchor_spl::token::transfer(CpiContext::new_with_signer(
         ctx.accounts.token_program.key(), anchor_spl::token::Transfer {
-            from: ctx.accounts.vault_quote_ata.to_account_info(),
+            from: ctx.accounts.sol_vault_quote_ata.to_account_info(),
             to: ctx.accounts.admin_quote_ata.to_account_info(),
             authority: ctx.accounts.sol_vault.to_account_info(),
         }, &[seeds]), amount)

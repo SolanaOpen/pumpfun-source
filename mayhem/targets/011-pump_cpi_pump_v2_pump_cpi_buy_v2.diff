@@ -1,0 +1,1109 @@
+# pump_cpi::pump_v2::pump::cpi::buy_v2  (yours 5816 B at .text+0x76390; original 5896 B at .text+0x84b48)
+# distance 398 instructions; evidence: same-callees 12/12; neighbours between the same matched functions as in your build
+--- original
++++ yours
+@@ -1,209 +1,202 @@
+-mov64 r6, r1
+-stxb [r10-56], r4
+-stxdw [r10-64], r3
+-stxdw [r10-72], r2
++mov64 r9, r4
++mov64 r8, r3
++mov64 r6, r2
++mov64 r7, r1
+ call _RNvCscR3e5J6VSLN_7___rustc35___rust_no_alloc_shim_is_unstable_v2
+ mov64 r1, 256
+ mov64 r2, 1
+ call _RNvCscR3e5J6VSLN_7___rustc12___rust_alloc
+-jeq r0, 0, +0x16e0
+-stxdw [r10-40], r0
+-stdw [r10-48], 256
++jeq r0, 0, +0x1690
++stxb [r0+24], r9
++stxdw [r0+16], r8
++stxdw [r0+8], r6
+ lddw r1, 0x3dd3c56761ee17b8
++stxdw [r10-112], r0
+ stxdw [r0], r1
+-stdw [r10-32], 8
+-mov64 r1, r10
+-add64 r1, -72
+-mov64 r2, r10
+-add64 r2, -48
+-call orig_fn_8f9e0
+-mov64 r7, r6
+-add64 r7, 24
++mov64 r8, r7
++add64 r8, 24
+ mov64 r1, r10
+ add64 r1, -24
+-mov64 r2, r7
++mov64 r2, r8
+ call <pump_cpi::pump_v2::pump::internal::__cpi_client_accounts_buy_v2::BuyV2 as anchor_lang::ToAccountMetas>::to_account_metas#3863
+ mov64 r1, 0
+-ldxdw r9, [r6+16]
+-mov64 r8, r9
+-mul64 r8, 34
+-jsge r8, 0, +0x118
+-mov64 r2, r8
++ldxdw r3, [r7+16]
++mov64 r9, r3
++mul64 r9, 34
++jsge r9, 0, +0xf8
++mov64 r2, r9
+ lddw r3, panic_location(/home/runner/work/platform-tools/platform-tools/out/rust/library/core/src/iter/traits/iterator.rs:2027:9)
+ call alloc::raw_vec::handle_error#4993
+-stxdw [r10-192], r6
+-stxdw [r10-168], r7
+-stxdw [r10-160], r9
+-jeq r9, 0, +0x15f8
+-ldxdw r6, [r6+8]
++stxdw [r10-144], r7
++stxdw [r10-120], r3
++stxdw [r10-128], r8
++jeq r3, 0, +0x15c0
++ldxdw r6, [r7+8]
+ call _RNvCscR3e5J6VSLN_7___rustc35___rust_no_alloc_shim_is_unstable_v2
+-mov64 r1, r8
++mov64 r1, r9
+ mov64 r2, 1
+ call _RNvCscR3e5J6VSLN_7___rustc12___rust_alloc
++ldxdw r2, [r10-120]
+ mov64 r1, 1
+-jeq r0, 0, +0xf8
++jeq r0, 0, +0xd8
+ add64 r6, 41
+-stxdw [r10-176], r0
++stxdw [r10-136], r0
+ mov64 r1, r0
+ add64 r1, 33
+-mov64 r2, r9
+ ldxdw r3, [r6-41]
+ ldxdw r4, [r3]
+ ldxdw r5, [r3+8]
+ ldxdw r0, [r3+16]
+ ldxdw r3, [r3+24]
+-ldxb r9, [r6-1]
++ldxb r8, [r6-1]
+ ldxb r7, [r6]
+ stxdw [r1-9], r3
+ stxdw [r1-17], r0
+ stxdw [r1-25], r5
+ stxdw [r1-33], r4
+ stxb [r1], r7
+-stxb [r1-1], r9
++stxb [r1-1], r8
+ add64 r6, 48
+ add64 r1, 34
+ add64 r2, -1
+-jne r2, 0, +0x198
+-ldxdw r9, [r10-160]
+-ldxdw r0, [r10-176]
++jne r2, 0, +0x178
++ldxdw r3, [r10-120]
++ldxdw r8, [r10-136]
+ ldxdw r6, [r10-8]
+ ldxdw r1, [r10-24]
+ sub64 r1, r6
+-jgt r9, r1, +0x1620
+-ldxdw r7, [r10-192]
++jgt r3, r1, +0x15e8
++ldxdw r7, [r10-144]
+ mov64 r2, r6
+ mul64 r2, 34
+ ldxdw r1, [r10-16]
+ add64 r1, r2
+-mov64 r2, r0
+-mov64 r3, r8
+-mov64 r9, r0
++mov64 r2, r8
++mov64 r3, r9
+ call memcpy
+-ldxdw r1, [r10-160]
++ldxdw r1, [r10-120]
+ add64 r6, r1
+ stxdw [r10-8], r6
+-jeq r1, 0, +0x2d8
+-mov64 r1, r9
+-mov64 r2, r8
++jeq r1, 0, +0x2b0
++mov64 r1, r8
++mov64 r2, r9
+ mov64 r3, 1
+ call _RNvCscR3e5J6VSLN_7___rustc14___rust_dealloc
+ ldxdw r1, [r10-8]
+-stxdw [r10-136], r1
++stxdw [r10-88], r1
+ ldxdw r1, [r10-16]
+-stxdw [r10-144], r1
++stxdw [r10-96], r1
+ ldxdw r1, [r10-24]
+-stxdw [r10-152], r1
++stxdw [r10-104], r1
+ ldxdw r1, [r7+1336]
+-stxdw [r10-104], r1
++stxdw [r10-56], r1
+ ldxdw r1, [r7+1344]
+-stxdw [r10-96], r1
++stxdw [r10-48], r1
+ ldxdw r1, [r7+1352]
+-stxdw [r10-88], r1
++stxdw [r10-40], r1
+ ldxdw r1, [r7+1360]
+-stxdw [r10-80], r1
+-ldxdw r1, [r10-48]
+-stxdw [r10-128], r1
+-ldxdw r1, [r10-40]
+-stxdw [r10-120], r1
+-ldxdw r1, [r10-32]
+-stxdw [r10-112], r1
++stxdw [r10-32], r1
++ldxdw r1, [r10-112]
++stxdw [r10-72], r1
++stdw [r10-64], 25
++stdw [r10-80], 256
+ mov64 r1, r10
+ add64 r1, -24
+-ldxdw r2, [r10-168]
++ldxdw r2, [r10-128]
+ call <pump_cpi::pump_v2::pump::internal::__cpi_client_accounts_buy_v2::BuyV2 as anchor_lang::ToAccountInfos>::to_account_infos#3dbe
+ ldxdw r9, [r10-8]
+ ldxdw r1, [r10-24]
+ sub64 r1, r9
+ ldxdw r2, [r7+8]
+-stxdw [r10-176], r2
+-ldxdw r7, [r7+16]
+-jgt r7, r1, +0x1680
++stxdw [r10-128], r2
++ldxdw r6, [r7+16]
++jgt r6, r1, +0x1630
+ ldxdw r1, [r10-16]
+-stxdw [r10-200], r1
+-jeq r7, 0, +0x570
++stxdw [r10-152], r1
++jeq r6, 0, +0x538
+ mov64 r2, r9
+ mul64 r2, 48
+ add64 r1, r2
+-stxdw [r10-184], r1
++stxdw [r10-136], r1
+ mov64 r2, 0
+-ldxdw r4, [r10-176]
++ldxdw r4, [r10-128]
+ add64 r4, r2
+ ldxdw r1, [r4+8]
+ ldxdw r0, [r1]
+ add64 r0, 1
+-mov64 r8, 1
+-jeq r0, 0, +0x450
+-mov64 r8, 0
++mov64 r7, 1
++jeq r0, 0, +0x418
++mov64 r7, 0
+ ldxdw r5, [r4]
+ stxdw [r1], r0
+-jeq r8, 1, +0x1678
++jeq r7, 1, +0x1628
+ ldxdw r0, [r4+16]
+-ldxdw r8, [r0]
+-add64 r8, 1
+-mov64 r6, 1
+-jeq r8, 0, +0x498
+-mov64 r6, 0
+-stxdw [r0], r8
+-jeq r6, 1, +0x1678
+-ldxdw r6, [r10-184]
+-add64 r6, r2
++ldxdw r7, [r0]
++add64 r7, 1
++mov64 r8, 1
++jeq r7, 0, +0x460
++mov64 r8, 0
++stxdw [r0], r7
++jeq r8, 1, +0x1628
++ldxdw r7, [r10-136]
++add64 r7, r2
+ ldxdw r3, [r4+24]
+-stxdw [r10-160], r3
++stxdw [r10-112], r3
+ ldxdw r8, [r4+32]
+ ldxb r3, [r4+40]
+-stxdw [r10-168], r1
+-mov64 r1, r7
+-ldxb r7, [r4+41]
++stxdw [r10-120], r1
++mov64 r1, r6
++ldxb r6, [r4+41]
+ ldxb r4, [r4+42]
+-stxb [r6+42], r4
+-stxb [r6+41], r7
+-mov64 r7, r1
+-stxb [r6+40], r3
+-stxdw [r6+32], r8
+-ldxdw r1, [r10-160]
+-stxdw [r6+24], r1
+-stxdw [r6+16], r0
+-ldxdw r1, [r10-168]
+-stxdw [r6+8], r1
+-stxdw [r6], r5
++stxb [r7+42], r4
++stxb [r7+41], r6
++mov64 r6, r1
++stxb [r7+40], r3
++stxdw [r7+32], r8
++ldxdw r1, [r10-112]
++stxdw [r7+24], r1
++stxdw [r7+16], r0
++ldxdw r1, [r10-120]
++stxdw [r7+8], r1
++stxdw [r7], r5
+ add64 r2, 48
+ add64 r9, 1
+-add64 r7, -1
+-jne r7, 0, +0x410
+-ldxdw r7, [r10-24]
+-ldxdw r1, [r10-192]
+-ldxdw r5, [r1+1328]
+-ldxdw r4, [r1+1320]
++add64 r6, -1
++jne r6, 0, +0x3d8
++ldxdw r6, [r10-24]
++ldxdw r7, [r10-144]
++ldxdw r5, [r7+1328]
++ldxdw r4, [r7+1320]
+ mov64 r1, r10
+-add64 r1, -152
+-ldxdw r2, [r10-200]
++add64 r1, -104
++ldxdw r2, [r10-152]
+ mov64 r3, r9
+ call solana_invoke::invoke_signed#812c
+ mov64 r2, r1
+ mov64 r1, r0
+ lsh64 r1, 32
+ rsh64 r1, 32
+-jne r1, 26, +0x600
++jne r1, 26, +0x5c8
+ mov64 r1, 2
+-stxdw [r10-160], r1
+-jne r9, 0, +0x628
+-ja +0x6d8
++stxdw [r10-112], r1
++jne r9, 0, +0x5f0
++ja +0x6a0
+ mov64 r1, r0
+ call <anchor_lang::error::Error as core::convert::From<solana_program_error::ProgramError>>::from#507a
+-stxdw [r10-160], r0
+-stxdw [r10-168], r1
+-jeq r9, 0, +0x6d8
+-ldxdw r8, [r10-200]
++stxdw [r10-112], r0
++stxdw [r10-120], r1
++jeq r9, 0, +0x6a0
++ldxdw r8, [r10-152]
+ add64 r8, 16
+-ja +0x658
++ja +0x620
+ add64 r8, 48
+ add64 r9, -1
+-jeq r9, 0, +0x6d8
++jeq r9, 0, +0x6a0
+ ldxdw r1, [r8-8]
+ ldxdw r2, [r1]
+ add64 r2, -1
+ stxdw [r1], r2
+-jne r2, 0, +0x698
++jne r2, 0, +0x660
+ mov64 r1, r8
+ add64 r1, -8
+ call alloc::rc::Rc<T,A>::drop_slow#7561
+@@ -211,523 +204,520 @@
+ ldxdw r2, [r1]
+ add64 r2, -1
+ stxdw [r1], r2
+-jne r2, 0, +0x640
++jne r2, 0, +0x608
+ mov64 r1, r8
+ call alloc::rc::Rc<T,A>::drop_slow#d793
+-ja +0x640
+-jeq r7, 0, +0x708
+-mul64 r7, 48
+-ldxdw r1, [r10-200]
+-mov64 r2, r7
++ja +0x608
++jeq r6, 0, +0x6d0
++mul64 r6, 48
++ldxdw r1, [r10-152]
++mov64 r2, r6
+ mov64 r3, 8
+ call _RNvCscR3e5J6VSLN_7___rustc14___rust_dealloc
+-ldxdw r2, [r10-152]
+-ldxdw r9, [r10-192]
+-jeq r2, 0, +0x740
++ldxdw r2, [r10-104]
++jeq r2, 0, +0x700
+ mul64 r2, 34
+-ldxdw r1, [r10-144]
++ldxdw r1, [r10-96]
+ mov64 r3, 1
+ call _RNvCscR3e5J6VSLN_7___rustc14___rust_dealloc
+-ldxdw r2, [r10-128]
+-jeq r2, 0, +0x768
+-ldxdw r1, [r10-120]
++ldxdw r2, [r10-80]
++jeq r2, 0, +0x728
++ldxdw r1, [r10-72]
+ mov64 r3, 1
+ call _RNvCscR3e5J6VSLN_7___rustc14___rust_dealloc
+-ldxdw r1, [r9+32]
++ldxdw r1, [r7+32]
++ldxdw r2, [r1]
++add64 r2, -1
++stxdw [r1], r2
++jne r2, 0, +0x768
++mov64 r1, r7
++add64 r1, 32
++call alloc::rc::Rc<T,A>::drop_slow#7561
++ldxdw r1, [r7+40]
+ ldxdw r2, [r1]
+ add64 r2, -1
+ stxdw [r1], r2
+ jne r2, 0, +0x7a8
+-mov64 r1, r9
+-add64 r1, 32
+-call alloc::rc::Rc<T,A>::drop_slow#7561
+-ldxdw r1, [r9+40]
++mov64 r1, r7
++add64 r1, 40
++call alloc::rc::Rc<T,A>::drop_slow#d793
++ldxdw r1, [r7+80]
+ ldxdw r2, [r1]
+ add64 r2, -1
+ stxdw [r1], r2
+ jne r2, 0, +0x7e8
+-mov64 r1, r9
+-add64 r1, 40
+-call alloc::rc::Rc<T,A>::drop_slow#d793
+-ldxdw r1, [r9+80]
++mov64 r1, r7
++add64 r1, 80
++call alloc::rc::Rc<T,A>::drop_slow#7561
++ldxdw r1, [r7+88]
+ ldxdw r2, [r1]
+ add64 r2, -1
+ stxdw [r1], r2
+ jne r2, 0, +0x828
+-mov64 r1, r9
+-add64 r1, 80
+-call alloc::rc::Rc<T,A>::drop_slow#7561
+-ldxdw r1, [r9+88]
++mov64 r1, r7
++add64 r1, 88
++call alloc::rc::Rc<T,A>::drop_slow#d793
++ldxdw r1, [r7+128]
+ ldxdw r2, [r1]
+ add64 r2, -1
+ stxdw [r1], r2
+ jne r2, 0, +0x868
+-mov64 r1, r9
+-add64 r1, 88
+-call alloc::rc::Rc<T,A>::drop_slow#d793
+-ldxdw r1, [r9+128]
++mov64 r1, r7
++add64 r1, 128
++call alloc::rc::Rc<T,A>::drop_slow#7561
++ldxdw r1, [r7+136]
+ ldxdw r2, [r1]
+ add64 r2, -1
+ stxdw [r1], r2
+ jne r2, 0, +0x8a8
+-mov64 r1, r9
+-add64 r1, 128
+-call alloc::rc::Rc<T,A>::drop_slow#7561
+-ldxdw r1, [r9+136]
++mov64 r1, r7
++add64 r1, 136
++call alloc::rc::Rc<T,A>::drop_slow#d793
++ldxdw r1, [r7+176]
+ ldxdw r2, [r1]
+ add64 r2, -1
+ stxdw [r1], r2
+ jne r2, 0, +0x8e8
+-mov64 r1, r9
+-add64 r1, 136
+-call alloc::rc::Rc<T,A>::drop_slow#d793
+-ldxdw r1, [r9+176]
++mov64 r1, r7
++add64 r1, 176
++call alloc::rc::Rc<T,A>::drop_slow#7561
++ldxdw r1, [r7+184]
+ ldxdw r2, [r1]
+ add64 r2, -1
+ stxdw [r1], r2
+ jne r2, 0, +0x928
+-mov64 r1, r9
+-add64 r1, 176
+-call alloc::rc::Rc<T,A>::drop_slow#7561
+-ldxdw r1, [r9+184]
++mov64 r1, r7
++add64 r1, 184
++call alloc::rc::Rc<T,A>::drop_slow#d793
++ldxdw r1, [r7+224]
+ ldxdw r2, [r1]
+ add64 r2, -1
+ stxdw [r1], r2
+ jne r2, 0, +0x968
+-mov64 r1, r9
+-add64 r1, 184
+-call alloc::rc::Rc<T,A>::drop_slow#d793
+-ldxdw r1, [r9+224]
++mov64 r1, r7
++add64 r1, 224
++call alloc::rc::Rc<T,A>::drop_slow#7561
++ldxdw r1, [r7+232]
+ ldxdw r2, [r1]
+ add64 r2, -1
+ stxdw [r1], r2
+ jne r2, 0, +0x9a8
+-mov64 r1, r9
+-add64 r1, 224
+-call alloc::rc::Rc<T,A>::drop_slow#7561
+-ldxdw r1, [r9+232]
++mov64 r1, r7
++add64 r1, 232
++call alloc::rc::Rc<T,A>::drop_slow#d793
++ldxdw r1, [r7+272]
+ ldxdw r2, [r1]
+ add64 r2, -1
+ stxdw [r1], r2
+ jne r2, 0, +0x9e8
+-mov64 r1, r9
+-add64 r1, 232
+-call alloc::rc::Rc<T,A>::drop_slow#d793
+-ldxdw r1, [r9+272]
++mov64 r1, r7
++add64 r1, 272
++call alloc::rc::Rc<T,A>::drop_slow#7561
++ldxdw r1, [r7+280]
+ ldxdw r2, [r1]
+ add64 r2, -1
+ stxdw [r1], r2
+ jne r2, 0, +0xa28
+-mov64 r1, r9
+-add64 r1, 272
+-call alloc::rc::Rc<T,A>::drop_slow#7561
+-ldxdw r1, [r9+280]
++mov64 r1, r7
++add64 r1, 280
++call alloc::rc::Rc<T,A>::drop_slow#d793
++ldxdw r1, [r7+320]
+ ldxdw r2, [r1]
+ add64 r2, -1
+ stxdw [r1], r2
+ jne r2, 0, +0xa68
+-mov64 r1, r9
+-add64 r1, 280
+-call alloc::rc::Rc<T,A>::drop_slow#d793
+-ldxdw r1, [r9+320]
++mov64 r1, r7
++add64 r1, 320
++call alloc::rc::Rc<T,A>::drop_slow#7561
++ldxdw r1, [r7+328]
+ ldxdw r2, [r1]
+ add64 r2, -1
+ stxdw [r1], r2
+ jne r2, 0, +0xaa8
+-mov64 r1, r9
+-add64 r1, 320
+-call alloc::rc::Rc<T,A>::drop_slow#7561
+-ldxdw r1, [r9+328]
++mov64 r1, r7
++add64 r1, 328
++call alloc::rc::Rc<T,A>::drop_slow#d793
++ldxdw r1, [r7+368]
+ ldxdw r2, [r1]
+ add64 r2, -1
+ stxdw [r1], r2
+ jne r2, 0, +0xae8
+-mov64 r1, r9
+-add64 r1, 328
+-call alloc::rc::Rc<T,A>::drop_slow#d793
+-ldxdw r1, [r9+368]
++mov64 r1, r7
++add64 r1, 368
++call alloc::rc::Rc<T,A>::drop_slow#7561
++ldxdw r1, [r7+376]
+ ldxdw r2, [r1]
+ add64 r2, -1
+ stxdw [r1], r2
+ jne r2, 0, +0xb28
+-mov64 r1, r9
+-add64 r1, 368
+-call alloc::rc::Rc<T,A>::drop_slow#7561
+-ldxdw r1, [r9+376]
++mov64 r1, r7
++add64 r1, 376
++call alloc::rc::Rc<T,A>::drop_slow#d793
++ldxdw r1, [r7+416]
+ ldxdw r2, [r1]
+ add64 r2, -1
+ stxdw [r1], r2
+ jne r2, 0, +0xb68
+-mov64 r1, r9
+-add64 r1, 376
+-call alloc::rc::Rc<T,A>::drop_slow#d793
+-ldxdw r1, [r9+416]
++mov64 r1, r7
++add64 r1, 416
++call alloc::rc::Rc<T,A>::drop_slow#7561
++ldxdw r1, [r7+424]
+ ldxdw r2, [r1]
+ add64 r2, -1
+ stxdw [r1], r2
+ jne r2, 0, +0xba8
+-mov64 r1, r9
+-add64 r1, 416
+-call alloc::rc::Rc<T,A>::drop_slow#7561
+-ldxdw r1, [r9+424]
++mov64 r1, r7
++add64 r1, 424
++call alloc::rc::Rc<T,A>::drop_slow#d793
++ldxdw r1, [r7+464]
+ ldxdw r2, [r1]
+ add64 r2, -1
+ stxdw [r1], r2
+ jne r2, 0, +0xbe8
+-mov64 r1, r9
+-add64 r1, 424
+-call alloc::rc::Rc<T,A>::drop_slow#d793
+-ldxdw r1, [r9+464]
++mov64 r1, r7
++add64 r1, 464
++call alloc::rc::Rc<T,A>::drop_slow#7561
++ldxdw r1, [r7+472]
+ ldxdw r2, [r1]
+ add64 r2, -1
+ stxdw [r1], r2
+ jne r2, 0, +0xc28
+-mov64 r1, r9
+-add64 r1, 464
+-call alloc::rc::Rc<T,A>::drop_slow#7561
+-ldxdw r1, [r9+472]
++mov64 r1, r7
++add64 r1, 472
++call alloc::rc::Rc<T,A>::drop_slow#d793
++ldxdw r1, [r7+512]
+ ldxdw r2, [r1]
+ add64 r2, -1
+ stxdw [r1], r2
+ jne r2, 0, +0xc68
+-mov64 r1, r9
+-add64 r1, 472
+-call alloc::rc::Rc<T,A>::drop_slow#d793
+-ldxdw r1, [r9+512]
++mov64 r1, r7
++add64 r1, 512
++call alloc::rc::Rc<T,A>::drop_slow#7561
++ldxdw r1, [r7+520]
+ ldxdw r2, [r1]
+ add64 r2, -1
+ stxdw [r1], r2
+ jne r2, 0, +0xca8
+-mov64 r1, r9
+-add64 r1, 512
+-call alloc::rc::Rc<T,A>::drop_slow#7561
+-ldxdw r1, [r9+520]
++mov64 r1, r7
++add64 r1, 520
++call alloc::rc::Rc<T,A>::drop_slow#d793
++ldxdw r1, [r7+560]
+ ldxdw r2, [r1]
+ add64 r2, -1
+ stxdw [r1], r2
+ jne r2, 0, +0xce8
+-mov64 r1, r9
+-add64 r1, 520
+-call alloc::rc::Rc<T,A>::drop_slow#d793
+-ldxdw r1, [r9+560]
++mov64 r1, r7
++add64 r1, 560
++call alloc::rc::Rc<T,A>::drop_slow#7561
++ldxdw r1, [r7+568]
+ ldxdw r2, [r1]
+ add64 r2, -1
+ stxdw [r1], r2
+ jne r2, 0, +0xd28
+-mov64 r1, r9
+-add64 r1, 560
+-call alloc::rc::Rc<T,A>::drop_slow#7561
+-ldxdw r1, [r9+568]
++mov64 r1, r7
++add64 r1, 568
++call alloc::rc::Rc<T,A>::drop_slow#d793
++ldxdw r1, [r7+608]
+ ldxdw r2, [r1]
+ add64 r2, -1
+ stxdw [r1], r2
+ jne r2, 0, +0xd68
+-mov64 r1, r9
+-add64 r1, 568
+-call alloc::rc::Rc<T,A>::drop_slow#d793
+-ldxdw r1, [r9+608]
++mov64 r1, r7
++add64 r1, 608
++call alloc::rc::Rc<T,A>::drop_slow#7561
++ldxdw r1, [r7+616]
+ ldxdw r2, [r1]
+ add64 r2, -1
+ stxdw [r1], r2
+ jne r2, 0, +0xda8
+-mov64 r1, r9
+-add64 r1, 608
+-call alloc::rc::Rc<T,A>::drop_slow#7561
+-ldxdw r1, [r9+616]
++mov64 r1, r7
++add64 r1, 616
++call alloc::rc::Rc<T,A>::drop_slow#d793
++ldxdw r1, [r7+656]
+ ldxdw r2, [r1]
+ add64 r2, -1
+ stxdw [r1], r2
+ jne r2, 0, +0xde8
+-mov64 r1, r9
+-add64 r1, 616
+-call alloc::rc::Rc<T,A>::drop_slow#d793
+-ldxdw r1, [r9+656]
++mov64 r1, r7
++add64 r1, 656
++call alloc::rc::Rc<T,A>::drop_slow#7561
++ldxdw r1, [r7+664]
+ ldxdw r2, [r1]
+ add64 r2, -1
+ stxdw [r1], r2
+ jne r2, 0, +0xe28
+-mov64 r1, r9
+-add64 r1, 656
+-call alloc::rc::Rc<T,A>::drop_slow#7561
+-ldxdw r1, [r9+664]
++mov64 r1, r7
++add64 r1, 664
++call alloc::rc::Rc<T,A>::drop_slow#d793
++ldxdw r1, [r7+704]
+ ldxdw r2, [r1]
+ add64 r2, -1
+ stxdw [r1], r2
+ jne r2, 0, +0xe68
+-mov64 r1, r9
+-add64 r1, 664
+-call alloc::rc::Rc<T,A>::drop_slow#d793
+-ldxdw r1, [r9+704]
++mov64 r1, r7
++add64 r1, 704
++call alloc::rc::Rc<T,A>::drop_slow#7561
++ldxdw r1, [r7+712]
+ ldxdw r2, [r1]
+ add64 r2, -1
+ stxdw [r1], r2
+ jne r2, 0, +0xea8
+-mov64 r1, r9
+-add64 r1, 704
+-call alloc::rc::Rc<T,A>::drop_slow#7561
+-ldxdw r1, [r9+712]
++mov64 r1, r7
++add64 r1, 712
++call alloc::rc::Rc<T,A>::drop_slow#d793
++ldxdw r1, [r7+752]
+ ldxdw r2, [r1]
+ add64 r2, -1
+ stxdw [r1], r2
+ jne r2, 0, +0xee8
+-mov64 r1, r9
+-add64 r1, 712
+-call alloc::rc::Rc<T,A>::drop_slow#d793
+-ldxdw r1, [r9+752]
++mov64 r1, r7
++add64 r1, 752
++call alloc::rc::Rc<T,A>::drop_slow#7561
++ldxdw r1, [r7+760]
+ ldxdw r2, [r1]
+ add64 r2, -1
+ stxdw [r1], r2
+ jne r2, 0, +0xf28
+-mov64 r1, r9
+-add64 r1, 752
+-call alloc::rc::Rc<T,A>::drop_slow#7561
+-ldxdw r1, [r9+760]
++mov64 r1, r7
++add64 r1, 760
++call alloc::rc::Rc<T,A>::drop_slow#d793
++ldxdw r1, [r7+800]
+ ldxdw r2, [r1]
+ add64 r2, -1
+ stxdw [r1], r2
+ jne r2, 0, +0xf68
+-mov64 r1, r9
+-add64 r1, 760
+-call alloc::rc::Rc<T,A>::drop_slow#d793
+-ldxdw r1, [r9+800]
++mov64 r1, r7
++add64 r1, 800
++call alloc::rc::Rc<T,A>::drop_slow#7561
++ldxdw r1, [r7+808]
+ ldxdw r2, [r1]
+ add64 r2, -1
+ stxdw [r1], r2
+ jne r2, 0, +0xfa8
+-mov64 r1, r9
+-add64 r1, 800
+-call alloc::rc::Rc<T,A>::drop_slow#7561
+-ldxdw r1, [r9+808]
++mov64 r1, r7
++add64 r1, 808
++call alloc::rc::Rc<T,A>::drop_slow#d793
++ldxdw r1, [r7+848]
+ ldxdw r2, [r1]
+ add64 r2, -1
+ stxdw [r1], r2
+ jne r2, 0, +0xfe8
+-mov64 r1, r9
+-add64 r1, 808
+-call alloc::rc::Rc<T,A>::drop_slow#d793
+-ldxdw r1, [r9+848]
++mov64 r1, r7
++add64 r1, 848
++call alloc::rc::Rc<T,A>::drop_slow#7561
++ldxdw r1, [r7+856]
+ ldxdw r2, [r1]
+ add64 r2, -1
+ stxdw [r1], r2
+ jne r2, 0, +0x1028
+-mov64 r1, r9
+-add64 r1, 848
+-call alloc::rc::Rc<T,A>::drop_slow#7561
+-ldxdw r1, [r9+856]
++mov64 r1, r7
++add64 r1, 856
++call alloc::rc::Rc<T,A>::drop_slow#d793
++ldxdw r1, [r7+896]
+ ldxdw r2, [r1]
+ add64 r2, -1
+ stxdw [r1], r2
+ jne r2, 0, +0x1068
+-mov64 r1, r9
+-add64 r1, 856
+-call alloc::rc::Rc<T,A>::drop_slow#d793
+-ldxdw r1, [r9+896]
++mov64 r1, r7
++add64 r1, 896
++call alloc::rc::Rc<T,A>::drop_slow#7561
++ldxdw r1, [r7+904]
+ ldxdw r2, [r1]
+ add64 r2, -1
+ stxdw [r1], r2
+ jne r2, 0, +0x10a8
+-mov64 r1, r9
+-add64 r1, 896
+-call alloc::rc::Rc<T,A>::drop_slow#7561
+-ldxdw r1, [r9+904]
++mov64 r1, r7
++add64 r1, 904
++call alloc::rc::Rc<T,A>::drop_slow#d793
++ldxdw r1, [r7+944]
+ ldxdw r2, [r1]
+ add64 r2, -1
+ stxdw [r1], r2
+ jne r2, 0, +0x10e8
+-mov64 r1, r9
+-add64 r1, 904
+-call alloc::rc::Rc<T,A>::drop_slow#d793
+-ldxdw r1, [r9+944]
++mov64 r1, r7
++add64 r1, 944
++call alloc::rc::Rc<T,A>::drop_slow#7561
++ldxdw r1, [r7+952]
+ ldxdw r2, [r1]
+ add64 r2, -1
+ stxdw [r1], r2
+ jne r2, 0, +0x1128
+-mov64 r1, r9
+-add64 r1, 944
+-call alloc::rc::Rc<T,A>::drop_slow#7561
+-ldxdw r1, [r9+952]
++mov64 r1, r7
++add64 r1, 952
++call alloc::rc::Rc<T,A>::drop_slow#d793
++ldxdw r1, [r7+992]
+ ldxdw r2, [r1]
+ add64 r2, -1
+ stxdw [r1], r2
+ jne r2, 0, +0x1168
+-mov64 r1, r9
+-add64 r1, 952
+-call alloc::rc::Rc<T,A>::drop_slow#d793
+-ldxdw r1, [r9+992]
++mov64 r1, r7
++add64 r1, 992
++call alloc::rc::Rc<T,A>::drop_slow#7561
++ldxdw r1, [r7+1000]
+ ldxdw r2, [r1]
+ add64 r2, -1
+ stxdw [r1], r2
+ jne r2, 0, +0x11a8
+-mov64 r1, r9
+-add64 r1, 992
+-call alloc::rc::Rc<T,A>::drop_slow#7561
+-ldxdw r1, [r9+1000]
++mov64 r1, r7
++add64 r1, 1000
++call alloc::rc::Rc<T,A>::drop_slow#d793
++ldxdw r1, [r7+1040]
+ ldxdw r2, [r1]
+ add64 r2, -1
+ stxdw [r1], r2
+ jne r2, 0, +0x11e8
+-mov64 r1, r9
+-add64 r1, 1000
+-call alloc::rc::Rc<T,A>::drop_slow#d793
+-ldxdw r1, [r9+1040]
++mov64 r1, r7
++add64 r1, 1040
++call alloc::rc::Rc<T,A>::drop_slow#7561
++ldxdw r1, [r7+1048]
+ ldxdw r2, [r1]
+ add64 r2, -1
+ stxdw [r1], r2
+ jne r2, 0, +0x1228
+-mov64 r1, r9
+-add64 r1, 1040
+-call alloc::rc::Rc<T,A>::drop_slow#7561
+-ldxdw r1, [r9+1048]
++mov64 r1, r7
++add64 r1, 1048
++call alloc::rc::Rc<T,A>::drop_slow#d793
++ldxdw r1, [r7+1088]
+ ldxdw r2, [r1]
+ add64 r2, -1
+ stxdw [r1], r2
+ jne r2, 0, +0x1268
+-mov64 r1, r9
+-add64 r1, 1048
+-call alloc::rc::Rc<T,A>::drop_slow#d793
+-ldxdw r1, [r9+1088]
++mov64 r1, r7
++add64 r1, 1088
++call alloc::rc::Rc<T,A>::drop_slow#7561
++ldxdw r1, [r7+1096]
+ ldxdw r2, [r1]
+ add64 r2, -1
+ stxdw [r1], r2
+ jne r2, 0, +0x12a8
+-mov64 r1, r9
+-add64 r1, 1088
+-call alloc::rc::Rc<T,A>::drop_slow#7561
+-ldxdw r1, [r9+1096]
++mov64 r1, r7
++add64 r1, 1096
++call alloc::rc::Rc<T,A>::drop_slow#d793
++ldxdw r1, [r7+1136]
+ ldxdw r2, [r1]
+ add64 r2, -1
+ stxdw [r1], r2
+ jne r2, 0, +0x12e8
+-mov64 r1, r9
+-add64 r1, 1096
+-call alloc::rc::Rc<T,A>::drop_slow#d793
+-ldxdw r1, [r9+1136]
++mov64 r1, r7
++add64 r1, 1136
++call alloc::rc::Rc<T,A>::drop_slow#7561
++ldxdw r1, [r7+1144]
+ ldxdw r2, [r1]
+ add64 r2, -1
+ stxdw [r1], r2
+ jne r2, 0, +0x1328
+-mov64 r1, r9
+-add64 r1, 1136
+-call alloc::rc::Rc<T,A>::drop_slow#7561
+-ldxdw r1, [r9+1144]
++mov64 r1, r7
++add64 r1, 1144
++call alloc::rc::Rc<T,A>::drop_slow#d793
++ldxdw r1, [r7+1184]
+ ldxdw r2, [r1]
+ add64 r2, -1
+ stxdw [r1], r2
+ jne r2, 0, +0x1368
+-mov64 r1, r9
+-add64 r1, 1144
+-call alloc::rc::Rc<T,A>::drop_slow#d793
+-ldxdw r1, [r9+1184]
++mov64 r1, r7
++add64 r1, 1184
++call alloc::rc::Rc<T,A>::drop_slow#7561
++ldxdw r1, [r7+1192]
+ ldxdw r2, [r1]
+ add64 r2, -1
+ stxdw [r1], r2
+ jne r2, 0, +0x13a8
+-mov64 r1, r9
+-add64 r1, 1184
+-call alloc::rc::Rc<T,A>::drop_slow#7561
+-ldxdw r1, [r9+1192]
++mov64 r1, r7
++add64 r1, 1192
++call alloc::rc::Rc<T,A>::drop_slow#d793
++ldxdw r1, [r7+1232]
+ ldxdw r2, [r1]
+ add64 r2, -1
+ stxdw [r1], r2
+ jne r2, 0, +0x13e8
+-mov64 r1, r9
+-add64 r1, 1192
+-call alloc::rc::Rc<T,A>::drop_slow#d793
+-ldxdw r1, [r9+1232]
++mov64 r1, r7
++add64 r1, 1232
++call alloc::rc::Rc<T,A>::drop_slow#7561
++ldxdw r1, [r7+1240]
+ ldxdw r2, [r1]
+ add64 r2, -1
+ stxdw [r1], r2
+ jne r2, 0, +0x1428
+-mov64 r1, r9
+-add64 r1, 1232
+-call alloc::rc::Rc<T,A>::drop_slow#7561
+-ldxdw r1, [r9+1240]
++mov64 r1, r7
++add64 r1, 1240
++call alloc::rc::Rc<T,A>::drop_slow#d793
++ldxdw r1, [r7+1280]
+ ldxdw r2, [r1]
+ add64 r2, -1
+ stxdw [r1], r2
+ jne r2, 0, +0x1468
+-mov64 r1, r9
+-add64 r1, 1240
+-call alloc::rc::Rc<T,A>::drop_slow#d793
+-ldxdw r1, [r9+1280]
++mov64 r1, r7
++add64 r1, 1280
++call alloc::rc::Rc<T,A>::drop_slow#7561
++ldxdw r1, [r7+1288]
+ ldxdw r2, [r1]
+ add64 r2, -1
+ stxdw [r1], r2
+ jne r2, 0, +0x14a8
+-mov64 r1, r9
+-add64 r1, 1280
+-call alloc::rc::Rc<T,A>::drop_slow#7561
+-ldxdw r1, [r9+1288]
+-ldxdw r2, [r1]
+-add64 r2, -1
+-stxdw [r1], r2
+-jne r2, 0, +0x14e8
+-mov64 r1, r9
++mov64 r1, r7
+ add64 r1, 1288
+ call alloc::rc::Rc<T,A>::drop_slow#d793
+-ldxdw r7, [r9+8]
+-ldxdw r6, [r9+16]
+-jeq r6, 0, +0x15b0
+-mov64 r8, r7
+-add64 r8, 16
+-ja +0x1530
+-add64 r8, 48
+-add64 r6, -1
+-jeq r6, 0, +0x15b0
+-ldxdw r1, [r8-8]
+-ldxdw r2, [r1]
+-add64 r2, -1
+-stxdw [r1], r2
+-jne r2, 0, +0x1570
+-mov64 r1, r8
++ldxdw r6, [r7+8]
++ldxdw r8, [r7+16]
++jeq r8, 0, +0x1570
++mov64 r7, r6
++add64 r7, 16
++ja +0x14f0
++add64 r7, 48
++add64 r8, -1
++jeq r8, 0, +0x1570
++ldxdw r1, [r7-8]
++ldxdw r2, [r1]
++add64 r2, -1
++stxdw [r1], r2
++jne r2, 0, +0x1530
++mov64 r1, r7
+ add64 r1, -8
+ call alloc::rc::Rc<T,A>::drop_slow#7561
+-ldxdw r1, [r8]
+-ldxdw r2, [r1]
+-add64 r2, -1
+-stxdw [r1], r2
+-jne r2, 0, +0x1518
+-mov64 r1, r8
+-call alloc::rc::Rc<T,A>::drop_slow#d793
+-ja +0x1518
+-ldxdw r2, [r9]
+-jeq r2, 0, +0x15e0
++ldxdw r1, [r7]
++ldxdw r2, [r1]
++add64 r2, -1
++stxdw [r1], r2
++jne r2, 0, +0x14d8
++mov64 r1, r7
++call alloc::rc::Rc<T,A>::drop_slow#d793
++ja +0x14d8
++ldxdw r1, [r10-144]
++ldxdw r2, [r1]
++jeq r2, 0, +0x15a8
+ mul64 r2, 48
+-mov64 r1, r7
++mov64 r1, r6
+ mov64 r3, 8
+ call _RNvCscR3e5J6VSLN_7___rustc14___rust_dealloc
+-ldxdw r0, [r10-160]
+-ldxdw r1, [r10-168]
++ldxdw r0, [r10-112]
++ldxdw r1, [r10-120]
+ exit
+-mov64 r0, 1
++mov64 r8, 1
+ ldxdw r6, [r10-8]
+ ldxdw r1, [r10-24]
+ sub64 r1, r6
+-jle r9, r1, +0x250
++jle r3, r1, +0x230
+ mov64 r1, r10
+ add64 r1, -24
+ mov64 r2, r6
+-mov64 r3, r9
+ mov64 r4, 1
+ mov64 r5, 34
+-mov64 r6, r0
+ call alloc::raw_vec::RawVecInner<A>::reserve::do_reserve_and_handle#9326
+-mov64 r0, r6
+ ldxdw r6, [r10-8]
+-ja +0x250
++ja +0x230
+ call abort
+ mov64 r1, r10
+ add64 r1, -24
+ mov64 r2, r9
+-mov64 r3, r7
++mov64 r3, r6
+ mov64 r4, 8
+ mov64 r5, 48
+ call alloc::raw_vec::RawVecInner<A>::reserve::do_reserve_and_handle#9326
+ ldxdw r9, [r10-8]
+ ldxdw r1, [r10-16]
+-stxdw [r10-200], r1
+-jne r7, 0, +0x3e8
+-ja +0x570
++stxdw [r10-152], r1
++jne r6, 0, +0x3b0
++ja +0x538
+ mov64 r1, 1
+ mov64 r2, 256
+ lddw r3, panic_location(src/lib.rs:8:5)

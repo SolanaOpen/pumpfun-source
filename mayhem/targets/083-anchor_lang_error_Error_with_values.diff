@@ -1,9 +1,0 @@
-# anchor_lang::error::Error::with_values  (yours 1472 B at .text+0xe30; original 1472 B at .text+0x34a8)
-# distance 2 instructions; evidence: code-matches same instructions; loads different constants
---- original
-+++ yours
-@@ -1,2 +1,2 @@
--lddw r2, .rodata[66616c7365000000]
--lddw r2, .rodata[66616c7365000000]
-+lddw r2, .rodata[66616c73650000]
-+lddw r2, .rodata[66616c73650000]

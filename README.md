@@ -8,7 +8,7 @@ This builds on [lalalune/pumpfun-source](https://github.com/lalalune/pumpfun-sou
 
 | Program | Original's own source files | Missing at that path in lalalune's source | Here |
 |---|---:|---:|---|
-| Mayhem | 9 | 9 | Original layout, `declare_program!` clients and the `pump-cpi` crate; **37.92%** of the original's code matches; [progress](mayhem/README.md#progress), [to-do list](mayhem/TODO.md) |
+| Mayhem | 9 | 9 | Original layout, `declare_program!` clients, the `pump-cpi` crate and the AI loop; **59.53%** of the original's code matches; [progress](mayhem/README.md#progress), [to-do list](mayhem/TODO.md) |
 | Pump | 15 | 10 | [Analysis](analysis/source-layout.md#pump) |
 | PumpSwap | 10 | 8 | [Analysis](analysis/source-layout.md#pumpswap) |
 | Fees | 12 | 9 | [Analysis](analysis/source-layout.md#fees) |
@@ -24,7 +24,14 @@ This builds on [lalalune/pumpfun-source](https://github.com/lalalune/pumpfun-sou
 
 ## Mayhem
 
-[mayhem/](mayhem) started as lalalune's Mayhem source. It has since been moved into the layout the binary names, switched to the Pump and PumpSwap clients `declare_program!` generates, and given the v2 calls through [crates/pump-cpi](crates/pump-cpi), the dependency the original's `src/lib.rs:8:5` and `src/account_wrapper.rs` locations point to. Built with platform-tools v1.54 and relinked in the original's function order, it reproduces **37.92%** of the original's code, up from 25.21%. [mayhem/README.md](mayhem/README.md#progress) logs each step; [mayhem/TODO.md](mayhem/TODO.md) has every remaining function and the current leads. The AI rebuild loop (Claude Opus 5.5) is working through the per-function list.
+[mayhem/](mayhem) started as lalalune's Mayhem source and now reproduces **59.53%** of the original's code byte-for-byte, up from 25.21%. Built with platform-tools v1.54 and relinked in the original's function order. What got it there, step by step, is in [mayhem/README.md](mayhem/README.md#progress):
+
+- the file layout the binary names;
+- Pump and PumpSwap calls through the clients `declare_program!` generates, with IDLs trimmed to the versions Mayhem was built against;
+- [crates/pump-cpi](crates/pump-cpi), a reconstruction of the unpublished dependency the original's `src/lib.rs` and `src/account_wrapper.rs` locations point to, including the wrapper that zero-pads older accounts;
+- solopen's AI rebuild loop (Claude Opus 5.5), one function at a time, keeping an edit only when that function got closer and nothing that already matched broke.
+
+[mayhem/TODO.md](mayhem/TODO.md) lists every remaining function and the current leads. Anthropic's API declined to work on Mayhem's fee-sweep functions, so the AI loop leaves those as lalalune reconstructed them.
 
 ## Reproduce
 

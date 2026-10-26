@@ -61,12 +61,12 @@ pub fn handler(ctx:Context<LegacyBuy>,reference:u128,tolerance_bps:u16,retained_
  a.mayhem_state.field_89=now as u64;
  require!(Clock::get().unwrap().unix_timestamp<a.mayhem_state.end_timestamp,SellError::MayhemModeEnded);
  if a.mayhem_state.status!=MayhemStatus::Variant1 {
-  require!(a.bonding_curve.real_sol_reserves>=u64::from_le_bytes(a.global_params.preserved_middle_a),SellError::SolReservesTooLow);
+  require!(a.bonding_curve.real_quote_reserves>=u64::from_le_bytes(a.global_params.preserved_middle_a),SellError::SolReservesTooLow);
   a.mayhem_state.status=MayhemStatus::Variant1;
  }
  // Price-band check precedes quote construction and the real Pump CPI.
  let c=&a.bonding_curve;
- let vt=c.virtual_token_reserves as u128;let vs=c.virtual_sol_reserves as u128;
+ let vt=c.virtual_token_reserves as u128;let vs=c.virtual_quote_reserves as u128;
  if vt==0{return Err(math());}
  let scaled=reference.checked_mul(tolerance_bps as u128).ok_or_else(math)?;
  let price=vs*1_000_000_000_000_000u128/vt;let delta=scaled/10_000;
@@ -79,7 +79,7 @@ pub fn handler(ctx:Context<LegacyBuy>,reference:u128,tolerance_bps:u16,retained_
  let mut output=u64::try_from(vs*tokens/(vt+tokens)).unwrap();
  let cap=u64::from_le_bytes(a.global_params.reset_prefix[8..16].try_into().unwrap());
  if cap!=0 {output=output.min(cap);}
- output=output.min((c.real_sol_reserves as u128*retained as u128/10_000) as u64);
+ output=output.min((c.real_quote_reserves as u128*retained as u128/10_000) as u64);
  let input=u64::try_from((output as u128*vt).checked_div(vs+output as u128).unwrap()).unwrap().min(c.real_token_reserves);
  let before_sol=a.sol_vault.lamports();let before_tokens=a.mayhem_token_vault.amount;
  let accounts=crate::pump::cpi::accounts::Buy{global:a.global.to_account_info(),fee_recipient:a.fee_recipient.to_account_info(),mint:a.mint.to_account_info(),bonding_curve:a.bonding_curve.to_account_info(),associated_bonding_curve:a.associated_bonding_curve.to_account_info(),associated_user:a.mayhem_token_vault.to_account_info(),user:a.sol_vault.to_account_info(),system_program:a.system_program.to_account_info(),token_program:a.token_program.to_account_info(),creator_vault:a.creator_vault.to_account_info(),event_authority:a.pump_event_authority.to_account_info(),program:a.pump_program.to_account_info(),global_volume_accumulator:a.global_volume_accumulator.to_account_info(),user_volume_accumulator:a.user_volume_accumulator.to_account_info(),fee_config:a.fee_config.to_account_info(),fee_program:a.fee_program.to_account_info()};
@@ -95,7 +95,7 @@ pub fn handler(ctx:Context<LegacyBuy>,reference:u128,tolerance_bps:u16,retained_
  // a strict upper bound. Preserve that truncation even for counters > u64::MAX.
  if a.global_params.sol_deployed>0 {require_gt!(u64::from_le_bytes(a.global_params.reset_prefix[24..32].try_into().unwrap()),a.global_params.sol_deployed as u64,BuyError::OverallRiskExceeded);}
  if a.mayhem_state.field_56>0 {require_gt!(u64::from_le_bytes(a.global_params.reset_prefix[32..40].try_into().unwrap()),a.mayhem_state.field_56 as u64,BuyError::CoinRiskExceeded);}
- let event=SellEvent{side:0,sol_vault:a.sol_vault.key(),mint:a.mint.key(),sol_amount:sol,token_amount:tokens,sol_vault_balance:a.sol_vault.lamports(),token_vault_balance:a.mayhem_token_vault.amount,state_sol_deployed:a.mayhem_state.field_56,state_token_net:a.mayhem_state.field_72,virtual_sol:a.bonding_curve.virtual_sol_reserves,virtual_tokens:a.bonding_curve.virtual_token_reserves,global_sol_deployed:a.global_params.sol_deployed,timestamp:Clock::get()?.unix_timestamp,end_timestamp:a.mayhem_state.end_timestamp,real_sol:a.bonding_curve.real_sol_reserves,real_tokens:a.bonding_curve.real_token_reserves,version:a.global_params.version,retained_reserve_bps,quote_amount:sol,quote_vault_balance:a.sol_vault.lamports(),state_quote_deployed:a.mayhem_state.field_56,virtual_quote:a.bonding_curve.virtual_sol_reserves,global_quote_deployed:a.global_params.sol_deployed,real_quote:a.bonding_curve.real_sol_reserves,quote_mint:Pubkey::default()};
+ let event=SellEvent{side:0,sol_vault:a.sol_vault.key(),mint:a.mint.key(),sol_amount:sol,token_amount:tokens,sol_vault_balance:a.sol_vault.lamports(),token_vault_balance:a.mayhem_token_vault.amount,state_sol_deployed:a.mayhem_state.field_56,state_token_net:a.mayhem_state.field_72,virtual_sol:a.bonding_curve.virtual_quote_reserves,virtual_tokens:a.bonding_curve.virtual_token_reserves,global_sol_deployed:a.global_params.sol_deployed,timestamp:Clock::get()?.unix_timestamp,end_timestamp:a.mayhem_state.end_timestamp,real_sol:a.bonding_curve.real_quote_reserves,real_tokens:a.bonding_curve.real_token_reserves,version:a.global_params.version,retained_reserve_bps,quote_amount:sol,quote_vault_balance:a.sol_vault.lamports(),state_quote_deployed:a.mayhem_state.field_56,virtual_quote:a.bonding_curve.virtual_quote_reserves,global_quote_deployed:a.global_params.sol_deployed,real_quote:a.bonding_curve.real_quote_reserves,quote_mint:Pubkey::default()};
  emit!(event);emit_cpi!(event);Ok(())
 }
 #[error_code]
@@ -151,27 +151,10 @@ pub struct LegacySell<'info> {
  /// CHECK: Pump validates the recipient when used.
  #[account(mut)]pub buyback_recipient:UncheckedAccount<'info>,
 }
-/// The sell path uses the padded external-account decoder at 0xac0, reached
-/// from 0x5258 -> 0xa248 -> 0x66a0 and by reload at 0x5fb0. It pads short
-/// input to 141 zero bytes before the ordinary decoder at 0x84108. This is
-/// intentionally separate from the older, strict 82-byte burn account codec.
-#[derive(Clone)]
-pub struct SellCurve {
- pub virtual_token_reserves:u64,pub virtual_sol_reserves:u64,
- pub real_token_reserves:u64,pub real_sol_reserves:u64,
-}
-impl Owner for SellCurve {fn owner()->Pubkey {PUMP_ID}}
-impl AccountSerialize for SellCurve {}
-impl AccountDeserialize for SellCurve {
- fn try_deserialize(buf:&mut &[u8])->Result<Self>{Self::try_deserialize_unchecked(buf)}
- fn try_deserialize_unchecked(buf:&mut &[u8])->Result<Self>{
-  let mut padded=[0u8;141];let n=buf.len().min(padded.len());padded[..n].copy_from_slice(&buf[..n]);
-  if padded[..8]!=[0x17,0xb7,0xf8,0x37,0x60,0xd8,0xac,0x60] {return Err(anchor_lang::error::ErrorCode::AccountDiscriminatorMismatch.into());}
-  for offset in [48,81,82,123,124] {if padded[offset]>1 {return Err(anchor_lang::error::ErrorCode::AccountDidNotDeserialize.into());}}
-  let read=|offset:usize|u64::from_le_bytes(padded[offset..offset+8].try_into().unwrap());
-  Ok(Self{virtual_token_reserves:read(8),virtual_sol_reserves:read(16),real_token_reserves:read(24),real_sol_reserves:read(32)})
- }
-}
+/// Pump's 141-byte `BondingCurve` as `pump-cpi`'s `declare_program!(pump)` generates
+/// it, read through `pump-cpi`'s zero-padding account wrapper (legacy and v2 trades).
+/// The older, strict 82-byte layout used by burn is `crate::pump::accounts::BondingCurve`.
+pub type SellCurve=pump_cpi::account_wrapper::AccountWrapper<pump_cpi::pump_v2::pump::accounts::BondingCurve>;
 fn math()->Error {MayhemError::MathOverflow.into()}
 pub fn handler(ctx:Context<LegacySell>,reference:u128,tolerance_bps:u16,retained_reserve_bps:u16)->Result<()> {
  let a=&mut *ctx.accounts;
@@ -183,11 +166,11 @@ pub fn handler(ctx:Context<LegacySell>,reference:u128,tolerance_bps:u16,retained
  a.mayhem_state.field_89=now as u64;
  require!(Clock::get().unwrap().unix_timestamp<a.mayhem_state.end_timestamp,SellError::MayhemModeEnded);
  if a.mayhem_state.status!=MayhemStatus::Variant1 {
-  require!(a.bonding_curve.real_sol_reserves>=u64::from_le_bytes(a.global_params.preserved_middle_a),SellError::SolReservesTooLow);
+  require!(a.bonding_curve.real_quote_reserves>=u64::from_le_bytes(a.global_params.preserved_middle_a),SellError::SolReservesTooLow);
   a.mayhem_state.status=MayhemStatus::Variant1;
  }
  let c=&a.bonding_curve;
- let vt=c.virtual_token_reserves as u128;let vs=c.virtual_sol_reserves as u128;
+ let vt=c.virtual_token_reserves as u128;let vs=c.virtual_quote_reserves as u128;
  if vt==0{return Err(math());}
  let scaled=reference.checked_mul(tolerance_bps as u128).ok_or_else(math)?;
  let price=vs*1_000_000_000_000_000u128/vt;let delta=scaled/10_000;
@@ -198,7 +181,7 @@ pub fn handler(ctx:Context<LegacySell>,reference:u128,tolerance_bps:u16,retained
  let mut output=u64::try_from(vs*tokens/(vt+tokens)).unwrap();
  let cap=u64::from_le_bytes(a.global_params.reset_prefix[8..16].try_into().unwrap());
  if cap!=0 {output=output.min(cap);}
- output=output.min((c.real_sol_reserves as u128*retained as u128/10_000) as u64);
+ output=output.min((c.real_quote_reserves as u128*retained as u128/10_000) as u64);
  let input=u64::try_from((output as u128*vt).checked_div(vs-output as u128).unwrap()).unwrap();
  let minimum=output.saturating_sub(1);
  let before_sol=a.sol_vault.lamports();let before_tokens=a.mayhem_token_vault.amount;
@@ -211,7 +194,7 @@ pub fn handler(ctx:Context<LegacySell>,reference:u128,tolerance_bps:u16,retained
  a.global_params.sol_deployed=a.global_params.sol_deployed.checked_sub(sol as i128).ok_or_else(math)?;
  a.mayhem_state.field_56=a.mayhem_state.field_56.checked_sub(sol as i128).ok_or_else(math)?;
  a.mayhem_state.field_72=a.mayhem_state.field_72.checked_add(tokens as i128).ok_or_else(math)?;
- let event=SellEvent{side:1,sol_vault:a.sol_vault.key(),mint:a.mint.key(),sol_amount:sol,token_amount:tokens,sol_vault_balance:a.sol_vault.lamports(),token_vault_balance:a.mayhem_token_vault.amount,state_sol_deployed:a.mayhem_state.field_56,state_token_net:a.mayhem_state.field_72,virtual_sol:a.bonding_curve.virtual_sol_reserves,virtual_tokens:a.bonding_curve.virtual_token_reserves,global_sol_deployed:a.global_params.sol_deployed,timestamp:Clock::get()?.unix_timestamp,end_timestamp:a.mayhem_state.end_timestamp,real_sol:a.bonding_curve.real_sol_reserves,real_tokens:a.bonding_curve.real_token_reserves,version:a.global_params.version,retained_reserve_bps,quote_amount:sol,quote_vault_balance:a.sol_vault.lamports(),state_quote_deployed:a.mayhem_state.field_56,virtual_quote:a.bonding_curve.virtual_sol_reserves,global_quote_deployed:a.global_params.sol_deployed,real_quote:a.bonding_curve.real_sol_reserves,quote_mint:Pubkey::default()};
+ let event=SellEvent{side:1,sol_vault:a.sol_vault.key(),mint:a.mint.key(),sol_amount:sol,token_amount:tokens,sol_vault_balance:a.sol_vault.lamports(),token_vault_balance:a.mayhem_token_vault.amount,state_sol_deployed:a.mayhem_state.field_56,state_token_net:a.mayhem_state.field_72,virtual_sol:a.bonding_curve.virtual_quote_reserves,virtual_tokens:a.bonding_curve.virtual_token_reserves,global_sol_deployed:a.global_params.sol_deployed,timestamp:Clock::get()?.unix_timestamp,end_timestamp:a.mayhem_state.end_timestamp,real_sol:a.bonding_curve.real_quote_reserves,real_tokens:a.bonding_curve.real_token_reserves,version:a.global_params.version,retained_reserve_bps,quote_amount:sol,quote_vault_balance:a.sol_vault.lamports(),state_quote_deployed:a.mayhem_state.field_56,virtual_quote:a.bonding_curve.virtual_quote_reserves,global_quote_deployed:a.global_params.sol_deployed,real_quote:a.bonding_curve.real_quote_reserves,quote_mint:Pubkey::default()};
  emit!(event);emit_cpi!(event);Ok(())
 }
 #[event(discriminator=[0x31,0x48,0x7b,0x2d,0x6e,0x40,0xb0,0x85])]

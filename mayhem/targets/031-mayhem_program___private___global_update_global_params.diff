@@ -1,0 +1,733 @@
+# mayhem_program::__private::__global::update_global_params  (yours 3600 B at .text+0x71308; original 3224 B at .text+0x80138)
+# distance 443 instructions; evidence: same-callees 9/9; neighbours between the same matched functions as in your build
+--- original
++++ yours
+@@ -1,115 +1,172 @@
+ mov64 r6, r5
+-mov64 r7, r4
+-mov64 r9, r3
+-mov64 r8, r2
+-stxdw [r10-624], r1
++mov64 r9, r4
++mov64 r8, r3
++stxdw [r10-856], r2
++mov64 r7, r1
+ lddw r1, str("Instruction: UpdateGlobalParams")
+ mov64 r2, 31
+ call sol_log_
+-stxdw [r10-616], r7
+-jeq r6, 0, +0x370
++stxdw [r10-848], r9
++stxdw [r10-840], r6
++jeq r6, 0, +0x548
++stxdw [r10-864], r7
+ mov64 r1, r6
+ add64 r1, -1
+-ldxb r2, [r7]
+-stxdw [r10-608], r1
++ldxb r2, [r9]
++stxdw [r10-840], r1
++mov64 r7, r9
++add64 r7, 1
++stxdw [r10-848], r7
+ stxb [r10-17], r2
+-jeq r2, 0, +0xe0
+-jne r2, 1, +0x390
+-jlt r6, 5, +0x370
+-mov64 r3, 1
+-ldxw r4, [r7+1]
++jeq r2, 0, +0xf8
++jne r2, 1, +0x568
++jge r6, 5, +0x110
++add64 r9, r6
++lddw r1, str("failed to fill whole buffer")
++call borsh::de::unexpected_eof_to_unexpected_length_of_input#3ead
++stxdw [r10-848], r9
++stdw [r10-840], 0
++ja +0x628
++mov64 r4, 0
++jne r1, 0, +0x158
++ja +0x548
++mov64 r4, 1
++ldxw r5, [r9+1]
+ add64 r6, -5
+-stxdw [r10-608], r6
++stxdw [r10-840], r6
++add64 r9, 5
++stxdw [r10-848], r9
++mov64 r7, r9
++mov64 r1, r6
++jeq r1, 0, +0x548
++mov64 r2, r1
++add64 r2, -1
++ldxb r3, [r7]
++stxdw [r10-840], r2
++mov64 r9, r7
++add64 r9, 1
++stxdw [r10-848], r9
++stxb [r10-17], r3
++jeq r3, 0, +0x1e8
++jne r3, 1, +0x568
++jge r1, 5, +0x208
++add64 r7, r1
++lddw r1, str("failed to fill whole buffer")
++call borsh::de::unexpected_eof_to_unexpected_length_of_input#3ead
++stxdw [r10-848], r7
++stdw [r10-840], 0
++ja +0x628
++mov64 r3, 0
++mov64 r0, 0
++jne r2, 0, +0x250
++ja +0x548
++mov64 r0, 1
++ldxw r3, [r7+1]
++add64 r1, -5
++stxdw [r10-840], r1
+ add64 r7, 5
+-stxdw [r10-616], r7
+-mov64 r1, r6
+-jne r1, 0, +0xf8
+-ja +0x370
+-mov64 r3, 0
++stxdw [r10-848], r7
++mov64 r9, r7
++mov64 r2, r1
++jeq r2, 0, +0x548
++mov64 r1, r2
++add64 r1, -1
++ldxb r6, [r9]
++stxdw [r10-840], r1
++mov64 r7, r9
+ add64 r7, 1
+-jeq r1, 0, +0x370
+-ldxb r2, [r7]
+-stxb [r10-17], r2
+-jeq r2, 0, +0x158
+-jne r2, 1, +0x390
+-jlt r1, 5, +0x370
+-mov64 r0, 1
+-ldxw r5, [r7+1]
+-add64 r1, -5
+-stxdw [r10-608], r1
+-add64 r7, 5
+-jne r1, 0, +0x180
+-ja +0x370
+-mov64 r5, 0
++stxdw [r10-848], r7
++stxb [r10-17], r6
++jeq r6, 0, +0x2b8
++jne r6, 1, +0x568
++jge r2, 9, +0x2c0
++add64 r9, r2
++ja +0xc8
++ja +0x308
++mov64 r6, 1
++ldxdw r1, [r9+1]
++stxdw [r10-880], r1
++add64 r2, -9
++stxdw [r10-840], r2
++add64 r9, 9
++stxdw [r10-848], r9
++mov64 r7, r9
++mov64 r1, r2
++jeq r1, 0, +0x548
++stxdw [r10-872], r5
++mov64 r2, r1
++add64 r2, -1
++ldxb r5, [r7]
++stxdw [r10-840], r2
++mov64 r9, r7
++add64 r9, 1
++stxdw [r10-848], r9
++stxb [r10-17], r5
++jeq r5, 0, +0x3c8
++jne r5, 1, +0x568
++jlt r1, 9, +0x1b0
++mov64 r2, 1
++stxdw [r10-888], r2
++ldxdw r2, [r7+1]
++stxdw [r10-896], r2
++add64 r1, -9
++stxdw [r10-840], r1
++add64 r7, 9
++stxdw [r10-848], r7
++mov64 r9, r7
++mov64 r2, r1
++ja +0x3d0
++stxdw [r10-888], r5
++jeq r2, 0, +0x548
++mov64 r1, r2
+ add64 r1, -1
++ldxb r5, [r9]
++stxdw [r10-840], r1
++mov64 r7, r9
+ add64 r7, 1
+-mov64 r0, 0
+-jeq r1, 0, +0x370
+-ldxb r6, [r7]
+-stxb [r10-17], r6
+-jeq r6, 0, +0x1e0
+-jne r6, 1, +0x390
+-jlt r1, 9, +0x370
+-mov64 r6, 1
+-ldxdw r2, [r7+1]
+-stxdw [r10-632], r2
+-add64 r1, -9
+-add64 r7, 9
+-stxdw [r10-616], r7
+-ja +0x1f0
+-add64 r1, -1
+-add64 r7, 1
+-jeq r1, 0, +0x370
+-ldxb r2, [r7]
+-stxb [r10-17], r2
+-jeq r2, 0, +0x258
+-jne r2, 1, +0x390
+-jlt r1, 9, +0x370
+-mov64 r2, 1
+-stxdw [r10-640], r2
+-ldxdw r2, [r7+1]
+-stxdw [r10-664], r2
+-add64 r1, -9
+-add64 r7, 9
+-ja +0x270
+-stxdw [r10-640], r2
+-add64 r1, -1
+-add64 r7, 1
+-jeq r1, 0, +0x370
+-ldxb r2, [r7]
+-stxb [r10-17], r2
+-jeq r2, 0, +0x2d8
+-jne r2, 1, +0x390
+-jlt r1, 9, +0x370
+-mov64 r2, 1
+-stxdw [r10-672], r2
+-ldxdw r2, [r7+1]
+-stxdw [r10-680], r2
+-add64 r1, -9
+-add64 r7, 9
+-ja +0x2f0
+-stxdw [r10-672], r2
+-add64 r1, -1
+-add64 r7, 1
+-jeq r1, 0, +0x370
++stxdw [r10-848], r7
++stxb [r10-17], r5
++jeq r5, 0, +0x480
++jne r5, 1, +0x568
++jlt r2, 9, +0x2a8
++mov64 r1, 1
++stxdw [r10-904], r1
++ldxdw r5, [r9+1]
++add64 r2, -9
++stxdw [r10-840], r2
++add64 r9, 9
++stxdw [r10-848], r9
++mov64 r7, r9
++mov64 r1, r2
++ja +0x488
++stxdw [r10-904], r5
++jeq r1, 0, +0x548
+ mov64 r2, r1
+ add64 r2, -1
+-stxdw [r10-656], r2
+-ldxb r2, [r7]
+-stxdw [r10-648], r2
+-ldxdw r2, [r10-656]
+-stxdw [r10-608], r2
++ldxb r9, [r7]
++stxdw [r10-840], r2
+ mov64 r2, r7
+ add64 r2, 1
+-stxdw [r10-616], r2
+-ldxdw r2, [r10-648]
+-stxb [r10-17], r2
+-jeq r2, 0, +0x4c0
+-jne r2, 1, +0x390
+-jge r1, 9, +0x4e8
++stxdw [r10-848], r2
++stxb [r10-17], r9
++jeq r9, 0, +0x698
++jne r9, 1, +0x568
++jlt r1, 9, +0x1b0
++stxdw [r10-928], r5
++stxdw [r10-920], r0
++mov64 r9, r3
++stxdw [r10-912], r4
++add64 r1, -9
++ldxdw r2, [r7+1]
++stxdw [r10-952], r2
++stxdw [r10-840], r1
++add64 r7, 9
++stxdw [r10-848], r7
++mov64 r7, 1
++ja +0x6c0
+ lddw r1, str("failed to fill whole buffer")
+ call borsh::de::unexpected_eof_to_unexpected_length_of_input#3ead
+-ja +0x450
++ja +0x628
+ lddw r1, str("Invalid Option representation: ")
+ stxdw [r10-312], r1
+ mov64 r1, r10
+@@ -136,167 +193,215 @@
+ and64 r1, 3
+ mov64 r2, r1
+ add64 r2, -2
+-jlt r2, 2, +0x4a8
+-jeq r1, 0, +0x4a8
++jlt r2, 2, +0x680
++jeq r1, 0, +0x680
+ ldxdw r1, [r0+7]
+ ldxdw r2, [r1]
+-jeq r2, 0, +0x4a8
++jeq r2, 0, +0x680
+ ldxdw r1, [r0-1]
+ callx r2
+ mov64 r1, 102
+ call <anchor_lang::error::Error as core::convert::From<anchor_lang::error::ErrorCode>>::from#ae9e
+ exit
+-stxdw [r10-704], r0
+-stxdw [r10-696], r5
+-stxdw [r10-688], r4
+-stxdw [r10-656], r3
+-ja +0x548
+-stxdw [r10-704], r0
+-stxdw [r10-696], r5
+-stxdw [r10-688], r4
+-stxdw [r10-656], r3
+-add64 r1, -9
+-ldxdw r2, [r7+1]
+-stxdw [r10-728], r2
+-stxdw [r10-608], r1
+-add64 r7, 9
+-stxdw [r10-616], r7
+-mov64 r1, 1
+-stxdw [r10-648], r1
+-mov64 r1, r10
+-add64 r1, -312
+-mov64 r2, r10
+-add64 r2, -616
++mov64 r7, r9
++stxdw [r10-928], r5
++stxdw [r10-920], r0
++mov64 r9, r3
++stxdw [r10-912], r4
++mov64 r1, r10
++add64 r1, -312
++mov64 r2, r10
++add64 r2, -848
+ call <core::option::Option<T> as borsh::de::BorshDeserialize>::deserialize_reader#207a
+ ldxb r1, [r10-312]
+-jne r1, 1, +0x590
++jne r1, 1, +0x708
+ ldxdw r0, [r10-304]
+-ja +0x450
++ja +0x628
+ ldxb r1, [r10-310]
++stxdw [r10-944], r1
++ldxb r1, [r10-311]
++stxdw [r10-936], r1
++mov64 r1, r10
++add64 r1, -312
++mov64 r2, r10
++add64 r2, -848
++call <core::option::Option<T> as borsh::de::BorshDeserialize>::deserialize_reader#9565
++ldxdw r0, [r10-304]
++ldxdw r1, [r10-312]
++jeq r1, 2, +0x628
++stxdw [r10-968], r1
++stxdw [r10-960], r0
++mov64 r1, r10
++add64 r1, -312
++mov64 r2, r10
++add64 r2, -848
++call <core::option::Option<T> as borsh::de::BorshDeserialize>::deserialize_reader#9565
++ldxdw r0, [r10-304]
++ldxdw r1, [r10-312]
++stxdw [r10-976], r1
++jeq r1, 2, +0x628
++stxdw [r10-992], r0
++mov64 r1, r10
++add64 r1, -312
++mov64 r2, r10
++add64 r2, -848
++call <core::option::Option<T> as borsh::de::BorshDeserialize>::deserialize_reader#9565
++ldxdw r1, [r10-304]
++stxdw [r10-984], r1
++ldxdw r1, [r10-312]
++stxdw [r10-1000], r1
++jne r1, 2, +0x828
++ldxdw r0, [r10-984]
++ja +0x628
++mov64 r1, r10
++add64 r1, -312
++mov64 r2, r10
++add64 r2, -848
++call <core::option::Option<T> as borsh::de::BorshDeserialize>::deserialize_reader#9565
++ldxdw r1, [r10-304]
++stxdw [r10-1008], r1
++ldxdw r1, [r10-312]
++stxdw [r10-1016], r1
++jne r1, 2, +0x888
++ldxdw r0, [r10-1008]
++ja +0x628
++mov64 r1, r10
++add64 r1, -312
++mov64 r2, r10
++add64 r2, -848
++call <core::option::Option<T> as borsh::de::BorshDeserialize>::deserialize_reader#9565
++ldxdw r1, [r10-304]
++stxdw [r10-1024], r1
++ldxdw r1, [r10-312]
++stxdw [r10-1032], r1
++jne r1, 2, +0x8e8
++ldxdw r0, [r10-1024]
++ja +0x628
++mov64 r1, r10
++add64 r1, -312
++mov64 r2, r10
++add64 r2, -848
++call <core::option::Option<T> as borsh::de::BorshDeserialize>::deserialize_reader#9565
++ldxdw r1, [r10-304]
++stxdw [r10-1040], r1
++ldxdw r1, [r10-312]
++stxdw [r10-1048], r1
++jne r1, 2, +0x948
++ldxdw r0, [r10-1040]
++ja +0x628
++mov64 r1, r10
++add64 r1, -312
++mov64 r2, r10
++add64 r2, -848
++call <core::option::Option<T> as borsh::de::BorshDeserialize>::deserialize_reader#9565
++ldxdw r1, [r10-304]
++stxdw [r10-1056], r1
++ldxdw r1, [r10-312]
++stxdw [r10-1064], r1
++jne r1, 2, +0x9a8
++ldxdw r0, [r10-1056]
++ja +0x628
++mov64 r1, r10
++add64 r1, -312
++mov64 r2, r10
++add64 r2, -848
++call <core::option::Option<T> as borsh::de::BorshDeserialize>::deserialize_reader#9565
++ldxdw r1, [r10-304]
++stxdw [r10-1072], r1
++ldxdw r1, [r10-312]
++stxdw [r10-1080], r1
++jne r1, 2, +0xa08
++ldxdw r0, [r10-1072]
++ja +0x628
++mov64 r1, r10
++add64 r1, -312
++mov64 r2, r10
++add64 r2, -848
++call <core::option::Option<T> as borsh::de::BorshDeserialize>::deserialize_reader#9565
++ldxdw r1, [r10-304]
++ldxdw r2, [r10-312]
++jne r2, 2, +0xa58
++mov64 r0, r1
++ja +0x628
++ldxdw r3, [r10-944]
++stxb [r10-607], r3
++ldxdw r3, [r10-936]
++stxb [r10-608], r3
++stxw [r10-612], r9
++ldxdw r3, [r10-920]
++stxw [r10-616], r3
++ldxdw r3, [r10-872]
++stxw [r10-620], r3
++ldxdw r3, [r10-912]
++stxw [r10-624], r3
++stxdw [r10-632], r1
++stxdw [r10-640], r2
++ldxdw r1, [r10-1072]
++stxdw [r10-648], r1
++ldxdw r1, [r10-1080]
++stxdw [r10-656], r1
++ldxdw r1, [r10-1056]
++stxdw [r10-664], r1
++ldxdw r1, [r10-1064]
++stxdw [r10-672], r1
++ldxdw r1, [r10-1040]
++stxdw [r10-680], r1
++ldxdw r1, [r10-1048]
++stxdw [r10-688], r1
++ldxdw r1, [r10-1024]
++stxdw [r10-696], r1
++ldxdw r1, [r10-1032]
++stxdw [r10-704], r1
++ldxdw r1, [r10-1008]
++stxdw [r10-712], r1
++ldxdw r1, [r10-1016]
+ stxdw [r10-720], r1
+-ldxb r1, [r10-311]
+-stxdw [r10-712], r1
+-mov64 r1, r10
+-add64 r1, -312
+-mov64 r2, r10
+-add64 r2, -616
+-call <core::option::Option<T> as borsh::de::BorshDeserialize>::deserialize_reader#9565
+-ldxdw r0, [r10-304]
+-ldxdw r7, [r10-312]
+-jeq r7, 2, +0x450
+-stxdw [r10-736], r0
+-mov64 r1, r10
+-add64 r1, -312
+-mov64 r2, r10
+-add64 r2, -616
+-call <core::option::Option<T> as borsh::de::BorshDeserialize>::deserialize_reader#9565
+-ldxdw r0, [r10-304]
+-ldxdw r1, [r10-312]
++ldxdw r1, [r10-984]
++stxdw [r10-728], r1
++ldxdw r1, [r10-1000]
++stxdw [r10-736], r1
++ldxdw r1, [r10-992]
+ stxdw [r10-744], r1
+-jeq r1, 2, +0x450
+-stxdw [r10-760], r0
+-mov64 r1, r10
+-add64 r1, -312
+-mov64 r2, r10
+-add64 r2, -616
+-call <core::option::Option<T> as borsh::de::BorshDeserialize>::deserialize_reader#9565
+-ldxdw r1, [r10-304]
++ldxdw r1, [r10-976]
+ stxdw [r10-752], r1
+-ldxdw r1, [r10-312]
++ldxdw r1, [r10-960]
++stxdw [r10-760], r1
++ldxdw r1, [r10-968]
+ stxdw [r10-768], r1
+-jne r1, 2, +0x6a8
+-ldxdw r0, [r10-752]
+-ja +0x450
+-mov64 r1, r10
+-add64 r1, -312
+-mov64 r2, r10
+-add64 r2, -616
+-call <core::option::Option<T> as borsh::de::BorshDeserialize>::deserialize_reader#9565
+-ldxdw r1, [r10-304]
++ldxdw r1, [r10-952]
+ stxdw [r10-776], r1
+-ldxdw r1, [r10-312]
+-stxdw [r10-784], r1
+-jne r1, 2, +0x708
+-ldxdw r0, [r10-776]
+-ja +0x450
+-mov64 r1, r10
+-add64 r1, -312
+-mov64 r2, r10
+-add64 r2, -616
+-call <core::option::Option<T> as borsh::de::BorshDeserialize>::deserialize_reader#9565
+-ldxdw r1, [r10-304]
++stxdw [r10-784], r7
++ldxdw r1, [r10-928]
+ stxdw [r10-792], r1
+-ldxdw r1, [r10-312]
++ldxdw r1, [r10-904]
+ stxdw [r10-800], r1
+-jne r1, 2, +0x768
+-ldxdw r0, [r10-792]
+-ja +0x450
+-mov64 r1, r10
+-add64 r1, -312
+-mov64 r2, r10
+-add64 r2, -616
+-call <core::option::Option<T> as borsh::de::BorshDeserialize>::deserialize_reader#9565
+-ldxdw r1, [r10-304]
++ldxdw r1, [r10-896]
+ stxdw [r10-808], r1
+-ldxdw r1, [r10-312]
++ldxdw r1, [r10-888]
+ stxdw [r10-816], r1
+-jne r1, 2, +0x7c8
+-ldxdw r0, [r10-808]
+-ja +0x450
+-mov64 r1, r10
+-add64 r1, -312
+-mov64 r2, r10
+-add64 r2, -616
+-call <core::option::Option<T> as borsh::de::BorshDeserialize>::deserialize_reader#9565
+-ldxdw r1, [r10-304]
+-stxdw [r10-824], r1
+-ldxdw r1, [r10-312]
+-stxdw [r10-832], r1
+-jne r1, 2, +0x828
+-ldxdw r0, [r10-824]
+-ja +0x450
+-mov64 r1, r10
+-add64 r1, -312
+-mov64 r2, r10
+-add64 r2, -616
+-call <core::option::Option<T> as borsh::de::BorshDeserialize>::deserialize_reader#9565
+-ldxdw r1, [r10-304]
+-stxdw [r10-840], r1
+-ldxdw r1, [r10-312]
+-stxdw [r10-848], r1
+-jne r1, 2, +0x888
+-ldxdw r0, [r10-840]
+-ja +0x450
+-mov64 r1, r10
+-add64 r1, -312
+-mov64 r2, r10
+-add64 r2, -616
+-call <core::option::Option<T> as borsh::de::BorshDeserialize>::deserialize_reader#9565
+-ldxdw r1, [r10-304]
+-stxdw [r10-856], r1
+-ldxdw r1, [r10-312]
+-stxdw [r10-872], r1
+-jne r1, 2, +0x8e8
+-ldxdw r0, [r10-856]
+-ja +0x450
+-sth [r10-616], 65535
+-stxdw [r10-8], r9
+-stxdw [r10-16], r8
+-mov64 r1, r10
+-add64 r1, -616
++stxdw [r10-832], r6
++ldxdw r1, [r10-880]
++stxw [r10-824], r1
++rsh64 r1, 32
++stxw [r10-820], r1
++sth [r10-848], 65535
++stxdw [r10-8], r8
++ldxdw r1, [r10-856]
++stxdw [r10-16], r1
++mov64 r1, r10
++add64 r1, -848
+ stxdw [r10-4088], r1
+ mov64 r1, r10
+ add64 r1, -312
+ mov64 r3, r10
+ add64 r3, -16
+ mov64 r5, r10
+-ldxdw r2, [r10-624]
++ldxdw r2, [r10-864]
+ call <mayhem_program::instructions::admin::Admin as anchor_lang::Accounts<mayhem_program::instructions::admin::AdminBumps>>::try_accounts#5567
+-ldxdw r1, [r10-304]
+-stxdw [r10-864], r1
+-ldxdw r9, [r10-312]
++ldxdw r6, [r10-304]
++ldxdw r7, [r10-312]
+ ldxb r8, [r10-27]
+-jeq r8, 2, +0xc80
++jeq r8, 2, +0xdf8
+ mov64 r1, r10
+ add64 r1, -584
+ mov64 r2, r10
+@@ -304,14 +409,13 @@
+ mov64 r3, 269
+ call memcpy
+ stxb [r10-315], r8
+-ldxdw r1, [r10-864]
+-stxdw [r10-592], r1
+-stxdw [r10-600], r9
++stxdw [r10-592], r6
++stxdw [r10-600], r7
+ ldxh r1, [r10-26]
+ stxh [r10-314], r1
+-ldxb r1, [r10-615]
++ldxb r1, [r10-847]
+ stxb [r10-279], r1
+-ldxb r1, [r10-616]
++ldxb r1, [r10-848]
+ stxb [r10-280], r1
+ ldxdw r1, [r10-8]
+ stxdw [r10-288], r1
+@@ -320,80 +424,21 @@
+ mov64 r1, r10
+ add64 r1, -600
+ stxdw [r10-304], r1
+-ldxdw r1, [r10-624]
++ldxdw r1, [r10-864]
+ stxdw [r10-312], r1
+-ldxdw r1, [r10-856]
+-stxdw [r10-3872], r1
+-ldxdw r1, [r10-872]
+-stxdw [r10-3880], r1
+-ldxdw r1, [r10-840]
+-stxdw [r10-3888], r1
+-ldxdw r1, [r10-848]
+-stxdw [r10-3896], r1
+-ldxdw r1, [r10-824]
+-stxdw [r10-3904], r1
+-ldxdw r1, [r10-832]
+-stxdw [r10-3912], r1
+-ldxdw r1, [r10-808]
+-stxdw [r10-3920], r1
+-ldxdw r1, [r10-816]
+-stxdw [r10-3928], r1
+-ldxdw r1, [r10-792]
+-stxdw [r10-3936], r1
+-ldxdw r1, [r10-800]
+-stxdw [r10-3944], r1
+-ldxdw r1, [r10-776]
+-stxdw [r10-3952], r1
+-ldxdw r1, [r10-784]
+-stxdw [r10-3960], r1
+-ldxdw r1, [r10-752]
+-stxdw [r10-3968], r1
+-ldxdw r1, [r10-768]
+-stxdw [r10-3976], r1
+-ldxdw r1, [r10-760]
+-stxdw [r10-3984], r1
+-ldxdw r1, [r10-744]
+-stxdw [r10-3992], r1
+-ldxdw r1, [r10-736]
+-stxdw [r10-4000], r1
+-stxdw [r10-4008], r7
+-ldxdw r1, [r10-720]
+-stxdw [r10-4016], r1
+-ldxdw r1, [r10-712]
+-and64 r1, 1
+-stxdw [r10-4024], r1
+-ldxdw r1, [r10-728]
+-stxdw [r10-4032], r1
+-ldxdw r1, [r10-648]
+-stxdw [r10-4040], r1
+-ldxdw r1, [r10-680]
+-stxdw [r10-4048], r1
+-ldxdw r1, [r10-672]
+-stxdw [r10-4056], r1
+-ldxdw r1, [r10-664]
+-stxdw [r10-4064], r1
+-ldxdw r1, [r10-640]
+-stxdw [r10-4072], r1
+-ldxdw r1, [r10-632]
+-stxdw [r10-4080], r1
+-stxdw [r10-4088], r6
+-ldxdw r1, [r10-696]
+-stxdw [r10-4096], r1
+-mov64 r1, r10
+-add64 r1, -312
+-mov64 r5, r10
+-ldxdw r2, [r10-656]
+-ldxdw r3, [r10-688]
+-ldxdw r4, [r10-704]
++mov64 r1, r10
++add64 r1, -312
++mov64 r2, r10
++add64 r2, -832
+ call mayhem_program::instructions::admin::update_global_params#0329
+-stxdw [r10-864], r1
+-mov64 r9, r0
+-jne r0, 2, +0xc80
++mov64 r6, r1
++mov64 r7, r0
++jne r0, 2, +0xdf8
+ mov64 r1, r10
+ add64 r1, -600
+-ldxdw r2, [r10-624]
++ldxdw r2, [r10-864]
+ call <mayhem_program::instructions::admin::Admin as anchor_lang::AccountsExit>::exit#1fc0
+-ja +0x4b8
+-mov64 r0, r9
+-ldxdw r1, [r10-864]
+-ja +0x4b8
++ja +0x690
++mov64 r0, r7
++mov64 r1, r6
++ja +0x690

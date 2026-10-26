@@ -29,6 +29,8 @@ Share of the original's code reproduced byte-for-byte, after relinking in the or
 | Pump and PumpSwap calls through `declare_program!(pump)` / `declare_program!(pump_amm)` on `lib.rs` lines 19 and 20, with the IDLs in `idls/` (Pump's `buy` without the later `partial_fill` argument) | 32.51% |
 | PumpSwap `GlobalConfig` and Pump `BondingCurve` as the generated types, IDLs trimmed to Mayhem-era layouts (418 and 82 bytes) | 32.79% |
 | Pump v2 calls through [`crates/pump-cpi`](../crates/pump-cpi), a crate outside the workspace with `declare_program!(pump)` at `src/lib.rs:8:5` | 37.92% |
+| AI rebuild loop (Claude Opus 5.5 through solopen `rebuild`): 92 model calls, 22 edits kept | 54.32% |
+| `pump-cpi`'s `AccountWrapper` zero-padding older accounts, and its `declare_program!(pump_amm)` at line 15: PumpSwap `Pool` and Pump's 141-byte bonding curve read through it | 59.53% |
 
 [TODO.md](TODO.md) lists every function still to fix, the original's panic sites file by file, and the current leads. `targets/` holds an assembly diff per function.
 
