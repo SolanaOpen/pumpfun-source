@@ -1,4 +1,4 @@
-# <T as alloc::string::SpecToString>::spec_to_string  (yours 712 B at .text+0x8278; original 456 B at .text+0x80dd0)
+# <T as alloc::string::SpecToString>::spec_to_string  (yours 712 B at .text+0x7ee0; original 456 B at .text+0x80dd0)
 # distance 82 instructions; evidence: same-callees 1/2
 --- original
 +++ yours

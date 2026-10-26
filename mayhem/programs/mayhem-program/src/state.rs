@@ -100,17 +100,17 @@ pub struct MayhemState {
 // (layout padding)
 // (layout padding)
 // (layout padding)
-// (layout padding)
-// (layout padding)
-// (layout padding)
-// (layout padding)
-// (layout padding)
-// (layout padding)
-// (layout padding)
-// (layout padding)
-// (layout padding)
-// (layout padding)
-// (layout padding)
+impl GlobalParams {
+    #[inline(always)]
+    pub fn sol_withdraw_check(now: i64, last: i64, interval: i64) -> Result<()> {
+        if last == 0 || interval == 0 { return Ok(()); }
+        let next_ok = last + interval;
+        // (layout padding)
+        // (layout padding)
+        require!(now >= next_ok, crate::MayhemError::WithdrawRateLimit);
+        Ok(())
+    }
+}
 // (layout padding)
 // (layout padding)
 // (layout padding)

@@ -227,9 +227,9 @@ fn sol_withdraw_rate_limit(state: &mut GlobalParams) -> Result<()> {
     let now = Clock::get()?.unix_timestamp;
     let last = i64::from_le_bytes(state.reset_middle[1..9].try_into().unwrap());
     let interval = i64::from_le_bytes(state.reset_middle[17..25].try_into().unwrap());
-    if last != 0 && interval != 0 {
-        require_gte!(now, last + interval, MayhemError::WithdrawRateLimit);
-    }
+    GlobalParams::sol_withdraw_check(now, last, interval)?;
+    // (layout padding)
+    // (layout padding)
     state.reset_middle[1..9].copy_from_slice(&now.to_le_bytes());
     Ok(())
 }
