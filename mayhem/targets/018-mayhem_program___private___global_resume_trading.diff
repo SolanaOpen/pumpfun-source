@@ -1,4 +1,4 @@
-# mayhem_program::__private::__global::resume_trading  (yours 472 B at .text+0x738a8; original 368 B at .text+0x7fc78)
+# mayhem_program::__private::__global::resume_trading  (yours 472 B at .text+0x73cd0; original 368 B at .text+0x7fc78)
 # distance 19 instructions; evidence: same-callees 3/3
 --- original
 +++ yours

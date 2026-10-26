@@ -31,7 +31,7 @@ Share of the original's code reproduced byte-for-byte, after relinking in the or
 | Pump v2 calls through [`crates/pump-cpi`](../crates/pump-cpi), a crate outside the workspace with `declare_program!(pump)` at `src/lib.rs:8:5` | 37.92% |
 | AI rebuild loop (Claude Opus 5.5 through solopen `rebuild`): 92 model calls, 22 edits kept | 54.32% |
 | `pump-cpi`'s `AccountWrapper` zero-padding older accounts, and its `declare_program!(pump_amm)` at line 15: PumpSwap `Pool` and Pump's 141-byte bonding curve read through it | 59.53% |
-| AI rebuild loop, segment 4: 90 model calls, 16 edits kept so far | 71.42% |
+| AI rebuild loop, segment 4: 92 model calls, 17 edits kept so far | 71.42% |
 
 [TODO.md](TODO.md) lists every function still to fix, the original's panic sites file by file, and the current leads. `targets/` holds an assembly diff per function.
 

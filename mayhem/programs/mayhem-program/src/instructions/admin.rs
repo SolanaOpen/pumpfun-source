@@ -105,10 +105,10 @@ pub fn initialize_global_params(ctx: Context<InitializeGlobalParams>) -> Result<
     ctx.accounts.global_params.admin = ctx.accounts.admin.key();
     Ok(())
 }
-pub fn update_global_params(ctx: Context<Admin>, args: UpdateGlobalParamsArgs) -> Result<()> {
+pub fn update_global_params(ctx: Context<Admin>, field_0: Option<u32>, field_1: Option<u32>, field_2: Option<u64>, field_3: Option<u64>, field_4: Option<u64>, field_5: Option<u64>, field_6: Option<u8>, field_7: Option<u64>, field_8: Option<u64>, field_9: Option<u64>, field_10: Option<u64>, field_11: Option<u64>, field_12: Option<u64>, field_13: Option<u64>, field_14: Option<u64>, field_15: Option<u64>) -> Result<()> {
     let state = &mut ctx.accounts.global_params;
     let old_version = state.version;
-    apply_update(state, args)?;
+    apply_update(state, field_0, field_1, field_2, field_3, field_4, field_5, field_6, field_7, field_8, field_9, field_10, field_11, field_12, field_13, field_14, field_15)?;
     // (layout padding)
     // (layout padding)
     // (layout padding)
@@ -230,7 +230,7 @@ pub fn withdraw_admin(ctx: Context<WithdrawAdmin>, amount: u64) -> Result<()> {
 }
 
 #[inline(never)]
-fn apply_update(state: &mut GlobalParams, args: UpdateGlobalParamsArgs) -> Result<()> {
+fn apply_update(state: &mut GlobalParams, field_0: Option<u32>, field_1: Option<u32>, field_2: Option<u64>, field_3: Option<u64>, field_4: Option<u64>, field_5: Option<u64>, field_6: Option<u8>, field_7: Option<u64>, field_8: Option<u64>, field_9: Option<u64>, field_10: Option<u64>, field_11: Option<u64>, field_12: Option<u64>, field_13: Option<u64>, field_14: Option<u64>, field_15: Option<u64>) -> Result<()> { let args = UpdateGlobalParamsArgs { field_0, field_1, field_2, field_3, field_4, field_5, field_6, field_7, field_8, field_9, field_10, field_11, field_12, field_13, field_14, field_15 };
     if let Some(v) = args.field_0 { state.reset_prefix[0..4].copy_from_slice(&v.to_le_bytes()); }
     if let Some(v) = args.field_1 { state.reset_prefix[4..8].copy_from_slice(&v.to_le_bytes()); }
     for (value, offset) in [(args.field_2, 8), (args.field_3, 16), (args.field_4, 24), (args.field_5, 32)] {

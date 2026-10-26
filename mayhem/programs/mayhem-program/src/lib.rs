@@ -42,7 +42,7 @@ pub mod mayhem_program {
     pub fn extend_account(ctx: Context<ExtendAccount>) -> Result<()> { instructions::extend_account::extend_account(ctx) }
     pub fn initialize_fee_recipient(ctx: Context<InitializeFeeRecipient>, index: u8) -> Result<()> { super::initialize_fee_recipient_impl(ctx, index) }
     pub fn initialize_global_params(ctx: Context<InitializeGlobalParams>) -> Result<()> { instructions::admin::initialize_global_params(ctx) }
-    pub fn update_global_params(ctx: Context<Admin>, args: UpdateGlobalParamsArgs) -> Result<()> { instructions::admin::update_global_params(ctx, args) }
+    pub fn update_global_params(ctx: Context<Admin>, args: UpdateGlobalParamsArgs) -> Result<()> { instructions::admin::update_global_params(ctx, args.field_0, args.field_1, args.field_2, args.field_3, args.field_4, args.field_5, args.field_6, args.field_7, args.field_8, args.field_9, args.field_10, args.field_11, args.field_12, args.field_13, args.field_14, args.field_15) }
     pub fn update_admin(ctx: Context<Admin>, new_admin: Pubkey) -> Result<()> { instructions::admin::update_admin(ctx, new_admin) }
     pub fn update_trader(ctx: Context<Admin>, new_trader: Pubkey) -> Result<()> { instructions::admin::update_trader(ctx, new_trader) }
     pub fn update_max_sol_per_sweep(ctx: Context<Admin>, value: u64) -> Result<()> { instructions::admin::update_max_sol_per_sweep(ctx, value) }

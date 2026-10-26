@@ -1,0 +1,73 @@
+# mayhem_program::instructions::admin::update_global_params  (yours 3472 B at .text+0xd940; original 3472 B at .text+0xc9e8)
+# distance 30 instructions; evidence: same-callees 9/9
+--- original
++++ yours
+@@ -1,5 +1,5 @@
+ ldxdw r7, [r1+8]
+-ldxw r6, [r7+280]
++ldxw r6, [r7+256]
+ ldxdw r1, [r5-3872]
+ stxdw [r10-3872], r1
+ ldxdw r1, [r5-3880]
+@@ -61,40 +61,40 @@
+ mov64 r1, r7
+ add64 r1, 40
+ mov64 r5, r10
+-call orig_fn_2b948
++call mayhem_program::instructions::admin::apply_update#90ea
+ jne r0, 2, +0xd80
+-ldxdw r1, [r7+248]
++ldxdw r1, [r7+232]
+ stxdw [r10-248], r1
+-ldxdw r1, [r7+240]
++ldxdw r1, [r7+224]
+ stxdw [r10-240], r1
+-ldxdw r1, [r7+232]
++ldxdw r1, [r7+216]
+ stxdw [r10-232], r1
+-ldxdw r1, [r7+224]
++ldxdw r1, [r7+208]
+ stxdw [r10-224], r1
+-ldxdw r1, [r7+216]
++ldxdw r1, [r7+200]
+ stxdw [r10-216], r1
+-ldxdw r1, [r7+200]
++ldxdw r1, [r7+184]
+ stxdw [r10-208], r1
++ldxdw r1, [r7+176]
++stxdw [r10-200], r1
++ldxdw r1, [r7+277]
++stxdw [r10-192], r1
++ldxdw r1, [r7+269]
++stxdw [r10-184], r1
++ldxb r1, [r7+260]
++stxdw [r10-176], r1
+ ldxdw r1, [r7+168]
+-stxdw [r10-200], r1
+-ldxdw r1, [r7+192]
+-stxdw [r10-192], r1
+-ldxdw r1, [r7+184]
+-stxdw [r10-184], r1
+-ldxb r1, [r7+284]
+-stxdw [r10-176], r1
++stxdw [r10-168], r1
+ ldxdw r1, [r7+160]
+-stxdw [r10-168], r1
++stxdw [r10-160], r1
+ ldxdw r1, [r7+152]
+-stxdw [r10-160], r1
++stxdw [r10-152], r1
+ ldxdw r1, [r7+144]
+-stxdw [r10-152], r1
+-ldxdw r1, [r7+136]
+ stxdw [r10-144], r1
+-ldxw r1, [r7+276]
++ldxw r1, [r7+140]
+ stxdw [r10-136], r1
+-ldxw r9, [r7+272]
+-ldxw r8, [r7+280]
++ldxw r9, [r7+136]
++ldxw r8, [r7+256]
+ call _RNvCscR3e5J6VSLN_7___rustc35___rust_no_alloc_shim_is_unstable_v2
+ lddw r1, 0x300000000
+ ldxdw r2, [r1]
