@@ -8,7 +8,7 @@ This builds on [lalalune/pumpfun-source](https://github.com/lalalune/pumpfun-sou
 
 | Program | Original's own source files | Missing at that path in lalalune's source | Here |
 |---|---:|---:|---|
-| Mayhem | 9 | 9 | Restructured into the original layout; 25.21% of the original's code matches; [to-do list](mayhem/TODO.md) |
+| Mayhem | 9 | 9 | Original layout and `declare_program!` clients; **32.51%** of the original's code matches; [progress](mayhem/README.md#progress), [to-do list](mayhem/TODO.md) |
 | Pump | 15 | 10 | [Analysis](analysis/source-layout.md#pump) |
 | PumpSwap | 10 | 8 | [Analysis](analysis/source-layout.md#pumpswap) |
 | Fees | 12 | 9 | [Analysis](analysis/source-layout.md#fees) |
@@ -24,10 +24,10 @@ This builds on [lalalune/pumpfun-source](https://github.com/lalalune/pumpfun-sou
 
 ## Mayhem
 
-[mayhem/](mayhem) is lalalune's Mayhem source moved into the layout the binary names, with no logic changed. Built with platform-tools v1.54 and relinked in the original's function order, it reproduces **25.21%** of the original's code. There are 89 functions that exist but differ, 54 parts of the original with no counterpart (127 KB), and an assembly diff per function in `mayhem/targets/`. The three largest leads are in [mayhem/TODO.md](mayhem/TODO.md):
+[mayhem/](mayhem) started as lalalune's Mayhem source, moved into the layout the binary names and then switched to the Pump and PumpSwap clients that `declare_program!` generates, as the original does. Built with platform-tools v1.54 and relinked in the original's function order, it reproduces **32.51%** of the original's code, up from 25.21%. There are 88 functions that exist but differ, 42 parts of the original with no counterpart, and an assembly diff per function in `mayhem/targets/`. [mayhem/README.md](mayhem/README.md#progress) logs each step; [mayhem/TODO.md](mayhem/TODO.md) has the current leads:
 
-1. About 36 KB of original code comes from macros on lines 19 and 20 of its `lib.rs`, and nothing in this source produces anything like it. The original's Anchor setup differs.
-2. The unknown `account_wrapper.rs` dependency, plus about 25 KB more code that points the same way.
+1. Read Pump's and PumpSwap's accounts through the generated `pump::accounts` / `pump_amm::accounts` types, as the original does.
+2. The unknown dependency behind the v2 Pump calls (`src/account_wrapper.rs`, `src/lib.rs:8:5`).
 3. The original's `state.rs` holds logic (panic sites from line 107 to line 578); this source keeps none there.
 
 ## Reproduce

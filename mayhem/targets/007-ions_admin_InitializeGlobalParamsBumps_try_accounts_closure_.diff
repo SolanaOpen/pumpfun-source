@@ -1,4 +1,4 @@
-# <mayhem_program::instructions::admin::InitializeGlobalParams as anchor_lang::Accounts<mayhem_program::instructions::admin::InitializeGlobalParamsBumps>>::try_accounts::{{closure}}  (yours 4680 B at .text+0x2bdd8; original 4680 B at .text+0x30cf8)
+# <mayhem_program::instructions::admin::InitializeGlobalParams as anchor_lang::Accounts<mayhem_program::instructions::admin::InitializeGlobalParamsBumps>>::try_accounts::{{closure}}  (yours 4680 B at .text+0x29890; original 4680 B at .text+0x30cf8)
 # distance 1 instructions; evidence: same-callees 15/15; neighbours between the same matched functions as in your build
 --- original
 +++ yours

@@ -1,4 +1,4 @@
-# <mayhem_program::state::GlobalParams as anchor_lang::AccountSerialize>::try_serialize  (yours 1000 B at .text+0x28de0; original 1832 B at .text+0x66eb0)
+# <mayhem_program::state::GlobalParams as anchor_lang::AccountSerialize>::try_serialize  (yours 1000 B at .text+0x26898; original 1832 B at .text+0x66eb0)
 # distance 157 instructions; evidence: called-by <mayhem_program::instructions::admin::InitializeGlobalParams as anchor_lang::AccountsExit>::exit#b42f; called-by <mayhem_program::instructions::admin::Admin as anchor_lang::AccountsExit>::exit#3f35; called-by <mayhem_program::instructions::admin::WithdrawAdmin as anchor_lang::AccountsExit>::exit#b211; called-by <mayhem_program::instructions::fee_recipients::InitializeFeeRecipient as anchor_lang::AccountsExit>::exit#33b5; called-by <mayhem_program::instructions::fee_recipients::SweepFees as anchor_lang::AccountsExit>::exit#daff; called-by <mayhem_program::instructions::fee_recipients::SweepFeesAdmin as anchor_lang::AccountsExit>::exit#3296; same-callees 2/2
 --- original
 +++ yours

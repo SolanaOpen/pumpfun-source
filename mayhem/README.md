@@ -2,7 +2,7 @@
 
 Source for the pump.fun Mayhem program (`MAyhSmzXzV1pTf7LsNkrNwkWKTo4ougAJ1PPg47MD4e`), rearranged into the file layout the deployed binary names, as a starting point for a byte-identical rebuild with [solopen](https://github.com/SolanaOpen/SolOpen).
 
-The code is lalalune's reconstruction from [pumpfun-source](https://github.com/lalalune/pumpfun-source) (`programs/mayhem`, commit `0b29240`). No logic was changed. Only the layout moved:
+The code started as lalalune's reconstruction from [pumpfun-source](https://github.com/lalalune/pumpfun-source) (`programs/mayhem`, commit `0b29240`). The first step changed no logic, only the layout:
 
 | Before | Now (the paths the binary's panic messages name) |
 |---|---|
@@ -18,15 +18,17 @@ The code is lalalune's reconstruction from [pumpfun-source](https://github.com/l
 
 Each old file is kept whole as an inline module (`pump_interface::buy`, …), so its contents are unchanged.
 
-## Where it stands
+## Progress
 
-| | Before | Now |
-|---|---:|---:|
-| Original code reproduced byte-for-byte | 25.21% | 25.21% |
-| Source files named that the original doesn't have | 7 | 0 |
-| Differing bytes after relinking in the original order | 398,929 | 398,237 |
+Share of the original's code reproduced byte-for-byte, after relinking in the original's function order:
 
-Coverage did not move because no code changed; the layout is what the remaining work needs. [TODO.md](TODO.md) lists every function still to fix, the original's panic sites file by file, and the leads found so far. `targets/` holds an assembly diff per function.
+| Step | Coverage |
+|---|---:|
+| lalalune's source as published | 25.21% |
+| Moved into the original's file layout (no logic changed) | 25.21% |
+| Pump and PumpSwap calls through `declare_program!(pump)` / `declare_program!(pump_amm)` on `lib.rs` lines 19 and 20, with the IDLs in `idls/` (Pump's `buy` without the later `partial_fill` argument) | 32.51% |
+
+[TODO.md](TODO.md) lists every function still to fix, the original's panic sites file by file, and the current leads. `targets/` holds an assembly diff per function.
 
 ## Build and score
 

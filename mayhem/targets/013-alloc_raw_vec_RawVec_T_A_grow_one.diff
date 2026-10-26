@@ -1,0 +1,109 @@
+# alloc::raw_vec::RawVec<T,A>::grow_one  (yours 408 B at .text+0x7da78; original 640 B at .text+0x9e390)
+# distance 53 instructions; evidence: same-callees 3/3; neighbours between the same matched functions as in your build
+--- original
++++ yours
+@@ -1,76 +1,51 @@
+-mov64 r8, r4
+-mov64 r7, r3
+-mov64 r3, r2
+-add64 r3, r7
+-mov64 r6, 0
+-mov64 r4, 1
+-jlt r3, r2, +0x40
+-mov64 r4, 0
+-and64 r4, 1
+-jne r4, 0, +0x170
+-mov64 r3, 8
+-jeq r5, 1, +0x68
+-mov64 r3, 4
+-add64 r7, r2
+-ldxdw r9, [r1]
+-mov64 r2, r9
+-lsh64 r2, 1
+-jgt r7, r2, +0x98
+-mov64 r7, r2
+-stxdw [r10-56], r1
+-jgt r7, r3, +0xb0
+-mov64 r7, r3
++stxdw [r10-56], r2
++mov64 r7, r1
++ldxdw r6, [r7]
++mov64 r8, r6
++lsh64 r8, 1
++jgt r8, 4, +0x38
++mov64 r8, 4
++mov64 r9, 0
+ mov64 r1, r8
+-stxdw [r10-64], r5
+-add64 r1, r5
+-add64 r1, -1
+-mov64 r2, r8
+-neg64 r2
+-and64 r1, r2
+ mov64 r2, 0
+-mov64 r3, r7
++mov64 r3, 34
+ mov64 r4, 0
+ call __multi3
+ mov64 r2, 1
+-jne r1, 0, +0x120
++jne r1, 0, +0x80
+ mov64 r2, 0
+ and64 r2, 1
+-jne r2, 0, +0x170
+-lddw r1, 0x8000000000000000
+-sub64 r1, r8
+-jle r0, r1, +0x190
+-mov64 r1, r6
+-lddw r3, panic_location(/home/runner/work/platform-tools/platform-tools/out/rust/library/alloc/src/raw_vec/mod.rs:558:17)
++jne r2, 0, +0xb0
++jsge r0, 0, +0xc8
++mov64 r1, r9
++ldxdw r3, [r10-56]
+ call alloc::raw_vec::handle_error#4993
+-mov64 r1, r6
+-lddw r3, panic_location(/home/runner/work/platform-tools/platform-tools/out/rust/library/alloc/src/raw_vec/mod.rs:558:17)
++mov64 r1, r9
++ldxdw r3, [r10-56]
+ call alloc::raw_vec::handle_error#4993
+ mov64 r1, 0
+-jeq r9, 0, +0x1d8
+-ldxdw r1, [r10-64]
+-mul64 r9, r1
+-ldxdw r1, [r10-56]
+-ldxdw r1, [r1+8]
+-stxdw [r10-8], r9
++jeq r6, 0, +0x100
++ldxdw r1, [r7+8]
++mul64 r6, 34
++stxdw [r10-8], r6
+ stxdw [r10-24], r1
+-mov64 r1, r8
++mov64 r1, 1
+ stxdw [r10-16], r1
+ mov64 r1, r10
+ add64 r1, -48
+ mov64 r4, r10
+ add64 r4, -24
+-mov64 r2, r8
++mov64 r2, 1
+ mov64 r3, r0
+ call alloc::raw_vec::finish_grow#3236
+ ldxdw r1, [r10-48]
+-jeq r1, 1, +0x250
++jeq r1, 1, +0x170
+ ldxdw r1, [r10-40]
+-ldxdw r2, [r10-56]
+-stxdw [r2], r7
+-stxdw [r2+8], r1
++stxdw [r7], r8
++stxdw [r7+8], r1
+ exit
+ ldxdw r2, [r10-32]
+-ldxdw r6, [r10-40]
+-mov64 r1, r6
+-lddw r3, panic_location(/home/runner/work/platform-tools/platform-tools/out/rust/library/alloc/src/raw_vec/mod.rs:558:17)
++ldxdw r9, [r10-40]
++mov64 r1, r9
++ldxdw r3, [r10-56]
+ call alloc::raw_vec::handle_error#4993

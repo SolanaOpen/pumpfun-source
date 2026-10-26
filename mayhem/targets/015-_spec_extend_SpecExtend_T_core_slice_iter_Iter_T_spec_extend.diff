@@ -1,0 +1,135 @@
+# <alloc::vec::Vec<T,A> as alloc::vec::spec_extend::SpecExtend<&T,core::slice::iter::Iter<T>>>::spec_extend  (yours 192 B at .text+0x5a70; original 880 B at .text+0x6580)
+# distance 108 instructions; evidence: neighbours between the same matched functions as in your build
+--- original
++++ yours
+@@ -1,108 +1,24 @@
+-mov64 r6, r1
+-ldxdw r7, [r2+24]
++mov64 r6, r3
++mov64 r7, r1
++sub64 r6, r2
++ldxdw r8, [r7+16]
+ ldxdw r1, [r7]
+-jne r1, 0, +0x88
+-mov64 r1, 0
+-ldxdw r3, [r7+8]
+-jne r3, 0, +0x88
+-ldxdw r3, [r7+16]
+-jne r3, 0, +0x88
+-ldxdw r3, [r7+24]
+-jne r3, 0, +0x88
+-mov64 r8, r2
+-mov64 r1, r2
+-call solana_account_info::AccountInfo::lamports#aa02
+-jeq r0, 0, +0x210
+-ldxdw r1, [r7]
++sub64 r1, r8
++jgt r6, r1, +0x70
++ldxdw r1, [r7+8]
++add64 r1, r8
++mov64 r3, r6
++call memcpy
++add64 r8, r6
++stxdw [r7+16], r8
++exit
++mov64 r1, r7
++mov64 r9, r2
+ mov64 r2, r8
+-lddw r8, .rodata[0156e0f693665acf]
+-ldxdw r3, [r8]
+-jne r1, r3, +0x138
+-ldxdw r1, [r8+8]
+-ldxdw r3, [r7+8]
+-jne r3, r1, +0x138
+-ldxdw r1, [r8+16]
+-ldxdw r3, [r7+16]
+-jne r3, r1, +0x138
+-ldxdw r1, [r8+24]
+-ldxdw r3, [r7+24]
+-jne r3, r1, +0x138
+-ldxdw r7, [r2+16]
+-ldxdw r1, [r7+16]
+-lddw r3, 0x7fffffffffffffff
+-jlt r1, r3, +0x228
+-mov64 r1, 11
+-mov64 r2, 0
+-call <anchor_lang::error::Error as core::convert::From<solana_program_error::ProgramError>>::from#507a
+-ja +0x1f0
+-mov64 r1, 3007
+-call <anchor_lang::error::Error as core::convert::From<anchor_lang::error::ErrorCode>>::from#ae9e
+-mov64 r2, r1
+-ldxdw r1, [r7+24]
+-stxdw [r10-112], r1
+-ldxdw r1, [r7+16]
+-stxdw [r10-120], r1
+-ldxdw r1, [r7+8]
+-stxdw [r10-128], r1
+-ldxdw r1, [r7]
+-stxdw [r10-136], r1
+-ldxdw r1, [r8]
+-stxdw [r10-104], r1
+-ldxdw r1, [r8+8]
+-stxdw [r10-96], r1
+-ldxdw r1, [r8+16]
+-stxdw [r10-88], r1
+-ldxdw r1, [r8+24]
+-stxdw [r10-80], r1
+-mov64 r3, r10
+-add64 r3, -136
+-mov64 r1, r0
+-call anchor_lang::error::Error::with_pubkeys#f2b2
+-stxdw [r6+8], r1
+-stxdw [r6], r0
+-stb [r6+140], 2
+-exit
+-mov64 r1, 3012
+-call <anchor_lang::error::Error as core::convert::From<anchor_lang::error::ErrorCode>>::from#ae9e
+-ja +0x1f0
+-stxdw [r10-160], r2
+-add64 r1, 1
+-stxdw [r7+16], r1
+-ldxdw r1, [r7+24]
+-ldxdw r2, [r7+32]
+-stxdw [r10-144], r2
+-stxdw [r10-152], r1
+-mov64 r1, r10
+-add64 r1, -136
+-mov64 r2, r10
+-add64 r2, -152
+-call <mayhem_program::instructions::pump_amm_interface::pump_swap_types::SwapPool as anchor_lang::AccountDeserialize>::try_deserialize#cf77
+-ldxdw r8, [r10-128]
+-ldxdw r1, [r10-136]
+-ldxb r9, [r10-4]
+-jne r9, 2, +0x2c8
+-stxdw [r6+8], r8
+-stxdw [r6], r1
+-stb [r6+140], 2
+-ja +0x350
+-stxdw [r10-168], r1
+-mov64 r1, r6
+-add64 r1, 24
+-mov64 r2, r10
+-add64 r2, -120
+-mov64 r3, 116
+-call memcpy
+-ldxh r1, [r10-3]
+-stxh [r6+141], r1
+-ldxb r1, [r10-1]
+-stxb [r6+143], r1
+-stxb [r6+140], r9
+-stxdw [r6+16], r8
+-ldxdw r1, [r10-168]
+-stxdw [r6+8], r1
+-ldxdw r1, [r10-160]
+-stxdw [r6], r1
+-ldxdw r1, [r7+16]
+-add64 r1, -1
+-stxdw [r7+16], r1
+-ja +0x208
++mov64 r3, r6
++mov64 r4, 1
++mov64 r5, 1
++call alloc::raw_vec::RawVecInner<A>::reserve::do_reserve_and_handle#02cd
++mov64 r2, r9
++ldxdw r8, [r7+16]
++ja +0x38

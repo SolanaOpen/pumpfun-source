@@ -1,7 +1,0 @@
-# <mayhem_program::state::BondingCurve as anchor_lang::AccountDeserialize>::try_deserialize_unchecked  (yours 1360 B at .text+0x28890; original 1360 B at .text+0x6e170)
-# distance 1 instructions; evidence: code-matches same instructions; loads different constants
---- original
-+++ yours
-@@ -1 +1 @@
--lddw r3, panic_location(programs/mayhem-program/src/lib.rs:19:1)
-+lddw r3, panic_location(programs/mayhem-program/src/state.rs:24:1)

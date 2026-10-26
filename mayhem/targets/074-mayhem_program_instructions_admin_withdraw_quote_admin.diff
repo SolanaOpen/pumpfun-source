@@ -1,0 +1,396 @@
+# mayhem_program::instructions::admin::withdraw_quote_admin  (yours 1880 B at .text+0xd430; original 1448 B at .text+0xc440)
+# distance 269 instructions; evidence: called-by mayhem_program::__private::__global::withdraw_quote_admin#f949
+--- original
++++ yours
+@@ -1,180 +1,231 @@
+-stxdw [r10-312], r2
+-mov64 r7, r1
+-ldxdw r8, [r7+8]
+-mov64 r1, r8
+-add64 r1, 568
+-call orig_fn_2b648
+-jne r0, 2, +0x598
+-ldxdw r1, [r8+832]
+-ldxdw r1, [r1]
+-ldxdw r2, [r1+24]
+-stxdw [r10-64], r2
+-ldxdw r2, [r1+16]
+-stxdw [r10-72], r2
+-ldxdw r2, [r1+8]
+-stxdw [r10-80], r2
+-ldxdw r1, [r1]
+-stxdw [r10-88], r1
+-ldxdw r2, [r8+160]
+-ldxdw r4, [r2+8]
+-ldxdw r1, [r4]
+-add64 r1, 1
++mov64 r6, r2
++mov64 r9, r1
++mov64 r1, r10
++add64 r1, -264
++call solana_sysvar::clock::<impl solana_sysvar::Sysvar for solana_clock::Clock>::get#06ec
++ldxw r1, [r10-264]
++jne r1, 1, +0x58
++ldxw r2, [r10-256]
++ldxw r1, [r10-260]
++call <anchor_lang::error::Error as core::convert::From<solana_program_error::ProgramError>>::from#507a
++ja +0x6f0
++ldxdw r7, [r10-224]
++ldxdw r2, [r9+8]
++ldxdw r1, [r2+768]
++jeq r1, 0, +0x1a8
++ldxdw r5, [r2+760]
++jeq r5, 0, +0x1a8
++mov64 r4, 1
+ mov64 r3, 1
+-jeq r1, 0, +0xc0
+-mov64 r3, 0
+-ldxdw r6, [r2]
+-stxdw [r4], r1
+-jeq r3, 1, +0x5a0
+-ldxdw r5, [r2+16]
+-ldxdw r1, [r5]
+-add64 r1, 1
+-mov64 r3, 1
+-jeq r1, 0, +0x108
+-mov64 r3, 0
++jsge r5, 0, +0x6f8
++mov64 r8, r1
++add64 r8, r5
++jsge r8, r1, +0x718
++xor64 r3, r4
++and64 r3, 1
++jne r3, 0, +0x738
++jsge r7, r8, +0x1a8
++mov64 r1, r10
++add64 r1, -232
++lddw r2, .rodata[0e000000]
++call mayhem_program::MayhemError::name#1311
++mov64 r1, r10
++add64 r1, -208
++mov64 r2, 14
++call <T as alloc::string::SpecToString>::spec_to_string#de30
++lddw r1, .rodata[70726f6772616d73]
++stxdw [r10-256], r1
++stb [r10-184], 2
++stw [r10-240], 201
++stdw [r10-248], 49
++stdw [r10-264], 0
++stw [r10-112], 6014
++mov64 r1, r10
++add64 r1, -264
++call <anchor_lang::error::Error as core::convert::From<anchor_lang::error::AnchorError>>::from#5ca3
++mov64 r2, r1
++mov64 r1, r0
++mov64 r3, r7
++mov64 r4, r8
++call anchor_lang::error::Error::with_values#bf40
++ja +0x6f0
++stxdw [r2+768], r7
++ldxb r1, [r9+33]
++stxb [r10-297], r1
++mov64 r1, r10
++add64 r1, -297
++stxdw [r10-280], r1
++lddw r1, .rodata[736f6c2d7661756c]
++stxdw [r10-296], r1
++stdw [r10-272], 1
++stdw [r10-288], 9
++ldxdw r1, [r2+832]
++ldxdw r1, [r1]
++ldxdw r3, [r1+24]
++stxdw [r10-24], r3
++ldxdw r3, [r1+16]
++stxdw [r10-32], r3
++ldxdw r3, [r1+8]
++stxdw [r10-40], r3
++ldxdw r1, [r1]
++stxdw [r10-48], r1
++ldxdw r3, [r2+160]
++ldxdw r1, [r3+8]
++stxdw [r10-312], r1
++ldxdw r1, [r1]
++add64 r1, 1
++mov64 r4, 1
++jeq r1, 0, +0x290
++mov64 r4, 0
++ldxdw r5, [r3]
++stxdw [r10-328], r5
++ldxdw r5, [r10-312]
+ stxdw [r5], r1
+-jeq r3, 1, +0x5a0
+-ldxdw r0, [r8+376]
+-ldxdw r1, [r0+8]
++jeq r4, 1, +0x750
++ldxdw r1, [r3+16]
+ stxdw [r10-320], r1
+ ldxdw r1, [r1]
+ add64 r1, 1
+-mov64 r3, 1
+-jeq r1, 0, +0x158
+-mov64 r3, 0
+-ldxb r9, [r2+42]
+-stxdw [r10-360], r9
+-ldxb r9, [r2+41]
+-stxdw [r10-352], r9
+-ldxb r9, [r2+40]
+-stxdw [r10-344], r9
+-ldxdw r9, [r2+32]
+-stxdw [r10-336], r9
+-ldxdw r2, [r2+24]
+-stxdw [r10-328], r2
+-ldxdw r9, [r0]
+-ldxdw r2, [r10-320]
++mov64 r4, 1
++jeq r1, 0, +0x2f0
++mov64 r4, 0
++ldxdw r5, [r10-320]
++stxdw [r5], r1
++jeq r4, 1, +0x750
++mov64 r8, r6
++ldxdw r0, [r2+376]
++ldxdw r7, [r0+8]
++ldxdw r1, [r7]
++add64 r1, 1
++mov64 r4, 1
++jeq r1, 0, +0x348
++mov64 r4, 0
++ldxb r5, [r3+42]
++stxdw [r10-352], r5
++ldxb r5, [r3+41]
++stxdw [r10-344], r5
++ldxb r5, [r3+40]
++stxdw [r10-336], r5
++ldxdw r5, [r3+32]
++ldxdw r3, [r3+24]
++stxdw [r10-368], r3
++ldxdw r6, [r0]
++stxdw [r10-360], r6
++stxdw [r7], r1
++jeq r4, 1, +0x750
++stxdw [r10-376], r5
++ldxdw r9, [r0+16]
++ldxdw r1, [r9]
++add64 r1, 1
++mov64 r4, 1
++jeq r1, 0, +0x3e8
++mov64 r4, 0
++stxdw [r9], r1
++jeq r4, 1, +0x750
++stxdw [r10-392], r7
++stxdw [r10-384], r8
++ldxdw r7, [r2+824]
++ldxdw r2, [r7+8]
++ldxdw r1, [r2]
++add64 r1, 1
++mov64 r6, 1
++jeq r1, 0, +0x440
++mov64 r6, 0
++ldxb r3, [r0+42]
++stxdw [r10-400], r3
++ldxb r5, [r0+41]
++ldxb r3, [r0+40]
++ldxdw r8, [r0+32]
++ldxdw r4, [r0+24]
++ldxdw r0, [r7]
+ stxdw [r2], r1
+-jeq r3, 1, +0x5a0
+-stxdw [r10-368], r5
+-ldxdw r5, [r0+16]
+-ldxdw r1, [r5]
+-add64 r1, 1
+-mov64 r2, 1
+-jeq r1, 0, +0x200
+-mov64 r2, 0
+-stxdw [r5], r1
+-jeq r2, 1, +0x5a0
+-stxdw [r10-376], r6
+-ldxdw r3, [r8+824]
+-ldxdw r8, [r3+8]
+-ldxdw r2, [r8]
+-add64 r2, 1
+-mov64 r6, 1
+-jeq r2, 0, +0x250
+-mov64 r6, 0
+-ldxb r1, [r0+42]
+-stxdw [r10-408], r1
+-ldxb r1, [r0+41]
+-stxdw [r10-400], r1
+-ldxb r1, [r0+40]
+-stxdw [r10-392], r1
+-ldxdw r1, [r0+32]
+-stxdw [r10-384], r1
+-ldxdw r1, [r0+24]
+-ldxdw r0, [r3]
+-stxdw [r8], r2
+-jeq r6, 1, +0x5a0
+-stxdw [r10-416], r0
+-ldxdw r2, [r3+16]
+-ldxdw r6, [r2]
++jeq r6, 1, +0x750
++stxdw [r10-408], r0
++ldxdw r1, [r7+16]
++ldxdw r6, [r1]
+ add64 r6, 1
+ mov64 r0, 1
+-jeq r6, 0, +0x2e8
++jeq r6, 0, +0x4c0
+ mov64 r0, 0
+-stxdw [r2], r6
+-jeq r0, 1, +0x5a0
+-ldxdw r0, [r3+24]
+-ldxdw r6, [r3+32]
+-stxdw [r10-440], r5
+-stxdw [r10-432], r9
+-ldxb r9, [r3+40]
+-mov64 r5, r1
+-ldxb r1, [r3+41]
+-ldxb r3, [r3+42]
+-ldxb r7, [r7+33]
+-stxdw [r10-424], r4
+-mov64 r4, r10
+-add64 r4, -1
+-stxdw [r10-24], r4
+-lddw r4, .rodata[736f6c2d7661756c]
+-stxdw [r10-40], r4
+-stxb [r10-1], r7
+-mov64 r4, r10
+-add64 r4, -40
+-stxdw [r10-56], r4
+-stxb [r10-142], r3
+-stxb [r10-143], r1
+-stxb [r10-144], r9
+-stxdw [r10-152], r6
+-stxdw [r10-160], r0
+-stxdw [r10-168], r2
+-stxdw [r10-176], r8
++stxdw [r1], r6
++jeq r0, 1, +0x750
++ldxdw r0, [r7+24]
++ldxdw r6, [r7+32]
++stxdw [r10-424], r8
++ldxb r8, [r7+40]
++stxdw [r10-416], r9
++ldxb r9, [r7+41]
++ldxb r7, [r7+42]
++stxb [r10-102], r7
++stxb [r10-103], r9
++stxb [r10-104], r8
++stxdw [r10-112], r6
++stxdw [r10-120], r0
++stxdw [r10-128], r1
++stxdw [r10-136], r2
++ldxdw r1, [r10-408]
++stxdw [r10-144], r1
++ldxdw r1, [r10-400]
++stxb [r10-150], r1
++stxb [r10-151], r5
++stxb [r10-152], r3
++ldxdw r1, [r10-424]
++stxdw [r10-160], r1
++stxdw [r10-168], r4
+ ldxdw r1, [r10-416]
++stxdw [r10-176], r1
++ldxdw r1, [r10-392]
+ stxdw [r10-184], r1
+-ldxdw r1, [r10-408]
+-stxb [r10-190], r1
+-ldxdw r1, [r10-400]
+-stxb [r10-191], r1
+-ldxdw r1, [r10-392]
+-stxb [r10-192], r1
+-ldxdw r1, [r10-384]
+-stxdw [r10-200], r1
+-stxdw [r10-208], r5
+-ldxdw r1, [r10-440]
++ldxdw r1, [r10-360]
++stxdw [r10-192], r1
++ldxdw r1, [r10-352]
++stxb [r10-198], r1
++ldxdw r1, [r10-344]
++stxb [r10-199], r1
++ldxdw r1, [r10-336]
++stxb [r10-200], r1
++ldxdw r1, [r10-376]
++stxdw [r10-208], r1
++ldxdw r1, [r10-368]
+ stxdw [r10-216], r1
+ ldxdw r1, [r10-320]
+ stxdw [r10-224], r1
+-ldxdw r1, [r10-432]
++ldxdw r1, [r10-312]
+ stxdw [r10-232], r1
+-ldxdw r1, [r10-360]
+-stxb [r10-238], r1
+-ldxdw r1, [r10-352]
+-stxb [r10-239], r1
+-ldxdw r1, [r10-344]
+-stxb [r10-240], r1
+-ldxdw r1, [r10-336]
+-stxdw [r10-248], r1
+ ldxdw r1, [r10-328]
+-stxdw [r10-256], r1
+-ldxdw r1, [r10-368]
+-stxdw [r10-264], r1
+-ldxdw r1, [r10-424]
+-stxdw [r10-272], r1
+-ldxdw r1, [r10-376]
+-stxdw [r10-280], r1
+-stdw [r10-16], 1
+-stdw [r10-32], 9
+-stdw [r10-48], 2
+-mov64 r1, r10
+-add64 r1, -56
+-stxdw [r10-136], r1
+-ldxdw r1, [r10-88]
+-stxdw [r10-120], r1
+-ldxdw r1, [r10-80]
+-stxdw [r10-112], r1
+-ldxdw r1, [r10-72]
+-stxdw [r10-104], r1
+-ldxdw r1, [r10-64]
++stxdw [r10-240], r1
++mov64 r1, r10
++add64 r1, -296
++stxdw [r10-16], r1
++stdw [r10-8], 2
++mov64 r1, r10
++add64 r1, -16
+ stxdw [r10-96], r1
+-stdw [r10-288], 0
+-stdw [r10-296], 8
+-stdw [r10-304], 0
+-stdw [r10-128], 1
+-mov64 r1, r10
+-add64 r1, -304
+-ldxdw r2, [r10-312]
++ldxdw r1, [r10-48]
++stxdw [r10-80], r1
++ldxdw r1, [r10-40]
++stxdw [r10-72], r1
++ldxdw r1, [r10-32]
++stxdw [r10-64], r1
++ldxdw r1, [r10-24]
++stxdw [r10-56], r1
++stdw [r10-248], 0
++stdw [r10-256], 8
++stdw [r10-264], 0
++stdw [r10-88], 1
++mov64 r1, r10
++add64 r1, -264
++ldxdw r2, [r10-384]
+ call anchor_spl::token::transfer#8298
+-jne r0, 2, +0x598
+-mov64 r0, 2
+ exit
++mov64 r3, 0
++mov64 r8, r1
++add64 r8, r5
++jslt r8, r1, +0xb8
++mov64 r4, 0
++xor64 r3, r4
++and64 r3, 1
++jeq r3, 0, +0xd0
++lddw r1, panic_location(programs/mayhem-program/src/instructions/admin.rs:201:55)
++call core::panicking::panic_const::panic_const_add_overflow#3493
+ call abort

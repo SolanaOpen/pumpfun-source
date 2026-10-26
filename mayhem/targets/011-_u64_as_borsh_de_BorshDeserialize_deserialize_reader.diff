@@ -1,4 +1,4 @@
-# <u64 as borsh::de::BorshDeserialize>::deserialize_reader  (yours 152 B at .text+0x9228; original 288 B at .text+0x83ec8)
+# <u64 as borsh::de::BorshDeserialize>::deserialize_reader  (yours 152 B at .text+0x81b8; original 288 B at .text+0x83ec8)
 # distance 31 instructions; evidence: same-callees 1/1
 --- original
 +++ yours

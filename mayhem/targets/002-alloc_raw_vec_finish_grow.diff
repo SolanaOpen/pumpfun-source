@@ -1,4 +1,4 @@
-# alloc::raw_vec::finish_grow  (yours 680 B at .text+0x9770; original 656 B at .text+0x8f08)
+# alloc::raw_vec::finish_grow  (yours 680 B at .text+0x8700; original 656 B at .text+0x8f08)
 # distance 37 instructions; evidence: called-by alloc::raw_vec::RawVecInner<A>::reserve::do_reserve_and_handle#02cd; same-callees 2/2; neighbours between the same matched functions as in your build
 --- original
 +++ yours

@@ -3,7 +3,6 @@
 //! This is not a complete or byte-identical program reconstruction.
 use anchor_lang::prelude::*;
 mod checked_program;
-
 pub mod state;
 pub mod instructions;
 pub use state::GlobalParams;
@@ -17,6 +16,8 @@ pub use instructions::sell_v2::*;
 pub use instructions::buy_v2::*;
 pub use instructions::buy_pump_swap::*;
 pub use instructions::sell_pump_swap::*;
+declare_program!(pump);
+declare_program!(pump_amm);
 
 declare_id!("MAyhSmzXzV1pTf7LsNkrNwkWKTo4ougAJ1PPg47MD4e");
 

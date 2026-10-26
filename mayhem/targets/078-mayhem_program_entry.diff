@@ -1,5 +1,5 @@
-# mayhem_program::entry  (yours 1888 B at .text+0x61c98; original 1968 B at .text+0x7d710)
-# distance 213 instructions; evidence: same-callees 20/20
+# mayhem_program::entry  (yours 1888 B at .text+0x6d270; original 1968 B at .text+0x7d710)
+# distance 213 instructions; evidence: same-callees 20/20; neighbours between the same matched functions as in your build
 --- original
 +++ yours
 @@ -10,125 +10,117 @@
