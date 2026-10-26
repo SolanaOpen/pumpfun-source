@@ -1,0 +1,13 @@
+# <mayhem_program::state::MayhemState as anchor_lang::AccountDeserialize>::try_deserialize  (yours 1000 B at .text+0x25fa0; original 1000 B at .text+0x687d8)
+# distance 1 instructions; evidence: same-callees 8/8; neighbours between the same matched functions as in your build
+--- original
++++ yours
+@@ -48,7 +48,7 @@
+ stxdw [r10-224], r1
+ stw [r10-80], 3002
+ stb [r10-152], 2
+-stw [r10-208], 505
++stw [r10-208], 32
+ stdw [r10-216], 36
+ stdw [r10-232], 0
+ mov64 r1, r10

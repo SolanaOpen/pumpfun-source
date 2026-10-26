@@ -1,0 +1,599 @@
+# <mayhem_program::state::GlobalParams as anchor_lang::AccountDeserialize>::try_deserialize_unchecked  (yours 2632 B at .text+0x25250; original 2448 B at .text+0x679c0)
+# distance 416 instructions; evidence: called-by anchor_lang::accounts::account::Account<T>::try_from_unchecked#c2e4; called-by <mayhem_program::state::GlobalParams as anchor_lang::AccountDeserialize>::try_deserialize#853a; neighbours between the same matched functions as in your build
+--- original
++++ yours
+@@ -1,36 +1,127 @@
+ mov64 r3, r2
+ mov64 r6, r1
+-ldxdw r2, [r3+8]
+-jlt r2, 8, +0x598
+-ldxdw r8, [r3]
+-mov64 r1, r2
+-and64 r1, -4
+-jeq r1, 8, +0x78
+-jeq r1, 12, +0x78
+-mov64 r1, r2
+-and64 r1, -8
+-jeq r1, 16, +0x78
+-jeq r1, 24, +0x78
+-jeq r1, 32, +0x78
+-jne r1, 40, +0x170
+-add64 r8, r2
++ldxdw r9, [r3+8]
++jlt r9, 8, +0x510
++mov64 r1, r9
++add64 r1, -8
++jle r1, 39, +0x368
++ldxdw r5, [r3]
++ldxdw r1, [r5+14]
++ldxb r3, [r5+22]
++stxb [r10-56], r3
++stxdw [r10-64], r1
++jeq r9, 48, +0x368
++ldxdw r4, [r10-63]
++ldxb r3, [r5+48]
++stxb [r10-89], r3
++jeq r3, 0, +0xb8
++jne r3, 1, +0x448
++mov64 r3, 1
++mov64 r0, r9
++add64 r0, -49
++jgt r0, 31, +0xd8
++ja +0x368
++mov64 r3, 0
++mov64 r0, r9
++add64 r0, -49
++jle r0, 31, +0x368
++ldxdw r8, [r5+55]
++ldxb r0, [r5+63]
++stxb [r10-56], r0
++stxdw [r10-64], r8
++mov64 r0, r9
++add64 r0, -81
++jle r0, 31, +0x368
++ldxdw r2, [r10-63]
++ldxdw r0, [r5+87]
++ldxb r7, [r5+95]
++stxb [r10-56], r7
++stxdw [r10-64], r0
++mov64 r7, r9
++add64 r7, -113
++jle r7, 15, +0x368
++mov64 r7, r9
++add64 r7, -129
++jle r7, 7, +0x368
++stxdw [r10-112], r2
++ldxdw r2, [r10-63]
++stxdw [r10-104], r2
++ldxdw r2, [r5+121]
++stxdw [r10-128], r2
++ldxdw r2, [r5+113]
++stxdw [r10-120], r2
++ldxdw r7, [r5+129]
++stxdw [r10-64], r7
++mov64 r2, r9
++add64 r2, -137
++jle r2, 24, +0x368
++stxdw [r10-144], r7
++ldxdw r2, [r10-57]
++stxdw [r10-136], r2
++ldxdw r7, [r5+143]
++ldxb r2, [r5+151]
++stxb [r10-56], r2
++stxdw [r10-152], r7
++stxdw [r10-64], r7
++mov64 r2, r9
++add64 r2, -162
++jle r2, 3, +0x368
++mov64 r2, r9
++add64 r2, -166
++jle r2, 7, +0x368
++mov64 r2, r9
++add64 r2, -174
++jle r2, 7, +0x368
++mov64 r2, r9
++add64 r2, -182
++jle r2, 23, +0x368
++ldxdw r2, [r10-63]
++stxdw [r10-192], r2
++ldxw r2, [r5+162]
++stxdw [r10-184], r2
++ldxdw r2, [r5+166]
++stxdw [r10-160], r2
++ldxdw r2, [r5+174]
++stxdw [r10-168], r2
++ldxdw r7, [r5+188]
++ldxb r2, [r5+196]
++stxb [r10-56], r2
++stxdw [r10-176], r7
++stxdw [r10-64], r7
++mov64 r2, r9
++add64 r2, -206
++jle r2, 15, +0x368
++mov64 r2, r9
++add64 r2, -222
++jle r2, 23, +0x368
++ldxdw r2, [r10-63]
++stxdw [r10-200], r2
++ldxdw r2, [r5+214]
++stxdw [r10-224], r2
++ldxdw r2, [r5+206]
++stxdw [r10-216], r2
++ldxdw r7, [r5+228]
++ldxb r2, [r5+236]
++stxb [r10-56], r2
++stxdw [r10-208], r7
++stxdw [r10-64], r7
++add64 r9, -246
++jgt r9, 7, +0x538
+ lddw r1, str("failed to fill whole buffer")
+ call borsh::de::unexpected_eof_to_unexpected_length_of_input#3ead
+ mov64 r7, r0
+-stxdw [r10-136], r8
+-stxdw [r10-120], r7
+-stdw [r10-128], 0
++stxdw [r10-88], r7
+ mov64 r1, 3003
+ call <anchor_lang::error::Error as core::convert::From<anchor_lang::error::ErrorCode>>::from#ae9e
+ mov64 r2, r7
+ and64 r2, 3
+ mov64 r3, r2
+ add64 r3, -2
+-jlt r3, 2, +0x148
+-jeq r2, 0, +0x148
++jlt r3, 2, +0x420
++jeq r2, 0, +0x420
+ ldxdw r2, [r7+7]
+ ldxdw r3, [r2]
+-jeq r3, 0, +0x148
++jeq r3, 0, +0x420
+ ldxdw r2, [r7-1]
+ mov64 r7, r1
+ mov64 r1, r2
+@@ -40,263 +131,194 @@
+ mov64 r0, r8
+ stxdw [r6+8], r1
+ stxdw [r6], r0
+-mov64 r7, 2
+-stxb [r6+245], r7
++mov64 r3, 2
++stxb [r6+245], r3
+ exit
+-ldxw r1, [r8+8]
+-stxdw [r10-160], r1
+-ldxw r9, [r8+12]
+-ldxdw r7, [r8+16]
+-ldxdw r1, [r8+24]
+-stxdw [r10-144], r1
+-ldxdw r1, [r8+32]
+-stxdw [r10-152], r1
+-add64 r2, -48
+-ldxdw r1, [r8+40]
+-stxdw [r10-168], r1
+-stxdw [r10-128], r2
+-add64 r8, 48
+-stxdw [r10-136], r8
++lddw r1, str("Invalid bool representation: ")
++stxdw [r10-64], r1
+ mov64 r1, r10
+-add64 r1, -48
++add64 r1, -16
++stxdw [r10-48], r1
++lddw r1, &core::fmt::num::imp::<impl core::fmt::Display for u8>::fmt#54c5
++stxdw [r10-8], r1
++mov64 r1, r10
++add64 r1, -89
++stxdw [r10-16], r1
++stdw [r10-32], 0
++stdw [r10-56], 1
++stdw [r10-40], 1
++mov64 r7, r10
++add64 r7, -88
+ mov64 r2, r10
+-add64 r2, -136
+-call <bool as borsh::de::BorshDeserialize>::deserialize_reader#8e1a
+-ldxb r1, [r10-48]
+-jeq r1, 1, +0x2f0
+-stxdw [r10-176], r7
+-ldxb r7, [r10-47]
+-mov64 r1, r10
+-add64 r1, -48
+-mov64 r2, r10
+-add64 r2, -136
+-call <solana_address::Address as borsh::de::BorshDeserialize>::deserialize_reader#b0dc
+-ldxb r1, [r10-48]
+-jeq r1, 1, +0x2f0
+-ldxw r1, [r10-44]
+-stxw [r10-77], r1
+-ldxw r1, [r10-47]
+-stxw [r10-80], r1
+-ldxdw r1, [r10-32]
+-stxdw [r10-104], r1
+-ldxdw r1, [r10-24]
+-stxdw [r10-96], r1
+-ldxb r1, [r10-16]
+-stxb [r10-88], r1
+-ldxdw r8, [r10-40]
+-mov64 r1, r10
+-add64 r1, -48
+-mov64 r2, r10
+-add64 r2, -136
+-call <solana_address::Address as borsh::de::BorshDeserialize>::deserialize_reader#b0dc
+-ldxb r1, [r10-48]
+-jne r1, 1, +0x308
+-ldxdw r7, [r10-40]
+-stxdw [r10-120], r7
+-ja +0xb8
+-mov64 r2, r8
+-ldxw r1, [r10-44]
+-stxw [r10-5], r1
+-ldxw r1, [r10-47]
+-stxw [r10-8], r1
+-ldxdw r1, [r10-32]
+-stxdw [r10-72], r1
+-ldxdw r1, [r10-24]
+-stxdw [r10-64], r1
+-ldxb r1, [r10-16]
+-stxb [r10-56], r1
+-ldxdw r8, [r10-136]
+-ldxdw r5, [r10-128]
+-jle r5, 15, +0x558
+-mov64 r1, r5
+-and64 r1, -8
+-jeq r1, 16, +0x558
+-ldxdw r4, [r10-40]
+-ldxdw r1, [r8+8]
+-stxdw [r10-184], r1
+-ldxdw r1, [r8]
+-stxdw [r10-192], r1
+-ldxdw r3, [r8+16]
+-mov64 r1, r8
+-mov64 r0, r8
+-add64 r0, 24
+-stxdw [r10-136], r0
+-mov64 r8, r5
+-add64 r8, -24
+-stxdw [r10-128], r8
+-jeq r8, 0, +0x5b8
+-mov64 r8, r5
+-add64 r8, -25
+-jle r8, 7, +0x550
+-mov64 r8, r5
+-add64 r8, -33
+-jle r8, 7, +0x550
+-mov64 r8, r5
+-add64 r8, -41
+-jle r8, 7, +0x550
+-mov64 r8, r5
+-add64 r8, -49
+-jle r8, 3, +0x550
+-mov64 r8, r5
+-add64 r8, -53
+-jle r8, 7, +0x550
+-mov64 r8, r5
+-add64 r8, -61
+-jle r8, 7, +0x550
+-mov64 r8, r5
+-add64 r8, -69
+-jle r8, 7, +0x550
+-mov64 r8, r5
+-add64 r8, -77
+-jle r8, 7, +0x550
+-mov64 r8, r5
+-add64 r8, -85
+-jle r8, 7, +0x550
+-mov64 r8, r5
+-add64 r8, -93
+-jle r8, 15, +0x550
+-mov64 r8, r5
+-add64 r8, -109
+-jle r8, 7, +0x550
+-mov64 r8, r5
+-add64 r8, -117
+-jle r8, 7, +0x550
+-mov64 r8, r5
+-add64 r8, -125
+-jle r8, 7, +0x550
+-mov64 r8, r5
+-add64 r8, -133
+-jgt r8, 7, +0x5e0
+-mov64 r8, r1
+-add64 r8, r5
+-lddw r1, str("failed to fill whole buffer")
+-call borsh::de::unexpected_eof_to_unexpected_length_of_input#3ead
+-mov64 r7, r0
+-stxdw [r10-136], r8
+-stdw [r10-128], 0
+-ja +0x2f8
++add64 r2, -64
++mov64 r1, r7
++call alloc::fmt::format::format_inner#36b4
++mov64 r1, 21
++mov64 r2, r7
++call std::io::error::Error::new#dc18
++ja +0x380
+ mov64 r1, 8
++mov64 r2, r9
+ lddw r3, panic_location(programs/mayhem-program/src/state.rs:12:1)
+ call core::slice::index::slice_start_index_len_fail#6783
+-lddw r1, str("failed to fill whole buffer")
+-call borsh::de::unexpected_eof_to_unexpected_length_of_input#3ead
+-mov64 r7, r0
+-ja +0x2f8
+-ldxb r5, [r0]
+-stxdw [r10-200], r5
+-ldxdw r5, [r1+25]
+-stxdw [r10-224], r5
+-ldxdw r5, [r1+33]
+-stxdw [r10-232], r5
+-ldxdw r5, [r1+41]
+-stxdw [r10-240], r5
+-ldxw r5, [r1+49]
+-stxdw [r10-320], r5
+-ldxdw r5, [r1+53]
+-stxdw [r10-248], r5
+-ldxdw r5, [r1+61]
+-stxdw [r10-256], r5
+-ldxdw r5, [r1+69]
+-stxdw [r10-264], r5
+-ldxdw r5, [r1+77]
+-stxdw [r10-272], r5
+-ldxdw r5, [r1+85]
+-stxdw [r10-280], r5
+-ldxdw r5, [r1+101]
+-stxdw [r10-208], r5
+-ldxdw r5, [r1+93]
+-stxdw [r10-216], r5
+-ldxdw r5, [r1+109]
+-stxdw [r10-288], r5
+-ldxdw r5, [r1+117]
+-stxdw [r10-296], r5
+-ldxdw r5, [r1+125]
+-stxdw [r10-304], r5
+-ldxdw r1, [r1+133]
+-stxdw [r10-312], r1
+-ldxw r5, [r10-77]
+-stxw [r10-117], r5
+-ldxw r5, [r10-80]
+-stxw [r10-120], r5
+-ldxb r5, [r10-88]
+-stxb [r10-17], r5
+-ldxdw r5, [r10-96]
+-stxdw [r10-25], r5
+-ldxdw r5, [r10-104]
+-stxdw [r10-33], r5
+-ldxw r5, [r10-8]
+-stxw [r10-16], r5
+-ldxw r5, [r10-5]
+-stxw [r10-13], r5
+-ldxb r5, [r10-56]
+-stxb [r6+63], r5
+-ldxdw r5, [r10-64]
+-stxdw [r6+55], r5
+-ldxdw r5, [r10-72]
+-stxdw [r6+47], r5
+-stxdw [r10-113], r2
++mov64 r2, r5
++add64 r2, 23
++mov64 r7, r5
++add64 r7, 8
++stxdw [r10-312], r7
++mov64 r7, r5
++add64 r7, 49
++stxdw [r10-304], r7
++mov64 r7, r5
++add64 r7, 64
++stxdw [r10-296], r7
++mov64 r7, r5
++add64 r7, 96
++stxdw [r10-272], r7
++mov64 r7, r5
++add64 r7, 81
++stxdw [r10-288], r7
++lddw r9, 0xffffffffffffff
++ldxdw r7, [r10-144]
++and64 r7, r9
++stxdw [r10-144], r7
++mov64 r9, r5
++add64 r9, 152
++stxdw [r10-256], r9
++mov64 r9, r5
++add64 r9, 137
++stxdw [r10-280], r9
++mov64 r9, r5
++add64 r9, 197
++stxdw [r10-248], r9
++mov64 r9, r5
++add64 r9, 182
++stxdw [r10-264], r9
++ldxdw r9, [r10-63]
++stxdw [r10-232], r9
++ldxdw r9, [r5+246]
++stxdw [r10-240], r9
++ldxdw r7, [r10-312]
++ldxh r9, [r7+4]
++stxh [r6+100], r9
++ldxw r9, [r7]
++stxw [r6+96], r9
++ldxb r9, [r2+24]
++stxb [r6+135], r9
++ldxdw r9, [r2+16]
++stxdw [r6+127], r9
++ldxdw r9, [r2+8]
++stxdw [r6+119], r9
++ldxdw r2, [r2]
++stxdw [r6+111], r2
++ldxdw r9, [r10-304]
++ldxh r2, [r9+4]
++stxh [r10-84], r2
++ldxw r2, [r9]
++stxw [r10-88], r2
++ldxdw r2, [r10-136]
++lsh64 r2, 56
++ldxdw r7, [r10-144]
++or64 r2, r7
++stxdw [r10-136], r2
++ldxdw r7, [r10-296]
++ldxb r2, [r7+16]
++stxb [r10-33], r2
++ldxdw r2, [r7+8]
+ stxdw [r10-41], r2
+-ldxdw r5, [r10-120]
+-stxdw [r10-48], r5
+-ldxdw r2, [r10-48]
+-ldxdw r1, [r10-40]
+-stxdw [r10-328], r1
+-ldxdw r8, [r10-32]
+-ldxdw r0, [r10-24]
+-ldxdw r5, [r10-17]
+-ldxdw r1, [r10-160]
+-stxw [r6+232], r1
+-stxw [r6+236], r9
+-ldxdw r1, [r10-320]
+-stxw [r6+240], r1
+-stxdw [r6+39], r4
+-ldxdw r1, [r10-176]
+-stxdw [r6+96], r1
+-ldxdw r1, [r10-144]
+-stxdw [r6+104], r1
+-ldxdw r1, [r10-152]
+-stxdw [r6+112], r1
+-ldxdw r1, [r10-168]
+-stxdw [r6+120], r1
+-stxdw [r6+128], r3
+-ldxdw r1, [r10-224]
+-stxdw [r6+136], r1
+-ldxdw r1, [r10-232]
+-stxdw [r6+144], r1
+-ldxdw r1, [r10-240]
+-stxdw [r6+152], r1
+-ldxdw r1, [r10-248]
+-stxdw [r6+160], r1
+-ldxdw r1, [r10-256]
+-stxdw [r6+168], r1
+-ldxdw r1, [r10-264]
+-stxdw [r6+176], r1
+-ldxdw r1, [r10-272]
+-stxdw [r6+184], r1
+-ldxdw r1, [r10-280]
+-stxdw [r6+192], r1
+-ldxdw r1, [r10-288]
+-stxdw [r6+200], r1
+-ldxdw r1, [r10-296]
+-stxdw [r6+208], r1
+-ldxdw r1, [r10-304]
+-stxdw [r6+216], r1
+-ldxdw r1, [r10-312]
+-stxdw [r6+224], r1
+-ldxdw r1, [r10-200]
+-stxb [r6+244], r1
+-ldxdw r1, [r10-192]
+-stxdw [r6+64], r1
+-ldxdw r1, [r10-184]
+-stxdw [r6+72], r1
+-ldxdw r1, [r10-216]
+-stxdw [r6+80], r1
+-ldxdw r1, [r10-208]
+-stxdw [r6+88], r1
+-stxdw [r6+31], r5
+-stxdw [r6+24], r0
+-stxdw [r6+16], r8
+-ldxdw r1, [r10-328]
+-stxdw [r6+8], r1
++ldxdw r2, [r7]
++stxdw [r10-49], r2
++ldxdw r7, [r10-288]
++ldxh r2, [r7+4]
++stxh [r10-28], r2
++ldxw r2, [r7]
++stxw [r10-32], r2
++ldxdw r7, [r10-272]
++ldxb r2, [r7+16]
++stxb [r6+63], r2
++ldxdw r2, [r7+8]
++stxdw [r6+55], r2
++ldxdw r2, [r7]
++stxdw [r6+47], r2
++ldxdw r7, [r10-280]
++ldxh r2, [r7+4]
++stxh [r6+224], r2
++ldxw r2, [r7]
++stxw [r6+220], r2
++ldxdw r7, [r10-256]
++ldxh r2, [r7+8]
++stxh [r6+243], r2
++ldxdw r2, [r7]
++stxdw [r6+235], r2
++ldxdw r7, [r10-264]
++ldxw r2, [r7]
++stxw [r6+160], r2
++ldxh r2, [r7+4]
++stxh [r6+164], r2
++ldxdw r7, [r10-248]
++ldxdw r2, [r7]
++stxdw [r6+175], r2
++ldxb r2, [r7+8]
++stxb [r6+183], r2
++ldxw r2, [r5+222]
++stxw [r6+184], r2
++ldxh r2, [r5+226]
++stxh [r6+188], r2
++ldxb r2, [r5+245]
++stxb [r6+207], r2
++ldxdw r2, [r5+237]
++stxdw [r6+199], r2
++stxb [r10-82], r8
++ldxdw r2, [r10-112]
++stxdw [r10-81], r2
++stxdw [r10-57], r2
++ldxdw r2, [r10-88]
++stxdw [r10-64], r2
++ldxdw r2, [r10-64]
++stxdw [r10-112], r2
++ldxdw r5, [r10-56]
++ldxdw r7, [r10-48]
++ldxdw r8, [r10-40]
++ldxdw r9, [r10-34]
++ldxdw r2, [r10-224]
++stxdw [r6+88], r2
++ldxdw r2, [r10-216]
++stxdw [r6+80], r2
++ldxdw r2, [r10-128]
++stxdw [r6+72], r2
++ldxdw r2, [r10-120]
++stxdw [r6+64], r2
++stxdw [r6+30], r9
++stxdw [r6+24], r8
++stxdw [r6+16], r7
++stxdw [r6+8], r5
++ldxdw r2, [r10-112]
+ stxdw [r6], r2
+-ja +0x160
++ldxdw r2, [r10-192]
++stxdw [r6+227], r2
++ldxdw r2, [r10-152]
++stxb [r6+226], r2
++ldxdw r2, [r10-184]
++stxw [r6+216], r2
++ldxdw r2, [r10-240]
++stxdw [r6+208], r2
++ldxdw r2, [r10-232]
++stxdw [r6+191], r2
++ldxdw r2, [r10-208]
++stxb [r6+190], r2
++ldxdw r2, [r10-200]
++stxdw [r6+167], r2
++ldxdw r2, [r10-176]
++stxb [r6+166], r2
++ldxdw r2, [r10-168]
++stxdw [r6+152], r2
++ldxdw r2, [r10-160]
++stxdw [r6+144], r2
++ldxdw r2, [r10-136]
++stxdw [r6+136], r2
++stxdw [r6+103], r4
++stxb [r6+102], r1
++ldxdw r1, [r10-104]
++stxdw [r6+39], r1
++stxb [r6+38], r0
++ja +0x438

@@ -1,0 +1,430 @@
+# mayhem_program::instructions::admin::update_global_params  (yours 2992 B at .text+0xd940; original 3472 B at .text+0xc9e8)
+# distance 186 instructions; evidence: same-callees 9/9
+--- original
++++ yours
+@@ -1,100 +1,41 @@
+ ldxdw r7, [r1+8]
+-ldxw r6, [r7+280]
+-ldxdw r1, [r5-3872]
+-stxdw [r10-3872], r1
+-ldxdw r1, [r5-3880]
+-stxdw [r10-3880], r1
+-ldxdw r1, [r5-3888]
+-stxdw [r10-3888], r1
+-ldxdw r1, [r5-3896]
+-stxdw [r10-3896], r1
+-ldxdw r1, [r5-3904]
+-stxdw [r10-3904], r1
+-ldxdw r1, [r5-3912]
+-stxdw [r10-3912], r1
+-ldxdw r1, [r5-3920]
+-stxdw [r10-3920], r1
+-ldxdw r1, [r5-3928]
+-stxdw [r10-3928], r1
+-ldxdw r1, [r5-3936]
+-stxdw [r10-3936], r1
+-ldxdw r1, [r5-3944]
+-stxdw [r10-3944], r1
+-ldxdw r1, [r5-3952]
+-stxdw [r10-3952], r1
+-ldxdw r1, [r5-3960]
+-stxdw [r10-3960], r1
+-ldxdw r1, [r5-3968]
+-stxdw [r10-3968], r1
+-ldxdw r1, [r5-3976]
+-stxdw [r10-3976], r1
+-ldxdw r1, [r5-3984]
+-stxdw [r10-3984], r1
+-ldxdw r1, [r5-3992]
+-stxdw [r10-3992], r1
+-ldxdw r1, [r5-4000]
+-stxdw [r10-4000], r1
+-ldxdw r1, [r5-4008]
+-stxdw [r10-4008], r1
+-ldxdw r1, [r5-4016]
+-stxdw [r10-4016], r1
+-ldxdw r1, [r5-4024]
+-stxdw [r10-4024], r1
+-ldxdw r1, [r5-4032]
+-stxdw [r10-4032], r1
+-ldxdw r1, [r5-4040]
+-stxdw [r10-4040], r1
+-ldxdw r1, [r5-4048]
+-stxdw [r10-4048], r1
+-ldxdw r1, [r5-4056]
+-stxdw [r10-4056], r1
+-ldxdw r1, [r5-4064]
+-stxdw [r10-4064], r1
+-ldxdw r1, [r5-4072]
+-stxdw [r10-4072], r1
+-ldxdw r1, [r5-4080]
+-stxdw [r10-4080], r1
+-ldxdw r1, [r5-4088]
+-stxdw [r10-4088], r1
+-ldxdw r1, [r5-4096]
+-stxdw [r10-4096], r1
++ldxw r6, [r7+256]
+ mov64 r1, r7
+ add64 r1, 40
+-mov64 r5, r10
+-call orig_fn_2b948
+-jne r0, 2, +0xd80
+-ldxdw r1, [r7+248]
++call mayhem_program::instructions::admin::apply_update#8f8e
++jne r0, 2, +0xba0
++ldxdw r1, [r7+232]
+ stxdw [r10-248], r1
+-ldxdw r1, [r7+240]
++ldxdw r1, [r7+224]
+ stxdw [r10-240], r1
+-ldxdw r1, [r7+232]
++ldxdw r1, [r7+216]
+ stxdw [r10-232], r1
+-ldxdw r1, [r7+224]
++ldxdw r1, [r7+208]
+ stxdw [r10-224], r1
+-ldxdw r1, [r7+216]
++ldxdw r1, [r7+200]
+ stxdw [r10-216], r1
+-ldxdw r1, [r7+200]
++ldxdw r1, [r7+184]
+ stxdw [r10-208], r1
++ldxdw r1, [r7+176]
++stxdw [r10-200], r1
++ldxdw r1, [r7+277]
++stxdw [r10-192], r1
++ldxdw r1, [r7+269]
++stxdw [r10-184], r1
++ldxb r1, [r7+260]
++stxdw [r10-176], r1
+ ldxdw r1, [r7+168]
+-stxdw [r10-200], r1
+-ldxdw r1, [r7+192]
+-stxdw [r10-192], r1
+-ldxdw r1, [r7+184]
+-stxdw [r10-184], r1
+-ldxb r1, [r7+284]
+-stxdw [r10-176], r1
++stxdw [r10-168], r1
+ ldxdw r1, [r7+160]
+-stxdw [r10-168], r1
++stxdw [r10-160], r1
+ ldxdw r1, [r7+152]
+-stxdw [r10-160], r1
++stxdw [r10-152], r1
+ ldxdw r1, [r7+144]
+-stxdw [r10-152], r1
+-ldxdw r1, [r7+136]
+ stxdw [r10-144], r1
+-ldxw r1, [r7+276]
++ldxw r9, [r7+140]
++ldxw r1, [r7+136]
+ stxdw [r10-136], r1
+-ldxw r9, [r7+272]
+-ldxw r8, [r7+280]
++ldxw r8, [r7+256]
+ call _RNvCscR3e5J6VSLN_7___rustc35___rust_no_alloc_shim_is_unstable_v2
+ lddw r1, 0x300000000
+ ldxdw r2, [r1]
+@@ -102,21 +43,21 @@
+ add64 r1, -256
+ mov64 r3, 0
+ mov64 r4, 1
+-jle r1, r2, +0x390
+-jeq r4, 0, +0x3a0
++jle r1, r2, +0x1b8
++jeq r4, 0, +0x1c8
+ lddw r1, 0x300007f00
+-jne r2, 0, +0x3c0
++jne r2, 0, +0x1e8
+ lddw r2, 0x300000007
+-jgt r1, r2, +0x3e0
+-ja +0x898
++jgt r1, r2, +0x208
++ja +0x6b8
+ mov64 r4, 0
+-jne r4, 0, +0x358
++jne r4, 0, +0x180
+ mov64 r3, r1
+ lddw r1, 0x300007f00
+-jeq r2, 0, +0x370
++jeq r2, 0, +0x198
+ mov64 r1, r3
+ lddw r2, 0x300000007
+-jle r1, r2, +0x898
++jle r1, r2, +0x6b8
+ lddw r2, 0x300000000
+ stxdw [r2], r1
+ ldxdw r2, [r10-248]
+@@ -147,11 +88,11 @@
+ stxdw [r1+32], r2
+ ldxdw r2, [r10-144]
+ stxdw [r1+24], r2
++stxw [r1+20], r9
+ ldxdw r2, [r10-136]
+-stxw [r1+20], r2
+-stxw [r1+16], r9
++stxw [r1+16], r2
++stxdw [r10-256], r8
+ stxw [r1+12], r8
+-stxdw [r10-256], r6
+ stxw [r1+8], r6
+ lddw r2, 0x2926e398985ca763
+ stxdw [r1], r2
+@@ -159,28 +100,29 @@
+ stdw [r10-120], 129
+ mov64 r1, r10
+ add64 r1, -128
+-mov64 r6, 1
++mov64 r8, 1
+ mov64 r2, 1
+ call anchor_lang::solana_program::log::sol_log_data#9398
+ ldxdw r1, [r7+16]
+-ldxdw r7, [r1+8]
+-ldxdw r2, [r7]
+-add64 r2, 1
+-jeq r2, 0, +0x588
+-mov64 r6, 0
+-ldxdw r3, [r1]
+-stxdw [r10-264], r3
+-stxdw [r7], r2
+-jeq r6, 1, +0xd88
+-ldxdw r4, [r1+16]
++ldxdw r4, [r1+8]
+ ldxdw r2, [r4]
+ add64 r2, 1
++jeq r2, 0, +0x3b0
++mov64 r8, 0
++ldxdw r3, [r1]
++stxdw [r10-272], r3
++stxdw [r4], r2
++jeq r8, 1, +0xba8
++ldxdw r5, [r1+16]
++ldxdw r2, [r5]
++add64 r2, 1
+ mov64 r3, 1
+-jeq r2, 0, +0x5d8
++jeq r2, 0, +0x400
+ mov64 r3, 0
+-stxdw [r4], r2
+-jeq r3, 1, +0xd88
+-stxdw [r10-280], r4
++stxdw [r5], r2
++jeq r3, 1, +0xba8
++stxdw [r10-280], r5
++stxdw [r10-264], r4
+ ldxb r2, [r1+42]
+ stxdw [r10-320], r2
+ ldxb r2, [r1+41]
+@@ -198,15 +140,14 @@
+ add64 r3, -256
+ mov64 r2, 0
+ mov64 r4, 1
+-jle r3, r1, +0x840
+-stxdw [r10-272], r7
+-jeq r4, 0, +0x858
++jle r3, r1, +0x668
++jeq r4, 0, +0x678
+ lddw r7, 0x300007f00
+-jne r1, 0, +0x878
++jne r1, 0, +0x698
+ lddw r1, 0x300000007
+-jle r7, r1, +0x898
+-lddw r6, 0x300000000
+-stxdw [r6], r7
++jle r7, r1, +0x6b8
++lddw r8, 0x300000000
++stxdw [r8], r7
+ ldxdw r1, [r10-248]
+ stxdw [r7+121], r1
+ ldxdw r1, [r10-240]
+@@ -235,53 +176,52 @@
+ stxdw [r7+32], r1
+ ldxdw r1, [r10-144]
+ stxdw [r7+24], r1
++stxw [r7+20], r9
+ ldxdw r1, [r10-136]
+-stxw [r7+20], r1
+-stxw [r7+16], r9
+-stxw [r7+12], r8
++stxw [r7+16], r1
+ ldxdw r1, [r10-256]
+-stxw [r7+8], r1
++stxw [r7+12], r1
++stxw [r7+8], r6
+ lddw r1, 0x2926e398985ca763
+ stxdw [r7], r1
+ mov64 r1, 0
+-mov64 r8, 137
+-jsge r8, 0, +0x8c0
++mov64 r6, 137
++jsge r6, 0, +0x6e0
+ mov64 r2, 137
+ lddw r3, panic_location(/home/runner/work/platform-tools/platform-tools/out/rust/library/core/src/iter/traits/iterator.rs:2027:9)
+ call alloc::raw_vec::handle_error#4993
+ mov64 r4, 0
+-stxdw [r10-272], r7
+-jne r4, 0, +0x698
++jne r4, 0, +0x4c0
+ mov64 r2, r3
+ lddw r7, 0x300007f00
+-jeq r1, 0, +0x6b0
++jeq r1, 0, +0x4d8
+ mov64 r7, r2
+ lddw r1, 0x300000007
+-jgt r7, r1, +0x6c8
++jgt r7, r1, +0x4f0
+ mov64 r1, 1
+ mov64 r2, 256
+ lddw r3, panic_location(programs/mayhem-program/src/instructions/admin.rs:25:1)
+ call alloc::raw_vec::handle_error#4993
+ call _RNvCscR3e5J6VSLN_7___rustc35___rust_no_alloc_shim_is_unstable_v2
+-ldxdw r1, [r6]
++ldxdw r1, [r8]
+ lddw r3, 0x300008000
+-jeq r1, 0, +0x8f0
++jeq r1, 0, +0x710
+ mov64 r3, r1
+ mov64 r2, r3
+-sub64 r2, r8
++sub64 r2, r6
+ mov64 r6, 0
+ mov64 r1, 1
+ mov64 r4, 1
+-jle r2, r3, +0x948
+-jeq r4, 0, +0x958
++jle r2, r3, +0x768
++jeq r4, 0, +0x778
+ lddw r2, 0x300000007
+-jgt r6, r2, +0x978
+-ja +0x820
++jgt r6, r2, +0x798
++ja +0x648
+ mov64 r4, 0
+-jne r4, 0, +0x928
++jne r4, 0, +0x748
+ mov64 r6, r2
+ lddw r2, 0x300000007
+-jle r6, r2, +0x820
++jle r6, r2, +0x648
+ lddw r1, 0x300000000
+ stxdw [r1], r6
+ lddw r1, 0x1d9acb512ea545e4
+@@ -294,7 +234,7 @@
+ ldxb r3, [r3]
+ stxb [r2+8], r3
+ add64 r1, 1
+-jne r1, 129, +0x9b0
++jne r1, 129, +0x7d0
+ call _RNvCscR3e5J6VSLN_7___rustc35___rust_no_alloc_shim_is_unstable_v2
+ lddw r1, 0x300000000
+ ldxdw r2, [r1]
+@@ -302,20 +242,19 @@
+ add64 r1, -34
+ mov64 r3, 0
+ mov64 r4, 1
+-jle r1, r2, +0xc30
+-ldxdw r7, [r10-272]
+-jeq r4, 0, +0xc48
++jle r1, r2, +0xa58
++jeq r4, 0, +0xa68
+ lddw r1, 0x300007fde
+-jne r2, 0, +0xc68
++jne r2, 0, +0xa88
+ lddw r2, 0x300000008
+-jlt r1, r2, +0xc88
++jlt r1, r2, +0xaa8
+ lddw r2, 0x300000000
+ stxdw [r2], r1
+-ldxdw r9, [r10-264]
+-ldxdw r2, [r9]
+-ldxdw r3, [r9+8]
+-ldxdw r4, [r9+16]
+-ldxdw r5, [r9+24]
++ldxdw r8, [r10-272]
++ldxdw r2, [r8]
++ldxdw r3, [r8+8]
++ldxdw r4, [r8+16]
++ldxdw r5, [r8+24]
+ stxdw [r1+24], r5
+ stxdw [r1+16], r4
+ stxdw [r1+8], r3
+@@ -324,11 +263,11 @@
+ stxdw [r10-40], r1
+ stdw [r10-32], 1
+ stdw [r10-48], 1
+-mov64 r8, r10
+-add64 r8, -128
++mov64 r7, r10
++add64 r7, -128
+ mov64 r5, r10
+ add64 r5, -48
+-mov64 r1, r8
++mov64 r1, r7
+ lddw r2, .rodata[052ae5d7a7daa724]
+ mov64 r3, r6
+ mov64 r4, 137
+@@ -345,11 +284,12 @@
+ stxdw [r10-24], r1
+ ldxdw r1, [r10-280]
+ stxdw [r10-32], r1
+-stxdw [r10-40], r7
+-stxdw [r10-48], r9
++ldxdw r1, [r10-264]
++stxdw [r10-40], r1
++stxdw [r10-48], r8
+ mov64 r2, r10
+ add64 r2, -48
+-mov64 r1, r8
++mov64 r1, r7
+ mov64 r3, 1
+ lddw r4, .data.rel.ro+obj
+ mov64 r5, 1
+@@ -358,28 +298,28 @@
+ mov64 r1, r0
+ lsh64 r1, 32
+ rsh64 r1, 32
+-jne r1, 26, +0xca0
++jne r1, 26, +0xac0
+ mov64 r0, 2
+-ja +0xcb8
++ldxdw r3, [r10-264]
++ja +0xad8
+ mov64 r4, 0
+-ldxdw r7, [r10-272]
+-jne r4, 0, +0xa48
++jne r4, 0, +0x860
+ mov64 r3, r1
+ lddw r1, 0x300007fde
+-jeq r2, 0, +0xa60
++jeq r2, 0, +0x878
+ mov64 r1, r3
+ lddw r2, 0x300000008
+-jge r1, r2, +0xa78
++jge r1, r2, +0x890
+ mov64 r1, 1
+ mov64 r2, 34
+ call alloc::alloc::handle_alloc_error#decd
+ mov64 r1, r0
+ call <anchor_lang::error::Error as core::convert::From<solana_program_error::ProgramError>>::from#507a
+-ldxdw r7, [r10-40]
+-ldxdw r2, [r7]
++ldxdw r3, [r10-40]
++ldxdw r2, [r3]
+ add64 r2, -1
+-stxdw [r7], r2
+-jne r2, 0, +0xd18
++stxdw [r3], r2
++jne r2, 0, +0xb38
+ mov64 r2, r10
+ add64 r2, -40
+ mov64 r6, r1
+@@ -392,7 +332,7 @@
+ ldxdw r3, [r2]
+ add64 r3, -1
+ stxdw [r2], r3
+-jne r3, 0, +0xd80
++jne r3, 0, +0xba0
+ mov64 r2, r10
+ add64 r2, -32
+ mov64 r6, r1

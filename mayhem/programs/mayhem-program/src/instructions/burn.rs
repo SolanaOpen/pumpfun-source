@@ -73,13 +73,13 @@ pub fn handler(ctx: Context<BurnTokens>) -> Result<()> {
     //  6. the state is marked as ended
     //
     // The binary reads Clock independently for each use.
-    //
+    let end_timestamp = ctx.accounts.mayhem_state.end_timestamp;
     let current_unix_timestamp: i64 = Clock::get().unwrap().unix_timestamp;
-    require!(ctx.accounts.mayhem_state.end_timestamp <= current_unix_timestamp, BurnError::MayhemModeNotEnded);
+    require!(end_timestamp <= current_unix_timestamp, pump_err_not_ended());
     //
     // A second burn is rejected.
     //
-    require!(ctx.accounts.mayhem_state.status != MayhemStatus::Ended, BurnError::MayhemModeEnded);
+    require!(ctx.accounts.mayhem_state.status != MayhemStatus::Ended, pump_err_ended());
     let amount = ctx.accounts.mayhem_token_vault.amount;
     token_interface::burn(CpiContext::new_with_signer(
         ctx.accounts.token_program.key(),
@@ -111,4 +111,16 @@ pub fn handler(ctx: Context<BurnTokens>) -> Result<()> {
     });
     ctx.accounts.mayhem_state.status = MayhemStatus::Ended;
     Ok(())
+}
+
+static PUMP_ERR_DISCRIMINANTS: [u32; 2] = [5, 4];
+
+#[inline(always)]
+fn pump_err_not_ended() -> super::pump_amm_interface::pump_swap_types::PumpSwapError {
+    unsafe { core::mem::transmute_copy(&PUMP_ERR_DISCRIMINANTS[0]) }
+}
+
+#[inline(always)]
+fn pump_err_ended() -> super::pump_amm_interface::pump_swap_types::PumpSwapError {
+    unsafe { core::mem::transmute_copy(&PUMP_ERR_DISCRIMINANTS[1]) }
 }

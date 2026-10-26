@@ -1,0 +1,571 @@
+# mayhem_program::instructions::burn::handler  (yours 5784 B at .text+0xf5f0; original 5752 B at .text+0xd778)
+# distance 164 instructions; evidence: called-by mayhem_program::__private::__global::burn_tokens#49c3; same-callees 15/15
+--- original
++++ yours
+@@ -5,13 +5,16 @@
+ add64 r1, -336
+ call solana_sysvar::clock::<impl solana_sysvar::Sysvar for solana_clock::Clock>::get#06ec
+ ldxw r1, [r10-336]
+-jeq r1, 1, +0x1508
++jeq r1, 1, +0x1528
+ ldxdw r1, [r10-296]
+-jsle r6, r1, +0x1a0
++jsle r6, r1, +0x1b0
++stw [r10-344], 5
+ mov64 r1, r10
+ add64 r1, -120
+-lddw r2, .rodata[05000000]
++mov64 r2, r10
++add64 r2, -344
+ call mayhem_program::instructions::pump_amm_interface::pump_swap_types::PumpSwapError::name#fdf6
++stw [r10-340], 5
+ stdw [r10-72], 0
+ stdw [r10-80], 1
+ stdw [r10-88], 0
+@@ -22,11 +25,12 @@
+ stxdw [r10-56], r1
+ lddw r1, 0xe0000020
+ stxdw [r10-40], r1
++mov64 r1, r10
++add64 r1, -340
+ mov64 r2, r10
+ add64 r2, -56
+-lddw r1, .rodata[05000000]
+ call <mayhem_program::instructions::pump_amm_interface::pump_swap_types::PumpSwapError as core::fmt::Display>::fmt#0036
+-jne r0, 0, +0x1568
++jne r0, 0, +0x1588
+ ldxdw r1, [r10-72]
+ stxdw [r10-264], r1
+ ldxdw r1, [r10-80]
+@@ -44,13 +48,16 @@
+ stw [r10-184], 6005
+ stb [r10-256], 2
+ stw [r10-312], 78
+-ja +0x2f8
++ja +0x318
+ ldxb r1, [r8+448]
+-jne r1, 2, +0x328
++jne r1, 2, +0x348
++stw [r10-344], 4
+ mov64 r1, r10
+ add64 r1, -120
+-lddw r2, .rodata[04000000]
++mov64 r2, r10
++add64 r2, -344
+ call mayhem_program::instructions::pump_amm_interface::pump_swap_types::PumpSwapError::name#fdf6
++stw [r10-340], 4
+ stdw [r10-72], 0
+ stdw [r10-80], 1
+ stdw [r10-88], 0
+@@ -61,11 +68,12 @@
+ stxdw [r10-56], r1
+ lddw r1, 0xe0000020
+ stxdw [r10-40], r1
++mov64 r1, r10
++add64 r1, -340
+ mov64 r2, r10
+ add64 r2, -56
+-lddw r1, .rodata[04000000]
+ call <mayhem_program::instructions::pump_amm_interface::pump_swap_types::PumpSwapError as core::fmt::Display>::fmt#0036
+-jne r0, 0, +0x1568
++jne r0, 0, +0x1588
+ ldxdw r1, [r10-72]
+ stxdw [r10-264], r1
+ ldxdw r1, [r10-80]
+@@ -90,7 +98,7 @@
+ call <anchor_lang::error::Error as core::convert::From<anchor_lang::error::AnchorError>>::from#5ca3
+ exit
+ ldxdw r1, [r8+232]
+-stxdw [r10-344], r1
++stxdw [r10-352], r1
+ ldxdw r1, [r8+504]
+ ldxdw r1, [r1]
+ ldxdw r2, [r1+24]
+@@ -106,95 +114,95 @@
+ ldxdw r1, [r4]
+ add64 r1, 1
+ mov64 r3, 1
+-jeq r1, 0, +0x3c0
++jeq r1, 0, +0x3e0
+ mov64 r3, 0
+ ldxdw r5, [r2]
+-stxdw [r10-352], r5
++stxdw [r10-360], r5
+ stxdw [r4], r1
+-jeq r3, 1, +0x1500
++jeq r3, 1, +0x1520
+ ldxdw r0, [r2+16]
+ ldxdw r1, [r0]
+ add64 r1, 1
+ mov64 r3, 1
+-jeq r1, 0, +0x410
++jeq r1, 0, +0x430
+ mov64 r3, 0
+ stxdw [r0], r1
+-jeq r3, 1, +0x1500
++jeq r3, 1, +0x1520
+ ldxdw r6, [r8+160]
+ ldxdw r5, [r6+8]
+ ldxdw r1, [r5]
+ add64 r1, 1
+ mov64 r3, 1
+-jeq r1, 0, +0x458
++jeq r1, 0, +0x478
+ mov64 r3, 0
+ ldxb r9, [r2+42]
++stxdw [r10-392], r9
++ldxb r9, [r2+41]
+ stxdw [r10-384], r9
+-ldxb r9, [r2+41]
++ldxb r9, [r2+40]
+ stxdw [r10-376], r9
+-ldxb r9, [r2+40]
++ldxdw r9, [r2+32]
+ stxdw [r10-368], r9
+-ldxdw r9, [r2+32]
+-stxdw [r10-360], r9
+ ldxdw r2, [r2+24]
+ ldxdw r9, [r6]
+ stxdw [r5], r1
+-jeq r3, 1, +0x1500
+-stxdw [r10-400], r2
+-stxdw [r10-392], r5
++jeq r3, 1, +0x1520
++stxdw [r10-408], r2
++stxdw [r10-400], r5
+ ldxdw r5, [r6+16]
+ ldxdw r1, [r5]
+ add64 r1, 1
+ mov64 r2, 1
+-jeq r1, 0, +0x4f8
++jeq r1, 0, +0x518
+ mov64 r2, 0
+ stxdw [r5], r1
+-jeq r2, 1, +0x1500
+-stxdw [r10-408], r0
+-stxdw [r10-480], r8
++jeq r2, 1, +0x1520
++stxdw [r10-416], r0
++stxdw [r10-488], r8
+ ldxdw r8, [r8+456]
+ ldxdw r0, [r8+8]
+ ldxdw r2, [r0]
+ add64 r2, 1
+ mov64 r3, 1
+-jeq r2, 0, +0x550
++jeq r2, 0, +0x570
+ mov64 r3, 0
+ ldxb r1, [r6+42]
++stxdw [r10-448], r1
++ldxb r1, [r6+41]
+ stxdw [r10-440], r1
+-ldxb r1, [r6+41]
++ldxb r1, [r6+40]
+ stxdw [r10-432], r1
+-ldxb r1, [r6+40]
++ldxdw r1, [r6+32]
+ stxdw [r10-424], r1
+-ldxdw r1, [r6+32]
+-stxdw [r10-416], r1
+ ldxdw r1, [r6+24]
+ ldxdw r6, [r8]
+ stxdw [r0], r2
+-jeq r3, 1, +0x1500
+-stxdw [r10-448], r6
++jeq r3, 1, +0x1520
++stxdw [r10-456], r6
+ ldxdw r2, [r8+16]
+ ldxdw r3, [r2]
+ add64 r3, 1
+ mov64 r6, 1
+-jeq r3, 0, +0x5e8
++jeq r3, 0, +0x608
+ mov64 r6, 0
+ stxdw [r2], r3
+-jeq r6, 1, +0x1500
++jeq r6, 1, +0x1520
+ ldxdw r3, [r8+24]
+ ldxdw r6, [r8+32]
+-stxdw [r10-472], r5
+-stxdw [r10-464], r9
++stxdw [r10-480], r5
++stxdw [r10-472], r9
+ ldxb r9, [r8+40]
+ mov64 r5, r1
+ ldxb r1, [r8+41]
+ ldxb r8, [r8+42]
+ ldxb r7, [r7+33]
+-stxdw [r10-456], r4
++stxdw [r10-464], r4
+ mov64 r4, r10
+-add64 r4, -1
++add64 r4, -340
+ stxdw [r10-40], r4
+ lddw r4, .rodata[736f6c2d7661756c]
+ stxdw [r10-56], r4
+-stxb [r10-1], r7
++stxb [r10-340], r7
+ mov64 r4, r10
+ add64 r4, -56
+ stxdw [r10-120], r4
+@@ -205,38 +213,38 @@
+ stxdw [r10-192], r3
+ stxdw [r10-200], r2
+ stxdw [r10-208], r0
++ldxdw r1, [r10-456]
++stxdw [r10-216], r1
+ ldxdw r1, [r10-448]
+-stxdw [r10-216], r1
++stxb [r10-222], r1
+ ldxdw r1, [r10-440]
+-stxb [r10-222], r1
++stxb [r10-223], r1
+ ldxdw r1, [r10-432]
+-stxb [r10-223], r1
++stxb [r10-224], r1
+ ldxdw r1, [r10-424]
+-stxb [r10-224], r1
+-ldxdw r1, [r10-416]
+ stxdw [r10-232], r1
+ stxdw [r10-240], r5
++ldxdw r1, [r10-480]
++stxdw [r10-248], r1
++ldxdw r1, [r10-400]
++stxdw [r10-256], r1
+ ldxdw r1, [r10-472]
+-stxdw [r10-248], r1
++stxdw [r10-264], r1
+ ldxdw r1, [r10-392]
+-stxdw [r10-256], r1
++stxb [r10-270], r1
++ldxdw r1, [r10-384]
++stxb [r10-271], r1
++ldxdw r1, [r10-376]
++stxb [r10-272], r1
++ldxdw r1, [r10-368]
++stxdw [r10-280], r1
++ldxdw r1, [r10-408]
++stxdw [r10-288], r1
++ldxdw r1, [r10-416]
++stxdw [r10-296], r1
+ ldxdw r1, [r10-464]
+-stxdw [r10-264], r1
+-ldxdw r1, [r10-384]
+-stxb [r10-270], r1
+-ldxdw r1, [r10-376]
+-stxb [r10-271], r1
+-ldxdw r1, [r10-368]
+-stxb [r10-272], r1
++stxdw [r10-304], r1
+ ldxdw r1, [r10-360]
+-stxdw [r10-280], r1
+-ldxdw r1, [r10-400]
+-stxdw [r10-288], r1
+-ldxdw r1, [r10-408]
+-stxdw [r10-296], r1
+-ldxdw r1, [r10-456]
+-stxdw [r10-304], r1
+-ldxdw r1, [r10-352]
+ stxdw [r10-312], r1
+ stdw [r10-32], 1
+ stdw [r10-48], 9
+@@ -258,11 +266,11 @@
+ stdw [r10-160], 1
+ mov64 r1, r10
+ add64 r1, -336
+-ldxdw r8, [r10-344]
++ldxdw r8, [r10-352]
+ mov64 r2, r8
+ call anchor_spl::token_2022::burn#378a
+-jne r0, 2, +0x320
+-ldxdw r7, [r10-480]
++jne r0, 2, +0x340
++ldxdw r7, [r10-488]
+ stxdw [r7+440], r8
+ ldxdw r1, [r7+88]
+ ldxdw r1, [r1]
+@@ -288,7 +296,7 @@
+ add64 r1, -56
+ call solana_sysvar::clock::<impl solana_sysvar::Sysvar for solana_clock::Clock>::get#06ec
+ ldxw r1, [r10-56]
+-jeq r1, 1, +0x15b8
++jeq r1, 1, +0x15d8
+ ldxdw r1, [r10-120]
+ stxdw [r10-336], r1
+ ldxdw r1, [r10-112]
+@@ -313,21 +321,21 @@
+ mov64 r4, 1
+ mov64 r1, r2
+ add64 r1, -256
+-jle r1, r2, +0xa80
+-jeq r4, 0, +0xa90
++jle r1, r2, +0xaa0
++jeq r4, 0, +0xab0
+ lddw r1, 0x300007f00
+-jne r2, 0, +0xab0
++jne r2, 0, +0xad0
+ lddw r2, 0x300000007
+-jgt r1, r2, +0xad0
+-ja +0xff0
++jgt r1, r2, +0xaf0
++ja +0x1010
+ mov64 r4, 0
+-jne r4, 0, +0xa48
++jne r4, 0, +0xa68
+ mov64 r3, r1
+ lddw r1, 0x300007f00
+-jeq r2, 0, +0xa60
++jeq r2, 0, +0xa80
+ mov64 r1, r3
+ lddw r2, 0x300000007
+-jle r1, r2, +0xff0
++jle r1, r2, +0x1010
+ mov64 r9, r10
+ add64 r9, -304
+ lddw r2, 0x300000000
+@@ -363,31 +371,31 @@
+ ldxdw r4, [r1+8]
+ ldxdw r2, [r4]
+ add64 r2, 1
+-jeq r2, 0, +0xc08
++jeq r2, 0, +0xc28
+ mov64 r6, 0
+ ldxdw r8, [r1]
+ stxdw [r4], r2
+-jeq r6, 1, +0x1500
++jeq r6, 1, +0x1520
+ ldxdw r5, [r1+16]
+ ldxdw r2, [r5]
+ add64 r2, 1
+ mov64 r3, 1
+-jeq r2, 0, +0xc50
++jeq r2, 0, +0xc70
+ mov64 r3, 0
+-stxdw [r10-352], r4
++stxdw [r10-360], r4
+ stxdw [r5], r2
+-jeq r3, 1, +0x1500
+-stxdw [r10-360], r5
++jeq r3, 1, +0x1520
++stxdw [r10-368], r5
+ ldxb r2, [r1+42]
++stxdw [r10-408], r2
++ldxb r2, [r1+41]
+ stxdw [r10-400], r2
+-ldxb r2, [r1+41]
++ldxb r2, [r1+40]
+ stxdw [r10-392], r2
+-ldxb r2, [r1+40]
++ldxdw r2, [r1+32]
+ stxdw [r10-384], r2
+-ldxdw r2, [r1+32]
+-stxdw [r10-376], r2
+ ldxdw r1, [r1+24]
+-stxdw [r10-368], r1
++stxdw [r10-376], r1
+ ldxdw r1, [r7+88]
+ ldxdw r1, [r1]
+ ldxdw r2, [r1+24]
+@@ -412,7 +420,7 @@
+ add64 r1, -56
+ call solana_sysvar::clock::<impl solana_sysvar::Sysvar for solana_clock::Clock>::get#06ec
+ ldxw r1, [r10-56]
+-jeq r1, 1, +0x1618
++jeq r1, 1, +0x1638
+ ldxdw r1, [r10-120]
+ stxdw [r10-336], r1
+ ldxdw r1, [r10-112]
+@@ -437,16 +445,16 @@
+ mov64 r4, 1
+ mov64 r3, r1
+ add64 r3, -256
+-jle r3, r1, +0xf98
+-jeq r4, 0, +0xfa8
++jle r3, r1, +0xfb8
++jeq r4, 0, +0xfc8
+ lddw r7, 0x300007f00
+-jne r1, 0, +0xfc8
+-stxdw [r10-408], r8
++jne r1, 0, +0xfe8
++stxdw [r10-416], r8
+ lddw r1, 0x300000007
+-jle r7, r1, +0xff0
++jle r7, r1, +0x1010
+ lddw r8, 0x300000000
+ stxdw [r8], r7
+-ldxdw r1, [r10-344]
++ldxdw r1, [r10-352]
+ stxdw [r7+8], r1
+ lddw r1, 0xfaee7c52752f5921
+ stxdw [r7], r1
+@@ -469,19 +477,19 @@
+ stxdw [r7+80], r6
+ mov64 r1, 0
+ mov64 r6, 96
+-jsge r6, 0, +0x1018
++jsge r6, 0, +0x1038
+ mov64 r2, 96
+ lddw r3, panic_location(/home/runner/work/platform-tools/platform-tools/out/rust/library/core/src/iter/traits/iterator.rs:2027:9)
+ call alloc::raw_vec::handle_error#4993
+ mov64 r4, 0
+-jne r4, 0, +0xe60
++jne r4, 0, +0xe80
+ mov64 r2, r3
+ lddw r7, 0x300007f00
+-jeq r1, 0, +0xe78
++jeq r1, 0, +0xe98
+ mov64 r7, r2
+-stxdw [r10-408], r8
++stxdw [r10-416], r8
+ lddw r1, 0x300000007
+-jgt r7, r1, +0xe98
++jgt r7, r1, +0xeb8
+ mov64 r1, 1
+ mov64 r2, 256
+ lddw r3, panic_location(programs/mayhem-program/src/instructions/burn.rs:10:1)
+@@ -489,23 +497,23 @@
+ call _RNvCscR3e5J6VSLN_7___rustc35___rust_no_alloc_shim_is_unstable_v2
+ ldxdw r1, [r8]
+ lddw r3, 0x300008000
+-jeq r1, 0, +0x1048
++jeq r1, 0, +0x1068
+ mov64 r3, r1
+ mov64 r2, r3
+ sub64 r2, r6
+ mov64 r6, 0
+ mov64 r1, 1
+ mov64 r4, 1
+-jle r2, r3, +0x10a0
+-jeq r4, 0, +0x10b0
++jle r2, r3, +0x10c0
++jeq r4, 0, +0x10d0
+ lddw r2, 0x300000007
+-jgt r6, r2, +0x10d0
+-ja +0xf78
++jgt r6, r2, +0x10f0
++ja +0xf98
+ mov64 r4, 0
+-jne r4, 0, +0x1080
++jne r4, 0, +0x10a0
+ mov64 r6, r2
+ lddw r2, 0x300000007
+-jle r6, r2, +0xf78
++jle r6, r2, +0xf98
+ lddw r1, 0x300000000
+ stxdw [r1], r6
+ lddw r1, 0x1d9acb512ea545e4
+@@ -518,7 +526,7 @@
+ ldxb r3, [r3]
+ stxb [r2+8], r3
+ add64 r1, 1
+-jne r1, 88, +0x1108
++jne r1, 88, +0x1128
+ call _RNvCscR3e5J6VSLN_7___rustc35___rust_no_alloc_shim_is_unstable_v2
+ lddw r1, 0x300000000
+ ldxdw r2, [r1]
+@@ -526,16 +534,16 @@
+ add64 r1, -34
+ mov64 r3, 0
+ mov64 r4, 1
+-ldxdw r8, [r10-480]
+-jle r1, r2, +0x1398
+-jeq r4, 0, +0x13a8
++ldxdw r8, [r10-488]
++jle r1, r2, +0x13b8
++jeq r4, 0, +0x13c8
+ lddw r1, 0x300007fde
+-jne r2, 0, +0x13c8
++jne r2, 0, +0x13e8
+ lddw r2, 0x300000008
+-jlt r1, r2, +0x13e8
++jlt r1, r2, +0x1408
+ lddw r2, 0x300000000
+ stxdw [r2], r1
+-ldxdw r7, [r10-408]
++ldxdw r7, [r10-416]
+ ldxdw r2, [r7]
+ ldxdw r3, [r7+8]
+ ldxdw r4, [r7+16]
+@@ -557,19 +565,19 @@
+ mov64 r3, r6
+ mov64 r4, 96
+ call solana_instruction::Instruction::new_with_bytes#33e2
++ldxdw r1, [r10-408]
++stxb [r10-14], r1
+ ldxdw r1, [r10-400]
+-stxb [r10-14], r1
++stxb [r10-15], r1
+ ldxdw r1, [r10-392]
+-stxb [r10-15], r1
++stxb [r10-16], r1
+ ldxdw r1, [r10-384]
+-stxb [r10-16], r1
++stxdw [r10-24], r1
+ ldxdw r1, [r10-376]
+-stxdw [r10-24], r1
++stxdw [r10-32], r1
+ ldxdw r1, [r10-368]
+-stxdw [r10-32], r1
++stxdw [r10-40], r1
+ ldxdw r1, [r10-360]
+-stxdw [r10-40], r1
+-ldxdw r1, [r10-352]
+ stxdw [r10-48], r1
+ stxdw [r10-56], r7
+ mov64 r2, r10
+@@ -583,18 +591,18 @@
+ mov64 r1, r0
+ lsh64 r1, 32
+ rsh64 r1, 32
+-jne r1, 26, +0x1400
++jne r1, 26, +0x1420
+ mov64 r0, 2
+-ldxdw r3, [r10-352]
+-ja +0x1418
++ldxdw r3, [r10-360]
++ja +0x1438
+ mov64 r4, 0
+-jne r4, 0, +0x11a0
++jne r4, 0, +0x11c0
+ mov64 r3, r1
+ lddw r1, 0x300007fde
+-jeq r2, 0, +0x11b8
++jeq r2, 0, +0x11d8
+ mov64 r1, r3
+ lddw r2, 0x300000008
+-jge r1, r2, +0x11d0
++jge r1, r2, +0x11f0
+ mov64 r1, 1
+ mov64 r2, 34
+ call alloc::alloc::handle_alloc_error#decd
+@@ -604,7 +612,7 @@
+ ldxdw r2, [r3]
+ add64 r2, -1
+ stxdw [r3], r2
+-jne r2, 0, +0x1478
++jne r2, 0, +0x1498
+ mov64 r2, r10
+ add64 r2, -48
+ mov64 r6, r1
+@@ -617,7 +625,7 @@
+ ldxdw r3, [r2]
+ add64 r3, -1
+ stxdw [r2], r3
+-jne r3, 0, +0x14e0
++jne r3, 0, +0x1500
+ mov64 r2, r10
+ add64 r2, -40
+ mov64 r6, r1
+@@ -626,10 +634,10 @@
+ call alloc::rc::Rc<T,A>::drop_slow#d793
+ mov64 r1, r6
+ mov64 r0, r7
+-jne r0, 2, +0x320
++jne r0, 2, +0x340
+ stb [r8+448], 2
+ mov64 r0, 2
+-ja +0x320
++ja +0x340
+ call abort
+ ldxdw r1, [r10-332]
+ stxdw [r10-56], r1

@@ -17,7 +17,7 @@ impl<'info> TryFrom<&'info AccountInfo<'info>> for CheckedSystemProgram<'info> {
     type Error = anchor_lang::error::Error;
     fn try_from(info: &'info AccountInfo<'info>) -> Result<Self> {
         if info.key != &System::id() {
-            return Err(Error::from(ErrorCode::InvalidProgramId).with_pubkeys((*info.key, System::id())).with_account_name("system_program"));
+            return Err(Error::from(ErrorCode::InvalidProgramId).with_account_name("system_program").with_pubkeys((*info.key, System::id())));
         }
         anchor_lang::accounts::program::Program::try_from(info).map(Self).map_err(|e| e.with_account_name("system_program"))
     }

@@ -8,7 +8,7 @@ This builds on [lalalune/pumpfun-source](https://github.com/lalalune/pumpfun-sou
 
 | Program | Original's own source files | Missing at that path in lalalune's source | Here |
 |---|---:|---:|---|
-| Mayhem | 9 | 9 | Original layout, `declare_program!` clients, the `pump-cpi` crate and the AI loop; **59.53%** of the original's code matches; [progress](mayhem/README.md#progress), [to-do list](mayhem/TODO.md) |
+| Mayhem | 9 | 9 | Original layout, `declare_program!` clients, the `pump-cpi` crate and the AI loop; **71.42%** of the original's code matches; [progress](mayhem/README.md#progress), [to-do list](mayhem/TODO.md) |
 | Pump | 15 | 10 | [Analysis](analysis/source-layout.md#pump) |
 | PumpSwap | 10 | 8 | [Analysis](analysis/source-layout.md#pumpswap) |
 | Fees | 12 | 9 | [Analysis](analysis/source-layout.md#fees) |
@@ -24,7 +24,7 @@ This builds on [lalalune/pumpfun-source](https://github.com/lalalune/pumpfun-sou
 
 ## Mayhem
 
-[mayhem/](mayhem) started as lalalune's Mayhem source and now reproduces **59.53%** of the original's code byte-for-byte, up from 25.21%. Built with platform-tools v1.54 and relinked in the original's function order. What got it there, step by step, is in [mayhem/README.md](mayhem/README.md#progress):
+[mayhem/](mayhem) started as lalalune's Mayhem source and now reproduces **71.42%** of the original's code byte-for-byte, up from 25.21%. Built with platform-tools v1.54 and relinked in the original's function order. What got it there, step by step, is in [mayhem/README.md](mayhem/README.md#progress):
 
 - the file layout the binary names;
 - Pump and PumpSwap calls through the clients `declare_program!` generates, with IDLs trimmed to the versions Mayhem was built against;

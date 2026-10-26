@@ -12,35 +12,16 @@ pub struct InitializeGlobalParams<'info> {
     pub admin: Signer<'info>,
     #[account(init, payer = admin, space = 254, seeds = [b"global-params"], bump)]
     pub global_params: Account<'info, GlobalParams>,
-    pub system_program: CheckedSystemProgram<'info>,
+    pub system_program: Program<'info, System>,
 }
 
 // (layout padding)
 // (layout padding)
-
-/// Recovered serialized widths/order. Semantic names remain unresolved.
-#[derive(AnchorSerialize, AnchorDeserialize, Clone)]
-pub struct UpdateGlobalParamsArgs {
-    pub field_0: Option<u32>,
-    pub field_1: Option<u32>,
-    pub field_2: Option<u64>,
-    pub field_3: Option<u64>,
-    pub field_4: Option<u64>,
-    pub field_5: Option<u64>,
-    pub field_6: Option<u8>,
-    pub field_7: Option<u64>,
-    pub field_8: Option<u64>,
-    pub field_9: Option<u64>,
-    pub field_10: Option<u64>,
-    pub field_11: Option<u64>,
-    pub field_12: Option<u64>,
-    pub field_13: Option<u64>,
-    pub field_14: Option<u64>,
-    pub field_15: Option<u64>,
-}
 
 // The discriminator is observed from original emitted data. Historical event
 // type name remains unresolved; overriding it avoids pretending to know it.
+// (layout padding)
+// (layout padding)
 #[event(discriminator = [0x63,0xa7,0x5c,0x98,0x98,0xe3,0x26,0x29])]
 pub struct GlobalParamsUpdateEvent {
     pub old_version: u32,
@@ -63,8 +44,27 @@ pub struct GlobalParamsUpdateEvent {
     pub field_15: u64,
 }
 
-// (layout padding)
-// (layout padding)
+/// Recovered serialized widths/order. Semantic names remain unresolved.
+#[derive(AnchorSerialize, AnchorDeserialize, Clone)]
+pub struct UpdateGlobalParamsArgs {
+    pub field_0: Option<u32>,
+    pub field_1: Option<u32>,
+    pub field_2: Option<u64>,
+    pub field_3: Option<u64>,
+    pub field_4: Option<u64>,
+    pub field_5: Option<u64>,
+    pub field_6: Option<u8>,
+    pub field_7: Option<u64>,
+    pub field_8: Option<u64>,
+    pub field_9: Option<u64>,
+    pub field_10: Option<u64>,
+    pub field_11: Option<u64>,
+    pub field_12: Option<u64>,
+    pub field_13: Option<u64>,
+    pub field_14: Option<u64>,
+    pub field_15: Option<u64>,
+}
+
 // (layout padding)
 // (layout padding)
 // (layout padding)
@@ -107,23 +107,23 @@ pub fn initialize_global_params(ctx: Context<InitializeGlobalParams>) -> Result<
 }
 pub fn update_global_params(ctx: Context<Admin>, args: UpdateGlobalParamsArgs) -> Result<()> {
     let state = &mut ctx.accounts.global_params;
-    if let Some(v) = args.field_0 { state.reset_prefix[0..4].copy_from_slice(&v.to_le_bytes()); }
-    if let Some(v) = args.field_1 { state.reset_prefix[4..8].copy_from_slice(&v.to_le_bytes()); }
-    for (value, offset) in [(args.field_2, 8), (args.field_3, 16), (args.field_4, 24), (args.field_5, 32)] {
-        if let Some(v) = value { state.reset_prefix[offset..offset+8].copy_from_slice(&v.to_le_bytes()); }
-    }
-    if let Some(v) = args.field_6 { state.reset_middle[0] = v; }
-    if let Some(v) = args.field_7 { state.reset_middle[9..17].copy_from_slice(&v.to_le_bytes()); }
-    if let Some(v) = args.field_8 { state.reset_middle[17..25].copy_from_slice(&v.to_le_bytes()); }
-    if let Some(v) = args.field_9 { state.preserved_middle_a.copy_from_slice(&v.to_le_bytes()); }
-    if let Some(v) = args.field_10 { state.field_10 = v; }
-    for (value, offset) in [(args.field_11, 0), (args.field_12, 8), (args.field_13, 16)] {
-        if let Some(v) = value { state.reset_stable_prefix[offset..offset+8].copy_from_slice(&v.to_le_bytes()); }
-    }
-    if let Some(v) = args.field_14 { state.reset_stable_suffix[0..8].copy_from_slice(&v.to_le_bytes()); }
-    if let Some(v) = args.field_15 { state.reset_stable_suffix[8..16].copy_from_slice(&v.to_le_bytes()); }
     let old_version = state.version;
-    state.version = state.version.checked_add(1).ok_or(MayhemError::MathOverflow)?;
+    apply_update(state, args)?;
+    // (layout padding)
+    // (layout padding)
+    // (layout padding)
+    // (layout padding)
+    // (layout padding)
+    // (layout padding)
+    // (layout padding)
+    // (layout padding)
+    // (layout padding)
+    // (layout padding)
+    // (layout padding)
+    // (layout padding)
+    // (layout padding)
+    // (layout padding)
+    // (layout padding)
     let event = GlobalParamsUpdateEvent {
         old_version, new_version: state.version,
         field_0: u32::from_le_bytes(state.reset_prefix[0..4].try_into().unwrap()),
@@ -227,4 +227,25 @@ pub fn withdraw_admin(ctx: Context<WithdrawAdmin>, amount: u64) -> Result<()> {
                 from: ctx.accounts.sol_vault.to_account_info(),
                 to: ctx.accounts.admin.to_account_info(),
             }, &[seeds]), amount)
+}
+
+#[inline(never)]
+fn apply_update(state: &mut GlobalParams, args: UpdateGlobalParamsArgs) -> Result<()> {
+    if let Some(v) = args.field_0 { state.reset_prefix[0..4].copy_from_slice(&v.to_le_bytes()); }
+    if let Some(v) = args.field_1 { state.reset_prefix[4..8].copy_from_slice(&v.to_le_bytes()); }
+    for (value, offset) in [(args.field_2, 8), (args.field_3, 16), (args.field_4, 24), (args.field_5, 32)] {
+        if let Some(v) = value { state.reset_prefix[offset..offset+8].copy_from_slice(&v.to_le_bytes()); }
+    }
+    if let Some(v) = args.field_6 { state.reset_middle[0] = v; }
+    if let Some(v) = args.field_7 { state.reset_middle[9..17].copy_from_slice(&v.to_le_bytes()); }
+    if let Some(v) = args.field_8 { state.reset_middle[17..25].copy_from_slice(&v.to_le_bytes()); }
+    if let Some(v) = args.field_9 { state.preserved_middle_a.copy_from_slice(&v.to_le_bytes()); }
+    if let Some(v) = args.field_10 { state.field_10 = v; }
+    for (value, offset) in [(args.field_11, 0), (args.field_12, 8), (args.field_13, 16)] {
+        if let Some(v) = value { state.reset_stable_prefix[offset..offset+8].copy_from_slice(&v.to_le_bytes()); }
+    }
+    if let Some(v) = args.field_14 { state.reset_stable_suffix[0..8].copy_from_slice(&v.to_le_bytes()); }
+    if let Some(v) = args.field_15 { state.reset_stable_suffix[8..16].copy_from_slice(&v.to_le_bytes()); }
+    state.version = state.version.checked_add(1).ok_or(MayhemError::MathOverflow)?;
+    Ok(())
 }

@@ -40,7 +40,7 @@ pub mod mayhem_program {
     pub fn withdraw_quote_admin(ctx: Context<WithdrawQuoteAdmin>, amount: u64) -> Result<()> { instructions::admin::withdraw_quote_admin(ctx, amount) }
     pub fn withdraw_admin(ctx: Context<WithdrawAdmin>, amount: u64) -> Result<()> { instructions::admin::withdraw_admin(ctx, amount) }
     pub fn extend_account(ctx: Context<ExtendAccount>) -> Result<()> { instructions::extend_account::extend_account(ctx) }
-    pub fn initialize_fee_recipient(ctx: Context<InitializeFeeRecipient>, index: u8) -> Result<()> { instructions::fee_recipients::initialize_fee_recipient(ctx, index) }
+    pub fn initialize_fee_recipient(ctx: Context<InitializeFeeRecipient>, index: u8) -> Result<()> { super::initialize_fee_recipient_impl(ctx, index) }
     pub fn initialize_global_params(ctx: Context<InitializeGlobalParams>) -> Result<()> { instructions::admin::initialize_global_params(ctx) }
     pub fn update_global_params(ctx: Context<Admin>, args: UpdateGlobalParamsArgs) -> Result<()> { instructions::admin::update_global_params(ctx, args) }
     pub fn update_admin(ctx: Context<Admin>, new_admin: Pubkey) -> Result<()> { instructions::admin::update_admin(ctx, new_admin) }
@@ -68,4 +68,22 @@ pub enum MayhemError {
     AccountTypeNotSupported = 16,
     #[msg("Only 8 fee recipients supported")]
     MaxFeeRecipientsExceeded = 17,
+}
+
+#[inline(never)]
+fn initialize_fee_recipient_impl(ctx: Context<InitializeFeeRecipient>, index: u8) -> Result<()> {
+    if index >= 8 {
+        return Err(anchor_lang::error::Error::from(anchor_lang::error::AnchorError {
+            error_name: MayhemError::MaxFeeRecipientsExceeded.name(),
+            error_code_number: MayhemError::MaxFeeRecipientsExceeded.into(),
+            error_msg: MayhemError::MaxFeeRecipientsExceeded.to_string(),
+            error_origin: Some(anchor_lang::error::ErrorOrigin::Source(anchor_lang::error::Source {
+                filename: "programs/mayhem-program/src/instructions/fee_recipients.rs",
+                line: 186,
+            })),
+            compared_values: None,
+        })
+        .with_values((8, index)));
+    }
+    instructions::fee_recipients::initialize_fee_recipient(core::hint::black_box(ctx), index)
 }

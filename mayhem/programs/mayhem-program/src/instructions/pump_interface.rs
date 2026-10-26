@@ -20,7 +20,7 @@ pub struct LegacyBuy<'info> {
  #[account(mut,associated_token::mint=mint,associated_token::authority=sol_vault,associated_token::token_program=mint.to_account_info().owner)]pub mayhem_token_vault:Box<InterfaceAccount<'info,TokenAccount>>,
  /// CHECK: Original writable PDA constraint.
  #[account(mut,seeds=[b"sol-vault"],bump)]pub sol_vault:UncheckedAccount<'info>,
- pub system_program:CheckedSystemProgram<'info>,
+ pub system_program:Program<'info,System>,
  pub token_program:Program<'info,Token2022>,
  /// CHECK: Passed through to Pump; original unchecked account.
  pub global:UncheckedAccount<'info>,
@@ -126,7 +126,7 @@ pub struct LegacySell<'info> {
  pub mint:Box<InterfaceAccount<'info,Mint>>,
  #[account(mut,associated_token::mint=mint,associated_token::authority=sol_vault,associated_token::token_program=mint.to_account_info().owner)]pub mayhem_token_vault:Box<InterfaceAccount<'info,TokenAccount>>,
  pub token_program:Program<'info,Token2022>,
- pub system_program:CheckedSystemProgram<'info>,
+ pub system_program:Program<'info,System>,
  /// CHECK: Passed through to Pump; original unchecked account.
  pub global:UncheckedAccount<'info>,
  #[account(mut,seeds=[b"bonding-curve",mint.key().as_ref()],bump,seeds::program=PUMP_ID)]pub bonding_curve:Box<Account<'info,SellCurve>>,

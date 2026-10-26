@@ -27,7 +27,7 @@ pub struct BuyV2<'info> {
  #[account(mut,associated_token::mint=quote_mint,associated_token::authority=sol_vault,associated_token::token_program=quote_mint.to_account_info().owner)]pub mayhem_quote_token_vault:Box<InterfaceAccount<'info,TokenAccount>>,
  /// CHECK: Original writable PDA.
  #[account(mut,seeds=[b"sol-vault"],bump)]pub sol_vault:UncheckedAccount<'info>,
- pub system_program:CheckedSystemProgram<'info>,
+ pub system_program:Program<'info,System>,
  pub token_program:Program<'info,Token2022>,
  pub quote_token_program:Interface<'info,TokenInterface>,
  /// CHECK: Passed through to Pump.
@@ -146,7 +146,7 @@ pub struct SellV2<'info> {
  #[account(mut,associated_token::mint=quote_mint,associated_token::authority=sol_vault,associated_token::token_program=quote_mint.to_account_info().owner)]pub mayhem_quote_token_vault:Box<InterfaceAccount<'info,TokenAccount>>,
  /// CHECK: Original writable PDA.
  #[account(mut,seeds=[b"sol-vault"],bump)]pub sol_vault:UncheckedAccount<'info>,
- pub system_program:CheckedSystemProgram<'info>,
+ pub system_program:Program<'info,System>,
  pub token_program:Program<'info,Token2022>,
  pub quote_token_program:Interface<'info,TokenInterface>,
  /// CHECK: Passed through to Pump.

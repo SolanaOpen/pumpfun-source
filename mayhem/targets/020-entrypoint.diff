@@ -1,0 +1,293 @@
+# entrypoint  (yours 1176 B at .text+0x742e0; original 2136 B at .text+0x82818)
+# distance 175 instructions; evidence: same-callees 3/6; neighbours between the same matched functions as in your build
+--- original
++++ yours
+@@ -1,119 +1,3 @@
+-ldxdw r7, [r1+8]
+-ldxdw r2, [r7+88]
+-ldxdw r6, [r2+8]
+-ldxdw r3, [r6]
+-add64 r3, 1
+-mov64 r4, 1
+-jeq r3, 0, +0x40
+-mov64 r4, 0
+-ldxdw r1, [r2]
+-stxdw [r6], r3
+-jeq r4, 1, +0x358
+-ldxdw r8, [r2+16]
+-ldxdw r3, [r8]
+-add64 r3, 1
+-mov64 r4, 1
+-jeq r3, 0, +0x88
+-mov64 r4, 0
+-stxdw [r8], r3
+-jeq r4, 1, +0x358
+-ldxdw r3, [r2+24]
+-ldxdw r4, [r2+32]
+-ldxb r5, [r2+40]
+-ldxb r0, [r2+41]
+-ldxb r2, [r2+42]
+-stxb [r10-62], r2
+-stxb [r10-63], r0
+-stxb [r10-64], r5
+-stxdw [r10-72], r4
+-stxdw [r10-80], r3
+-stxdw [r10-88], r8
+-stxdw [r10-96], r6
+-stxdw [r10-104], r1
+-ldxdw r2, [r1]
+-stxdw [r10-136], r2
+-ldxdw r2, [r1+8]
+-stxdw [r10-128], r2
+-ldxdw r2, [r1+16]
+-stxdw [r10-120], r2
+-ldxdw r1, [r1+24]
+-stxdw [r10-112], r1
+-ldxb r9, [r7+708]
+-mov64 r1, r10
+-add64 r1, -56
+-call solana_sysvar::clock::<impl solana_sysvar::Sysvar for solana_clock::Clock>::get#06ec
+-ldxw r1, [r10-56]
+-jeq r1, 1, +0x360
+-ldxdw r1, [r10-16]
+-stxdw [r7+416], r1
+-mul64 r9, 3600
+-mov64 r4, 1
+-mov64 r3, 1
+-jsge r9, 0, +0x2a8
+-mov64 r2, r1
+-add64 r2, r9
+-jsge r2, r1, +0x2c8
+-xor64 r3, r4
+-jeq r3, 1, +0x2e0
+-mov64 r3, r7
+-add64 r3, 352
+-stxdw [r7+424], r2
+-ldxdw r2, [r10-112]
+-stxdw [r3+24], r2
+-ldxdw r2, [r10-120]
+-stxdw [r3+16], r2
+-ldxdw r2, [r10-128]
+-stxdw [r3+8], r2
+-ldxdw r2, [r10-136]
+-stxdw [r3], r2
+-stxdw [r7+432], r1
+-stdw [r7+392], 0
+-stdw [r7+384], 0
+-stdw [r7+408], 0
+-stdw [r7+400], 0
+-sth [r7+448], 0
+-stdw [r7+440], 0
+-ldxdw r1, [r6]
+-add64 r1, -1
+-stxdw [r6], r1
+-jeq r1, 0, +0x2f8
+-ldxdw r1, [r8]
+-add64 r1, -1
+-stxdw [r8], r1
+-jeq r1, 0, +0x338
+-mov64 r0, 2
+-exit
+-mov64 r3, 0
+-mov64 r2, r1
+-add64 r2, r9
+-jslt r2, r1, +0x1b8
+-mov64 r4, 0
+-xor64 r3, r4
+-jne r3, 1, +0x1c8
+-lddw r1, panic_location(programs/mayhem-program/src/state.rs:532:32)
+-call core::panicking::panic_const::panic_const_add_overflow#3493
+-mov64 r1, r10
+-add64 r1, -96
+-call alloc::rc::Rc<T,A>::drop_slow#7561
+-ldxdw r8, [r10-88]
+-ldxdw r1, [r8]
+-add64 r1, -1
+-stxdw [r8], r1
+-jne r1, 0, +0x298
+-mov64 r1, r10
+-add64 r1, -88
+-call alloc::rc::Rc<T,A>::drop_slow#d793
+-ja +0x298
+-call abort
+-ldxdw r1, [r10-52]
+-stxdw [r10-8], r1
+-mov64 r3, r10
+-add64 r3, -8
+-lddw r1, str("called `Result::unwrap()` on an `Err` value")
+-mov64 r2, 43
+-lddw r4, table[3:<solana_program_error::ProgramError as core::fmt::Debug>::fmt#4fcd]
+-lddw r5, panic_location(programs/mayhem-program/src/state.rs:531:43)
+-call core::result::unwrap_failed#5a05
+ mov64 r2, r1
+ mov64 r1, r10
+ add64 r1, -48
+@@ -129,18 +13,18 @@
+ mov64 r8, 0
+ lsh64 r0, 32
+ rsh64 r0, 32
+-jne r0, 26, +0x500
+-jeq r6, 0, +0x4f0
++jne r0, 26, +0x140
++jeq r6, 0, +0x130
+ add64 r7, 16
+-ja +0x470
++ja +0xb0
+ add64 r7, 48
+ add64 r6, -1
+-jeq r6, 0, +0x4f0
++jeq r6, 0, +0x130
+ ldxdw r1, [r7-8]
+ ldxdw r2, [r1]
+ add64 r2, -1
+ stxdw [r1], r2
+-jne r2, 0, +0x4b0
++jne r2, 0, +0xf0
+ mov64 r1, r7
+ add64 r1, -8
+ call alloc::rc::Rc<T,A>::drop_slow#7561
+@@ -148,90 +32,90 @@
+ ldxdw r2, [r1]
+ add64 r2, -1
+ stxdw [r1], r2
+-jne r2, 0, +0x458
++jne r2, 0, +0x98
+ mov64 r1, r7
+ call alloc::rc::Rc<T,A>::drop_slow#d793
+-ja +0x458
++ja +0x98
+ mov64 r0, r8
+ exit
+-jsgt r0, 12, +0x540
+-jsle r0, 5, +0x578
+-jsle r0, 8, +0x5e8
+-jsgt r0, 10, +0x688
+-jne r0, 9, +0x798
++jsgt r0, 12, +0x180
++jsle r0, 5, +0x1b8
++jsle r0, 8, +0x228
++jsgt r0, 10, +0x2c8
++jne r0, 9, +0x3d8
+ lddw r8, 0xa00000000
+-ja +0x440
+-jsle r0, 18, +0x5b8
+-jsle r0, 21, +0x610
+-jsgt r0, 23, +0x6a8
+-jne r0, 22, +0x7b0
++ja +0x80
++jsle r0, 18, +0x1f8
++jsle r0, 21, +0x250
++jsgt r0, 23, +0x2e8
++jne r0, 22, +0x3f0
+ lddw r8, 0x1700000000
+-ja +0x440
+-jsgt r0, 2, +0x638
+-jeq r0, 0, +0x6f8
++ja +0x80
++jsgt r0, 2, +0x278
++jeq r0, 0, +0x338
+ lddw r8, 0x200000000
+-jeq r0, 1, +0x440
++jeq r0, 1, +0x80
+ lddw r8, 0x300000000
+-ja +0x440
+-jsgt r0, 15, +0x660
+-jeq r0, 13, +0x720
+-jne r0, 14, +0x7f8
++ja +0x80
++jsgt r0, 15, +0x2a0
++jeq r0, 13, +0x360
++jne r0, 14, +0x438
+ lddw r8, 0xf00000000
+-ja +0x440
+-jeq r0, 6, +0x6c8
+-jne r0, 7, +0x768
++ja +0x80
++jeq r0, 6, +0x308
++jne r0, 7, +0x3a8
+ lddw r8, 0x800000000
+-ja +0x440
+-jeq r0, 19, +0x6e0
+-jne r0, 20, +0x780
++ja +0x80
++jeq r0, 19, +0x320
++jne r0, 20, +0x3c0
+ lddw r8, 0x1500000000
+-ja +0x440
+-jeq r0, 3, +0x738
+-jne r0, 4, +0x810
++ja +0x80
++jeq r0, 3, +0x378
++jne r0, 4, +0x450
+ lddw r8, 0x500000000
+-ja +0x440
+-jeq r0, 16, +0x750
+-jne r0, 17, +0x828
++ja +0x80
++jeq r0, 16, +0x390
++jne r0, 17, +0x468
+ lddw r8, 0x1200000000
+-ja +0x440
+-jne r0, 11, +0x7c8
++ja +0x80
++jne r0, 11, +0x408
+ lddw r8, 0xc00000000
+-ja +0x440
+-jne r0, 24, +0x7e0
++ja +0x80
++jne r0, 24, +0x420
+ lddw r8, 0x1900000000
+-ja +0x440
++ja +0x80
+ lddw r8, 0x700000000
+-ja +0x440
++ja +0x80
+ lddw r8, 0x1400000000
+-ja +0x440
++ja +0x80
+ lsh64 r1, 32
+ rsh64 r1, 32
+-jeq r1, 0, +0x840
++jeq r1, 0, +0x480
+ mov64 r8, r1
+-ja +0x440
++ja +0x80
+ lddw r8, 0xe00000000
+-ja +0x440
++ja +0x80
+ lddw r8, 0x400000000
+-ja +0x440
++ja +0x80
+ lddw r8, 0x1100000000
+-ja +0x440
++ja +0x80
+ lddw r8, 0x900000000
+-ja +0x440
++ja +0x80
+ lddw r8, 0x1600000000
+-ja +0x440
++ja +0x80
+ lddw r8, 0xb00000000
+-ja +0x440
++ja +0x80
+ lddw r8, 0x1800000000
+-ja +0x440
++ja +0x80
+ lddw r8, 0xd00000000
+-ja +0x440
++ja +0x80
+ lddw r8, 0x1a00000000
+-ja +0x440
++ja +0x80
+ lddw r8, 0x1000000000
+-ja +0x440
++ja +0x80
+ lddw r8, 0x600000000
+-ja +0x440
++ja +0x80
+ lddw r8, 0x1300000000
+-ja +0x440
++ja +0x80
+ lddw r8, 0x100000000
+-ja +0x440
++ja +0x80
