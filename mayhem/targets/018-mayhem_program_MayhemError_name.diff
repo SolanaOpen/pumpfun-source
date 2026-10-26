@@ -1,0 +1,742 @@
+# mayhem_program::MayhemError::name  (yours 1896 B at .text+0x71998; original 5896 B at .text+0x2e5b0)
+# distance 599 instructions; evidence: same-callees 2/2
+--- original
++++ yours
+@@ -2,583 +2,187 @@
+ ldxw r7, [r2]
+ call _RNvCscR3e5J6VSLN_7___rustc35___rust_no_alloc_shim_is_unstable_v2
+ lddw r1, 0x300000000
+-ldxdw r1, [r1]
+-mov64 r2, r1
+-jsgt r7, 9, +0xc0
+-jsgt r7, 4, +0x140
+-jsle r7, 1, +0x270
+-jeq r7, 2, +0x4b8
+-jne r7, 3, +0x730
+-add64 r2, -17
++ldxdw r2, [r1]
++mov64 r1, r2
++jsgt r7, 13, +0xb0
++jeq r7, 0, +0x188
++jne r7, 1, +0x2a0
++add64 r1, -13
+ mov64 r3, 0
+ mov64 r4, 1
+-jle r2, r1, +0xc18
+-jeq r4, 0, +0xc28
+-lddw r2, 0x300007fef
+-jne r1, 0, +0xc48
+-lddw r1, 0x300000007
+-jgt r2, r1, +0xc68
+-ja +0x1640
+-jsgt r7, 14, +0x1b8
+-jsle r7, 11, +0x2d8
+-jeq r7, 12, +0x558
+-jne r7, 13, +0x790
+-add64 r2, -19
++jle r1, r2, +0x518
++jeq r4, 0, +0x528
++lddw r1, 0x300007ff3
++jne r2, 0, +0x548
++lddw r2, 0x300000007
++jgt r1, r2, +0x568
++ja +0x740
++jeq r7, 14, +0x1e8
++jne r7, 16, +0x340
++add64 r1, -23
+ mov64 r3, 0
+ mov64 r4, 1
+-jle r2, r1, +0xcc8
+-jeq r4, 0, +0xcd8
+-lddw r2, 0x300007fed
+-jne r1, 0, +0xcf8
+-lddw r1, 0x300000007
+-jgt r2, r1, +0xd18
+-ja +0x1690
+-jsle r7, 6, +0x340
+-jeq r7, 7, +0x5b8
+-jne r7, 8, +0x7f0
+-add64 r2, -13
++jle r1, r2, +0x5d8
++jeq r4, 0, +0x5e8
++lddw r1, 0x300007fe9
++jne r2, 0, +0x608
++lddw r2, 0x300000007
++jle r1, r2, +0x628
++lddw r2, 0x300000000
++stxdw [r2], r1
++lddw r2, 0x646574726f707075
++stxdw [r1+15], r2
++lddw r2, 0x7553746f4e657079
++stxdw [r1+8], r2
++lddw r2, 0x54746e756f636341
++stxdw [r1], r2
++mov64 r2, 23
++ja +0x5b8
++add64 r1, -13
+ mov64 r3, 0
+ mov64 r4, 1
+-jle r2, r1, +0xd78
+-jeq r4, 0, +0xd88
+-lddw r2, 0x300007ff3
+-jne r1, 0, +0xda8
+-lddw r1, 0x300000007
+-jgt r2, r1, +0xdc8
+-ja +0x1668
+-jsle r7, 16, +0x400
+-jeq r7, 17, +0x668
+-jne r7, 18, +0x850
+-add64 r2, -11
++jle r1, r2, +0x408
++jeq r4, 0, +0x418
++lddw r1, 0x300007ff3
++jne r2, 0, +0x438
++lddw r2, 0x300000007
++jgt r1, r2, +0x458
++ja +0x740
++add64 r1, -17
+ mov64 r3, 0
+ mov64 r4, 1
+-jle r2, r1, +0xe10
+-jeq r4, 0, +0xe20
+-lddw r2, 0x300007ff5
+-jne r1, 0, +0xe40
+-lddw r1, 0x300000007
+-jle r2, r1, +0xe60
+-lddw r1, 0x300000000
++jle r1, r2, +0x4a0
++jeq r4, 0, +0x4b0
++lddw r1, 0x300007fef
++jne r2, 0, +0x4d0
++lddw r2, 0x300000007
++jle r1, r2, +0x4f0
++lddw r2, 0x300000000
++stxdw [r2], r1
++lddw r2, 0x696d694c65746152
++stxdw [r1+8], r2
++lddw r2, 0x7761726468746957
+ stxdw [r1], r2
+-lddw r1, 0x4264696c61766e49
+-stxdw [r2], r1
+-mov64 r1, 11
+-stw [r2+7], 1886221634
+-ja +0x1620
+-add64 r2, -13
++mov64 r2, 17
++stb [r1+16], 116
++ja +0x5b8
++add64 r1, -12
+ mov64 r3, 0
+ mov64 r4, 1
+-jne r7, 0, +0x8b0
+-jle r2, r1, +0x1128
+-jeq r4, 0, +0x1138
+-lddw r2, 0x300007ff3
+-jne r1, 0, +0x1158
+-lddw r1, 0x300000007
+-jgt r2, r1, +0x1178
+-ja +0x1668
+-jne r7, 10, +0x8f8
+-add64 r2, -17
++jle r1, r2, +0x650
++jeq r4, 0, +0x660
++lddw r1, 0x300007ff4
++jne r2, 0, +0x680
++lddw r2, 0x300000007
++jle r1, r2, +0x6a0
++lddw r2, 0x300000000
++stxdw [r2], r1
++lddw r2, 0x7265764f6874614d
++stxdw [r1], r2
++mov64 r2, 12
++stw [r1+8], 2003790950
++ja +0x5b8
++add64 r1, -24
+ mov64 r3, 0
+ mov64 r4, 1
+-jle r2, r1, +0x11c0
+-jeq r4, 0, +0x11d0
+-lddw r2, 0x300007fef
+-jne r1, 0, +0x11f0
+-lddw r1, 0x300000007
+-jgt r2, r1, +0x1210
+-ja +0x1640
+-jne r7, 5, +0x958
+-add64 r2, -18
+-mov64 r3, 0
+-mov64 r4, 1
+-jle r2, r1, +0x1270
+-jeq r4, 0, +0x1280
+-lddw r2, 0x300007fee
+-jne r1, 0, +0x12a0
+-lddw r1, 0x300000007
+-jle r2, r1, +0x12c0
+-lddw r1, 0x300000000
++jle r1, r2, +0x6c8
++jeq r4, 0, +0x6d8
++lddw r1, 0x300007fe8
++jne r2, 0, +0x6f8
++lddw r2, 0x300000007
++jle r1, r2, +0x718
++lddw r2, 0x300000000
++stxdw [r2], r1
++lddw r2, 0x6465646565637845
++stxdw [r1+16], r2
++lddw r2, 0x73746e6569706963
++stxdw [r1+8], r2
++lddw r2, 0x655265654678614d
+ stxdw [r1], r2
+-lddw r1, 0x646e45746f4e6564
+-stxdw [r2+8], r1
+-lddw r1, 0x6f4d6d656879614d
++mov64 r2, 24
++ja +0x5b8
++mov64 r4, 0
++jne r4, 0, +0x1b0
++mov64 r3, r1
++lddw r1, 0x300007ff3
++jeq r2, 0, +0x1c8
++mov64 r1, r3
++lddw r2, 0x300000007
++jle r1, r2, +0x740
++lddw r2, 0x300000000
+ stxdw [r2], r1
+-mov64 r1, 18
+-sth [r2+16], 25701
+-ja +0x1620
+-jne r7, 15, +0x9b8
+-add64 r2, -14
+-mov64 r3, 0
+-mov64 r4, 1
+-jle r2, r1, +0x12e8
+-jeq r4, 0, +0x12f8
+-lddw r2, 0x300007ff2
+-jne r1, 0, +0x1318
+-lddw r1, 0x300000007
+-jle r2, r1, +0x1338
+-lddw r1, 0x300000000
++lddw r2, 0x646573756150676e
++stxdw [r1+5], r2
++lddw r2, 0x50676e6964617254
++ja +0x5a8
++mov64 r4, 0
++jne r4, 0, +0x210
++mov64 r3, r1
++lddw r1, 0x300007fef
++jeq r2, 0, +0x228
++mov64 r1, r3
++lddw r2, 0x300000007
++jgt r1, r2, +0x240
++mov64 r1, 1
++mov64 r2, 17
++lddw r3, panic_location(/home/runner/work/platform-tools/platform-tools/out/rust/library/alloc/src/slice.rs:449:29)
++call alloc::raw_vec::handle_error#4993
++mov64 r4, 0
++jne r4, 0, +0x78
++mov64 r3, r1
++lddw r1, 0x300007ff3
++jeq r2, 0, +0x90
++mov64 r1, r3
++lddw r2, 0x300000007
++jle r1, r2, +0x740
++lddw r2, 0x300000000
++stxdw [r2], r1
++lddw r2, 0x657669746341676e
++stxdw [r1+5], r2
++lddw r2, 0x41676e6964617254
+ stxdw [r1], r2
+-lddw r1, 0x74696d694c657461
+-stxdw [r2+6], r1
+-lddw r1, 0x7461526564617254
+-stxdw [r2], r1
+-mov64 r1, 14
+-ja +0x1620
+-add64 r2, -12
+-mov64 r3, 0
+-mov64 r4, 1
+-jle r2, r1, +0xa18
+-jeq r4, 0, +0xa28
+-lddw r2, 0x300007ff4
+-jne r1, 0, +0xa48
+-lddw r1, 0x300000007
+-jle r2, r1, +0xa68
+-lddw r1, 0x300000000
+-stxdw [r1], r2
+-lddw r1, 0x7265764f6874614d
+-stxdw [r2], r1
+-mov64 r1, 12
+-stw [r2+8], 2003790950
+-ja +0x1620
+-add64 r2, -15
+-mov64 r3, 0
+-mov64 r4, 1
+-jle r2, r1, +0xa90
+-jeq r4, 0, +0xaa0
+-lddw r2, 0x300007ff1
+-jne r1, 0, +0xac0
+-lddw r1, 0x300000007
+-jgt r2, r1, +0xae0
+-ja +0x16b8
+-add64 r2, -16
+-mov64 r3, 0
+-mov64 r4, 1
+-jle r2, r1, +0xb28
+-jeq r4, 0, +0xb38
+-lddw r2, 0x300007ff0
+-jne r1, 0, +0xb58
+-lddw r1, 0x300000007
+-jle r2, r1, +0xb78
+-lddw r1, 0x300000000
+-stxdw [r1], r2
+-lddw r1, 0x6465646565637845
+-stxdw [r2+8], r1
+-lddw r1, 0x6b7369526e696f43
+-stxdw [r2], r1
+-mov64 r1, 16
+-ja +0x1620
+-add64 r2, -24
+-mov64 r3, 0
+-mov64 r4, 1
+-jle r2, r1, +0xba0
+-jeq r4, 0, +0xbb0
+-lddw r2, 0x300007fe8
+-jne r1, 0, +0xbd0
+-lddw r1, 0x300000007
+-jle r2, r1, +0xbf0
+-lddw r1, 0x300000000
+-stxdw [r1], r2
+-lddw r1, 0x6465646565637845
+-stxdw [r2+16], r1
+-lddw r1, 0x73746e6569706963
+-stxdw [r2+8], r1
+-lddw r1, 0x655265654678614d
+-stxdw [r2], r1
+-mov64 r1, 24
+-ja +0x1620
+-add64 r2, -15
+-mov64 r3, 0
+-mov64 r4, 1
+-jle r2, r1, +0xe88
+-jeq r4, 0, +0xe98
+-lddw r2, 0x300007ff1
+-jne r1, 0, +0xeb8
+-lddw r1, 0x300000007
+-jgt r2, r1, +0xed8
+-ja +0x16b8
+-add64 r2, -17
+-mov64 r3, 0
+-mov64 r4, 1
+-jle r2, r1, +0xf30
+-jeq r4, 0, +0xf40
+-lddw r2, 0x300007fef
+-jne r1, 0, +0xf60
+-lddw r1, 0x300000007
+-jgt r2, r1, +0xf80
+-ja +0x1640
+-add64 r2, -19
+-mov64 r3, 0
+-mov64 r4, 1
+-jle r2, r1, +0xfc8
+-jeq r4, 0, +0xfd8
+-lddw r2, 0x300007fed
+-jne r1, 0, +0xff8
+-lddw r1, 0x300000007
+-jgt r2, r1, +0x1018
+-ja +0x1690
+-add64 r2, -17
+-mov64 r3, 0
+-mov64 r4, 1
+-jle r2, r1, +0x1078
+-jeq r4, 0, +0x1088
+-lddw r2, 0x300007fef
+-jne r1, 0, +0x10a8
+-lddw r1, 0x300000007
+-jgt r2, r1, +0x10c8
+-ja +0x1640
+-jle r2, r1, +0x1360
+-jeq r4, 0, +0x1370
+-lddw r2, 0x300007ff3
+-jne r1, 0, +0x1390
+-lddw r1, 0x300000007
+-jgt r2, r1, +0x13b0
+-ja +0x1668
+-add64 r2, -23
+-mov64 r3, 0
+-mov64 r4, 1
+-jle r2, r1, +0x1408
+-jeq r4, 0, +0x1418
+-lddw r2, 0x300007fe9
+-jne r1, 0, +0x1438
+-lddw r1, 0x300000007
+-jgt r2, r1, +0x1458
+-ja +0x16e0
+-add64 r2, -19
+-mov64 r3, 0
+-mov64 r4, 1
+-jle r2, r1, +0x14b8
+-jeq r4, 0, +0x14c8
+-lddw r2, 0x300007fed
+-jne r1, 0, +0x14e8
+-lddw r1, 0x300000007
+-jgt r2, r1, +0x1508
+-ja +0x1690
+-add64 r2, -23
+-mov64 r3, 0
+-mov64 r4, 1
+-jle r2, r1, +0x1568
+-jeq r4, 0, +0x1578
+-lddw r2, 0x300007fe9
+-jne r1, 0, +0x1598
+-lddw r1, 0x300000007
+-jgt r2, r1, +0x15b8
+-ja +0x16e0
++mov64 r2, 13
++stxdw [r6+8], r1
++stxdw [r6+16], r2
++stxdw [r6], r2
++exit
+ mov64 r4, 0
+-jne r4, 0, +0x4e0
+-mov64 r3, r2
+-lddw r2, 0x300007ff4
+-jeq r1, 0, +0x4f8
+-mov64 r2, r3
+-lddw r1, 0x300000007
+-jgt r2, r1, +0x510
++jne r4, 0, +0xe8
++mov64 r3, r1
++lddw r1, 0x300007fe9
++jeq r2, 0, +0x100
++mov64 r1, r3
++lddw r2, 0x300000007
++jgt r1, r2, +0x118
++mov64 r1, 1
++mov64 r2, 23
++lddw r3, panic_location(/home/runner/work/platform-tools/platform-tools/out/rust/library/alloc/src/slice.rs:449:29)
++call alloc::raw_vec::handle_error#4993
++mov64 r4, 0
++jne r4, 0, +0x2c8
++mov64 r3, r1
++lddw r1, 0x300007ff4
++jeq r2, 0, +0x2e0
++mov64 r1, r3
++lddw r2, 0x300000007
++jgt r1, r2, +0x2f8
+ mov64 r1, 1
+ mov64 r2, 12
+ lddw r3, panic_location(/home/runner/work/platform-tools/platform-tools/out/rust/library/alloc/src/slice.rs:449:29)
+ call alloc::raw_vec::handle_error#4993
+ mov64 r4, 0
+-jne r4, 0, +0x580
+-mov64 r3, r2
+-lddw r2, 0x300007ff1
+-jeq r1, 0, +0x598
+-mov64 r2, r3
+-lddw r1, 0x300000007
+-jle r2, r1, +0x16b8
+-lddw r1, 0x300000000
+-stxdw [r1], r2
+-lddw r1, 0x6567617070696c53
+-stxdw [r2+7], r1
+-lddw r1, 0x53697043706d7550
+-ja +0xf18
+-mov64 r4, 0
+-jne r4, 0, +0x5e0
+-mov64 r3, r2
+-lddw r2, 0x300007ff0
+-jeq r1, 0, +0x5f8
+-mov64 r2, r3
+-lddw r1, 0x300000007
+-jgt r2, r1, +0x610
+-mov64 r1, 1
+-mov64 r2, 16
+-lddw r3, panic_location(/home/runner/work/platform-tools/platform-tools/out/rust/library/alloc/src/slice.rs:449:29)
+-call alloc::raw_vec::handle_error#4993
+-mov64 r4, 0
+-jne r4, 0, +0x690
+-mov64 r3, r2
+-lddw r2, 0x300007fe8
+-jeq r1, 0, +0x6a8
+-mov64 r2, r3
+-lddw r1, 0x300000007
+-jgt r2, r1, +0x6c0
++jne r4, 0, +0x368
++mov64 r3, r1
++lddw r1, 0x300007fe8
++jeq r2, 0, +0x380
++mov64 r1, r3
++lddw r2, 0x300000007
++jgt r1, r2, +0x398
+ mov64 r1, 1
+ mov64 r2, 24
+-lddw r3, panic_location(/home/runner/work/platform-tools/platform-tools/out/rust/library/alloc/src/slice.rs:449:29)
+-call alloc::raw_vec::handle_error#4993
+-mov64 r4, 0
+-jne r4, 0, +0x88
+-mov64 r3, r2
+-lddw r2, 0x300007fef
+-jeq r1, 0, +0xa0
+-mov64 r2, r3
+-lddw r1, 0x300000007
+-jle r2, r1, +0x1640
+-lddw r1, 0x300000000
+-stxdw [r1], r2
+-lddw r1, 0x6f4c6f6f54736576
+-stxdw [r2+8], r1
+-lddw r1, 0x72657365526c6f53
+-stxdw [r2], r1
+-mov64 r1, 17
+-stb [r2+16], 119
+-ja +0x1620
+-mov64 r4, 0
+-jne r4, 0, +0x108
+-mov64 r3, r2
+-lddw r2, 0x300007fed
+-jeq r1, 0, +0x120
+-mov64 r2, r3
+-lddw r1, 0x300000007
+-jle r2, r1, +0x1690
+-lddw r1, 0x300000000
+-stxdw [r1], r2
+-lddw r1, 0x7070696c53697043
+-stxdw [r2+8], r1
+-lddw r1, 0x70617753706d7550
+-stxdw [r2], r1
+-mov64 r1, 19
+-stw [r2+15], 1701273968
+-ja +0x1620
+-mov64 r4, 0
+-jne r4, 0, +0x180
+-mov64 r3, r2
+-lddw r2, 0x300007ff3
+-jeq r1, 0, +0x198
+-mov64 r2, r3
+-lddw r1, 0x300000007
+-jle r2, r1, +0x1668
+-lddw r1, 0x300000000
+-stxdw [r1], r2
+-lddw r1, 0x64656c6961466970
+-stxdw [r2+5], r1
+-lddw r1, 0x46697043706d7550
+-ja +0x13f0
+-mov64 r4, 0
+-jne r4, 0, +0x1f8
+-mov64 r3, r2
+-lddw r2, 0x300007ff5
+-jeq r1, 0, +0x210
+-mov64 r2, r3
+-lddw r1, 0x300000007
+-jgt r2, r1, +0x228
+-mov64 r1, 1
+-mov64 r2, 11
+-lddw r3, panic_location(/home/runner/work/platform-tools/platform-tools/out/rust/library/alloc/src/slice.rs:449:29)
+-call alloc::raw_vec::handle_error#4993
+-mov64 r4, 0
+-jne r4, 0, +0x758
+-mov64 r3, r2
+-lddw r2, 0x300007ff1
+-jeq r1, 0, +0x770
+-mov64 r2, r3
+-lddw r1, 0x300000007
+-jle r2, r1, +0x16b8
+-lddw r1, 0x300000000
+-stxdw [r1], r2
+-lddw r1, 0x6465646e4565646f
+-stxdw [r2+7], r1
+-lddw r1, 0x6f4d6d656879614d
+-stxdw [r2], r1
+-mov64 r1, 15
+-ja +0x1620
+-mov64 r4, 0
+-jne r4, 0, +0x7b8
+-mov64 r3, r2
+-lddw r2, 0x300007fef
+-jeq r1, 0, +0x7d0
+-mov64 r2, r3
+-lddw r1, 0x300000007
+-jle r2, r1, +0x1640
+-lddw r1, 0x300000000
+-stxdw [r1], r2
+-lddw r1, 0x696d694c65746152
+-stxdw [r2+8], r1
+-lddw r1, 0x7761726468746957
+-ja +0x1108
+-mov64 r4, 0
+-jne r4, 0, +0x818
+-mov64 r3, r2
+-lddw r2, 0x300007fed
+-jeq r1, 0, +0x830
+-mov64 r2, r3
+-lddw r1, 0x300000007
+-jle r2, r1, +0x1690
+-lddw r1, 0x300000000
+-stxdw [r1], r2
+-lddw r1, 0x667265764f687461
+-stxdw [r2+8], r1
+-lddw r1, 0x4d697043706d7550
+-stxdw [r2], r1
+-mov64 r1, 19
+-stw [r2+15], 2003790950
+-ja +0x1620
+-mov64 r4, 0
+-jne r4, 0, +0x878
+-mov64 r3, r2
+-lddw r2, 0x300007fef
+-jeq r1, 0, +0x890
+-mov64 r2, r3
+-lddw r1, 0x300000007
+-jle r2, r1, +0x1640
+-lddw r1, 0x300000000
+-stxdw [r1], r2
+-lddw r1, 0x696d694c65746152
+-stxdw [r2+8], r1
+-lddw r1, 0x6565467065657753
+-stxdw [r2], r1
+-mov64 r1, 17
+-stb [r2+16], 116
+-ja +0x1620
+-mov64 r4, 0
+-jne r4, 0, +0x2a0
+-mov64 r3, r2
+-lddw r2, 0x300007ff3
+-jeq r1, 0, +0x2b8
+-mov64 r2, r3
+-lddw r1, 0x300000007
+-jle r2, r1, +0x1668
+-lddw r1, 0x300000000
+-stxdw [r1], r2
+-lddw r1, 0x646573756150676e
+-stxdw [r2+5], r1
+-lddw r1, 0x50676e6964617254
+-ja +0x13f0
+-mov64 r4, 0
+-jne r4, 0, +0x308
+-mov64 r3, r2
+-lddw r2, 0x300007fef
+-jeq r1, 0, +0x320
+-mov64 r2, r3
+-lddw r1, 0x300000007
+-jle r2, r1, +0x1640
+-lddw r1, 0x300000000
+-stxdw [r1], r2
+-lddw r1, 0x656c696146697043
+-stxdw [r2+8], r1
+-lddw r1, 0x70617753706d7550
+-stxdw [r2], r1
+-mov64 r1, 17
+-stb [r2+16], 100
+-ja +0x1620
+-mov64 r4, 0
+-jne r4, 0, +0x370
+-mov64 r3, r2
+-lddw r2, 0x300007fee
+-jeq r1, 0, +0x388
+-mov64 r2, r3
+-lddw r1, 0x300000007
+-jgt r2, r1, +0x3a0
+-mov64 r1, 1
+-mov64 r2, 18
+-lddw r3, panic_location(/home/runner/work/platform-tools/platform-tools/out/rust/library/alloc/src/slice.rs:449:29)
+-call alloc::raw_vec::handle_error#4993
+-mov64 r4, 0
+-jne r4, 0, +0x430
+-mov64 r3, r2
+-lddw r2, 0x300007ff2
+-jeq r1, 0, +0x448
+-mov64 r2, r3
+-lddw r1, 0x300000007
+-jgt r2, r1, +0x460
+-mov64 r1, 1
+-mov64 r2, 14
+-lddw r3, panic_location(/home/runner/work/platform-tools/platform-tools/out/rust/library/alloc/src/slice.rs:449:29)
+-call alloc::raw_vec::handle_error#4993
+-mov64 r4, 0
+-jne r4, 0, +0x8c0
+-mov64 r3, r2
+-lddw r2, 0x300007ff3
+-jeq r1, 0, +0x8d8
+-mov64 r2, r3
+-lddw r1, 0x300000007
+-jle r2, r1, +0x1668
+-lddw r1, 0x300000000
+-stxdw [r1], r2
+-lddw r1, 0x657669746341676e
+-stxdw [r2+5], r1
+-lddw r1, 0x41676e6964617254
+-stxdw [r2], r1
+-mov64 r1, 13
+-ja +0x1620
+-mov64 r4, 0
+-jne r4, 0, +0x920
+-mov64 r3, r2
+-lddw r2, 0x300007fe9
+-jeq r1, 0, +0x938
+-mov64 r2, r3
+-lddw r1, 0x300000007
+-jle r2, r1, +0x16e0
+-lddw r1, 0x300000000
+-stxdw [r1], r2
+-lddw r1, 0x776f6c667265764f
+-stxdw [r2+15], r1
+-lddw r1, 0x4f6874614d697043
+-stxdw [r2+8], r1
+-lddw r1, 0x70617753706d7550
+-ja +0x1610
+-mov64 r4, 0
+-jne r4, 0, +0x980
+-mov64 r3, r2
+-lddw r2, 0x300007fed
+-jeq r1, 0, +0x998
+-mov64 r2, r3
+-lddw r1, 0x300000007
+-jle r2, r1, +0x1690
+-lddw r1, 0x300000000
+-stxdw [r1], r2
+-lddw r1, 0x65656378456b7369
+-stxdw [r2+8], r1
+-lddw r1, 0x526c6c617265764f
+-stxdw [r2], r1
+-mov64 r1, 19
+-stw [r2+15], 1684366437
+-ja +0x1620
+-mov64 r4, 0
+-jne r4, 0, +0x9e0
+-mov64 r3, r2
+-lddw r2, 0x300007fe9
+-jeq r1, 0, +0x9f8
+-mov64 r2, r3
+-lddw r1, 0x300000007
+-jle r2, r1, +0x16e0
+-lddw r1, 0x300000000
+-stxdw [r1], r2
+-lddw r1, 0x646574726f707075
+-stxdw [r2+15], r1
+-lddw r1, 0x7553746f4e657079
+-stxdw [r2+8], r1
+-lddw r1, 0x54746e756f636341
+-stxdw [r2], r1
+-mov64 r1, 23
+-stxdw [r6+8], r2
+-stxdw [r6+16], r1
+-stxdw [r6], r1
+-exit
+-mov64 r1, 1
+-mov64 r2, 17
+ lddw r3, panic_location(/home/runner/work/platform-tools/platform-tools/out/rust/library/alloc/src/slice.rs:449:29)
+ call alloc::raw_vec::handle_error#4993
+ mov64 r1, 1
+ mov64 r2, 13
+ lddw r3, panic_location(/home/runner/work/platform-tools/platform-tools/out/rust/library/alloc/src/slice.rs:449:29)
+ call alloc::raw_vec::handle_error#4993
+-mov64 r1, 1
+-mov64 r2, 19
+-lddw r3, panic_location(/home/runner/work/platform-tools/platform-tools/out/rust/library/alloc/src/slice.rs:449:29)
+-call alloc::raw_vec::handle_error#4993
+-mov64 r1, 1
+-mov64 r2, 15
+-lddw r3, panic_location(/home/runner/work/platform-tools/platform-tools/out/rust/library/alloc/src/slice.rs:449:29)
+-call alloc::raw_vec::handle_error#4993
+-mov64 r1, 1
+-mov64 r2, 23
+-lddw r3, panic_location(/home/runner/work/platform-tools/platform-tools/out/rust/library/alloc/src/slice.rs:449:29)
+-call alloc::raw_vec::handle_error#4993

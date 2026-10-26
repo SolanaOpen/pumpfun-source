@@ -1,0 +1,3088 @@
+# mayhem_program::instructions::pump_interface_v2::sell_v2::handler  (yours 8592 B at .text+0x209c0; original 18096 B at .text+0x26c98)
+# distance 2607 instructions; evidence: called-by mayhem_program::__private::__global::sell_v2#bd0e; same-callees 19/21
+--- original
++++ yours
+@@ -1,299 +1,357 @@
+-mov64 r9, r5
+-mov64 r7, r4
+-mov64 r6, r3
+-stxdw [r10-1784], r2
+-stxdw [r10-1792], r1
+-ldxdw r8, [r1+8]
+-ldxdw r2, [r8+8]
+-ldxdw r1, [r8+16]
+-add64 r1, 8
+-add64 r2, 8
+-call orig_fn_2dbf8
+-jne r0, 2, +0x4a0
+-ldxdw r1, [r8+104]
+-ldxdw r2, [r1+96]
+-ldxdw r3, [r8+8]
+-ldxdw r1, [r8+16]
+-ldxdw r4, [r8+32]
+-ldxdw r4, [r4]
+-ldxdw r5, [r4+24]
+-stxdw [r10-1752], r5
++stxdw [r10-3240], r5
++mov64 r6, r4
++stxdw [r10-3216], r3
++stxdw [r10-3224], r2
++ldxdw r9, [r1+8]
++ldxdw r2, [r9+32]
++ldxdw r4, [r2]
++ldxdw r2, [r4]
++mov64 r3, 1
++stxdw [r10-3232], r3
++lddw r3, 0x8481abfe57889b06
++mov64 r7, 1
++jeq r2, r3, +0x78
++mov64 r7, 0
++ldxdw r3, [r4+8]
++lddw r0, 0x35c01846637f68fb
++mov64 r5, 1
++jeq r3, r0, +0xa8
++mov64 r5, 0
++and64 r7, r5
+ ldxdw r5, [r4+16]
+-stxdw [r10-1760], r5
+-ldxdw r5, [r4+8]
+-stxdw [r10-1768], r5
+-ldxdw r4, [r4]
+-stxdw [r10-1776], r4
+-add64 r1, 8
+-add64 r3, 8
+-mov64 r4, r10
+-add64 r4, -1776
+-call orig_fn_2e0a0
+-jne r0, 2, +0x4a0
+-ldxdw r1, [r8+104]
+-stxdw [r10-1832], r1
+-ldxdw r1, [r1+72]
+-stxdw [r10-1816], r1
+-jeq r1, 0, +0x4568
+-stxdw [r10-1824], r9
+-stxdw [r10-1808], r8
+-and64 r7, 65535
+-mov64 r1, r6
+-mov64 r2, 0
+-mov64 r3, r7
++lddw r8, 0x553beb1adc39c4da
++mov64 r0, 1
++jeq r5, r8, +0xe0
++mov64 r0, 0
++and64 r7, r0
++ldxdw r4, [r4+24]
++lddw r8, 0x100000000f0a098
++mov64 r0, 1
++jeq r4, r8, +0x118
++mov64 r0, 0
++and64 r7, r0
++and64 r7, 1
++jne r7, 0, +0x150
++jne r2, 0, +0x1f8
++jne r3, 0, +0x1f8
++jne r5, 0, +0x1f8
++jne r4, 0, +0x1f8
++ldxdw r2, [r9+8]
++ldxb r2, [r2+253]
++jeq r2, 0, +0x220
++mov64 r1, r10
++add64 r1, -552
++lddw r2, .rodata[00000000]
++call mayhem_program::MayhemError::name#2984
++mov64 r1, r10
++add64 r1, -528
++mov64 r2, 0
++call <T as alloc::string::SpecToString>::spec_to_string#2731
++lddw r1, .rodata[70726f6772616d73]
++stxdw [r10-576], r1
++stb [r10-504], 2
++stw [r10-560], 193
++stdw [r10-568], 61
++stdw [r10-584], 0
++stw [r10-432], 6000
++ja +0x588
++mov64 r2, 0
++stxdw [r10-3232], r2
++ldxdw r2, [r9+8]
++ldxb r2, [r2+253]
++jne r2, 0, +0x168
++stxdw [r10-3248], r1
++mov64 r1, r10
++add64 r1, -584
++call solana_sysvar::clock::<impl solana_sysvar::Sysvar for solana_clock::Clock>::get#06ec
++ldxw r1, [r10-584]
++jne r1, 0, +0x1fb8
++ldxdw r1, [r10-544]
++ldxdw r2, [r9+16]
++ldxdw r3, [r2+88]
++jeq r3, 0, +0x370
++ldxdw r4, [r9+8]
++ldxdw r8, [r4+237]
++jeq r8, 0, +0x370
++mov64 r0, 1
++mov64 r4, 1
++jslt r8, 0, +0x4b0
++mov64 r4, 0
++mov64 r5, r3
++add64 r5, r8
++jsge r5, r3, +0x4c8
++xor64 r4, r0
++and64 r4, 1
++jne r4, 0, +0x4e8
++jsge r1, r5, +0x370
++mov64 r1, r10
++add64 r1, -552
++lddw r2, .rodata[0f000000]
++call mayhem_program::instructions::pump_interface::sell::SellError::name#8856
++mov64 r1, r10
++add64 r1, -528
++mov64 r2, 15
++call <T as alloc::string::SpecToString>::spec_to_string#d382
++lddw r1, .rodata[70726f6772616d73]
++stxdw [r10-576], r1
++stb [r10-504], 2
++stw [r10-560], 197
++stdw [r10-568], 61
++stdw [r10-584], 0
++stw [r10-432], 6015
++ja +0x588
++stxdw [r2+88], r1
++mov64 r1, r10
++add64 r1, -584
++call solana_sysvar::clock::<impl solana_sysvar::Sysvar for solana_clock::Clock>::get#06ec
++ldxw r1, [r10-584]
++jne r1, 0, +0x2018
++ldxdw r2, [r10-544]
++ldxdw r1, [r9+16]
++ldxdw r3, [r1+80]
++jsge r2, r3, +0x500
++ldxb r2, [r1+104]
++jeq r2, 1, +0x5b0
++mov64 r2, 144
++ldxdw r3, [r10-3232]
++jne r3, 0, +0x3f0
++mov64 r2, 192
++ldxdw r3, [r9+8]
++add64 r3, r2
++ldxdw r2, [r3]
++ldxdw r3, [r9+104]
++ldxdw r3, [r3+32]
++jge r3, r2, +0x5a8
++mov64 r1, r10
++add64 r1, -552
++lddw r2, .rodata[030000]
++call mayhem_program::instructions::pump_interface::sell::SellError::name#8856
++mov64 r1, r10
++add64 r1, -528
++mov64 r2, 3
++call <T as alloc::string::SpecToString>::spec_to_string#d382
++lddw r1, .rodata[70726f6772616d73]
++stxdw [r10-576], r1
++stb [r10-504], 2
++stw [r10-560], 201
++stdw [r10-568], 61
++stdw [r10-584], 0
++stw [r10-432], 6003
++ja +0x588
++mov64 r5, r3
++add64 r5, r8
++jslt r5, r3, +0x2c0
++mov64 r0, 0
++xor64 r4, r0
++and64 r4, 1
++jeq r4, 0, +0x2d8
++lddw r1, panic_location(programs/mayhem-program/src/instructions/pump_interface_v2.rs:197:41)
++call core::panicking::panic_const::panic_const_add_overflow#3493
++mov64 r1, r10
++add64 r1, -552
++lddw r2, .rodata[04000000]
++call mayhem_program::instructions::pump_interface::sell::SellError::name#8856
++mov64 r1, r10
++add64 r1, -528
++mov64 r2, 4
++call <T as alloc::string::SpecToString>::spec_to_string#d382
++lddw r1, .rodata[70726f6772616d73]
++stxdw [r10-576], r1
++stb [r10-504], 2
++stw [r10-560], 199
++stdw [r10-568], 61
++stdw [r10-584], 0
++stw [r10-432], 6004
++mov64 r1, r10
++add64 r1, -584
++call <anchor_lang::error::Error as core::convert::From<anchor_lang::error::AnchorError>>::from#5ca3
++exit
++stb [r1+104], 1
++ldxdw r2, [r9+104]
++ldxdw r1, [r2+8]
++stxdw [r10-3256], r1
++jeq r1, 0, +0x16d8
++stxdw [r10-3272], r9
++stxdw [r10-3280], r2
++ldxdw r1, [r2+16]
++stxdw [r10-3264], r1
++and64 r6, 65535
++ldxdw r1, [r10-3216]
++mov64 r2, 0
++mov64 r3, r6
+ mov64 r4, 0
+ call __multi3
+-mov64 r8, r0
+-mov64 r9, r1
+-ldxdw r1, [r10-1784]
+-mov64 r2, 0
+-mov64 r3, r7
++mov64 r9, r0
++mov64 r8, r1
++ldxdw r1, [r10-3224]
++mov64 r2, 0
++mov64 r3, r6
+ mov64 r4, 0
+ call __multi3
+-stxdw [r10-1840], r0
+-mov64 r7, r1
+-add64 r7, r8
+-mov64 r2, 1
++mov64 r2, r1
++add64 r2, r9
++mov64 r4, 1
++mov64 r3, 1
++jne r8, 0, +0x6a8
++mov64 r3, 0
++jge r2, r1, +0x6b0
++or64 r3, r4
++jne r3, 1, +0x6c8
++ja +0x16d8
++jlt r2, r1, +0x690
++mov64 r4, 0
++or64 r3, r4
++jeq r3, 1, +0x16d8
++mov64 r1, r0
++mov64 r3, 10000
++mov64 r4, 0
++call __udivti3
++mov64 r9, r0
++mov64 r6, r1
++mov64 r3, 1
+ mov64 r8, 1
+-jne r9, 0, +0x1d8
++ldxdw r2, [r10-3224]
++jge r2, r9, +0x838
+ mov64 r8, 0
+-jlt r7, r1, +0x1e8
+-mov64 r2, 0
+-or64 r8, r2
+-ldxdw r1, [r10-1832]
+-ldxdw r1, [r1+80]
+-stxdw [r10-1856], r1
++ldxdw r2, [r10-3216]
++ldxdw r1, [r10-3264]
++jlt r2, r6, +0x850
++ldxdw r2, [r10-3216]
++jeq r2, r6, +0x750
++mov64 r8, r3
+ mov64 r2, 0
+ lddw r3, 0x38d7ea4c68000
+ mov64 r4, 0
+ call __multi3
+ mov64 r2, r1
+ mov64 r1, r0
+-ldxdw r3, [r10-1816]
++ldxdw r3, [r10-3256]
+ mov64 r4, 0
+ call __udivti3
+-stxdw [r10-1848], r0
+-stxdw [r10-1800], r1
+ and64 r8, 1
+-ldxdw r9, [r10-1824]
+-jne r8, 0, +0x4568
+-ldxdw r1, [r10-1840]
+-mov64 r2, r7
+-mov64 r3, 10000
+-mov64 r4, 0
+-call __udivti3
++jeq r8, 0, +0x16d8
++ldxdw r5, [r10-3224]
++mov64 r4, r5
++add64 r4, r9
+ mov64 r3, 1
+ mov64 r2, 1
+-ldxdw r4, [r10-1784]
+-jlt r4, r0, +0x310
+-mov64 r2, 0
+-ldxdw r4, [r10-1808]
+-jge r6, r1, +0x320
+-mov64 r7, 2
+-jeq r6, r1, +0x338
++jlt r4, r5, +0x7e8
++mov64 r2, 0
++ldxdw r5, [r10-3216]
++mov64 r4, r5
++add64 r4, r6
++add64 r4, r2
++jlt r4, r5, +0x870
++mov64 r3, 0
++ldxdw r5, [r10-3216]
++jne r4, r5, +0x880
++jne r2, 1, +0x890
++ja +0x16d8
++ldxdw r2, [r10-3216]
++ldxdw r1, [r10-3264]
++jge r2, r6, +0x738
++mov64 r3, 0
++ldxdw r2, [r10-3216]
++jne r2, r6, +0x748
++ja +0x750
++ldxdw r5, [r10-3216]
++jeq r4, r5, +0x828
++mov64 r2, r3
++jeq r2, 1, +0x16d8
++mov64 r3, r9
++mov64 r2, 1
++mov64 r4, 1
++ldxdw r5, [r10-3224]
++jlt r5, r3, +0x8c0
++mov64 r4, 0
++ldxdw r5, [r10-3216]
++sub64 r5, r6
++sub64 r5, r4
++ldxdw r8, [r10-3224]
++sub64 r8, r9
++mov64 r4, 1
++jlt r0, r8, +0x950
++mov64 r4, 0
++mov64 r8, 1
++jge r1, r5, +0x960
++jeq r1, r5, +0x970
++mov64 r4, r8
++ldxdw r5, [r10-3224]
++add64 r9, r5
++jge r9, r3, +0x988
++and64 r4, 1
++jeq r4, 0, +0x9a0
++ja +0xa00
++mov64 r8, 1
++jlt r1, r5, +0x910
++mov64 r8, 0
++jne r1, r5, +0x918
++ldxdw r5, [r10-3224]
++add64 r9, r5
++jlt r9, r3, +0x938
++mov64 r2, 0
++and64 r4, 1
++jne r4, 0, +0xa00
++ldxdw r3, [r10-3216]
++add64 r6, r3
++add64 r6, r2
++mov64 r3, 1
++mov64 r2, 1
++jle r0, r9, +0xa18
++mov64 r2, 0
++jgt r1, r6, +0xa20
++jeq r1, r6, +0xa30
+ mov64 r2, r3
+ and64 r2, 1
+-jne r2, 0, +0x348
+-ja +0x4a8
+-ldxdw r4, [r10-1808]
+-jlt r6, r1, +0x2e0
++jne r2, 0, +0xa40
++mov64 r1, 12
++call mayhem_program::instructions::pump_interface::sell::<impl core::convert::From<mayhem_program::instructions::pump_interface::sell::SellError> for anchor_lang::error::Error>::from#3c3f
++ja +0x5a0
++jle r1, r6, +0x9e0
+ mov64 r3, 0
+-mov64 r7, 2
+-jne r6, r1, +0x2f0
++jne r1, r6, +0x9e8
+ and64 r2, 1
+-jeq r2, 0, +0x4a8
+-stxw [r10-312], r7
+-mov64 r1, r10
+-add64 r1, -280
+-mov64 r6, r10
+-add64 r6, -312
+-mov64 r2, r6
+-call mayhem_program::MayhemError::name#2984
+-stdw [r10-32], 0
+-stdw [r10-40], 1
+-stdw [r10-48], 0
+-lddw r1, table[0:core::ptr::drop_in_place<alloc::string::String>#91b5, 3:<alloc::string::String as core::fmt::Write>::write_str#ca2d, 4:<alloc::string::String as core::fmt::Write>::write_char#6537, 5:core::fmt::Write::write_fmt#a290]
+-stxdw [r10-120], r1
+-mov64 r1, r10
+-add64 r1, -48
+-stxdw [r10-128], r1
+-lddw r1, 0xe0000020
+-stxdw [r10-112], r1
+-mov64 r2, r10
+-add64 r2, -128
++jeq r2, 0, +0xa00
++ldxdw r9, [r10-3240]
++mov64 r1, r9
++and64 r1, 65535
++jgt r1, 10000, +0x2130
++ldxdw r8, [r10-3272]
++ldxdw r1, [r8+48]
++ldxdw r6, [r1+104]
+ mov64 r1, r6
+-call orig_fn_2fcb8
+-jne r0, 0, +0x4578
+-ldxdw r1, [r10-32]
+-stxdw [r10-1704], r1
+-ldxdw r1, [r10-40]
+-stxdw [r10-1712], r1
+-ldxdw r1, [r10-48]
+-stxdw [r10-1720], r1
+-ldxdw r1, [r10-280]
+-stxdw [r10-1744], r1
+-ldxdw r1, [r10-272]
+-stxdw [r10-1736], r1
+-ldxdw r1, [r10-264]
+-stxdw [r10-1728], r1
+-or64 r7, 6000
+-stxw [r10-1624], r7
+-stb [r10-1696], 2
+-stdw [r10-1776], 2
+-mov64 r1, r10
+-add64 r1, -1776
+-call <anchor_lang::error::Error as core::convert::From<anchor_lang::error::AnchorError>>::from#5ca3
+-exit
+-ldxdw r5, [r10-1784]
+-mov64 r4, r5
+-add64 r4, r0
+-mov64 r3, 1
+-mov64 r2, 1
+-jlt r4, r5, +0x528
+-mov64 r2, 0
+-mov64 r4, r6
+-add64 r4, r1
+-add64 r4, r2
+-jge r4, r6, +0x548
+-jeq r4, r6, +0x558
+-mov64 r2, r3
+-and64 r2, 1
+-jeq r2, 0, +0x568
+-ja +0x348
+-mov64 r4, r6
+-add64 r4, r1
+-add64 r4, r2
+-jlt r4, r6, +0x500
+-mov64 r3, 0
+-jne r4, r6, +0x508
+-and64 r2, 1
+-jne r2, 0, +0x348
+-mov64 r3, r0
+-mov64 r2, 1
+-mov64 r4, 1
+-ldxdw r5, [r10-1784]
+-jlt r5, r3, +0x598
+-mov64 r4, 0
+-mov64 r8, r9
+-mov64 r5, r6
+-sub64 r5, r1
+-sub64 r5, r4
+-ldxdw r7, [r10-1784]
+-sub64 r7, r0
+-mov64 r4, 1
+-ldxdw r9, [r10-1848]
+-jlt r9, r7, +0x650
+-mov64 r4, 0
+-mov64 r7, 1
+-ldxdw r9, [r10-1800]
+-jge r9, r5, +0x668
+-ldxdw r9, [r10-1800]
+-jeq r9, r5, +0x680
+-mov64 r4, r7
+-ldxdw r5, [r10-1784]
+-add64 r0, r5
+-jge r0, r3, +0x698
+-mov64 r7, 12
+-and64 r4, 1
+-jeq r4, 0, +0x6b8
+-ja +0x348
+-mov64 r7, 1
+-ldxdw r9, [r10-1800]
+-jlt r9, r5, +0x600
+-mov64 r7, 0
+-ldxdw r9, [r10-1800]
+-jne r9, r5, +0x610
+-ldxdw r5, [r10-1784]
+-add64 r0, r5
+-jlt r0, r3, +0x630
+-mov64 r2, 0
+-mov64 r7, 12
+-and64 r4, 1
+-jne r4, 0, +0x348
+-add64 r1, r6
+-add64 r1, r2
+-mov64 r3, 1
+-mov64 r2, 1
+-ldxdw r4, [r10-1848]
+-jle r4, r0, +0x730
+-mov64 r2, 0
+-ldxdw r4, [r10-1800]
+-jgt r4, r1, +0x740
+-ldxdw r4, [r10-1800]
+-jeq r4, r1, +0x758
+-mov64 r2, r3
+-and64 r2, 1
+-jne r2, 0, +0x768
+-ja +0x348
+-ldxdw r4, [r10-1800]
+-jle r4, r1, +0x700
+-mov64 r3, 0
+-ldxdw r4, [r10-1800]
+-jne r4, r1, +0x710
+-and64 r2, 1
+-jeq r2, 0, +0x348
+-and64 r8, 65535
+-jge r8, 10001, +0x4668
+-ldxdw r2, [r10-1808]
+-ldxdw r1, [r2+48]
+-ldxdw r6, [r1+104]
+-ldxdw r9, [r2+8]
+-ldxdw r1, [r2+32]
+-ldxdw r1, [r1]
+-ldxdw r2, [r1+24]
+-stxdw [r10-1800], r2
+-ldxdw r2, [r1+16]
+-stxdw [r10-1784], r2
+-ldxdw r8, [r1+8]
+-ldxdw r7, [r1]
+-ldxdw r1, [r10-1856]
+-mov64 r2, 0
+-mov64 r3, r6
++mov64 r2, 0
++ldxdw r3, [r10-3264]
+ mov64 r4, 0
+ call __multi3
+ mov64 r2, r1
+ mov64 r3, r6
+-ldxdw r1, [r10-1816]
++ldxdw r1, [r10-3256]
+ add64 r3, r1
+ mov64 r4, 1
+-stxdw [r10-1992], r6
+-jlt r3, r6, +0x840
++stxdw [r10-3224], r6
++jlt r3, r6, +0xae0
+ mov64 r4, 0
+ mov64 r1, r0
+ call __udivti3
+ mov64 r6, r0
+-jne r1, 0, +0x45c8
+-add64 r9, 8
+-mov64 r1, 96
+-jne r7, 0, +0x8a0
+-jne r8, 0, +0x8a0
+-ldxdw r2, [r10-1784]
+-jne r2, 0, +0x8a0
+-ldxdw r2, [r10-1800]
+-jeq r2, 0, +0x918
+-lddw r2, 0x8481abfe57889b06
+-jne r7, r2, +0x910
+-lddw r2, 0x35c01846637f68fb
+-jne r8, r2, +0x910
+-lddw r2, 0x553beb1adc39c4da
+-ldxdw r3, [r10-1784]
+-jne r3, r2, +0x910
+-lddw r2, 0x100000000f0a098
+-ldxdw r3, [r10-1800]
+-jeq r3, r2, +0x918
+-mov64 r1, 176
+-add64 r9, r1
+-ldxdw r2, [r9]
+-mov64 r3, r2
+-jlt r2, r6, +0x940
+-mov64 r3, r6
+-ldxdw r1, [r10-1832]
+-ldxdw r1, [r1+96]
+-ldxdw r4, [r10-1824]
+-jeq r2, 0, +0x968
+-mov64 r6, r3
++jne r1, 0, +0x2078
++mov64 r1, 112
++ldxdw r2, [r10-3232]
++jne r2, 0, +0xb20
++mov64 r1, 168
+ mov64 r3, 10000
+-sub64 r3, r4
++ldxdw r2, [r8+8]
++add64 r2, r1
++ldxdw r1, [r2]
++mov64 r2, r1
++jlt r1, r6, +0xb58
++mov64 r2, r6
++sub64 r3, r9
++jeq r1, 0, +0xb70
++mov64 r6, r2
++ldxdw r1, [r10-3280]
++ldxdw r1, [r1+32]
+ and64 r3, 65535
+ mov64 r2, 0
+ mov64 r4, 0
+@@ -303,1836 +361,577 @@
+ mov64 r3, 10000
+ mov64 r4, 0
+ call __udivti3
+-jlt r6, r0, +0x9d0
++jlt r6, r0, +0xbd8
+ mov64 r6, r0
+-ldxdw r9, [r10-1856]
+-jgt r9, r6, +0xa38
+-stw [r10-1776], 9
+-mov64 r3, r10
+-add64 r3, -1776
+-lddw r1, str("called `Result::unwrap()` on an `Err` value")
+-mov64 r2, 43
+-lddw r4, table[3:<mayhem_program::instructions::pump_amm_interface::pump_swap_types::PumpSwapError as core::fmt::Debug>::fmt#c381]
+-lddw r5, panic_location(programs/mayhem-program/src/state.rs:398:90)
+-call core::result::unwrap_failed#5a05
+ mov64 r1, r6
+ mov64 r2, 0
+-ldxdw r3, [r10-1816]
++ldxdw r3, [r10-3256]
+ mov64 r4, 0
+ call __multi3
+ mov64 r2, r1
+-sub64 r9, r6
++mov64 r4, 1
++ldxdw r3, [r10-3264]
++jlt r3, r6, +0xc28
++mov64 r4, 0
++jlt r3, r6, +0x2148
++jeq r3, r6, +0x20c8
++sub64 r3, r6
++neg64 r4
+ mov64 r1, r0
+-mov64 r3, r9
+-mov64 r4, 0
+ call __udivti3
+-jne r1, 0, +0x4618
++jne r1, 0, +0x20e0
++mov64 r1, r6
++add64 r1, -1
++mov64 r9, 0
+ mov64 r2, 1
+-lddw r3, 0x100000000f0a098
+-mov64 r1, 1
+-ldxdw r4, [r10-1800]
+-jeq r4, r3, +0xad0
+-mov64 r1, 0
+-lddw r4, 0x553beb1adc39c4da
+-mov64 r3, 1
+-mov64 r9, 0
+-ldxdw r5, [r10-1784]
+-jeq r5, r4, +0xbe8
+-mov64 r3, 0
+-stxdw [r10-2008], r0
+-lddw r5, 0x35c01846637f68fb
+-mov64 r4, 1
+-jne r8, r5, +0xc10
+-lddw r5, 0x8481abfe57889b06
+-mov64 r0, 1
+-jeq r7, r5, +0xc38
+-mov64 r0, 0
+-mov64 r5, r6
+-add64 r5, -1
+-ldxdw r8, [r10-1808]
+-jle r5, r6, +0xc58
+-jne r2, 0, +0xb88
+-mov64 r9, r5
+-and64 r0, r4
+-and64 r0, r3
+-and64 r0, r1
+-and64 r0, 1
+-stxdw [r10-3456], r0
+-jeq r0, 0, +0xc70
++jgt r1, r6, +0xce8
++mov64 r2, 0
++jeq r2, 0, +0xcf0
++stxdw [r10-3216], r0
++jeq r7, 0, +0xd08
++ldxdw r8, [r10-3272]
+ ldxdw r1, [r8+64]
+ call solana_account_info::AccountInfo::lamports#aa02
++stxdw [r10-3256], r0
+ ldxdw r1, [r8+48]
+ ldxdw r1, [r1+104]
+-stxdw [r10-1992], r1
+-ja +0xc80
+-stxdw [r10-2008], r0
+-lddw r5, 0x35c01846637f68fb
+-mov64 r4, 1
+-jeq r8, r5, +0xb30
+-mov64 r4, 0
+-lddw r5, 0x8481abfe57889b06
+-mov64 r0, 1
+-jne r7, r5, +0xb50
+-mov64 r5, r6
+-add64 r5, -1
+-ldxdw r8, [r10-1808]
+-jgt r5, r6, +0xb78
+-mov64 r2, 0
+-jeq r2, 0, +0xb80
+-ja +0xb88
++stxdw [r10-3224], r1
++ja +0xd28
++jne r2, 0, +0xc98
++mov64 r9, r1
++stxdw [r10-3216], r0
++jne r7, 0, +0xca8
++ldxdw r8, [r10-3272]
++ldxdw r1, [r8+56]
++ldxdw r1, [r1+104]
++stxdw [r10-3256], r1
++ldxdw r2, [r8+96]
++mov64 r6, r10
++add64 r6, -3208
++mov64 r1, r6
++call <solana_account_info::AccountInfo as core::clone::Clone>::clone#3106
++ldxdw r1, [r8+24]
++ldxdw r2, [r1+88]
++mov64 r1, r10
++add64 r1, -3160
++call <solana_account_info::AccountInfo as core::clone::Clone>::clone#3106
++ldxdw r2, [r8+32]
++mov64 r1, r10
++add64 r1, -3112
++call <solana_account_info::AccountInfo as core::clone::Clone>::clone#3106
++ldxdw r2, [r8+80]
++mov64 r1, r10
++add64 r1, -3064
++call <solana_account_info::AccountInfo as core::clone::Clone>::clone#3106
++ldxdw r2, [r8+88]
++mov64 r1, r10
++add64 r1, -3016
++call <solana_account_info::AccountInfo as core::clone::Clone>::clone#3106
++ldxdw r2, [r8+40]
++mov64 r1, r10
++add64 r1, -2968
++call <solana_account_info::AccountInfo as core::clone::Clone>::clone#3106
++ldxdw r2, [r8+120]
++mov64 r1, r10
++add64 r1, -2920
++call <solana_account_info::AccountInfo as core::clone::Clone>::clone#3106
++ldxdw r2, [r8+128]
++mov64 r1, r10
++add64 r1, -2872
++call <solana_account_info::AccountInfo as core::clone::Clone>::clone#3106
++ldxdw r2, [r8+232]
++mov64 r1, r10
++add64 r1, -2824
++call <solana_account_info::AccountInfo as core::clone::Clone>::clone#3106
++ldxdw r2, [r8+240]
++mov64 r1, r10
++add64 r1, -2776
++call <solana_account_info::AccountInfo as core::clone::Clone>::clone#3106
++ldxdw r1, [r8+104]
++ldxdw r2, [r1]
++mov64 r1, r10
++add64 r1, -2728
++call <solana_account_info::AccountInfo as core::clone::Clone>::clone#3106
++ldxdw r1, [r8+136]
++ldxdw r2, [r1+32]
++mov64 r1, r10
++add64 r1, -2680
++call <solana_account_info::AccountInfo as core::clone::Clone>::clone#3106
++ldxdw r2, [r8+112]
++mov64 r1, r10
++add64 r1, -2632
++call <solana_account_info::AccountInfo as core::clone::Clone>::clone#3106
++ldxdw r2, [r8+64]
++mov64 r1, r10
++add64 r1, -2584
++call <solana_account_info::AccountInfo as core::clone::Clone>::clone#3106
++ldxdw r1, [r8+48]
++ldxdw r2, [r1+32]
++mov64 r1, r10
++add64 r1, -2536
++call <solana_account_info::AccountInfo as core::clone::Clone>::clone#3106
++ldxdw r1, [r8+56]
++ldxdw r2, [r1+32]
++mov64 r1, r10
++add64 r1, -2488
++call <solana_account_info::AccountInfo as core::clone::Clone>::clone#3106
++ldxdw r2, [r8+144]
++mov64 r1, r10
++add64 r1, -2440
++call <solana_account_info::AccountInfo as core::clone::Clone>::clone#3106
++ldxdw r2, [r8+152]
++mov64 r1, r10
++add64 r1, -2392
++call <solana_account_info::AccountInfo as core::clone::Clone>::clone#3106
++ldxdw r2, [r8+160]
++mov64 r1, r10
++add64 r1, -2344
++call <solana_account_info::AccountInfo as core::clone::Clone>::clone#3106
++ldxdw r2, [r8+184]
++mov64 r1, r10
++add64 r1, -2296
++call <solana_account_info::AccountInfo as core::clone::Clone>::clone#3106
++ldxdw r2, [r8+192]
++mov64 r1, r10
++add64 r1, -2248
++call <solana_account_info::AccountInfo as core::clone::Clone>::clone#3106
++ldxdw r2, [r8+200]
++mov64 r1, r10
++add64 r1, -2200
++call <solana_account_info::AccountInfo as core::clone::Clone>::clone#3106
++ldxdw r2, [r8+208]
++mov64 r1, r10
++add64 r1, -2152
++call <solana_account_info::AccountInfo as core::clone::Clone>::clone#3106
++ldxdw r2, [r8+72]
++mov64 r1, r10
++add64 r1, -2104
++call <solana_account_info::AccountInfo as core::clone::Clone>::clone#3106
++ldxdw r2, [r8+168]
++mov64 r1, r10
++add64 r1, -2056
++call <solana_account_info::AccountInfo as core::clone::Clone>::clone#3106
++ldxdw r2, [r8+176]
++mov64 r1, r10
++add64 r1, -2008
++call <solana_account_info::AccountInfo as core::clone::Clone>::clone#3106
++ldxdw r1, [r10-3248]
++ldxb r1, [r1+34]
++stxb [r10-1953], r1
++mov64 r1, r10
++add64 r1, -1953
++stxdw [r10-1936], r1
++lddw r1, .rodata[736f6c2d7661756c]
++stxdw [r10-1952], r1
++lddw r1, .rodata[0156e0f693665acf]
++ldxdw r2, [r1]
++stxdw [r10-616], r2
++ldxdw r2, [r1+8]
++stxdw [r10-608], r2
++ldxdw r2, [r1+16]
++stxdw [r10-600], r2
++ldxdw r1, [r1+24]
++stxdw [r10-592], r1
++stdw [r10-1928], 1
++stdw [r10-1944], 9
++mov64 r1, r10
++add64 r1, -1952
++stxdw [r10-1920], r1
++stdw [r10-1912], 2
++mov64 r1, r10
++add64 r1, -1880
++mov64 r2, r6
++mov64 r3, 1248
++call memcpy
++mov64 r1, r10
++add64 r1, -1920
++stxdw [r10-632], r1
++stdw [r10-624], 1
++stdw [r10-1888], 0
++stdw [r10-1896], 8
++stdw [r10-1904], 0
++mov64 r1, r10
++add64 r1, -1904
++ldxdw r2, [r10-3216]
++mov64 r3, r9
++call pump_cpi::pump_v2::pump::cpi::sell_v2#f854
++mov64 r6, r0
++mov64 r2, r1
++mov64 r1, r6
++call core::ptr::drop_in_place<core::result::Result<(),anchor_lang::error::Error>>#64a0
++jne r6, 2, +0x1268
++ldxdw r1, [r8+48]
++call anchor_lang::accounts::interface_account::InterfaceAccount<T>::reload#d655
++jne r0, 2, +0x5a0
++ldxdw r1, [r8+104]
++call anchor_lang::accounts::account::Account<T>::reload#ca71
++jne r0, 2, +0x5a0
++jeq r7, 0, +0x12f8
++ldxdw r1, [r8+64]
++call solana_account_info::AccountInfo::lamports#aa02
++ldxdw r6, [r10-3224]
++ja +0x1328
++mov64 r1, r10
++add64 r1, -552
++lddw r2, .rodata[08000000]
++call mayhem_program::instructions::pump_interface::buy::BuyError::name#3012
++mov64 r1, r10
++add64 r1, -528
++mov64 r2, 8
++call <T as alloc::string::SpecToString>::spec_to_string#f398
++lddw r1, .rodata[70726f6772616d73]
++stxdw [r10-576], r1
++stb [r10-504], 2
++stw [r10-560], 223
++stdw [r10-568], 61
++stdw [r10-584], 0
++stw [r10-432], 6008
++ja +0x588
++ldxdw r1, [r8+56]
++call anchor_lang::accounts::interface_account::InterfaceAccount<T>::reload#d655
++ldxdw r6, [r10-3224]
++jne r0, 2, +0x5a0
+ ldxdw r1, [r8+56]
+ ldxdw r0, [r1+104]
+-ldxdw r1, [r8+176]
+-ldxdw r1, [r1]
+-ldxdw r2, [r1+24]
+-stxdw [r10-24], r2
+-ldxdw r2, [r1+16]
+-stxdw [r10-32], r2
+-ldxdw r2, [r1+8]
+-stxdw [r10-40], r2
+-ldxdw r1, [r1]
+-stxdw [r10-48], r1
+-ldxdw r2, [r8+96]
+-ldxdw r6, [r2+8]
+-ldxdw r1, [r6]
+-add64 r1, 1
+-mov64 r3, 1
+-jeq r1, 0, +0xd08
+-mov64 r3, 0
+-ldxdw r4, [r2]
+-stxdw [r6], r1
+-jeq r3, 1, +0x4500
+-ldxdw r5, [r2+16]
+-ldxdw r1, [r5]
+-add64 r1, 1
+-mov64 r3, 1
+-jeq r1, 0, +0xd50
+-mov64 r3, 0
+-stxdw [r10-2000], r4
+-stxdw [r5], r1
+-jeq r3, 1, +0x4500
+-ldxdw r1, [r8+24]
+-ldxdw r1, [r1+88]
+-ldxdw r3, [r1+8]
+-stxdw [r10-1784], r3
+-ldxdw r3, [r3]
+-add64 r3, 1
+-mov64 r4, 1
+-jeq r3, 0, +0xdb0
+-mov64 r4, 0
+-ldxb r7, [r2+42]
+-stxdw [r10-2056], r7
+-ldxb r7, [r2+41]
+-stxdw [r10-2048], r7
+-ldxb r7, [r2+40]
+-stxdw [r10-2040], r7
+-ldxdw r7, [r2+32]
+-stxdw [r10-2032], r7
+-ldxdw r2, [r2+24]
+-stxdw [r10-2024], r2
+-ldxdw r2, [r1]
+-stxdw [r10-2016], r2
+-ldxdw r2, [r10-1784]
+-stxdw [r2], r3
+-jeq r4, 1, +0x4500
+-ldxdw r4, [r1+16]
+-ldxdw r2, [r4]
+-add64 r2, 1
+-mov64 r3, 1
+-jeq r2, 0, +0xe58
+-mov64 r3, 0
+-stxdw [r10-2064], r4
+-stxdw [r4], r2
+-jeq r3, 1, +0x4500
+-ldxdw r2, [r8+32]
+-ldxdw r3, [r2+8]
+-stxdw [r10-1800], r3
+-ldxdw r3, [r3]
+-add64 r3, 1
+-mov64 r4, 1
+-jeq r3, 0, +0xeb0
+-mov64 r4, 0
+-ldxb r7, [r1+42]
+-stxdw [r10-2104], r7
+-ldxb r7, [r1+41]
+-stxdw [r10-2096], r7
+-ldxb r7, [r1+40]
+-stxdw [r10-2088], r7
+-ldxdw r7, [r1+32]
+-stxdw [r10-2080], r7
+-ldxdw r1, [r1+24]
+-stxdw [r10-2072], r1
+-ldxdw r7, [r2]
+-ldxdw r1, [r10-1800]
+-stxdw [r1], r3
+-jeq r4, 1, +0x4500
+-ldxdw r4, [r2+16]
+-ldxdw r1, [r4]
+-add64 r1, 1
+-mov64 r3, 1
+-jeq r1, 0, +0xf50
+-mov64 r3, 0
+-stxdw [r10-2120], r7
+-stxdw [r10-2112], r4
+-stxdw [r4], r1
+-jeq r3, 1, +0x4500
+-mov64 r7, r9
+-ldxdw r1, [r8+80]
+-ldxdw r3, [r1+8]
+-stxdw [r10-1816], r3
+-ldxdw r3, [r3]
+-add64 r3, 1
+-mov64 r4, 1
+-jeq r3, 0, +0xfb8
+-mov64 r4, 0
+-ldxb r9, [r2+42]
+-stxdw [r10-2168], r9
+-ldxb r9, [r2+41]
+-stxdw [r10-2160], r9
+-ldxb r9, [r2+40]
+-stxdw [r10-2152], r9
+-ldxdw r9, [r2+32]
+-stxdw [r10-2144], r9
+-ldxdw r2, [r2+24]
+-stxdw [r10-2136], r2
+-ldxdw r2, [r1]
+-stxdw [r10-2128], r2
+-ldxdw r2, [r10-1816]
+-stxdw [r2], r3
+-jeq r4, 1, +0x4500
+-ldxdw r4, [r1+16]
+-ldxdw r2, [r4]
+-add64 r2, 1
+-mov64 r3, 1
+-jeq r2, 0, +0x1060
+-mov64 r3, 0
+-stxdw [r10-2176], r4
+-stxdw [r4], r2
+-mov64 r9, r7
+-jeq r3, 1, +0x4500
+-ldxdw r2, [r8+88]
+-ldxdw r3, [r2+8]
+-stxdw [r10-1832], r3
+-ldxdw r3, [r3]
+-add64 r3, 1
+-mov64 r4, 1
+-jeq r3, 0, +0x10c0
+-mov64 r4, 0
+-ldxb r7, [r1+42]
+-stxdw [r10-2216], r7
+-ldxb r7, [r1+41]
+-stxdw [r10-2208], r7
+-ldxb r7, [r1+40]
+-stxdw [r10-2200], r7
+-ldxdw r7, [r1+32]
+-stxdw [r10-2192], r7
+-ldxdw r1, [r1+24]
+-stxdw [r10-2184], r1
+-ldxdw r7, [r2]
+-ldxdw r1, [r10-1832]
+-stxdw [r1], r3
+-jeq r4, 1, +0x4500
+-ldxdw r4, [r2+16]
+-ldxdw r1, [r4]
+-add64 r1, 1
+-mov64 r3, 1
+-jeq r1, 0, +0x1160
+-mov64 r3, 0
+-stxdw [r10-2224], r4
+-stxdw [r4], r1
+-jeq r3, 1, +0x4500
+-stxdw [r10-2232], r9
+-ldxdw r1, [r8+40]
+-ldxdw r3, [r1+8]
+-stxdw [r10-1840], r3
+-ldxdw r3, [r3]
+-add64 r3, 1
+-mov64 r4, 1
+-jeq r3, 0, +0x11c0
+-mov64 r4, 0
+-ldxb r9, [r2+42]
+-stxdw [r10-2280], r9
+-ldxb r9, [r2+41]
+-stxdw [r10-2272], r9
+-ldxb r9, [r2+40]
+-stxdw [r10-2264], r9
+-ldxdw r9, [r2+32]
+-stxdw [r10-2256], r9
+-ldxdw r2, [r2+24]
+-stxdw [r10-2248], r2
+-ldxdw r2, [r1]
+-stxdw [r10-2240], r2
+-ldxdw r2, [r10-1840]
+-stxdw [r2], r3
+-jeq r4, 1, +0x4500
+-ldxdw r4, [r1+16]
+-ldxdw r2, [r4]
+-add64 r2, 1
+-mov64 r3, 1
+-jeq r2, 0, +0x1268
+-mov64 r3, 0
+-stxdw [r10-2288], r4
+-stxdw [r4], r2
+-jeq r3, 1, +0x4500
+-ldxdw r2, [r8+120]
+-ldxdw r3, [r2+8]
+-stxdw [r10-1848], r3
+-ldxdw r3, [r3]
+-add64 r3, 1
+-mov64 r4, 1
+-jeq r3, 0, +0x12c0
+-mov64 r4, 0
+-ldxb r9, [r1+42]
+-stxdw [r10-2328], r9
+-ldxb r9, [r1+41]
+-stxdw [r10-2320], r9
+-ldxb r9, [r1+40]
+-stxdw [r10-2312], r9
+-ldxdw r9, [r1+32]
+-stxdw [r10-2304], r9
+-ldxdw r1, [r1+24]
+-stxdw [r10-2296], r1
+-ldxdw r9, [r2]
+-ldxdw r1, [r10-1848]
+-stxdw [r1], r3
+-jeq r4, 1, +0x4500
+-ldxdw r4, [r2+16]
+-ldxdw r1, [r4]
+-add64 r1, 1
+-mov64 r3, 1
+-jeq r1, 0, +0x1360
+-mov64 r3, 0
+-stxdw [r10-2336], r4
+-stxdw [r4], r1
+-jeq r3, 1, +0x4500
+-stxdw [r10-2344], r7
+-ldxdw r1, [r8+128]
+-ldxdw r3, [r1+8]
+-stxdw [r10-1856], r3
+-ldxdw r3, [r3]
+-add64 r3, 1
+-mov64 r4, 1
+-jeq r3, 0, +0x13c0
+-mov64 r4, 0
+-ldxb r7, [r2+42]
+-stxdw [r10-2392], r7
+-ldxb r7, [r2+41]
+-stxdw [r10-2384], r7
+-ldxb r7, [r2+40]
+-stxdw [r10-2376], r7
+-ldxdw r7, [r2+32]
+-stxdw [r10-2368], r7
+-ldxdw r2, [r2+24]
+-stxdw [r10-2360], r2
+-ldxdw r2, [r1]
+-stxdw [r10-2352], r2
+-ldxdw r2, [r10-1856]
+-stxdw [r2], r3
+-jeq r4, 1, +0x4500
+-ldxdw r4, [r1+16]
+-ldxdw r2, [r4]
+-add64 r2, 1
+-mov64 r3, 1
+-jeq r2, 0, +0x1468
+-mov64 r3, 0
+-stxdw [r10-2400], r4
+-stxdw [r4], r2
+-jeq r3, 1, +0x4500
+-ldxdw r2, [r8+232]
+-ldxdw r3, [r2+8]
+-stxdw [r10-1864], r3
+-ldxdw r3, [r3]
+-add64 r3, 1
+-mov64 r4, 1
+-jeq r3, 0, +0x14c0
+-mov64 r4, 0
+-ldxb r7, [r1+42]
+-stxdw [r10-2448], r7
+-ldxb r7, [r1+41]
+-stxdw [r10-2440], r7
+-ldxb r7, [r1+40]
+-stxdw [r10-2432], r7
+-ldxdw r7, [r1+32]
+-stxdw [r10-2424], r7
+-ldxdw r1, [r1+24]
+-stxdw [r10-2416], r1
+-ldxdw r7, [r2]
+-ldxdw r1, [r10-1864]
+-stxdw [r1], r3
+-jeq r4, 1, +0x4500
+-ldxdw r4, [r2+16]
+-ldxdw r1, [r4]
+-add64 r1, 1
+-mov64 r3, 1
+-jeq r1, 0, +0x1560
+-mov64 r3, 0
+-stxdw [r10-2456], r4
+-stxdw [r4], r1
+-jeq r3, 1, +0x4500
+-stxdw [r10-2408], r9
+-ldxdw r1, [r8+240]
+-ldxdw r3, [r1+8]
+-stxdw [r10-1872], r3
+-ldxdw r3, [r3]
+-add64 r3, 1
+-mov64 r4, 1
+-jeq r3, 0, +0x15c0
+-mov64 r4, 0
+-ldxb r9, [r2+42]
+-stxdw [r10-2504], r9
+-ldxb r9, [r2+41]
+-stxdw [r10-2496], r9
+-ldxb r9, [r2+40]
+-stxdw [r10-2488], r9
+-ldxdw r9, [r2+32]
+-stxdw [r10-2480], r9
+-ldxdw r2, [r2+24]
+-stxdw [r10-2472], r2
+-ldxdw r2, [r1]
+-stxdw [r10-2464], r2
+-ldxdw r2, [r10-1872]
+-stxdw [r2], r3
+-jeq r4, 1, +0x4500
+-ldxdw r4, [r1+16]
+-ldxdw r2, [r4]
+-add64 r2, 1
+-mov64 r3, 1
+-jeq r2, 0, +0x1668
+-mov64 r3, 0
+-stxdw [r10-2512], r4
+-stxdw [r4], r2
+-jeq r3, 1, +0x4500
+-ldxdw r2, [r8+104]
+-ldxdw r2, [r2]
+-ldxdw r3, [r2+8]
+-stxdw [r10-1880], r3
+-ldxdw r3, [r3]
+-add64 r3, 1
+-mov64 r4, 1
+-jeq r3, 0, +0x16c8
+-mov64 r4, 0
+-ldxb r9, [r1+42]
+-stxdw [r10-2552], r9
+-ldxb r9, [r1+41]
+-stxdw [r10-2544], r9
+-ldxb r9, [r1+40]
+-stxdw [r10-2536], r9
+-ldxdw r9, [r1+32]
+-stxdw [r10-2528], r9
+-ldxdw r1, [r1+24]
+-stxdw [r10-2520], r1
+-ldxdw r9, [r2]
+-ldxdw r1, [r10-1880]
+-stxdw [r1], r3
+-jeq r4, 1, +0x4500
+-ldxdw r4, [r2+16]
+-ldxdw r1, [r4]
+-add64 r1, 1
+-mov64 r3, 1
+-jeq r1, 0, +0x1768
+-mov64 r3, 0
+-stxdw [r10-2560], r4
+-stxdw [r4], r1
+-jeq r3, 1, +0x4500
+-stxdw [r10-2568], r7
+-ldxdw r1, [r8+136]
+-ldxdw r1, [r1+32]
+-ldxdw r3, [r1+8]
+-stxdw [r10-1888], r3
+-ldxdw r3, [r3]
+-add64 r3, 1
+-mov64 r4, 1
+-jeq r3, 0, +0x17d0
+-mov64 r4, 0
+-ldxb r7, [r2+42]
+-stxdw [r10-2616], r7
+-ldxb r7, [r2+41]
+-stxdw [r10-2608], r7
+-ldxb r7, [r2+40]
+-stxdw [r10-2600], r7
+-ldxdw r7, [r2+32]
+-stxdw [r10-2592], r7
+-ldxdw r2, [r2+24]
+-stxdw [r10-2584], r2
+-ldxdw r2, [r1]
+-stxdw [r10-2576], r2
+-ldxdw r2, [r10-1888]
+-stxdw [r2], r3
+-jeq r4, 1, +0x4500
+-ldxdw r4, [r1+16]
+-ldxdw r2, [r4]
+-add64 r2, 1
+-mov64 r3, 1
+-jeq r2, 0, +0x1878
+-mov64 r3, 0
+-stxdw [r10-2624], r4
+-stxdw [r4], r2
+-jeq r3, 1, +0x4500
+-ldxdw r2, [r8+112]
+-ldxdw r3, [r2+8]
+-stxdw [r10-1896], r3
+-ldxdw r3, [r3]
+-add64 r3, 1
+-mov64 r4, 1
+-jeq r3, 0, +0x18d0
+-mov64 r4, 0
+-ldxb r7, [r1+42]
+-stxdw [r10-2664], r7
+-ldxb r7, [r1+41]
+-stxdw [r10-2656], r7
+-ldxb r7, [r1+40]
+-stxdw [r10-2648], r7
+-ldxdw r7, [r1+32]
+-stxdw [r10-2640], r7
+-ldxdw r1, [r1+24]
+-stxdw [r10-2632], r1
+-ldxdw r7, [r2]
+-ldxdw r1, [r10-1896]
+-stxdw [r1], r3
+-jeq r4, 1, +0x4500
+-ldxdw r4, [r2+16]
+-ldxdw r1, [r4]
+-add64 r1, 1
+-mov64 r3, 1
+-jeq r1, 0, +0x1970
+-mov64 r3, 0
+-stxdw [r10-2672], r4
+-stxdw [r4], r1
+-jeq r3, 1, +0x4500
+-stxdw [r10-2680], r9
+-ldxdw r1, [r8+64]
+-ldxdw r3, [r1+8]
+-stxdw [r10-1904], r3
+-ldxdw r3, [r3]
+-add64 r3, 1
+-mov64 r4, 1
+-jeq r3, 0, +0x19d0
+-mov64 r4, 0
+-ldxb r9, [r2+42]
+-stxdw [r10-2728], r9
+-ldxb r9, [r2+41]
+-stxdw [r10-2720], r9
+-ldxb r9, [r2+40]
+-stxdw [r10-2712], r9
+-ldxdw r9, [r2+32]
+-stxdw [r10-2704], r9
+-ldxdw r2, [r2+24]
+-stxdw [r10-2696], r2
+-ldxdw r2, [r1]
+-stxdw [r10-2688], r2
+-ldxdw r2, [r10-1904]
+-stxdw [r2], r3
+-jeq r4, 1, +0x4500
+-ldxdw r4, [r1+16]
+-ldxdw r2, [r4]
+-add64 r2, 1
+-mov64 r3, 1
+-jeq r2, 0, +0x1a78
+-mov64 r3, 0
+-stxdw [r10-2736], r4
+-stxdw [r4], r2
+-jeq r3, 1, +0x4500
+-ldxdw r2, [r8+48]
+-ldxdw r2, [r2+32]
+-ldxdw r3, [r2+8]
+-stxdw [r10-1912], r3
+-ldxdw r3, [r3]
+-add64 r3, 1
+-mov64 r4, 1
+-jeq r3, 0, +0x1ad8
+-mov64 r4, 0
+-ldxb r9, [r1+42]
+-stxdw [r10-2776], r9
+-ldxb r9, [r1+41]
+-stxdw [r10-2768], r9
+-ldxb r9, [r1+40]
+-stxdw [r10-2760], r9
+-ldxdw r9, [r1+32]
+-stxdw [r10-2752], r9
+-ldxdw r1, [r1+24]
+-stxdw [r10-2744], r1
+-ldxdw r9, [r2]
+-ldxdw r1, [r10-1912]
+-stxdw [r1], r3
+-jeq r4, 1, +0x4500
+-ldxdw r4, [r2+16]
+-ldxdw r1, [r4]
+-add64 r1, 1
+-mov64 r3, 1
+-jeq r1, 0, +0x1b78
+-mov64 r3, 0
+-stxdw [r10-2784], r7
+-stxdw [r10-2792], r4
+-stxdw [r4], r1
+-jeq r3, 1, +0x4500
+-mov64 r7, r6
+-ldxdw r1, [r8+56]
+-ldxdw r1, [r1+32]
+-ldxdw r3, [r1+8]
+-stxdw [r10-1920], r3
+-ldxdw r3, [r3]
+-add64 r3, 1
+-mov64 r4, 1
+-jeq r3, 0, +0x1be8
+-mov64 r4, 0
+-ldxb r6, [r2+42]
+-stxdw [r10-2840], r6
+-ldxb r6, [r2+41]
+-stxdw [r10-2832], r6
+-ldxb r6, [r2+40]
+-stxdw [r10-2824], r6
+-ldxdw r6, [r2+32]
+-stxdw [r10-2816], r6
+-ldxdw r2, [r2+24]
+-stxdw [r10-2808], r2
+-ldxdw r2, [r1]
+-stxdw [r10-2800], r2
+-ldxdw r2, [r10-1920]
+-stxdw [r2], r3
+-jeq r4, 1, +0x4500
+-ldxdw r4, [r1+16]
+-ldxdw r2, [r4]
+-add64 r2, 1
+-mov64 r3, 1
+-mov64 r6, r7
+-jeq r2, 0, +0x1c98
+-mov64 r3, 0
+-stxdw [r10-2848], r4
+-stxdw [r4], r2
+-jeq r3, 1, +0x4500
+-ldxdw r2, [r8+144]
+-ldxdw r3, [r2+8]
+-stxdw [r10-1928], r3
+-ldxdw r3, [r3]
+-add64 r3, 1
+-mov64 r4, 1
+-jeq r3, 0, +0x1cf0
+-mov64 r4, 0
+-ldxb r7, [r1+42]
+-stxdw [r10-2888], r7
+-ldxb r7, [r1+41]
+-stxdw [r10-2880], r7
+-ldxb r7, [r1+40]
+-stxdw [r10-2872], r7
+-ldxdw r7, [r1+32]
+-stxdw [r10-2864], r7
+-ldxdw r1, [r1+24]
+-stxdw [r10-2856], r1
+-ldxdw r7, [r2]
+-ldxdw r1, [r10-1928]
+-stxdw [r1], r3
+-jeq r4, 1, +0x4500
+-ldxdw r4, [r2+16]
+-ldxdw r1, [r4]
+-add64 r1, 1
+-mov64 r3, 1
+-jeq r1, 0, +0x1d90
+-mov64 r3, 0
+-stxdw [r10-2896], r9
+-stxdw [r10-2904], r4
+-stxdw [r4], r1
+-jeq r3, 1, +0x4500
+-mov64 r9, r5
+-ldxdw r1, [r8+152]
+-ldxdw r3, [r1+8]
+-stxdw [r10-1936], r3
+-ldxdw r3, [r3]
+-add64 r3, 1
+-mov64 r4, 1
+-jeq r3, 0, +0x1df8
+-mov64 r4, 0
+-ldxb r5, [r2+42]
+-stxdw [r10-2960], r5
+-ldxb r5, [r2+41]
+-stxdw [r10-2952], r5
+-ldxb r5, [r2+40]
+-stxdw [r10-2944], r5
+-ldxdw r5, [r2+32]
+-stxdw [r10-2936], r5
+-ldxdw r2, [r2+24]
+-stxdw [r10-2928], r2
+-ldxdw r2, [r1]
+-stxdw [r10-2920], r2
+-ldxdw r2, [r10-1936]
+-stxdw [r2], r3
+-jeq r4, 1, +0x4500
+-ldxdw r4, [r1+16]
+-ldxdw r2, [r4]
+-add64 r2, 1
+-mov64 r3, 1
+-mov64 r5, r0
+-jeq r2, 0, +0x1ea8
+-mov64 r3, 0
+-stxdw [r10-2968], r4
+-stxdw [r4], r2
+-jeq r3, 1, +0x4500
+-ldxdw r2, [r8+160]
+-ldxdw r3, [r2+8]
+-stxdw [r10-1944], r3
+-ldxdw r3, [r3]
+-add64 r3, 1
+-mov64 r4, 1
+-jeq r3, 0, +0x1f00
+-mov64 r4, 0
+-ldxb r0, [r1+42]
+-stxdw [r10-3008], r0
+-ldxb r0, [r1+41]
+-stxdw [r10-3000], r0
+-ldxb r0, [r1+40]
+-stxdw [r10-2992], r0
+-ldxdw r0, [r1+32]
+-stxdw [r10-2984], r0
+-ldxdw r1, [r1+24]
+-stxdw [r10-2976], r1
+-ldxdw r0, [r2]
+-ldxdw r1, [r10-1944]
+-stxdw [r1], r3
+-jeq r4, 1, +0x4500
+-ldxdw r4, [r2+16]
+-ldxdw r1, [r4]
+-add64 r1, 1
+-mov64 r3, 1
+-jeq r1, 0, +0x1fa0
+-mov64 r3, 0
+-stxdw [r10-3016], r4
+-stxdw [r4], r1
+-jeq r3, 1, +0x4500
+-stxdw [r10-2912], r6
+-ldxdw r1, [r8+184]
+-ldxdw r3, [r1+8]
+-stxdw [r10-1952], r3
+-ldxdw r3, [r3]
+-add64 r3, 1
+-mov64 r4, 1
+-jeq r3, 0, +0x2000
+-mov64 r4, 0
+-ldxb r6, [r2+42]
+-stxdw [r10-3064], r6
+-ldxb r6, [r2+41]
+-stxdw [r10-3056], r6
+-ldxb r6, [r2+40]
+-stxdw [r10-3048], r6
+-ldxdw r6, [r2+32]
+-stxdw [r10-3040], r6
+-ldxdw r2, [r2+24]
+-stxdw [r10-3032], r2
+-ldxdw r2, [r1]
+-stxdw [r10-3024], r2
+-ldxdw r2, [r10-1952]
+-stxdw [r2], r3
+-jeq r4, 1, +0x4500
+-ldxdw r4, [r1+16]
+-ldxdw r2, [r4]
+-add64 r2, 1
+-mov64 r3, 1
+-jeq r2, 0, +0x20a8
+-mov64 r3, 0
+-stxdw [r10-3072], r4
+-stxdw [r4], r2
+-jeq r3, 1, +0x4500
+-ldxdw r2, [r8+192]
+-ldxdw r3, [r2+8]
+-stxdw [r10-1960], r3
+-ldxdw r3, [r3]
+-add64 r3, 1
+-mov64 r4, 1
+-jeq r3, 0, +0x2100
+-mov64 r4, 0
+-ldxb r6, [r1+42]
+-stxdw [r10-3112], r6
+-ldxb r6, [r1+41]
+-stxdw [r10-3104], r6
+-ldxb r6, [r1+40]
+-stxdw [r10-3096], r6
+-ldxdw r6, [r1+32]
+-stxdw [r10-3088], r6
+-ldxdw r1, [r1+24]
+-stxdw [r10-3080], r1
+-ldxdw r6, [r2]
+-ldxdw r1, [r10-1960]
+-stxdw [r1], r3
+-jeq r4, 1, +0x4500
+-ldxdw r4, [r2+16]
+-ldxdw r1, [r4]
+-add64 r1, 1
+-mov64 r3, 1
+-jeq r1, 0, +0x21a0
+-mov64 r3, 0
+-stxdw [r10-3120], r6
+-stxdw [r10-3128], r4
+-stxdw [r4], r1
+-jeq r3, 1, +0x4500
+-mov64 r6, r7
+-ldxdw r1, [r8+200]
+-ldxdw r3, [r1+8]
+-stxdw [r10-1968], r3
+-ldxdw r3, [r3]
+-add64 r3, 1
+-mov64 r4, 1
+-jeq r3, 0, +0x2208
+-mov64 r4, 0
+-ldxb r7, [r2+42]
+-stxdw [r10-3176], r7
+-ldxb r7, [r2+41]
+-stxdw [r10-3168], r7
+-ldxb r7, [r2+40]
+-stxdw [r10-3160], r7
+-ldxdw r7, [r2+32]
+-stxdw [r10-3152], r7
+-ldxdw r2, [r2+24]
+-stxdw [r10-3144], r2
+-ldxdw r2, [r1]
+-stxdw [r10-3136], r2
+-ldxdw r2, [r10-1968]
+-stxdw [r2], r3
+-jeq r4, 1, +0x4500
+-ldxdw r4, [r1+16]
+-ldxdw r2, [r4]
+-add64 r2, 1
+-mov64 r3, 1
+-jeq r2, 0, +0x22b0
+-mov64 r3, 0
+-stxdw [r10-3184], r4
+-stxdw [r4], r2
+-jeq r3, 1, +0x4500
+-ldxdw r3, [r8+208]
+-ldxdw r2, [r3+8]
+-stxdw [r10-1976], r2
+-ldxdw r2, [r2]
+-add64 r2, 1
+-mov64 r4, 1
+-jeq r2, 0, +0x2308
+-mov64 r4, 0
+-ldxb r7, [r1+42]
+-stxdw [r10-3224], r7
+-ldxb r7, [r1+41]
+-stxdw [r10-3216], r7
+-ldxb r7, [r1+40]
+-stxdw [r10-3208], r7
+-ldxdw r7, [r1+32]
+-stxdw [r10-3200], r7
+-ldxdw r1, [r1+24]
+-stxdw [r10-3192], r1
+-ldxdw r7, [r3]
+-ldxdw r1, [r10-1976]
+-stxdw [r1], r2
+-jeq r4, 1, +0x4500
+-ldxdw r2, [r3+16]
+-ldxdw r1, [r2]
+-add64 r1, 1
+-mov64 r4, 1
+-jeq r1, 0, +0x23a8
+-mov64 r4, 0
+-stxdw [r10-3240], r0
+-stxdw [r10-3232], r9
+-stxdw [r10-3464], r5
+-stxdw [r2], r1
+-jeq r4, 1, +0x4500
+-ldxdw r5, [r8+72]
+-ldxdw r9, [r5+8]
+-ldxdw r4, [r9]
+-add64 r4, 1
+-mov64 r0, 1
+-jeq r4, 0, +0x2408
+-mov64 r0, 0
+-ldxb r1, [r3+42]
+-stxdw [r10-3272], r1
+-ldxb r1, [r3+41]
+-stxdw [r10-3264], r1
+-ldxb r1, [r3+40]
+-stxdw [r10-3256], r1
+-ldxdw r1, [r3+32]
+-stxdw [r10-3248], r1
+-ldxdw r3, [r3+24]
+-ldxdw r1, [r5]
+-stxdw [r9], r4
+-jeq r0, 1, +0x4500
+-stxdw [r10-3312], r3
+-stxdw [r10-3304], r1
+-stxdw [r10-3296], r2
+-ldxdw r1, [r5+16]
+-stxdw [r10-1984], r1
+-ldxdw r4, [r1]
+-add64 r4, 1
+-mov64 r0, 1
+-jeq r4, 0, +0x24b8
+-mov64 r0, 0
+-stxdw [r10-3288], r7
+-stxdw [r10-3280], r6
+-ldxdw r1, [r10-2000]
+-ldxdw r2, [r10-2912]
+-ldxdw r6, [r10-1984]
+-stxdw [r6], r4
+-jeq r0, 1, +0x4500
+-ldxdw r7, [r8+168]
+-ldxdw r4, [r7+8]
+-ldxdw r0, [r4]
+-add64 r0, 1
+-mov64 r6, 1
+-jeq r0, 0, +0x2528
+-mov64 r6, 0
+-ldxb r3, [r5+42]
+-stxdw [r10-3360], r3
+-ldxb r3, [r5+41]
+-stxdw [r10-3352], r3
+-ldxb r3, [r5+40]
+-stxdw [r10-3344], r3
+-ldxdw r3, [r5+32]
+-stxdw [r10-3336], r3
+-ldxdw r5, [r5+24]
+-stxdw [r10-3328], r5
+-ldxdw r5, [r7]
+-stxdw [r10-3320], r5
+-stxdw [r4], r0
+-jeq r6, 1, +0x4500
+-stxdw [r10-3376], r4
+-ldxdw r0, [r7+16]
+-ldxdw r5, [r0]
+-add64 r5, 1
+-mov64 r6, 1
+-jeq r5, 0, +0x25d0
+-mov64 r6, 0
+-stxdw [r10-3368], r9
+-ldxdw r4, [r10-2408]
+-stxdw [r0], r5
+-jeq r6, 1, +0x4500
+-ldxdw r9, [r8+176]
+-ldxdw r6, [r9+8]
+-ldxdw r5, [r6]
+-add64 r5, 1
+-mov64 r8, 1
+-jeq r5, 0, +0x2628
+-mov64 r8, 0
+-ldxb r3, [r7+42]
+-stxdw [r10-3416], r3
+-ldxb r3, [r7+41]
+-stxdw [r10-3408], r3
+-ldxb r3, [r7+40]
+-stxdw [r10-3400], r3
+-ldxdw r3, [r7+32]
+-stxdw [r10-3392], r3
+-ldxdw r3, [r7+24]
+-stxdw [r10-3384], r3
+-ldxdw r3, [r9]
+-stxdw [r6], r5
+-jeq r8, 1, +0x4500
+-ldxdw r5, [r9+16]
+-ldxdw r7, [r5]
+-add64 r7, 1
+-mov64 r8, 1
+-jeq r7, 0, +0x26c0
+-mov64 r8, 0
+-stxdw [r5], r7
+-jeq r8, 1, +0x4500
+-ldxdw r7, [r9+24]
+-stxdw [r10-3424], r7
+-ldxdw r7, [r9+32]
+-stxdw [r10-3432], r7
+-ldxb r7, [r9+40]
+-stxdw [r10-3440], r7
+-ldxb r7, [r9+41]
+-stxdw [r10-3448], r7
+-ldxb r9, [r9+42]
+-ldxdw r7, [r10-1792]
+-ldxb r7, [r7+34]
+-mov64 r8, r10
+-add64 r8, -313
+-stxdw [r10-112], r8
+-lddw r8, .rodata[736f6c2d7661756c]
+-stxdw [r10-128], r8
+-stxb [r10-313], r7
+-mov64 r7, r10
+-add64 r7, -128
+-stxdw [r10-336], r7
+-ldxdw r7, [r10-2056]
+-stxb [r10-1710], r7
+-ldxdw r7, [r10-2048]
+-stxb [r10-1711], r7
+-ldxdw r7, [r10-2040]
+-stxb [r10-1712], r7
+-ldxdw r7, [r10-2032]
+-stxdw [r10-1720], r7
+-ldxdw r7, [r10-2024]
+-stxdw [r10-1728], r7
+-ldxdw r7, [r10-3232]
+-stxdw [r10-1736], r7
+-stxdw [r10-1744], r2
+-stxdw [r10-1752], r1
+-stdw [r10-104], 1
+-stdw [r10-120], 9
+-stdw [r10-328], 2
+-ldxw r7, [r10-280]
+-stxw [r10-1709], r7
+-ldxb r7, [r10-276]
+-stxb [r10-1705], r7
+-ldxdw r1, [r10-2104]
+-stxb [r10-1662], r1
+-ldxdw r1, [r10-2096]
+-stxb [r10-1663], r1
+-ldxdw r1, [r10-2088]
+-stxb [r10-1664], r1
+-ldxdw r1, [r10-2080]
+-stxdw [r10-1672], r1
+-ldxdw r1, [r10-2072]
+-stxdw [r10-1680], r1
+-ldxdw r1, [r10-2064]
+-stxdw [r10-1688], r1
+-ldxdw r1, [r10-1784]
+-stxdw [r10-1696], r1
+-ldxdw r1, [r10-2016]
+-stxdw [r10-1704], r1
+-ldxb r7, [r10-308]
+-stxb [r10-1657], r7
+-ldxw r7, [r10-312]
+-stxw [r10-1661], r7
+-ldxdw r1, [r10-2168]
+-stxb [r10-1614], r1
+-ldxdw r1, [r10-2160]
+-stxb [r10-1615], r1
+-ldxdw r1, [r10-2152]
+-stxb [r10-1616], r1
+-ldxdw r1, [r10-2144]
+-stxdw [r10-1624], r1
+-ldxdw r1, [r10-2136]
+-stxdw [r10-1632], r1
+-ldxdw r1, [r10-2112]
+-stxdw [r10-1640], r1
+-ldxdw r1, [r10-1800]
+-stxdw [r10-1648], r1
+-ldxdw r1, [r10-2120]
+-stxdw [r10-1656], r1
+-ldxb r7, [r10-337]
+-stxb [r10-1609], r7
+-ldxw r7, [r10-341]
+-stxw [r10-1613], r7
+-ldxdw r1, [r10-2216]
+-stxb [r10-1566], r1
+-ldxdw r1, [r10-2208]
+-stxb [r10-1567], r1
+-ldxdw r1, [r10-2200]
+-stxb [r10-1568], r1
+-ldxdw r1, [r10-2192]
+-stxdw [r10-1576], r1
+-ldxdw r1, [r10-2184]
+-stxdw [r10-1584], r1
+-ldxdw r1, [r10-2176]
+-stxdw [r10-1592], r1
+-ldxdw r1, [r10-1816]
+-stxdw [r10-1600], r1
+-ldxdw r1, [r10-2128]
+-stxdw [r10-1608], r1
+-ldxb r7, [r10-342]
+-stxb [r10-1561], r7
+-ldxw r7, [r10-346]
+-stxw [r10-1565], r7
+-ldxdw r1, [r10-2280]
+-stxb [r10-1518], r1
+-ldxdw r1, [r10-2272]
+-stxb [r10-1519], r1
+-ldxdw r1, [r10-2264]
+-stxb [r10-1520], r1
+-ldxdw r1, [r10-2256]
+-stxdw [r10-1528], r1
+-ldxdw r1, [r10-2248]
+-stxdw [r10-1536], r1
+-ldxdw r1, [r10-2224]
+-stxdw [r10-1544], r1
+-ldxdw r1, [r10-1832]
+-stxdw [r10-1552], r1
+-ldxdw r1, [r10-2344]
+-stxdw [r10-1560], r1
+-ldxb r7, [r10-347]
+-stxb [r10-1513], r7
+-ldxw r7, [r10-351]
+-stxw [r10-1517], r7
+-ldxdw r1, [r10-2328]
+-stxb [r10-1470], r1
+-ldxdw r1, [r10-2320]
+-stxb [r10-1471], r1
+-ldxdw r1, [r10-2312]
+-stxb [r10-1472], r1
+-ldxdw r1, [r10-2304]
+-stxdw [r10-1480], r1
+-ldxdw r1, [r10-2296]
+-stxdw [r10-1488], r1
+-ldxdw r1, [r10-2288]
+-stxdw [r10-1496], r1
+-ldxdw r1, [r10-1840]
+-stxdw [r10-1504], r1
+-ldxdw r1, [r10-2240]
+-stxdw [r10-1512], r1
+-ldxb r7, [r10-352]
+-stxb [r10-1465], r7
+-ldxw r7, [r10-356]
+-stxw [r10-1469], r7
+-ldxdw r1, [r10-2392]
+-stxb [r10-1422], r1
+-ldxdw r1, [r10-2384]
+-stxb [r10-1423], r1
+-ldxdw r1, [r10-2376]
+-stxb [r10-1424], r1
+-ldxdw r1, [r10-2368]
+-stxdw [r10-1432], r1
+-ldxdw r1, [r10-2360]
+-stxdw [r10-1440], r1
+-ldxdw r1, [r10-2336]
+-stxdw [r10-1448], r1
+-ldxdw r1, [r10-1848]
+-stxdw [r10-1456], r1
+-stxdw [r10-1464], r4
+-ldxb r7, [r10-357]
+-stxb [r10-1417], r7
+-ldxw r7, [r10-361]
+-stxw [r10-1421], r7
+-ldxdw r1, [r10-2448]
+-stxb [r10-1374], r1
+-ldxdw r1, [r10-2440]
+-stxb [r10-1375], r1
+-ldxdw r1, [r10-2432]
+-stxb [r10-1376], r1
+-ldxdw r1, [r10-2424]
+-stxdw [r10-1384], r1
+-ldxdw r1, [r10-2416]
+-stxdw [r10-1392], r1
+-ldxdw r1, [r10-2400]
+-stxdw [r10-1400], r1
+-ldxdw r1, [r10-1856]
+-stxdw [r10-1408], r1
+-ldxdw r1, [r10-2352]
+-stxdw [r10-1416], r1
+-ldxb r7, [r10-362]
+-stxb [r10-1369], r7
+-ldxw r7, [r10-366]
+-stxw [r10-1373], r7
+-ldxdw r1, [r10-2504]
+-stxb [r10-1326], r1
+-ldxdw r1, [r10-2496]
+-stxb [r10-1327], r1
+-ldxdw r1, [r10-2488]
+-stxb [r10-1328], r1
+-ldxdw r1, [r10-2480]
+-stxdw [r10-1336], r1
+-ldxdw r1, [r10-2472]
+-stxdw [r10-1344], r1
+-ldxdw r1, [r10-2456]
+-stxdw [r10-1352], r1
+-ldxdw r1, [r10-1864]
+-stxdw [r10-1360], r1
+-ldxdw r1, [r10-2568]
+-stxdw [r10-1368], r1
+-ldxb r7, [r10-367]
+-stxb [r10-1321], r7
+-ldxw r7, [r10-371]
+-stxw [r10-1325], r7
+-ldxdw r1, [r10-2552]
+-stxb [r10-1278], r1
+-ldxdw r1, [r10-2544]
+-stxb [r10-1279], r1
+-ldxdw r1, [r10-2536]
+-stxb [r10-1280], r1
+-ldxdw r1, [r10-2528]
+-stxdw [r10-1288], r1
+-ldxdw r1, [r10-2520]
+-stxdw [r10-1296], r1
+-ldxdw r1, [r10-2512]
+-stxdw [r10-1304], r1
+-ldxdw r1, [r10-1872]
+-stxdw [r10-1312], r1
+-ldxdw r1, [r10-2464]
+-stxdw [r10-1320], r1
+-ldxb r7, [r10-372]
+-stxb [r10-1273], r7
+-ldxw r7, [r10-376]
+-stxw [r10-1277], r7
+-ldxdw r1, [r10-2616]
+-stxb [r10-1230], r1
+-ldxdw r1, [r10-2608]
+-stxb [r10-1231], r1
+-ldxdw r1, [r10-2600]
+-stxb [r10-1232], r1
+-ldxdw r1, [r10-2592]
+-stxdw [r10-1240], r1
+-ldxdw r1, [r10-2584]
+-stxdw [r10-1248], r1
+-ldxdw r1, [r10-2560]
+-stxdw [r10-1256], r1
+-ldxdw r1, [r10-1880]
+-stxdw [r10-1264], r1
+-ldxdw r1, [r10-2680]
+-stxdw [r10-1272], r1
+-ldxb r7, [r10-377]
+-stxb [r10-1225], r7
+-ldxw r7, [r10-381]
+-stxw [r10-1229], r7
+-ldxdw r1, [r10-2664]
+-stxb [r10-1182], r1
+-ldxdw r1, [r10-2656]
+-stxb [r10-1183], r1
+-ldxdw r1, [r10-2648]
+-stxb [r10-1184], r1
+-ldxdw r1, [r10-2640]
+-stxdw [r10-1192], r1
+-ldxdw r1, [r10-2632]
+-stxdw [r10-1200], r1
+-ldxdw r1, [r10-2624]
+-stxdw [r10-1208], r1
+-ldxdw r1, [r10-1888]
+-stxdw [r10-1216], r1
+-ldxdw r1, [r10-2576]
+-stxdw [r10-1224], r1
+-ldxb r7, [r10-382]
+-stxb [r10-1177], r7
+-ldxw r7, [r10-386]
+-stxw [r10-1181], r7
+-ldxdw r1, [r10-2728]
+-stxb [r10-1134], r1
+-ldxdw r1, [r10-2720]
+-stxb [r10-1135], r1
+-ldxdw r1, [r10-2712]
+-stxb [r10-1136], r1
+-ldxdw r1, [r10-2704]
+-stxdw [r10-1144], r1
+-ldxdw r1, [r10-2696]
+-stxdw [r10-1152], r1
+-ldxdw r1, [r10-2672]
+-stxdw [r10-1160], r1
+-ldxdw r1, [r10-1896]
+-stxdw [r10-1168], r1
+-ldxdw r1, [r10-2784]
+-stxdw [r10-1176], r1
+-ldxb r7, [r10-387]
+-stxb [r10-1129], r7
+-ldxw r7, [r10-391]
+-stxw [r10-1133], r7
+-ldxdw r1, [r10-2776]
+-stxb [r10-1086], r1
+-ldxdw r1, [r10-2768]
+-stxb [r10-1087], r1
+-ldxdw r1, [r10-2760]
+-stxb [r10-1088], r1
+-ldxdw r1, [r10-2752]
+-stxdw [r10-1096], r1
+-ldxdw r1, [r10-2744]
+-stxdw [r10-1104], r1
+-ldxdw r1, [r10-2736]
+-stxdw [r10-1112], r1
+-ldxdw r1, [r10-1904]
+-stxdw [r10-1120], r1
+-ldxdw r1, [r10-2688]
+-stxdw [r10-1128], r1
+-ldxb r7, [r10-392]
+-stxb [r10-1081], r7
+-ldxw r7, [r10-396]
+-stxw [r10-1085], r7
+-ldxdw r1, [r10-2840]
+-stxb [r10-1038], r1
+-ldxdw r1, [r10-2832]
+-stxb [r10-1039], r1
+-ldxdw r1, [r10-2824]
+-stxb [r10-1040], r1
+-ldxdw r1, [r10-2816]
+-stxdw [r10-1048], r1
+-ldxdw r1, [r10-2808]
+-stxdw [r10-1056], r1
+-ldxdw r1, [r10-2792]
+-stxdw [r10-1064], r1
+-ldxdw r1, [r10-1912]
+-stxdw [r10-1072], r1
+-ldxdw r1, [r10-2896]
+-stxdw [r10-1080], r1
+-ldxb r7, [r10-397]
+-stxb [r10-1033], r7
+-ldxw r7, [r10-401]
+-stxw [r10-1037], r7
+-ldxdw r1, [r10-2888]
+-stxb [r10-990], r1
+-ldxdw r1, [r10-2880]
+-stxb [r10-991], r1
+-ldxdw r1, [r10-2872]
+-stxb [r10-992], r1
+-ldxdw r1, [r10-2864]
+-stxdw [r10-1000], r1
+-ldxdw r1, [r10-2856]
+-stxdw [r10-1008], r1
+-ldxdw r1, [r10-2848]
+-stxdw [r10-1016], r1
+-ldxdw r1, [r10-1920]
+-stxdw [r10-1024], r1
+-ldxdw r1, [r10-2800]
+-stxdw [r10-1032], r1
+-ldxb r7, [r10-402]
+-stxb [r10-985], r7
+-ldxw r7, [r10-406]
+-stxw [r10-989], r7
+-ldxdw r1, [r10-2960]
+-stxb [r10-942], r1
+-ldxdw r1, [r10-2952]
+-stxb [r10-943], r1
+-ldxdw r1, [r10-2944]
+-stxb [r10-944], r1
+-ldxdw r1, [r10-2936]
+-stxdw [r10-952], r1
+-ldxdw r1, [r10-2928]
+-stxdw [r10-960], r1
+-ldxdw r1, [r10-2904]
+-stxdw [r10-968], r1
+-ldxdw r1, [r10-1928]
+-stxdw [r10-976], r1
+-ldxdw r1, [r10-3280]
+-stxdw [r10-984], r1
+-ldxb r7, [r10-407]
+-stxb [r10-937], r7
+-ldxw r7, [r10-411]
+-stxw [r10-941], r7
+-ldxdw r1, [r10-3008]
+-stxb [r10-894], r1
+-ldxdw r1, [r10-3000]
+-stxb [r10-895], r1
+-ldxdw r1, [r10-2992]
+-stxb [r10-896], r1
+-ldxdw r1, [r10-2984]
+-stxdw [r10-904], r1
+-ldxdw r1, [r10-2976]
+-stxdw [r10-912], r1
+-ldxdw r1, [r10-2968]
+-stxdw [r10-920], r1
+-ldxdw r1, [r10-1936]
+-stxdw [r10-928], r1
+-ldxdw r1, [r10-2920]
+-stxdw [r10-936], r1
+-ldxb r7, [r10-412]
+-stxb [r10-889], r7
+-ldxw r7, [r10-416]
+-stxw [r10-893], r7
+-ldxdw r1, [r10-3064]
+-stxb [r10-846], r1
+-ldxdw r1, [r10-3056]
+-stxb [r10-847], r1
+-ldxdw r1, [r10-3048]
+-stxb [r10-848], r1
+-ldxdw r1, [r10-3040]
+-stxdw [r10-856], r1
+-ldxdw r1, [r10-3032]
+-stxdw [r10-864], r1
+-ldxdw r1, [r10-3016]
+-stxdw [r10-872], r1
+-ldxdw r1, [r10-1944]
+-stxdw [r10-880], r1
+-ldxdw r1, [r10-3240]
+-stxdw [r10-888], r1
+-ldxb r7, [r10-417]
+-stxb [r10-841], r7
+-ldxw r7, [r10-421]
+-stxw [r10-845], r7
+-ldxdw r1, [r10-3112]
+-stxb [r10-798], r1
+-ldxdw r1, [r10-3104]
+-stxb [r10-799], r1
+-ldxdw r1, [r10-3096]
+-stxb [r10-800], r1
+-ldxdw r1, [r10-3088]
+-stxdw [r10-808], r1
+-ldxdw r1, [r10-3080]
+-stxdw [r10-816], r1
+-ldxdw r1, [r10-3072]
+-stxdw [r10-824], r1
+-ldxdw r1, [r10-1952]
+-stxdw [r10-832], r1
+-ldxdw r1, [r10-3024]
+-stxdw [r10-840], r1
+-ldxb r7, [r10-422]
+-stxb [r10-793], r7
+-ldxw r7, [r10-426]
+-stxw [r10-797], r7
+-ldxdw r1, [r10-3176]
+-stxb [r10-750], r1
+-ldxdw r1, [r10-3168]
+-stxb [r10-751], r1
+-ldxdw r1, [r10-3160]
+-stxb [r10-752], r1
+-ldxdw r1, [r10-3152]
+-stxdw [r10-760], r1
+-ldxdw r1, [r10-3144]
+-stxdw [r10-768], r1
+-ldxdw r1, [r10-3128]
+-stxdw [r10-776], r1
+-ldxdw r1, [r10-1960]
+-stxdw [r10-784], r1
+-ldxdw r1, [r10-3120]
+-stxdw [r10-792], r1
+-ldxb r7, [r10-427]
+-stxb [r10-745], r7
+-ldxw r7, [r10-431]
+-stxw [r10-749], r7
+-ldxdw r1, [r10-3224]
+-stxb [r10-702], r1
+-ldxdw r1, [r10-3216]
+-stxb [r10-703], r1
+-ldxdw r1, [r10-3208]
+-stxb [r10-704], r1
+-ldxdw r1, [r10-3200]
+-stxdw [r10-712], r1
+-ldxdw r1, [r10-3192]
+-stxdw [r10-720], r1
+-ldxdw r1, [r10-3184]
+-stxdw [r10-728], r1
+-ldxdw r1, [r10-1968]
+-stxdw [r10-736], r1
+-ldxdw r1, [r10-3136]
+-stxdw [r10-744], r1
+-ldxb r7, [r10-432]
+-stxb [r10-697], r7
+-ldxw r7, [r10-436]
+-stxw [r10-701], r7
+-ldxdw r1, [r10-3272]
+-stxb [r10-654], r1
+-ldxdw r1, [r10-3264]
+-stxb [r10-655], r1
+-ldxdw r1, [r10-3256]
+-stxb [r10-656], r1
+-ldxdw r1, [r10-3248]
+-stxdw [r10-664], r1
+-ldxdw r1, [r10-3312]
+-stxdw [r10-672], r1
+-ldxdw r1, [r10-3296]
+-stxdw [r10-680], r1
+-ldxdw r1, [r10-1976]
+-stxdw [r10-688], r1
+-ldxdw r1, [r10-3288]
+-stxdw [r10-696], r1
+-ldxb r2, [r10-437]
+-stxb [r10-649], r2
+-ldxw r2, [r10-441]
+-stxw [r10-653], r2
+-ldxdw r1, [r10-3360]
+-stxb [r10-606], r1
+-ldxdw r1, [r10-3352]
+-stxb [r10-607], r1
+-ldxdw r1, [r10-3344]
+-stxb [r10-608], r1
+-ldxdw r1, [r10-3336]
+-stxdw [r10-616], r1
+-ldxdw r1, [r10-3328]
+-stxdw [r10-624], r1
+-ldxdw r1, [r10-1984]
+-stxdw [r10-632], r1
+-ldxdw r1, [r10-3368]
+-stxdw [r10-640], r1
+-ldxdw r1, [r10-3304]
+-stxdw [r10-648], r1
+-ldxb r1, [r10-442]
+-stxb [r10-601], r1
+-ldxw r1, [r10-446]
+-stxw [r10-605], r1
+-ldxdw r1, [r10-3416]
+-stxb [r10-558], r1
+-ldxdw r1, [r10-3408]
+-stxb [r10-559], r1
+-ldxdw r1, [r10-3400]
+-stxb [r10-560], r1
+-ldxdw r1, [r10-3392]
+-stxdw [r10-568], r1
+-ldxdw r1, [r10-3384]
+-stxdw [r10-576], r1
+-stxdw [r10-584], r0
+-ldxdw r1, [r10-3376]
+-stxdw [r10-592], r1
+-ldxdw r1, [r10-3320]
+-stxdw [r10-600], r1
+-ldxb r1, [r10-447]
+-stxb [r10-553], r1
+-ldxw r1, [r10-451]
+-stxw [r10-557], r1
+-stxb [r10-510], r9
+-ldxdw r1, [r10-3448]
+-stxb [r10-511], r1
+-ldxdw r1, [r10-3440]
+-stxb [r10-512], r1
+-ldxdw r1, [r10-3432]
+-stxdw [r10-520], r1
+-ldxdw r1, [r10-3424]
+-stxdw [r10-528], r1
+-stxdw [r10-536], r5
+-stxdw [r10-544], r6
+-stxdw [r10-552], r3
+-ldxb r1, [r10-452]
+-stxb [r10-505], r1
+-ldxw r1, [r10-456]
+-stxw [r10-509], r1
+-stdw [r10-1760], 0
+-stdw [r10-1768], 8
+-stdw [r10-1776], 0
+-ldxdw r1, [r10-24]
+-stxdw [r10-464], r1
+-ldxdw r1, [r10-32]
+-stxdw [r10-472], r1
+-ldxdw r1, [r10-40]
+-stxdw [r10-480], r1
+-ldxdw r1, [r10-48]
+-stxdw [r10-488], r1
+-mov64 r1, r10
+-add64 r1, -336
+-stxdw [r10-504], r1
+-stdw [r10-496], 1
+-mov64 r1, r10
+-add64 r1, -1776
+-ldxdw r2, [r10-2008]
+-ldxdw r3, [r10-2232]
+-call pump_cpi::pump_v2::pump::cpi::sell_v2#f854
+-mov64 r7, r0
+-mov64 r6, r1
+-jne r7, 2, +0x3858
+-ldxdw r8, [r10-1808]
+-ja +0x3a00
+-mov64 r1, r10
+-add64 r1, -312
+-lddw r2, .rodata[08000000]
+-call mayhem_program::MayhemError::name#2984
+-stdw [r10-264], 0
+-stdw [r10-272], 1
+-stdw [r10-280], 0
+-lddw r1, table[0:core::ptr::drop_in_place<alloc::string::String>#91b5, 3:<alloc::string::String as core::fmt::Write>::write_str#ca2d, 4:<alloc::string::String as core::fmt::Write>::write_char#6537, 5:core::fmt::Write::write_fmt#a290]
+-stxdw [r10-40], r1
+-mov64 r1, r10
+-add64 r1, -280
+-stxdw [r10-48], r1
+-lddw r1, 0xe0000020
+-stxdw [r10-32], r1
+-mov64 r2, r10
+-add64 r2, -48
+-lddw r1, .rodata[08000000]
+-call orig_fn_2fcb8
+-ldxdw r8, [r10-1808]
+-jne r0, 0, +0x4578
+-ldxdw r1, [r10-264]
+-stxdw [r10-1704], r1
+-ldxdw r1, [r10-272]
+-stxdw [r10-1712], r1
+-ldxdw r1, [r10-280]
+-stxdw [r10-1720], r1
+-ldxdw r1, [r10-312]
+-stxdw [r10-1744], r1
+-ldxdw r1, [r10-304]
+-stxdw [r10-1736], r1
+-ldxdw r1, [r10-296]
+-stxdw [r10-1728], r1
+-lddw r1, .rodata[70726f6772616d73]
+-stxdw [r10-1768], r1
+-stw [r10-1624], 6008
+-stb [r10-1696], 2
+-stw [r10-1752], 574
+-stdw [r10-1760], 61
+-stdw [r10-1776], 0
+-mov64 r1, r10
+-add64 r1, -1776
+-call <anchor_lang::error::Error as core::convert::From<anchor_lang::error::AnchorError>>::from#5ca3
+-jeq r7, 0, +0x39f0
+-ldxdw r2, [r6]
+-ldxb r2, [r6+40]
+-ja +0x39f8
+-ldxdw r2, [r6]
+-jne r0, 2, +0x4a0
+-ldxdw r1, [r8+48]
+-call anchor_lang::accounts::interface_account::InterfaceAccount<T>::reload#d655
+-jne r0, 2, +0x4a0
+-ldxdw r1, [r8+104]
+-call anchor_lang::accounts::account::Account<T>::reload#ca71
+-jne r0, 2, +0x4a0
+-ldxdw r1, [r10-3456]
+-jeq r1, 0, +0x3a60
+-ldxdw r1, [r8+64]
+-call solana_account_info::AccountInfo::lamports#aa02
+-mov64 r7, r0
+-ja +0x3a88
+-ldxdw r1, [r8+56]
+-call anchor_lang::accounts::interface_account::InterfaceAccount<T>::reload#d655
+-jne r0, 2, +0x4a0
+-ldxdw r1, [r8+56]
+-ldxdw r7, [r1+104]
+-ldxdw r4, [r10-1992]
+-ldxdw r2, [r10-3464]
+-jlt r7, r2, +0x4680
++ldxdw r2, [r10-3256]
++jlt r0, r2, +0x2160
+ ldxdw r1, [r8+48]
+ ldxdw r1, [r1+104]
+-jlt r4, r1, +0x4698
+-sub64 r7, r2
+-sub64 r4, r1
+-ldxdw r2, [r8+16]
+-ldxdw r1, [r8+8]
+-ldxdw r3, [r8+32]
++jlt r6, r1, +0x2178
++stxdw [r10-3216], r0
++mov64 r9, r0
++sub64 r9, r2
++ldxdw r2, [r8+8]
++ldxdw r3, [r10-3232]
++jeq r3, 0, +0x13f8
++ldxdw r5, [r2+80]
++ldxdw r4, [r2+72]
++mov64 r0, 1
++jlt r4, r9, +0x13a8
++mov64 r0, 0
++mov64 r3, r5
++sub64 r3, r0
++mov64 r0, r5
++xor64 r0, r3
++and64 r5, r0
++jslt r5, 0, +0x16d8
++sub64 r4, r9
++stxdw [r2+72], r4
++mov64 r4, 80
++ja +0x1468
++ldxdw r5, [r2+96]
++ldxdw r4, [r2+88]
++mov64 r0, 1
++jlt r4, r9, +0x1420
++mov64 r0, 0
++mov64 r3, r5
++sub64 r3, r0
++mov64 r0, r5
++xor64 r0, r3
++and64 r5, r0
++jslt r5, 0, +0x16d8
++sub64 r4, r9
++stxdw [r2+88], r4
++mov64 r4, 96
++add64 r2, r4
++stxdw [r2], r3
++ldxdw r2, [r10-3272]
++ldxdw r2, [r2+16]
++ldxdw r3, [r2+40]
++mov64 r0, 1
++jlt r3, r9, +0x14a8
++mov64 r0, 0
++ldxdw r5, [r2+48]
++mov64 r4, r5
++sub64 r4, r0
++mov64 r0, r5
++xor64 r0, r4
++and64 r5, r0
++jslt r5, 0, +0x16d8
++sub64 r6, r1
++sub64 r3, r9
++stxdw [r2+40], r3
++stxdw [r2+48], r4
++ldxdw r1, [r10-3272]
++ldxdw r1, [r1+16]
++ldxdw r3, [r1+56]
++mov64 r2, r3
++add64 r2, r6
++mov64 r5, 1
++jlt r2, r3, +0x1540
++mov64 r5, 0
++ldxdw r4, [r1+64]
++mov64 r3, r4
++add64 r3, r5
++mov64 r5, r4
++xor64 r5, r3
++xor64 r4, -1
++and64 r4, r5
++jsle r4, -1, +0x16d8
++stxdw [r10-3224], r6
++stxdw [r1+56], r2
++stxdw [r1+64], r3
++ldxdw r6, [r10-3272]
++ldxdw r1, [r6+64]
++ldxdw r2, [r1]
++ldxdw r3, [r2+24]
++stxdw [r10-264], r3
++ldxdw r3, [r2+16]
++stxdw [r10-272], r3
++ldxdw r3, [r2+8]
++stxdw [r10-280], r3
++ldxdw r2, [r2]
++stxdw [r10-288], r2
++ldxdw r2, [r6+24]
++ldxdw r2, [r2+88]
++ldxdw r2, [r2]
++ldxdw r3, [r2+24]
++stxdw [r10-32], r3
++ldxdw r3, [r2+16]
++stxdw [r10-40], r3
++ldxdw r3, [r2+8]
++stxdw [r10-48], r3
++ldxdw r2, [r2]
++stxdw [r10-56], r2
++jeq r7, 0, +0x16e8
++call solana_account_info::AccountInfo::lamports#aa02
++stxdw [r10-3264], r0
++ldxdw r1, [r6+8]
++ldxdw r2, [r1+80]
++stxdw [r10-3248], r2
++ldxdw r1, [r1+72]
++stxdw [r10-3256], r1
++ldxdw r1, [r6+16]
++ldxdw r2, [r1+48]
++stxdw [r10-3288], r2
++ldxdw r2, [r1+40]
++stxdw [r10-3280], r2
++ldxdw r2, [r6+104]
++ldxdw r3, [r2+16]
++stxdw [r10-3304], r3
++stxdw [r10-3296], r9
++ja +0x1740
++call mayhem_program::instructions::pump_interface::buy::math#52f7
++ja +0x5a0
++mov64 r1, 0
++stxdw [r10-3296], r1
++ldxdw r2, [r6+104]
++ldxdw r1, [r6+16]
++mov64 r3, 0
++stxdw [r10-3264], r3
++stxdw [r10-3280], r3
++stxdw [r10-3288], r3
++stxdw [r10-3304], r3
++stxdw [r10-3256], r3
++stxdw [r10-3248], r3
++ldxdw r3, [r1+64]
++stxdw [r10-3320], r3
++ldxdw r8, [r1+56]
++ldxdw r1, [r2+8]
++stxdw [r10-3312], r1
++ldxdw r1, [r6+48]
++ldxdw r6, [r1+104]
++mov64 r1, r10
++add64 r1, -136
++call solana_sysvar::clock::<impl solana_sysvar::Sysvar for solana_clock::Clock>::get#06ec
++ldxw r1, [r10-136]
++jne r1, 1, +0x17c0
++ldxw r2, [r10-128]
++ldxw r1, [r10-132]
++call <anchor_lang::error::Error as core::convert::From<solana_program_error::ProgramError>>::from#507a
++ja +0x5a0
++mov64 r1, 72
++ldxdw r2, [r10-3232]
++jne r2, 0, +0x17e0
++mov64 r1, 88
++mov64 r4, r8
++ldxdw r3, [r10-3272]
++ldxdw r0, [r3+16]
++ldxdw r2, [r3+104]
++ldxdw r5, [r3+8]
++mov64 r3, r5
++add64 r3, r1
++ldxdw r1, [r2+32]
++mov64 r8, r1
++jne r7, 0, +0x1838
++mov64 r8, 0
++stxdw [r10-3328], r8
++ldxdw r8, [r10-96]
++stxdw [r10-3360], r8
++ldxdw r8, [r0+48]
++stxdw [r10-3232], r8
++ldxdw r8, [r0+40]
++stxdw [r10-3344], r8
++ldxdw r8, [r2+16]
++stxdw [r10-3336], r8
++ldxw r5, [r5+224]
++stxdw [r10-3352], r5
++ldxdw r2, [r2+24]
++stxdw [r10-3368], r2
++ldxdw r0, [r0+80]
++ldxdw r5, [r3+8]
++ldxdw r8, [r3]
++jeq r7, 0, +0x18f0
++stdw [r10-112], 0
++stdw [r10-120], 0
++stdw [r10-128], 0
++stdw [r10-136], 0
++ldxdw r7, [r10-3272]
++ja +0x1968
++ldxdw r7, [r10-3272]
++ldxdw r3, [r7+32]
+ ldxdw r3, [r3]
++mov64 r2, r8
++mov64 r8, r5
+ ldxdw r5, [r3+24]
+-stxdw [r10-1752], r5
++stxdw [r10-112], r5
+ ldxdw r5, [r3+16]
+-stxdw [r10-1760], r5
++stxdw [r10-120], r5
+ ldxdw r5, [r3+8]
+-stxdw [r10-1768], r5
++stxdw [r10-128], r5
++mov64 r5, r8
++mov64 r8, r2
+ ldxdw r3, [r3]
+-stxdw [r10-1776], r3
+-add64 r1, 8
+-add64 r2, 8
+-mov64 r5, r10
+-add64 r5, -1776
+-mov64 r3, r7
+-stxdw [r10-1992], r4
+-call orig_fn_2ce68
+-jne r0, 2, +0x4a0
+-ldxdw r1, [r10-3456]
+-jeq r1, 0, +0x3c78
+-ldxdw r1, [r8+64]
+-call solana_account_info::AccountInfo::lamports#aa02
+-stxdw [r10-1784], r0
+-ldxdw r1, [r8+8]
+-ldxdw r3, [r1+80]
+-ldxdw r4, [r1+72]
+-ldxdw r1, [r8+16]
+-ldxdw r0, [r1+48]
+-ldxdw r9, [r1+40]
+-ldxdw r5, [r8+104]
+-ldxdw r6, [r5+96]
+-ldxdw r2, [r5+80]
+-stdw [r10-288], 0
+-stdw [r10-296], 0
+-stdw [r10-304], 0
+-stdw [r10-312], 0
+-stxdw [r10-1912], r7
+-stxdw [r10-1896], r6
+-stxdw [r10-1832], r6
+-stxdw [r10-1872], r4
+-stxdw [r10-1792], r4
+-stxdw [r10-1864], r3
+-stxdw [r10-1800], r3
+-stxdw [r10-1904], r2
+-stxdw [r10-1840], r2
+-stxdw [r10-1888], r9
+-stxdw [r10-1848], r9
+-stxdw [r10-1880], r0
+-stxdw [r10-1856], r0
+-ldxdw r2, [r10-1784]
+-stxdw [r10-1816], r2
+-ja +0x3da8
+-ldxdw r1, [r8+8]
+-ldxdw r2, [r1+96]
+-stxdw [r10-1800], r2
+-ldxdw r1, [r1+88]
+-stxdw [r10-1792], r1
+-ldxdw r1, [r8+56]
+-ldxdw r1, [r1+104]
+-stxdw [r10-1816], r1
+-ldxdw r1, [r8+16]
+-ldxdw r2, [r1+48]
+-stxdw [r10-1856], r2
+-ldxdw r2, [r1+40]
+-stxdw [r10-1848], r2
+-ldxdw r5, [r8+104]
+-ldxdw r3, [r5+96]
+-stxdw [r10-1832], r3
+-ldxdw r3, [r5+80]
+-stxdw [r10-1840], r3
+-ldxdw r3, [r8+32]
+-ldxdw r3, [r3]
+-ldxdw r4, [r3+24]
+-stxdw [r10-288], r4
+-ldxdw r4, [r3+16]
+-stxdw [r10-296], r4
+-ldxdw r4, [r3+8]
+-stxdw [r10-304], r4
+-ldxdw r3, [r3]
+-stxdw [r10-312], r3
+-mov64 r3, 0
+-stxdw [r10-1896], r3
+-stxdw [r10-1872], r3
+-stxdw [r10-1864], r3
+-stxdw [r10-1904], r3
+-stxdw [r10-1888], r3
+-stxdw [r10-1880], r3
+-stxdw [r10-1784], r3
+-mov64 r2, 0
+-stxdw [r10-1912], r2
+-ldxdw r3, [r8+64]
+-ldxdw r3, [r3]
+-ldxdw r4, [r3+24]
+-stxdw [r10-256], r4
+-ldxdw r4, [r3+16]
+-stxdw [r10-264], r4
+-ldxdw r4, [r3+8]
+-stxdw [r10-272], r4
+-ldxdw r3, [r3]
+-stxdw [r10-280], r3
+-ldxdw r3, [r8+24]
+-ldxdw r3, [r3+88]
+-ldxdw r3, [r3]
+-ldxdw r4, [r3+24]
+-stxdw [r10-24], r4
+-ldxdw r4, [r3+16]
+-stxdw [r10-32], r4
+-ldxdw r4, [r3+8]
+-stxdw [r10-40], r4
+-ldxdw r3, [r3]
+-stxdw [r10-48], r3
+-ldxdw r2, [r1+64]
+-stxdw [r10-1920], r2
+-ldxdw r2, [r1+56]
+-stxdw [r10-1928], r2
+-ldxdw r1, [r1+80]
+-stxdw [r10-1936], r1
+-ldxdw r9, [r5+72]
+-ldxdw r1, [r8+48]
+-ldxdw r6, [r1+104]
+-mov64 r1, r10
+-add64 r1, -128
+-call solana_sysvar::clock::<impl solana_sysvar::Sysvar for solana_clock::Clock>::get#06ec
+-ldxw r1, [r10-128]
+-jne r1, 1, +0x3ee0
+-ldxw r2, [r10-120]
+-ldxw r1, [r10-124]
+-call <anchor_lang::error::Error as core::convert::From<solana_program_error::ProgramError>>::from#507a
+-ja +0x4a0
+-ldxdw r2, [r10-88]
+-ldxdw r1, [r8+8]
+-ldxw r1, [r1+248]
+-ldxdw r3, [r8+104]
+-ldxdw r3, [r3+88]
+-ldxdw r4, [r10-288]
+-stxdw [r10-1496], r4
+-ldxdw r4, [r10-296]
+-stxdw [r10-1504], r4
+-ldxdw r4, [r10-304]
+-stxdw [r10-1512], r4
+-ldxdw r4, [r10-312]
+-stxdw [r10-1520], r4
+-ldxdw r4, [r10-280]
+-stxdw [r10-1776], r4
+-ldxdw r4, [r10-272]
+-stxdw [r10-1768], r4
+-ldxdw r4, [r10-264]
+-stxdw [r10-1760], r4
+-ldxdw r4, [r10-256]
+-stxdw [r10-1752], r4
+-stb [r10-1482], 1
+-ldxdw r4, [r10-1912]
+-stxdw [r10-1712], r4
+-ldxdw r4, [r10-1992]
+-stxdw [r10-1704], r4
+-ldxdw r4, [r10-1784]
+-stxdw [r10-1696], r4
+-stxdw [r10-1688], r6
+-ldxdw r4, [r10-1904]
+-stxdw [r10-1648], r4
+-stxdw [r10-1640], r9
+-stxdw [r10-1616], r2
+-ldxdw r2, [r10-1936]
+-stxdw [r10-1608], r2
+-ldxdw r2, [r10-1896]
+-stxdw [r10-1600], r2
+-stxdw [r10-1592], r3
+-ldxdw r2, [r10-1824]
+-stxh [r10-1484], r2
+-stxw [r10-1488], r1
+-ldxdw r1, [r10-1872]
+-stxdw [r10-1632], r1
+-ldxdw r1, [r10-1864]
+-stxdw [r10-1624], r1
+-ldxdw r1, [r10-1928]
+-stxdw [r10-1664], r1
+-ldxdw r1, [r10-1920]
+-stxdw [r10-1656], r1
+-ldxdw r1, [r10-1888]
+-stxdw [r10-1680], r1
+-ldxdw r1, [r10-1880]
+-stxdw [r10-1672], r1
+-ldxdw r1, [r10-24]
+-stxdw [r10-1720], r1
+-ldxdw r1, [r10-32]
+-stxdw [r10-1728], r1
+-ldxdw r1, [r10-40]
+-stxdw [r10-1736], r1
+-ldxdw r1, [r10-48]
+-stxdw [r10-1744], r1
+-ldxdw r1, [r10-1800]
+-stxdw [r10-1536], r1
+-ldxdw r1, [r10-1792]
+-stxdw [r10-1544], r1
+-ldxdw r1, [r10-1856]
+-stxdw [r10-1560], r1
+-ldxdw r1, [r10-1848]
+-stxdw [r10-1568], r1
+-ldxdw r1, [r10-1832]
+-stxdw [r10-1528], r1
+-ldxdw r1, [r10-1840]
+-stxdw [r10-1552], r1
+-ldxdw r1, [r10-1816]
+-stxdw [r10-1576], r1
+-stxdw [r10-1584], r7
+-mov64 r1, r10
+-add64 r1, -128
++stxdw [r10-136], r3
++ldxdw r3, [r10-288]
++stxdw [r10-584], r3
++ldxdw r3, [r10-280]
++stxdw [r10-576], r3
++ldxdw r3, [r10-272]
++stxdw [r10-568], r3
++ldxdw r3, [r10-264]
++stxdw [r10-560], r3
++ldxdw r3, [r10-56]
++stxdw [r10-552], r3
++ldxdw r3, [r10-48]
++stxdw [r10-544], r3
++ldxdw r3, [r10-40]
++stxdw [r10-536], r3
++ldxdw r3, [r10-32]
++stxdw [r10-528], r3
++stxdw [r10-384], r6
++ldxdw r3, [r10-3264]
++stxdw [r10-392], r3
++ldxdw r3, [r10-3224]
++stxdw [r10-400], r3
++ldxdw r3, [r10-3296]
++stxdw [r10-408], r3
++stb [r10-290], 1
++ldxdw r3, [r10-3320]
++stxdw [r10-464], r3
++stxdw [r10-472], r4
++ldxdw r3, [r10-3288]
++stxdw [r10-480], r3
++ldxdw r3, [r10-3280]
++stxdw [r10-488], r3
++ldxdw r3, [r10-3312]
++stxdw [r10-368], r3
++ldxdw r3, [r10-3304]
++stxdw [r10-376], r3
++ldxdw r2, [r10-3360]
++stxdw [r10-360], r2
++stxdw [r10-352], r0
++ldxdw r3, [r10-3328]
++stxdw [r10-344], r3
++ldxdw r2, [r10-3368]
++stxdw [r10-336], r2
++ldxdw r2, [r10-3240]
++stxh [r10-292], r2
++ldxdw r2, [r10-3352]
++stxw [r10-296], r2
++ldxdw r2, [r10-3256]
++stxdw [r10-456], r2
++ldxdw r2, [r10-3248]
++stxdw [r10-448], r2
++stxdw [r10-328], r9
++ldxdw r2, [r10-3216]
++stxdw [r10-320], r2
++ldxdw r2, [r10-3336]
++stxdw [r10-312], r2
++ldxdw r2, [r10-3344]
++stxdw [r10-440], r2
++ldxdw r2, [r10-3232]
++stxdw [r10-432], r2
++stxdw [r10-416], r5
++stxdw [r10-424], r8
++stxdw [r10-304], r1
++ldxdw r1, [r10-112]
++stxdw [r10-496], r1
++ldxdw r1, [r10-120]
++stxdw [r10-504], r1
++ldxdw r1, [r10-128]
++stxdw [r10-512], r1
++ldxdw r1, [r10-136]
++stxdw [r10-520], r1
++mov64 r1, r10
++add64 r1, -136
+ mov64 r6, r10
+-add64 r6, -1776
++add64 r6, -584
+ mov64 r2, r6
+ call <mayhem_program::instructions::pump_interface::sell::SellEvent as anchor_lang::Event>::data#0909
+-ldxdw r1, [r10-112]
+-stxdw [r10-40], r1
+ ldxdw r1, [r10-120]
+ stxdw [r10-48], r1
+-mov64 r1, r10
+-add64 r1, -48
+-mov64 r9, 1
++ldxdw r1, [r10-128]
++stxdw [r10-56], r1
++mov64 r1, r10
++add64 r1, -56
++mov64 r8, 1
+ mov64 r2, 1
+ call anchor_lang::solana_program::log::sol_log_data#9398
+-ldxdw r2, [r8+216]
+-mov64 r1, r10
+-add64 r1, -248
+-call <solana_account_info::AccountInfo as core::clone::Clone>::clone#3106
+-mov64 r1, r10
+-add64 r1, -200
++ldxdw r2, [r7+216]
++mov64 r1, r10
++add64 r1, -256
++call <solana_account_info::AccountInfo as core::clone::Clone>::clone#3106
++mov64 r1, r10
++add64 r1, -208
+ mov64 r2, r6
+ call <mayhem_program::instructions::pump_interface::sell::SellEvent as anchor_lang::Event>::data#0909
+ lddw r1, .rodata[e445a52e51cb9a1d]
+ lddw r2, .rodata[e445a52e51cb9a1d]
+ add64 r2, 8
+-stxdw [r10-136], r2
+-stxdw [r10-144], r1
++stxdw [r10-144], r2
++stxdw [r10-152], r1
++ldxdw r1, [r10-208]
++stxdw [r10-168], r1
+ ldxdw r1, [r10-200]
++stxdw [r10-176], r1
++stxdw [r10-184], r1
++ldxdw r2, [r10-192]
++add64 r1, r2
+ stxdw [r10-160], r1
+-ldxdw r1, [r10-192]
+-stxdw [r10-168], r1
+-stxdw [r10-176], r1
+-ldxdw r2, [r10-184]
+-add64 r1, r2
+-stxdw [r10-152], r1
+-mov64 r1, r10
+-add64 r1, -280
++mov64 r1, r10
++add64 r1, -288
+ mov64 r2, r10
+-add64 r2, -176
++add64 r2, -184
+ call <alloc::vec::Vec<T> as alloc::vec::spec_from_iter_nested::SpecFromIterNested<T,I>>::from_iter#1a04
+-ldxdw r6, [r10-272]
+-ldxdw r7, [r10-264]
++ldxdw r6, [r10-280]
++ldxdw r7, [r10-272]
+ call _RNvCscR3e5J6VSLN_7___rustc35___rust_no_alloc_shim_is_unstable_v2
+ lddw r1, 0x300000000
+ ldxdw r2, [r1]
+ mov64 r3, 0
+ mov64 r1, r2
+ add64 r1, -34
+-jgt r1, r2, +0x4348
+-mov64 r9, 0
+-jeq r9, 0, +0x4350
++jgt r1, r2, +0x1da0
++mov64 r8, 0
++jeq r8, 0, +0x1da8
+ lddw r1, 0x300007fde
+-jeq r2, 0, +0x4370
++jeq r2, 0, +0x1dc8
+ mov64 r1, r3
+ lddw r2, 0x300000008
+-jge r1, r2, +0x4388
++jge r1, r2, +0x1de0
+ mov64 r1, 1
+ mov64 r2, 34
+ call alloc::alloc::handle_alloc_error#decd
+-jne r9, 0, +0x42f8
++jne r8, 0, +0x1d50
+ mov64 r3, r1
+ lddw r1, 0x300007fde
+-jne r2, 0, +0x4310
++jne r2, 0, +0x1d68
+ lddw r2, 0x300000008
+-jlt r1, r2, +0x4330
++jlt r1, r2, +0x1d88
+ lddw r2, 0x300000000
+ stxdw [r2], r1
+-ldxdw r2, [r10-248]
++ldxdw r2, [r10-256]
+ ldxdw r3, [r2]
+ ldxdw r4, [r2+8]
+ ldxdw r5, [r2+16]
+@@ -2142,22 +941,22 @@
+ stxdw [r1+8], r4
+ stxdw [r1], r3
+ sth [r1+32], 1
+-stxdw [r10-40], r1
+-stdw [r10-32], 1
+-stdw [r10-48], 1
++stxdw [r10-48], r1
++stdw [r10-40], 1
++stdw [r10-56], 1
+ mov64 r8, r10
+-add64 r8, -128
++add64 r8, -136
+ mov64 r5, r10
+-add64 r5, -48
++add64 r5, -56
+ mov64 r1, r8
+ lddw r2, .rodata[052ae5d7a7daa724]
+ mov64 r3, r6
+ mov64 r4, r7
+ call solana_instruction::Instruction::new_with_bytes#33e2
+ mov64 r6, r10
+-add64 r6, -48
++add64 r6, -56
+ mov64 r2, r10
+-add64 r2, -248
++add64 r2, -256
+ mov64 r1, r6
+ mov64 r3, 48
+ call memcpy
+@@ -2171,48 +970,60 @@
+ mov64 r1, r0
+ lsh64 r1, 32
+ rsh64 r1, 32
+-jne r1, 26, +0x4508
++jne r1, 26, +0x1f58
+ mov64 r6, 2
+-ja +0x4528
+-call abort
++ja +0x1f78
+ mov64 r1, r0
+ call <anchor_lang::error::Error as core::convert::From<solana_program_error::ProgramError>>::from#507a
+ mov64 r6, r0
+ mov64 r7, r1
+ mov64 r1, r10
+-add64 r1, -48
++add64 r1, -56
+ call core::ptr::drop_in_place<[solana_account_info::AccountInfo; 1]>#240e
+ mov64 r0, r6
+ mov64 r1, r7
+-jne r0, 2, +0x4a0
++jne r0, 2, +0x5a0
+ mov64 r0, 2
+-ja +0x4a0
+-mov64 r7, 2
+-ja +0x348
++ja +0x5a0
++ldxdw r1, [r10-580]
++stxdw [r10-136], r1
+ mov64 r3, r10
+-add64 r3, -341
+-lddw r1, str("a Display implementation returned an error unexpectedly")
+-mov64 r2, 55
+-lddw r4, table[3:<core::fmt::Error as core::fmt::Debug>::fmt#aaa5]
+-lddw r5, panic_location(/home/runner/work/platform-tools/platform-tools/out/rust/library/alloc/src/string.rs:2830:14)
++add64 r3, -136
++lddw r1, str("called `Result::unwrap()` on an `Err` value")
++mov64 r2, 43
++lddw r4, table[3:<solana_program_error::ProgramError as core::fmt::Debug>::fmt#4fcd]
++lddw r5, panic_location(programs/mayhem-program/src/instructions/pump_interface_v2.rs:194:23)
++call core::result::unwrap_failed#5a05
++ldxdw r1, [r10-580]
++stxdw [r10-136], r1
++mov64 r3, r10
++add64 r3, -136
++lddw r1, str("called `Result::unwrap()` on an `Err` value")
++mov64 r2, 43
++lddw r4, table[3:<solana_program_error::ProgramError as core::fmt::Debug>::fmt#4fcd]
++lddw r5, panic_location(programs/mayhem-program/src/instructions/pump_interface_v2.rs:199:24)
+ call core::result::unwrap_failed#5a05
+ mov64 r3, r10
+-add64 r3, -341
++add64 r3, -1
+ lddw r1, str("called `Result::unwrap()` on an `Err` value")
+ mov64 r2, 43
+ lddw r4, table[3:<core::num::error::TryFromIntError as core::fmt::Debug>::fmt#ac91]
+-lddw r5, panic_location(programs/mayhem-program/src/state.rs:350:43)
++lddw r5, panic_location(programs/mayhem-program/src/instructions/pump_interface_v2.rs:213:54)
+ call core::result::unwrap_failed#5a05
++lddw r1, panic_location(programs/mayhem-program/src/instructions/pump_interface_v2.rs:217:77)
++call core::option::unwrap_failed#2d9b
+ mov64 r3, r10
+-add64 r3, -341
++add64 r3, -1
+ lddw r1, str("called `Result::unwrap()` on an `Err` value")
+ mov64 r2, 43
+ lddw r4, table[3:<core::num::error::TryFromIntError as core::fmt::Debug>::fmt#ac91]
+-lddw r5, panic_location(programs/mayhem-program/src/state.rs:399:34)
++lddw r5, panic_location(programs/mayhem-program/src/instructions/pump_interface_v2.rs:217:87)
+ call core::result::unwrap_failed#5a05
+-lddw r1, panic_location(programs/mayhem-program/src/state.rs:321:26)
++lddw r1, panic_location(programs/mayhem-program/src/instructions/pump_interface_v2.rs:211:15)
+ call core::panicking::panic_const::panic_const_sub_overflow#7310
+-lddw r1, panic_location(programs/mayhem-program/src/instructions/pump_interface_v2.rs:591:25)
++lddw r1, panic_location(programs/mayhem-program/src/instructions/pump_interface_v2.rs:217:58)
+ call core::panicking::panic_const::panic_const_sub_overflow#7310
+-lddw r1, panic_location(programs/mayhem-program/src/instructions/pump_interface_v2.rs:592:26)
++lddw r1, panic_location(programs/mayhem-program/src/instructions/pump_interface_v2.rs:226:10)
+ call core::panicking::panic_const::panic_const_sub_overflow#7310
++lddw r1, panic_location(programs/mayhem-program/src/instructions/pump_interface_v2.rs:226:44)
++call core::panicking::panic_const::panic_const_sub_overflow#7310

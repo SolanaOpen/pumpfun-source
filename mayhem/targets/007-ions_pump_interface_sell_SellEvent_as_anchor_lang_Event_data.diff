@@ -1,0 +1,333 @@
+# <mayhem_program::instructions::pump_interface::sell::SellEvent as anchor_lang::Event>::data  (yours 4056 B at .text+0x50a40; original 4056 B at .text+0x5b5e0)
+# distance 29 instructions; evidence: same-callees 3/3
+--- original
++++ yours
+@@ -21,12 +21,12 @@
+ stxdw [r3], r1
+ mov64 r2, 8
+ stdw [r10-8], 8
+-ldxb r8, [r7+294]
+ ldxdw r1, [r10-24]
+ jeq r1, 8, +0x978
+ ldxdw r1, [r10-16]
+ add64 r1, r2
+-stxb [r1], r8
++ldxb r3, [r7+294]
++stxb [r1], r3
+ add64 r2, 1
+ stxdw [r10-8], r2
+ ldxdw r1, [r10-24]
+@@ -64,7 +64,7 @@
+ add64 r2, 32
+ stxdw [r10-8], r2
+ sub64 r1, r2
+-ldxdw r8, [r7+64]
++ldxdw r8, [r7+176]
+ jle r1, 7, +0xa50
+ add64 r3, r2
+ stxdw [r3], r8
+@@ -72,7 +72,7 @@
+ stxdw [r10-8], r2
+ ldxdw r1, [r10-24]
+ sub64 r1, r2
+-ldxdw r8, [r7+72]
++ldxdw r8, [r7+184]
+ jle r1, 7, +0xa98
+ ldxdw r1, [r10-16]
+ add64 r1, r2
+@@ -81,7 +81,7 @@
+ stxdw [r10-8], r2
+ ldxdw r1, [r10-24]
+ sub64 r1, r2
+-ldxdw r8, [r7+80]
++ldxdw r8, [r7+192]
+ jle r1, 7, +0xad8
+ ldxdw r1, [r10-16]
+ add64 r1, r2
+@@ -90,7 +90,7 @@
+ stxdw [r10-8], r2
+ ldxdw r1, [r10-24]
+ sub64 r1, r2
+-ldxdw r8, [r7+88]
++ldxdw r8, [r7+200]
+ jle r1, 7, +0xb18
+ ldxdw r1, [r10-16]
+ add64 r1, r2
+@@ -121,17 +121,100 @@
+ stxdw [r10-8], r2
+ ldxdw r1, [r10-24]
+ sub64 r1, r2
++ldxdw r8, [r7+208]
++jle r1, 7, +0xbd8
++ldxdw r1, [r10-16]
++add64 r1, r2
++stxdw [r1], r8
++add64 r2, 8
++stxdw [r10-8], r2
++ldxdw r1, [r10-24]
++sub64 r1, r2
++ldxdw r8, [r7+216]
++jle r1, 7, +0xc18
++ldxdw r1, [r10-16]
++add64 r1, r2
++stxdw [r1], r8
++add64 r2, 8
++stxdw [r10-8], r2
++ldxdw r1, [r10-24]
++sub64 r1, r2
++ldxdw r9, [r7+136]
+ ldxdw r8, [r7+128]
+-jle r1, 7, +0xbd8
+-ldxdw r1, [r10-16]
+-add64 r1, r2
+-stxdw [r1], r8
+-add64 r2, 8
+-stxdw [r10-8], r2
+-ldxdw r1, [r10-24]
+-sub64 r1, r2
+-ldxdw r8, [r7+136]
+-jle r1, 7, +0xc18
++jle r1, 15, +0xc58
++ldxdw r1, [r10-16]
++add64 r1, r2
++stxdw [r1+8], r9
++stxdw [r1], r8
++add64 r2, 16
++stxdw [r10-8], r2
++ldxdw r1, [r10-24]
++sub64 r1, r2
++ldxdw r8, [r7+224]
++jle r1, 7, +0xc98
++ldxdw r1, [r10-16]
++add64 r1, r2
++stxdw [r1], r8
++add64 r2, 8
++stxdw [r10-8], r2
++ldxdw r1, [r10-24]
++sub64 r1, r2
++ldxdw r8, [r7+232]
++jle r1, 7, +0xcd8
++ldxdw r1, [r10-16]
++add64 r1, r2
++stxdw [r1], r8
++add64 r2, 8
++stxdw [r10-8], r2
++ldxdw r1, [r10-24]
++sub64 r1, r2
++ldxdw r8, [r7+240]
++jle r1, 7, +0xd18
++ldxdw r1, [r10-16]
++add64 r1, r2
++stxdw [r1], r8
++add64 r2, 8
++stxdw [r10-8], r2
++ldxdw r1, [r10-24]
++sub64 r1, r2
++ldxdw r8, [r7+248]
++jle r1, 7, +0xd58
++ldxdw r1, [r10-16]
++add64 r1, r2
++stxdw [r1], r8
++add64 r2, 8
++stxdw [r10-8], r2
++ldxdw r1, [r10-24]
++sub64 r1, r2
++ldxw r8, [r7+288]
++jle r1, 3, +0xd98
++ldxdw r1, [r10-16]
++add64 r1, r2
++stxw [r1], r8
++add64 r2, 4
++stxdw [r10-8], r2
++ldxdw r1, [r10-24]
++sub64 r1, r2
++ldxh r8, [r7+292]
++jle r1, 1, +0xdd8
++ldxdw r1, [r10-16]
++add64 r1, r2
++stxh [r1], r8
++add64 r2, 2
++stxdw [r10-8], r2
++ldxdw r1, [r10-24]
++sub64 r1, r2
++ldxdw r8, [r7+256]
++jle r1, 7, +0xe18
++ldxdw r1, [r10-16]
++add64 r1, r2
++stxdw [r1], r8
++add64 r2, 8
++stxdw [r10-8], r2
++ldxdw r1, [r10-24]
++sub64 r1, r2
++ldxdw r8, [r7+264]
++jle r1, 7, +0xe58
+ ldxdw r1, [r10-16]
+ add64 r1, r2
+ stxdw [r1], r8
+@@ -141,7 +224,7 @@
+ sub64 r1, r2
+ ldxdw r9, [r7+152]
+ ldxdw r8, [r7+144]
+-jle r1, 15, +0xc58
++jle r1, 15, +0xe98
+ ldxdw r1, [r10-16]
+ add64 r1, r2
+ stxdw [r1+8], r9
+@@ -150,81 +233,18 @@
+ stxdw [r10-8], r2
+ ldxdw r1, [r10-24]
+ sub64 r1, r2
++ldxdw r8, [r7+272]
++jle r1, 7, +0xed8
++ldxdw r1, [r10-16]
++add64 r1, r2
++stxdw [r1], r8
++add64 r2, 8
++stxdw [r10-8], r2
++ldxdw r1, [r10-24]
++sub64 r1, r2
++ldxdw r9, [r7+168]
+ ldxdw r8, [r7+160]
+-jle r1, 7, +0xc98
+-ldxdw r1, [r10-16]
+-add64 r1, r2
+-stxdw [r1], r8
+-add64 r2, 8
+-stxdw [r10-8], r2
+-ldxdw r1, [r10-24]
+-sub64 r1, r2
+-ldxdw r8, [r7+168]
+-jle r1, 7, +0xcd8
+-ldxdw r1, [r10-16]
+-add64 r1, r2
+-stxdw [r1], r8
+-add64 r2, 8
+-stxdw [r10-8], r2
+-ldxdw r1, [r10-24]
+-sub64 r1, r2
+-ldxdw r8, [r7+176]
+-jle r1, 7, +0xd18
+-ldxdw r1, [r10-16]
+-add64 r1, r2
+-stxdw [r1], r8
+-add64 r2, 8
+-stxdw [r10-8], r2
+-ldxdw r1, [r10-24]
+-sub64 r1, r2
+-ldxdw r8, [r7+184]
+-jle r1, 7, +0xd58
+-ldxdw r1, [r10-16]
+-add64 r1, r2
+-stxdw [r1], r8
+-add64 r2, 8
+-stxdw [r10-8], r2
+-ldxdw r1, [r10-24]
+-sub64 r1, r2
+-ldxw r8, [r7+288]
+-jle r1, 3, +0xd98
+-ldxdw r1, [r10-16]
+-add64 r1, r2
+-stxw [r1], r8
+-add64 r2, 4
+-stxdw [r10-8], r2
+-ldxdw r1, [r10-24]
+-sub64 r1, r2
+-ldxh r8, [r7+292]
+-jle r1, 1, +0xdd8
+-ldxdw r1, [r10-16]
+-add64 r1, r2
+-stxh [r1], r8
+-add64 r2, 2
+-stxdw [r10-8], r2
+-ldxdw r1, [r10-24]
+-sub64 r1, r2
+-ldxdw r8, [r7+192]
+-jle r1, 7, +0xe18
+-ldxdw r1, [r10-16]
+-add64 r1, r2
+-stxdw [r1], r8
+-add64 r2, 8
+-stxdw [r10-8], r2
+-ldxdw r1, [r10-24]
+-sub64 r1, r2
+-ldxdw r8, [r7+200]
+-jle r1, 7, +0xe58
+-ldxdw r1, [r10-16]
+-add64 r1, r2
+-stxdw [r1], r8
+-add64 r2, 8
+-stxdw [r10-8], r2
+-ldxdw r1, [r10-24]
+-sub64 r1, r2
+-ldxdw r9, [r7+216]
+-ldxdw r8, [r7+208]
+-jle r1, 15, +0xe98
++jle r1, 15, +0xf18
+ ldxdw r1, [r10-16]
+ add64 r1, r2
+ stxdw [r1+8], r9
+@@ -233,27 +253,7 @@
+ stxdw [r10-8], r2
+ ldxdw r1, [r10-24]
+ sub64 r1, r2
+-ldxdw r8, [r7+224]
+-jle r1, 7, +0xed8
+-ldxdw r1, [r10-16]
+-add64 r1, r2
+-stxdw [r1], r8
+-add64 r2, 8
+-stxdw [r10-8], r2
+-ldxdw r1, [r10-24]
+-sub64 r1, r2
+-ldxdw r9, [r7+240]
+-ldxdw r8, [r7+232]
+-jle r1, 15, +0xf18
+-ldxdw r1, [r10-16]
+-add64 r1, r2
+-stxdw [r1+8], r9
+-stxdw [r1], r8
+-add64 r2, 16
+-stxdw [r10-8], r2
+-ldxdw r1, [r10-24]
+-sub64 r1, r2
+-ldxdw r8, [r7+248]
++ldxdw r8, [r7+280]
+ jle r1, 7, +0xf58
+ ldxdw r1, [r10-16]
+ add64 r1, r2
+@@ -265,13 +265,13 @@
+ jle r1, 31, +0xf98
+ ldxdw r1, [r10-16]
+ add64 r1, r2
+-ldxdw r3, [r7+280]
++ldxdw r3, [r7+88]
+ stxdw [r1+24], r3
+-ldxdw r3, [r7+272]
++ldxdw r3, [r7+80]
+ stxdw [r1+16], r3
+-ldxdw r3, [r7+264]
++ldxdw r3, [r7+72]
+ stxdw [r1+8], r3
+-ldxdw r3, [r7+256]
++ldxdw r3, [r7+64]
+ stxdw [r1], r3
+ add64 r2, 32
+ stxdw [r10-8], r2
+@@ -291,7 +291,7 @@
+ jgt r3, r1, +0x90
+ mov64 r1, 1
+ mov64 r2, 256
+-lddw r3, panic_location(programs/mayhem-program/src/instructions/pump_interface.rs:197:1)
++lddw r3, panic_location(programs/mayhem-program/src/instructions/pump_interface.rs:217:1)
+ call alloc::raw_vec::handle_error#4993
+ mov64 r1, r10
+ add64 r1, -24
+@@ -300,7 +300,7 @@
+ mov64 r5, 1
+ call alloc::raw_vec::RawVecInner<A>::reserve::do_reserve_and_handle#80e8
+ ldxdw r2, [r10-8]
+-ja +0xf8
++ja +0xf0
+ mov64 r1, r10
+ add64 r1, -24
+ mov64 r3, 32

@@ -1,0 +1,177 @@
+# mayhem_program::__private::__global::initialize_fee_recipient  (yours 1000 B at .text+0x6e290; original 680 B at .text+0x7e0e8)
+# distance 101 instructions; evidence: same-callees 4/6
+--- original
++++ yours
+@@ -1,83 +1,117 @@
+-mov64 r9, r5
+-mov64 r8, r4
+-mov64 r6, r3
+-mov64 r7, r2
+-stxdw [r10-1392], r1
++mov64 r8, r5
++mov64 r7, r4
++stxdw [r10-1416], r3
++mov64 r9, r2
++mov64 r6, r1
+ lddw r1, str("Instruction: InitializeFeeRecipient")
+ mov64 r2, 35
+ call sol_log_
+-jeq r9, 0, +0x100
+-ldxb r1, [r8]
+-stxdw [r10-1400], r1
+-sth [r10-1378], 65535
+-stxdw [r10-1368], r6
+-stxdw [r10-1376], r7
++jeq r8, 0, +0x108
++ldxb r1, [r7]
++stxdw [r10-1424], r1
++stb [r10-1402], 255
++ldxdw r1, [r10-1416]
++stxdw [r10-1392], r1
++stxdw [r10-1400], r9
+ mov64 r1, r10
+-add64 r1, -1378
++add64 r1, -1402
+ stxdw [r10-4088], r1
+-stxdw [r10-4096], r9
++stxdw [r10-4096], r8
+ mov64 r1, r10
+-add64 r1, -680
++add64 r1, -704
+ mov64 r3, r10
+-add64 r3, -1376
++add64 r3, -1400
+ mov64 r5, r10
+-ldxdw r2, [r10-1392]
+-mov64 r4, r8
++mov64 r2, r6
++mov64 r4, r7
+ call <mayhem_program::instructions::fee_recipients::InitializeFeeRecipient as anchor_lang::Accounts<mayhem_program::instructions::fee_recipients::InitializeFeeRecipientBumps>>::try_accounts#3ed8
+-ldxw r6, [r10-680]
+-jne r6, 2, +0x188
+-ldxdw r1, [r10-664]
+-ldxdw r0, [r10-672]
+-ja +0x2a0
++ldxw r7, [r10-704]
++jne r7, 2, +0x190
++ldxdw r1, [r10-688]
++ldxdw r0, [r10-696]
++ja +0x250
+ lddw r1, str("failed to fill whole buffer")
+ call borsh::de::unexpected_eof_to_unexpected_length_of_input#3ead
+ mov64 r1, r0
+ and64 r1, 3
+ mov64 r2, r1
+ add64 r2, -2
+-jlt r2, 2, +0x170
+-jeq r1, 0, +0x170
++jlt r2, 2, +0x178
++jeq r1, 0, +0x178
+ ldxdw r1, [r0+7]
+ ldxdw r2, [r1]
+-jeq r2, 0, +0x170
++jeq r2, 0, +0x178
+ ldxdw r1, [r0-1]
+ callx r2
+ mov64 r1, 102
+ call <anchor_lang::error::Error as core::convert::From<anchor_lang::error::ErrorCode>>::from#ae9e
+-ja +0x2a0
+-ldxw r7, [r10-676]
+-ldxdw r8, [r10-672]
+-ldxdw r9, [r10-664]
++ja +0x250
++stxdw [r10-1416], r6
++ldxw r6, [r10-700]
++ldxdw r8, [r10-696]
++ldxdw r9, [r10-688]
+ mov64 r1, r10
+-add64 r1, -1336
++add64 r1, -1360
+ mov64 r2, r10
+-add64 r2, -656
++add64 r2, -680
+ mov64 r3, 656
+ call memcpy
+-stxdw [r10-1344], r9
+-stxdw [r10-1352], r8
+-stxw [r10-1356], r7
+-stxw [r10-1360], r6
+-ldxb r1, [r10-1377]
+-stxb [r10-647], r1
+-ldxb r1, [r10-1378]
+-stxb [r10-648], r1
+-ldxdw r1, [r10-1368]
+-stxdw [r10-656], r1
+-ldxdw r1, [r10-1376]
+-stxdw [r10-664], r1
++stxdw [r10-1368], r9
++stxdw [r10-1376], r8
++stxw [r10-1380], r6
++stxw [r10-1384], r7
++ldxdw r2, [r10-1424]
++mov64 r1, r2
++jgt r1, 7, +0x258
++stxb [r10-735], r2
++ldxb r1, [r10-1402]
++stxb [r10-736], r1
++ldxdw r2, [r10-1416]
+ mov64 r1, r10
+-add64 r1, -1360
+-stxdw [r10-672], r1
+-ldxdw r1, [r10-1392]
+-stxdw [r10-680], r1
+-mov64 r1, r10
+-add64 r1, -680
+-ldxdw r2, [r10-1400]
+-call orig_fn_10230
+-jne r0, 2, +0x2a0
+-mov64 r1, r10
+-add64 r1, -1360
+-ldxdw r2, [r10-1392]
++add64 r1, -1384
+ call <mayhem_program::instructions::fee_recipients::InitializeFeeRecipient as anchor_lang::AccountsExit>::exit#0174
+ exit
++mov64 r1, r10
++add64 r1, -672
++lddw r2, .rodata[11000000]
++call mayhem_program::MayhemError::name#2984
++stdw [r10-8], 0
++stdw [r10-16], 1
++stdw [r10-24], 0
++mov64 r1, r10
++add64 r1, -24
++mov64 r2, 0
++mov64 r3, 31
++mov64 r4, 1
++mov64 r5, 1
++call alloc::raw_vec::RawVecInner<A>::reserve::do_reserve_and_handle#80e8
++ldxdw r1, [r10-8]
++ldxdw r2, [r10-16]
++add64 r2, r1
++lddw r3, 0x646574726f707075
++stxdw [r2+23], r3
++lddw r3, 0x75732073746e6569
++stxdw [r2+16], r3
++lddw r3, 0x7069636572206565
++stxdw [r2+8], r3
++lddw r3, 0x66203820796c6e4f
++stxdw [r2], r3
++add64 r1, 31
++stxdw [r10-632], r1
++ldxdw r1, [r10-24]
++stxdw [r10-648], r1
++ldxdw r1, [r10-16]
++stxdw [r10-640], r1
++lddw r1, .rodata[70726f6772616d73]
++stxdw [r10-696], r1
++stw [r10-552], 6017
++stb [r10-624], 2
++stw [r10-680], 99
++stdw [r10-688], 58
++stdw [r10-704], 0
++mov64 r1, r10
++add64 r1, -704
++call <anchor_lang::error::Error as core::convert::From<anchor_lang::error::AnchorError>>::from#5ca3
++ldxdw r2, [r10-1416]
++jeq r0, 2, +0x238
++ja +0x250

@@ -8273,48 +8273,6 @@
           {
             "name": "mayhem_mode_enabled",
             "type": "bool"
-          },
-          {
-            "name": "reserved_fee_recipients",
-            "type": {
-              "array": [
-                "pubkey",
-                7
-              ]
-            }
-          },
-          {
-            "name": "is_cashback_enabled",
-            "type": "bool"
-          },
-          {
-            "name": "buyback_fee_recipients",
-            "type": {
-              "array": [
-                "pubkey",
-                8
-              ]
-            }
-          },
-          {
-            "name": "buyback_basis_points",
-            "type": "u64"
-          },
-          {
-            "name": "boost_authority",
-            "type": "pubkey"
-          },
-          {
-            "name": "boost_enabled",
-            "type": "bool"
-          },
-          {
-            "name": "creator_fee_configurable",
-            "type": "bool"
-          },
-          {
-            "name": "max_configurable_creator_fee_bps",
-            "type": "u64"
           }
         ]
       }

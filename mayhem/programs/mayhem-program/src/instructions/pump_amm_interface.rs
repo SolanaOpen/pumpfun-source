@@ -47,37 +47,8 @@ impl AccountDeserialize for SwapPool {
 impl AccountSerialize for SwapPool {
  fn try_serialize<W:std::io::Write>(&self,w:&mut W)->Result<()>{w.write_all(Self::DISCRIMINATOR).map_err(|_|anchor_lang::error::ErrorCode::AccountDidNotSerialize)?;self.serialize(w).map_err(|_|anchor_lang::error::ErrorCode::AccountDidNotSerialize.into())}
 }
-// 0x744a8 checks discriminator; 0x74890 consumes exactly the old418-byte prefix.
-// Unlike Pool this has no padding and no optional historical layout selector.
-#[derive(AnchorSerialize,AnchorDeserialize,Clone)]
-pub struct SwapGlobalConfig {
- pub admin:Pubkey,                         // 8
- pub lp_fee_basis_points:u64,              // 40
- pub protocol_fee_basis_points:u64,        // 48
- pub disable_flags:u8,                    // 56
- pub protocol_fee_recipients:[Pubkey;8],   // 57
- pub coin_creator_fee_basis_points:u64,    // 313
- pub admin_set_coin_creator_authority:Pubkey,//321
- pub whitelist_pda:Pubkey,                // 353
- pub reserved_fee_recipient:Pubkey,        // 385
- pub mayhem_mode_enabled:bool,            // 417, end418
-}
-impl Owner for SwapGlobalConfig {fn owner()->Pubkey{AMM_ID}}
-impl Discriminator for SwapGlobalConfig {const DISCRIMINATOR:&'static[u8]=&[149,8,156,202,160,252,176,217];}
-impl AccountDeserialize for SwapGlobalConfig {
- fn try_deserialize(buf:&mut &[u8])->Result<Self>{
-  if buf.len()<8{return Err(anchor_lang::error::ErrorCode::AccountDiscriminatorNotFound.into());}
-  if &buf[..8]!=Self::DISCRIMINATOR{return Err(anchor_lang::error::Error::from(anchor_lang::error::ErrorCode::AccountDiscriminatorMismatch).with_account_name("GlobalConfig"));}
-  Self::try_deserialize_unchecked(buf)
- }
- fn try_deserialize_unchecked(buf:&mut &[u8])->Result<Self>{
-  if buf.len()<8{return Err(anchor_lang::error::ErrorCode::AccountDidNotDeserialize.into());}
-  Self::deserialize(&mut &buf[8..]).map_err(|_|anchor_lang::error::ErrorCode::AccountDidNotDeserialize.into())
- }
-}
-impl AccountSerialize for SwapGlobalConfig {
- fn try_serialize<W:std::io::Write>(&self,w:&mut W)->Result<()>{w.write_all(Self::DISCRIMINATOR).map_err(|_|anchor_lang::error::ErrorCode::AccountDidNotSerialize)?;self.serialize(w).map_err(|_|anchor_lang::error::ErrorCode::AccountDidNotSerialize.into())}
-}
+/// PumpSwap's GlobalConfig as `declare_program!(pump_amm)` generates it (418-byte layout).
+pub use crate::pump_amm::accounts::GlobalConfig as SwapGlobalConfig;
 
 #[error_code]
 pub enum PumpSwapError {

@@ -1,0 +1,94 @@
+# anchor_lang::accounts::boxed::<impl anchor_lang::Accounts<B> for alloc::boxed::Box<T>>::try_accounts  (yours 464 B at .text+0x2c80; original 424 B at .text+0x5138)
+# distance 65 instructions; evidence: same-callees 2/3
+--- original
++++ yours
+@@ -1,47 +1,52 @@
+ mov64 r6, r1
+ mov64 r1, r10
+-add64 r1, -144
++add64 r1, -40
+ mov64 r5, r10
+ call <anchor_lang::accounts::account::Account<T> as anchor_lang::Accounts<B>>::try_accounts#1a62
+-ldxb r1, [r10-4]
+-jne r1, 2, +0x60
+-ldxdw r1, [r10-144]
+-ldxdw r2, [r10-136]
++ldxdw r1, [r10-40]
++jeq r1, 0, +0x138
++call _RNvCscR3e5J6VSLN_7___rustc35___rust_no_alloc_shim_is_unstable_v2
++lddw r1, 0x300000000
++ldxdw r2, [r1]
++mov64 r1, r2
++add64 r1, -40
++mov64 r3, 0
++mov64 r4, 1
++jle r1, r2, +0x160
++jeq r4, 0, +0x170
++lddw r1, 0x300007fd8
++jne r2, 0, +0x190
++lddw r2, 0x300000008
++jlt r1, r2, +0x1b8
++lddw r2, 0x300000000
++stxdw [r2], r1
++ldxdw r2, [r10-8]
++stxdw [r1+32], r2
++ldxdw r2, [r10-16]
++stxdw [r1+24], r2
++ldxdw r2, [r10-24]
++stxdw [r1+16], r2
++ldxdw r2, [r10-32]
++stxdw [r1+8], r2
++ldxdw r2, [r10-40]
++stxdw [r1], r2
++stxdw [r6+8], r1
++stdw [r6], 2
++ja +0x158
++ldxdw r1, [r10-32]
++ldxdw r2, [r10-24]
+ stxdw [r6+8], r2
+ stxdw [r6], r1
+-ja +0x130
+-call _RNvCscR3e5J6VSLN_7___rustc35___rust_no_alloc_shim_is_unstable_v2
+-lddw r1, 0x300000000
+-ldxdw r1, [r1]
+-mov64 r3, r1
+-add64 r3, -144
+-mov64 r2, 0
+-mov64 r4, 1
+-jle r3, r1, +0x138
+-jeq r4, 0, +0x148
+-lddw r7, 0x300007f70
+-jne r1, 0, +0x168
+-lddw r1, 0x300000008
+-jlt r7, r1, +0x190
+-lddw r1, 0x300000000
+-stxdw [r1], r7
+-mov64 r2, r10
+-add64 r2, -144
+-mov64 r1, r7
+-mov64 r3, 144
+-call memcpy
+-stxdw [r6+8], r7
+-stdw [r6], 2
+ exit
+ mov64 r4, 0
+-jne r4, 0, +0xb0
+-mov64 r2, r3
+-lddw r7, 0x300007f70
+-jeq r1, 0, +0xc8
+-and64 r2, -8
+-mov64 r7, r2
+-lddw r1, 0x300000008
+-jge r7, r1, +0xe0
++jne r4, 0, +0x88
++mov64 r3, r1
++lddw r1, 0x300007fd8
++jeq r2, 0, +0xa0
++and64 r3, -8
++mov64 r1, r3
++lddw r2, 0x300000008
++jge r1, r2, +0xb8
+ mov64 r1, 8
+-mov64 r2, 144
++mov64 r2, 40
+ call alloc::alloc::handle_alloc_error#decd

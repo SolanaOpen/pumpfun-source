@@ -1,0 +1,9 @@
+[package]
+name = "pump-cpi"
+version = "0.1.0"
+edition = "2021"
+publish = false
+description = "Hypothesis for the dependency Mayhem calls Pump's v2 instructions through. The original binary carries its panic locations as src/lib.rs:8:5 and src/account_wrapper.rs; it is not a public crate."
+
+[dependencies]
+anchor-lang = "=1.0.0"

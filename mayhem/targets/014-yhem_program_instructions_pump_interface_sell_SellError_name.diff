@@ -1,0 +1,285 @@
+# mayhem_program::instructions::pump_interface::sell::SellError::name  (yours 1256 B at .text+0x51a18; original 1552 B at .text+0x6d4d0)
+# distance 219 instructions; evidence: neighbours between the same matched functions as in your build
+--- original
++++ yours
+@@ -1,171 +1,125 @@
+-ldxdw r8, [r2]
+-ldxdw r3, [r1+128]
+-jne r3, r8, +0x1c0
+-ldxdw r3, [r2+8]
+-ldxdw r9, [r1+136]
+-jne r9, r3, +0x1f8
+-ldxdw r3, [r2+16]
+-ldxdw r4, [r1+144]
+-jne r4, r3, +0x1f0
+-ldxdw r3, [r2+24]
+-ldxdw r4, [r1+152]
+-jne r4, r3, +0x1f0
+-stxdw [r10-32], r2
+-stxdw [r10-40], r1
+-ldxdw r6, [r1+160]
+-mov64 r1, r6
+-call anchor_lang::common::is_closed#7dce
+-jne r0, 0, +0x508
+-ldxdw r1, [r6+16]
+-ldxdw r1, [r1+16]
+-jeq r1, 0, +0x508
+-mov64 r1, 0
+-stxdw [r10-48], r1
+-mov64 r1, 11
+-mov64 r2, 0
+-call <anchor_lang::error::Error as core::convert::From<solana_program_error::ProgramError>>::from#507a
+-mov64 r6, r0
+-mov64 r7, r1
+-mov64 r3, r9
+-ldxdw r1, [r10-40]
+-ldxdw r2, [r10-32]
+-jeq r6, 2, +0x1f8
++mov64 r6, r1
++ldxw r7, [r2]
+ call _RNvCscR3e5J6VSLN_7___rustc35___rust_no_alloc_shim_is_unstable_v2
+ lddw r1, 0x300000000
+ ldxdw r2, [r1]
+ mov64 r1, r2
+-add64 r1, -18
+-mov64 r3, 1
+-jgt r1, r2, +0x548
++jsgt r7, 11, +0x100
++jne r7, 3, +0x168
++add64 r1, -17
+ mov64 r3, 0
+-jeq r3, 0, +0x550
+-lddw r1, 0x300007fee
+-jeq r2, 0, +0x570
+-ldxdw r1, [r10-48]
+-mov64 r2, r6
+-and64 r2, 1
++mov64 r4, 1
++jle r1, r2, +0x278
++jeq r4, 0, +0x288
++lddw r1, 0x300007fef
++jne r2, 0, +0x2a8
+ lddw r2, 0x300000007
+-jgt r1, r2, +0x598
++jle r1, r2, +0x2c8
++lddw r2, 0x300000000
++stxdw [r2], r1
++lddw r2, 0x6f4c6f6f54736576
++stxdw [r1+8], r2
++lddw r2, 0x72657365526c6f53
++stxdw [r1], r2
++mov64 r2, 17
++stb [r1+16], 119
++ja +0x428
++jne r7, 12, +0x1c8
++add64 r1, -15
++mov64 r3, 0
++mov64 r4, 1
++jle r1, r2, +0x2f0
++jeq r4, 0, +0x300
++lddw r1, 0x300007ff1
++jne r2, 0, +0x320
++lddw r2, 0x300000007
++jgt r1, r2, +0x340
++ja +0x4c0
++add64 r1, -15
++mov64 r3, 0
++mov64 r4, 1
++jle r1, r2, +0x388
++jeq r4, 0, +0x398
++lddw r1, 0x300007ff1
++jne r2, 0, +0x3b8
++lddw r2, 0x300000007
++jgt r1, r2, +0x3d8
++ja +0x4c0
++add64 r1, -14
++mov64 r3, 0
++mov64 r4, 1
++jle r1, r2, +0x448
++jeq r4, 0, +0x458
++lddw r1, 0x300007ff2
++jne r2, 0, +0x478
++lddw r2, 0x300000007
++jle r1, r2, +0x498
++lddw r2, 0x300000000
++stxdw [r2], r1
++lddw r2, 0x74696d694c657461
++stxdw [r1+6], r2
++lddw r2, 0x7461526564617254
++stxdw [r1], r2
++mov64 r2, 14
++ja +0x428
++mov64 r4, 0
++jne r4, 0, +0x70
++mov64 r3, r1
++lddw r1, 0x300007fef
++jeq r2, 0, +0x88
++mov64 r1, r3
++lddw r2, 0x300000007
++jgt r1, r2, +0xa0
+ mov64 r1, 1
+-mov64 r2, 18
++mov64 r2, 17
+ lddw r3, panic_location(/home/runner/work/platform-tools/platform-tools/out/rust/library/alloc/src/slice.rs:449:29)
+ call alloc::raw_vec::handle_error#4993
+-ldxdw r3, [r2+8]
+-mov64 r6, 2
+-lddw r4, 0x24a7daa7d7e52a05
+-jeq r8, r4, +0x218
+-ja +0x298
+-mov64 r3, r9
+-mov64 r6, 2
+-lddw r4, 0x24a7daa7d7e52a05
+-jne r8, r4, +0x298
+-lddw r4, 0x85915429a7b0eaa6
+-jne r3, r4, +0x298
+-ldxdw r3, [r2+16]
+-lddw r4, 0x4c67601667a0d45a
+-jne r3, r4, +0x298
+-ldxdw r2, [r2+24]
+-lddw r3, 0xa3653d805945034e
+-jne r2, r3, +0x298
+-mov64 r9, r1
+-ldxdw r7, [r1+344]
+-mov64 r1, r7
+-call anchor_lang::common::is_closed#7dce
+-jeq r0, 0, +0x2b0
+-mov64 r0, r6
+-mov64 r1, r7
++mov64 r4, 0
++jne r4, 0, +0x130
++mov64 r3, r1
++lddw r1, 0x300007ff1
++jeq r2, 0, +0x148
++mov64 r1, r3
++lddw r2, 0x300000007
++jle r1, r2, +0x4c0
++lddw r2, 0x300000000
++stxdw [r2], r1
++lddw r2, 0x6567617070696c53
++stxdw [r1+7], r2
++lddw r2, 0x53697043706d7550
++ja +0x418
++mov64 r4, 0
++jne r4, 0, +0x190
++mov64 r3, r1
++lddw r1, 0x300007ff1
++jeq r2, 0, +0x1a8
++mov64 r1, r3
++lddw r2, 0x300000007
++jle r1, r2, +0x4c0
++lddw r2, 0x300000000
++stxdw [r2], r1
++lddw r2, 0x6465646e4565646f
++stxdw [r1+7], r2
++lddw r2, 0x6f4d6d656879614d
++stxdw [r1], r2
++mov64 r2, 15
++stxdw [r6+8], r1
++stxdw [r6+16], r2
++stxdw [r6], r2
+ exit
+-ldxdw r8, [r7+16]
+-ldxdw r1, [r8+16]
+-jeq r1, 0, +0x2f8
+-mov64 r1, 11
+-mov64 r2, 0
+-call <anchor_lang::error::Error as core::convert::From<solana_program_error::ProgramError>>::from#507a
+-mov64 r7, r1
+-jne r0, 2, +0x378
+-ja +0x298
+-stdw [r8+16], -1
+-ldxdw r1, [r8+24]
+-ldxdw r2, [r8+32]
+-stxdw [r10-16], r2
+-stxdw [r10-24], r1
+-stdw [r10-8], 0
+-mov64 r1, r9
+-add64 r1, 352
+-mov64 r2, r10
+-add64 r2, -24
+-call <mayhem_program::state::MayhemState as anchor_lang::AccountSerialize>::try_serialize#9f08
+-mov64 r7, r1
+-ldxdw r1, [r8+16]
+-add64 r1, 1
+-stxdw [r8+16], r1
+-jeq r0, 2, +0x298
+-mov64 r6, r0
+-call _RNvCscR3e5J6VSLN_7___rustc35___rust_no_alloc_shim_is_unstable_v2
+-lddw r1, 0x300000000
+-ldxdw r2, [r1]
+-mov64 r1, r2
+-add64 r1, -12
+-mov64 r3, 0
+-mov64 r4, 1
+-jgt r1, r2, +0x448
+ mov64 r4, 0
+-jeq r4, 0, +0x450
+-lddw r1, 0x300007ff4
+-jeq r2, 0, +0x470
++jne r4, 0, +0x1f0
++mov64 r3, r1
++lddw r1, 0x300007ff2
++jeq r2, 0, +0x208
+ mov64 r1, r3
+-mov64 r2, r6
+-and64 r2, 1
+ lddw r2, 0x300000007
+-jgt r1, r2, +0x498
++jgt r1, r2, +0x220
+ mov64 r1, 1
+-mov64 r2, 12
++mov64 r2, 14
+ lddw r3, panic_location(/home/runner/work/platform-tools/platform-tools/out/rust/library/alloc/src/slice.rs:449:29)
+ call alloc::raw_vec::handle_error#4993
+-jne r4, 0, +0x3d8
+-mov64 r3, r1
+-lddw r1, 0x300007ff4
+-jne r2, 0, +0x3f0
+-mov64 r2, r6
+-and64 r2, 1
+-lddw r2, 0x300000007
+-jle r1, r2, +0x420
+-lddw r2, 0x300000000
+-stxdw [r2], r1
+-lddw r2, 0x735f6d656879616d
+-stxdw [r1], r2
+-stw [r1+8], 1702125940
+-ldxdw r2, [r7]
+-stdw [r7+8], 12
+-stdw [r7], 1
+-mov64 r2, 12
+-stxdw [r7+24], r2
+-stxdw [r7+16], r1
+-ja +0x298
+-mov64 r3, r9
+-ldxdw r1, [r10-40]
+-ldxdw r2, [r10-32]
+-mov64 r6, 2
+-lddw r4, 0x24a7daa7d7e52a05
+-jeq r8, r4, +0x218
+-ja +0x298
+-jne r3, 0, +0x150
+-stxdw [r10-48], r1
+-lddw r1, 0x300007fee
+-jne r2, 0, +0x168
+-mov64 r2, r6
+-and64 r2, 1
+-lddw r2, 0x300000007
+-jle r1, r2, +0x198
+-lddw r2, 0x300000000
+-stxdw [r2], r1
+-lddw r2, 0x7561765f6e656b6f
+-stxdw [r1+8], r2
+-lddw r2, 0x745f6d656879616d
+-stxdw [r1], r2
+-sth [r1+16], 29804
+-ldxdw r2, [r7]
+-stdw [r7+8], 18
+-stdw [r7], 1
+-mov64 r2, 18
+-ja +0x4f0
++mov64 r1, 1
++mov64 r2, 15
++lddw r3, panic_location(/home/runner/work/platform-tools/platform-tools/out/rust/library/alloc/src/slice.rs:449:29)
++call alloc::raw_vec::handle_error#4993

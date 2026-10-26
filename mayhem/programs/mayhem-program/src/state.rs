@@ -19,20 +19,8 @@ pub struct MayhemState {
 #[derive(AnchorSerialize, AnchorDeserialize, Clone, Copy, PartialEq, Eq)]
 pub enum MayhemStatus { Variant0, Variant1, Ended }
 
-/// A separate namespace suppresses the automatic Mayhem Owner implementation.
-/// The codec at 0x6dc00 writes 82 bytes including this account discriminator.
-#[account("account")]
-pub struct BondingCurve {
-    pub virtual_token_reserves: u64,
-    pub virtual_sol_reserves: u64,
-    pub real_token_reserves: u64,
-    pub real_sol_reserves: u64,
-    pub token_total_supply: u64,
-    pub complete: bool,
-    pub creator: Pubkey,
-    pub is_mayhem_mode: bool,
-}
-impl Owner for BondingCurve { fn owner() -> Pubkey { PUMP_ID } }
+/// Pump's bonding curve as `declare_program!(pump)` generates it (8-field layout, 82 bytes).
+pub use crate::pump::accounts::BondingCurve;
 
 /// Exact observed Borsh positions; opaque bytes remain named by behavior.
 /// This is not an assertion of historical field names or Rust memory layout.

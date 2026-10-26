@@ -27,6 +27,8 @@ Share of the original's code reproduced byte-for-byte, after relinking in the or
 | lalalune's source as published | 25.21% |
 | Moved into the original's file layout (no logic changed) | 25.21% |
 | Pump and PumpSwap calls through `declare_program!(pump)` / `declare_program!(pump_amm)` on `lib.rs` lines 19 and 20, with the IDLs in `idls/` (Pump's `buy` without the later `partial_fill` argument) | 32.51% |
+| PumpSwap `GlobalConfig` and Pump `BondingCurve` as the generated types, IDLs trimmed to Mayhem-era layouts (418 and 82 bytes) | 32.79% |
+| Pump v2 calls through [`crates/pump-cpi`](../crates/pump-cpi), a crate outside the workspace with `declare_program!(pump)` at `src/lib.rs:8:5` | 37.92% |
 
 [TODO.md](TODO.md) lists every function still to fix, the original's panic sites file by file, and the current leads. `targets/` holds an assembly diff per function.
 

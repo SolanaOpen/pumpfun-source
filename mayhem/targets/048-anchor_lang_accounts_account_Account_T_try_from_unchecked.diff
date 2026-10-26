@@ -1,0 +1,110 @@
+# anchor_lang::accounts::account::Account<T>::try_from_unchecked  (yours 952 B at .text+0x31f8; original 888 B at .text+0x52e0)
+# distance 49 instructions; evidence: same-callees 4/4
+--- original
++++ yours
+@@ -22,21 +22,21 @@
+ stxdw [r7+16], r1
+ ldxdw r1, [r7+24]
+ ldxdw r2, [r7+32]
+-stxdw [r10-8], r2
+-stxdw [r10-16], r1
++stxdw [r10-24], r2
++stxdw [r10-32], r1
+ mov64 r1, r10
+-add64 r1, -80
++add64 r1, -96
+ mov64 r2, r10
+-add64 r2, -16
++add64 r2, -32
+ call <mayhem_program::instructions::fee_recipients::FeeRecipient as anchor_lang::AccountDeserialize>::try_deserialize_unchecked#b945
+-ldxdw r2, [r10-64]
+-ldxdw r1, [r10-72]
+-ldxdw r3, [r10-80]
+-jne r3, 1, +0x2f8
++ldxb r1, [r10-96]
++jne r1, 1, +0x2f8
++ldxdw r1, [r10-88]
++ldxdw r2, [r10-80]
+ stxdw [r6+16], r2
+ stxdw [r6+8], r1
+ stdw [r6], 0
+-ja +0x340
++ja +0x380
+ ldxdw r1, [r7+8]
+ jne r1, 0, +0x190
+ ldxdw r1, [r7+16]
+@@ -47,23 +47,23 @@
+ call <anchor_lang::error::Error as core::convert::From<anchor_lang::error::ErrorCode>>::from#ae9e
+ mov64 r2, r1
+ ldxdw r1, [r7+24]
++stxdw [r10-72], r1
++ldxdw r1, [r7+16]
++stxdw [r10-80], r1
++ldxdw r1, [r7+8]
++stxdw [r10-88], r1
++ldxdw r1, [r7]
++stxdw [r10-96], r1
++lddw r1, 0x24a7daa7d7e52a05
++stxdw [r10-64], r1
++lddw r1, 0x85915429a7b0eaa6
+ stxdw [r10-56], r1
+-ldxdw r1, [r7+16]
+-stxdw [r10-64], r1
+-ldxdw r1, [r7+8]
+-stxdw [r10-72], r1
+-ldxdw r1, [r7]
+-stxdw [r10-80], r1
+-lddw r1, 0x24a7daa7d7e52a05
++lddw r1, 0x4c67601667a0d45a
+ stxdw [r10-48], r1
+-lddw r1, 0x85915429a7b0eaa6
++lddw r1, 0xa3653d805945034e
+ stxdw [r10-40], r1
+-lddw r1, 0x4c67601667a0d45a
+-stxdw [r10-32], r1
+-lddw r1, 0xa3653d805945034e
+-stxdw [r10-24], r1
+ mov64 r3, r10
+-add64 r3, -80
++add64 r3, -96
+ mov64 r1, r0
+ call anchor_lang::error::Error::with_pubkeys#f2b2
+ stxdw [r6+16], r1
+@@ -77,20 +77,28 @@
+ mov64 r8, r2
+ mov64 r1, r2
+ call solana_account_info::AccountInfo::lamports#aa02
+-jeq r0, 0, +0x360
++jeq r0, 0, +0x3a0
+ ldxdw r1, [r7]
+ mov64 r2, r8
+ lddw r3, 0x24a7daa7d7e52a05
+ jeq r1, r3, +0x38
+ ja +0x190
+-ldxdw r3, [r10-40]
+-stxdw [r6+40], r3
+-ldxdw r3, [r10-48]
+-stxdw [r6+32], r3
+-ldxdw r3, [r10-56]
+-stxdw [r6+24], r3
+-stxdw [r6+16], r2
+-stxdw [r6+8], r1
++ldxw r1, [r10-92]
++stxw [r6+11], r1
++ldxw r1, [r10-95]
++stxw [r6+8], r1
++ldxdw r1, [r10-72]
++stxdw [r10-16], r1
++ldxw r1, [r10-65]
++stxw [r10-9], r1
++ldxdw r1, [r10-88]
++ldxdw r2, [r10-80]
++ldxw r3, [r10-9]
++stxw [r6+38], r3
++ldxdw r3, [r10-16]
++stxdw [r6+31], r3
++stxdw [r6+23], r2
++stxdw [r6+15], r1
+ stxdw [r6], r8
+ ldxdw r1, [r7+16]
+ add64 r1, -1

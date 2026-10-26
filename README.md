@@ -8,7 +8,7 @@ This builds on [lalalune/pumpfun-source](https://github.com/lalalune/pumpfun-sou
 
 | Program | Original's own source files | Missing at that path in lalalune's source | Here |
 |---|---:|---:|---|
-| Mayhem | 9 | 9 | Original layout and `declare_program!` clients; **32.51%** of the original's code matches; [progress](mayhem/README.md#progress), [to-do list](mayhem/TODO.md) |
+| Mayhem | 9 | 9 | Original layout, `declare_program!` clients and the `pump-cpi` crate; **37.92%** of the original's code matches; [progress](mayhem/README.md#progress), [to-do list](mayhem/TODO.md) |
 | Pump | 15 | 10 | [Analysis](analysis/source-layout.md#pump) |
 | PumpSwap | 10 | 8 | [Analysis](analysis/source-layout.md#pumpswap) |
 | Fees | 12 | 9 | [Analysis](analysis/source-layout.md#fees) |
@@ -24,11 +24,7 @@ This builds on [lalalune/pumpfun-source](https://github.com/lalalune/pumpfun-sou
 
 ## Mayhem
 
-[mayhem/](mayhem) started as lalalune's Mayhem source, moved into the layout the binary names and then switched to the Pump and PumpSwap clients that `declare_program!` generates, as the original does. Built with platform-tools v1.54 and relinked in the original's function order, it reproduces **32.51%** of the original's code, up from 25.21%. There are 88 functions that exist but differ, 42 parts of the original with no counterpart, and an assembly diff per function in `mayhem/targets/`. [mayhem/README.md](mayhem/README.md#progress) logs each step; [mayhem/TODO.md](mayhem/TODO.md) has the current leads:
-
-1. Read Pump's and PumpSwap's accounts through the generated `pump::accounts` / `pump_amm::accounts` types, as the original does.
-2. The unknown dependency behind the v2 Pump calls (`src/account_wrapper.rs`, `src/lib.rs:8:5`).
-3. The original's `state.rs` holds logic (panic sites from line 107 to line 578); this source keeps none there.
+[mayhem/](mayhem) started as lalalune's Mayhem source. It has since been moved into the layout the binary names, switched to the Pump and PumpSwap clients `declare_program!` generates, and given the v2 calls through [crates/pump-cpi](crates/pump-cpi), the dependency the original's `src/lib.rs:8:5` and `src/account_wrapper.rs` locations point to. Built with platform-tools v1.54 and relinked in the original's function order, it reproduces **37.92%** of the original's code, up from 25.21%. [mayhem/README.md](mayhem/README.md#progress) logs each step; [mayhem/TODO.md](mayhem/TODO.md) has every remaining function and the current leads. The AI rebuild loop (Claude Opus 5.5) is working through the per-function list.
 
 ## Reproduce
 
@@ -47,6 +43,7 @@ python3 solopen.py lockfit --id <PROGRAM_ID> --workspace <workspace> --lock <its
 
 | Path | What |
 |---|---|
-| `mayhem/` | Mayhem workspace in the original layout: source, `TODO.md`, `targets/` |
+| `mayhem/` | Mayhem workspace in the original layout: source, IDLs, `TODO.md`, `targets/` |
+| `crates/pump-cpi/` | Reconstructed dependency for Mayhem's v2 Pump calls (kept outside the workspace so its paths compile as `src/…`, as in the original) |
 | `analysis/source-layout.md` | Source files and panic positions each deployed binary records |
 | `analysis/lockfit-*.json` | Dependency evidence per program |

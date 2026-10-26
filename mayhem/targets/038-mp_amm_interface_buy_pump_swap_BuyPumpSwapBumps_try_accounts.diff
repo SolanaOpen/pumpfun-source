@@ -1,0 +1,2192 @@
+# <mayhem_program::instructions::pump_amm_interface::buy_pump_swap::BuyPumpSwap as anchor_lang::Accounts<mayhem_program::instructions::pump_amm_interface::buy_pump_swap::BuyPumpSwapBumps>>::try_accounts  (yours 19360 B at .text+0x3b2d0; original 19256 B at .text+0x46258)
+# distance 731 instructions; evidence: called-by mayhem_program::__private::__global::buy_pump_swap#1e53; same-callees 29/31; neighbours between the same matched functions as in your build
+--- original
++++ yours
+@@ -1,20 +1,20 @@
+ mov64 r7, r5
+-stxdw [r10-1120], r4
++stxdw [r10-1104], r4
+ mov64 r9, r3
+-stxdw [r10-1112], r2
+-stxdw [r10-1104], r1
+-mov64 r1, r10
+-add64 r1, -1088
++stxdw [r10-1096], r2
++stxdw [r10-1088], r1
++mov64 r1, r10
++add64 r1, -1072
+ mov64 r5, r10
+ call <anchor_lang::accounts::signer::Signer as anchor_lang::Accounts<B>>::try_accounts#08ef
+-ldxdw r6, [r10-1080]
+-ldxdw r8, [r10-1088]
++ldxdw r6, [r10-1064]
++ldxdw r8, [r10-1072]
+ jne r8, 2, +0x1d8
+ ldxdw r1, [r7-4080]
+-stxdw [r10-1128], r1
++stxdw [r10-1112], r1
+ ldxdw r8, [r7-4088]
+ ldxdw r7, [r7-4096]
+-stxdw [r10-1096], r6
++stxdw [r10-1080], r6
+ mov64 r1, r10
+ add64 r1, -256
+ mov64 r5, r10
+@@ -89,7 +89,7 @@
+ stdw [r6+24], 6
+ stdw [r6+8], 6
+ stdw [r6], 1
+-ldxdw r1, [r10-1104]
++ldxdw r1, [r10-1088]
+ stxdw [r1+16], r6
+ stxdw [r1+8], r8
+ ja +0xbb8
+@@ -107,7 +107,7 @@
+ jeq r5, 0, +0x4b0
+ and64 r2, -8
+ mov64 r1, r2
+-stxdw [r10-1136], r8
++stxdw [r10-1120], r8
+ lddw r2, 0x300000007
+ jgt r1, r2, +0x4d0
+ mov64 r1, 8
+@@ -128,14 +128,14 @@
+ mov64 r2, r3
+ lddw r1, 0x300007f00
+ jne r5, 0, +0x3d0
+-stxdw [r10-1136], r8
++stxdw [r10-1120], r8
+ lddw r2, 0x300000007
+ jle r1, r2, +0x400
+ lddw r8, 0x300000000
+ stxdw [r8], r1
+ mov64 r2, r10
+ add64 r2, -256
+-stxdw [r10-1144], r1
++stxdw [r10-1128], r1
+ mov64 r3, 256
+ call memcpy
+ mov64 r1, r10
+@@ -210,7 +210,7 @@
+ stxdw [r8], r1
+ mov64 r2, r10
+ add64 r2, -256
+-stxdw [r10-1152], r1
++stxdw [r10-1136], r1
+ mov64 r3, 112
+ call memcpy
+ mov64 r1, r10
+@@ -283,7 +283,7 @@
+ stxdw [r8], r1
+ mov64 r2, r10
+ add64 r2, -256
+-stxdw [r10-1160], r1
++stxdw [r10-1144], r1
+ mov64 r3, 128
+ call memcpy
+ mov64 r1, r10
+@@ -322,7 +322,7 @@
+ stdw [r7+24], 18
+ stdw [r7+8], 18
+ stdw [r7], 1
+-ldxdw r1, [r10-1104]
++ldxdw r1, [r10-1088]
+ stxdw [r1+16], r7
+ stxdw [r1+8], r6
+ stdw [r1], 0
+@@ -335,7 +335,7 @@
+ mov64 r4, 1
+ jgt r3, r5, +0xce0
+ mov64 r4, 0
+-ldxdw r8, [r10-1136]
++ldxdw r8, [r10-1120]
+ jeq r4, 0, +0xcf0
+ lddw r1, 0x300007f28
+ jeq r5, 0, +0xd10
+@@ -357,7 +357,7 @@
+ mov64 r2, 18
+ lddw r3, panic_location(/home/runner/work/platform-tools/platform-tools/out/rust/library/alloc/src/slice.rs:449:29)
+ call alloc::raw_vec::handle_error#4993
+-ldxdw r8, [r10-1136]
++ldxdw r8, [r10-1120]
+ jne r4, 0, +0xc18
+ mov64 r2, r3
+ lddw r1, 0x300007f28
+@@ -368,13 +368,13 @@
+ stxdw [r2], r1
+ mov64 r2, r10
+ add64 r2, -256
+-stxdw [r10-1168], r1
++stxdw [r10-1152], r1
+ mov64 r3, 216
+ call memcpy
+ ldxdw r1, [r9+8]
+ jeq r1, 0, +0xde8
+ ldxdw r2, [r9]
+-stxdw [r10-1072], r2
++stxdw [r10-1056], r2
+ mov64 r3, r1
+ add64 r3, -1
+ stxdw [r9+8], r3
+@@ -389,7 +389,7 @@
+ ja +0xe80
+ mov64 r1, 3005
+ call <anchor_lang::error::Error as core::convert::From<anchor_lang::error::ErrorCode>>::from#ae9e
+-ldxdw r2, [r10-1104]
++ldxdw r2, [r10-1088]
+ stxdw [r2+16], r1
+ stxdw [r2+8], r0
+ stdw [r2], 0
+@@ -404,24 +404,19 @@
+ mov64 r4, 9
+ call anchor_lang::error::Error::with_account_name#7b9b
+ mov64 r4, r1
+-jne r0, 2, +0x1230
+-stxdw [r10-1176], r4
+-stxdw [r10-1064], r4
+-mov64 r1, r10
+-add64 r1, -1048
++jne r0, 2, +0x1a78
++stxdw [r10-1160], r4
++stxdw [r10-1048], r4
++mov64 r1, r10
++add64 r1, -256
+ mov64 r5, r10
+ mov64 r3, r9
+-call orig_fn_a2c0
+-ldxdw r2, [r10-1040]
+-ldxdw r1, [r10-1048]
+-jeq r1, 2, +0xf00
+-lddw r3, str("system_program")
+-mov64 r4, 14
+-call anchor_lang::error::Error::with_account_name#7b9b
+-mov64 r2, r1
+-jne r0, 2, +0x1ca8
+-stxdw [r10-1184], r2
+-stxdw [r10-1056], r2
++call <mayhem_program::checked_program::CheckedSystemProgram as anchor_lang::Accounts<mayhem_program::checked_program::CheckedSystemProgramBumps>>::try_accounts#d482
++ldxdw r3, [r10-248]
++ldxdw r1, [r10-256]
++jne r1, 2, +0xfb0
++stxdw [r10-1168], r3
++stxdw [r10-1040], r3
+ mov64 r1, r10
+ add64 r1, -1024
+ mov64 r5, r10
+@@ -429,13 +424,13 @@
+ call <anchor_lang::accounts::interface::Interface<T> as anchor_lang::Accounts<B>>::try_accounts#046f
+ ldxdw r2, [r10-1016]
+ ldxdw r1, [r10-1024]
+-jeq r1, 2, +0xf80
++jeq r1, 2, +0xf50
+ lddw r3, str("quote_token_program")
+ mov64 r4, 19
+ call anchor_lang::error::Error::with_account_name#7b9b
+ mov64 r2, r1
+-jne r0, 2, +0x1ca8
+-stxdw [r10-1192], r2
++jne r0, 2, +0x1cb0
++stxdw [r10-1176], r2
+ stxdw [r10-1032], r2
+ mov64 r1, r10
+ add64 r1, -1008
+@@ -444,14 +439,19 @@
+ call <anchor_lang::accounts::program::Program<T> as anchor_lang::Accounts<B>>::try_accounts#03f5
+ ldxdw r2, [r10-1000]
+ ldxdw r1, [r10-1008]
+-jne r1, 2, +0xfe0
+-stxdw [r10-1200], r2
+-ja +0x1010
++jne r1, 2, +0xfd8
++stxdw [r10-1184], r2
++ja +0x1008
++ldxdw r2, [r10-1088]
++stxdw [r2+16], r3
++stxdw [r2+8], r1
++stdw [r2], 0
++ja +0xbc0
+ lddw r3, str("base_token_program")
+ mov64 r4, 18
+ call anchor_lang::error::Error::with_account_name#7b9b
+ jne r0, 2, +0xdf8
+-stxdw [r10-1200], r1
++stxdw [r10-1184], r1
+ mov64 r1, r10
+ add64 r1, -984
+ mov64 r5, r10
+@@ -459,352 +459,355 @@
+ call <anchor_lang::accounts::program::Program<T> as anchor_lang::Accounts<B>>::try_accounts#0536
+ ldxdw r2, [r10-976]
+ ldxdw r1, [r10-984]
+-jeq r1, 2, +0x1080
++jeq r1, 2, +0x1078
+ lddw r3, str("associated_token_program")
+ mov64 r4, 24
+ call anchor_lang::error::Error::with_account_name#7b9b
+ mov64 r2, r1
+-jne r0, 2, +0x1ca8
+-stxdw [r10-1208], r2
++jne r0, 2, +0x1cb0
++stxdw [r10-1192], r2
+ stxdw [r10-992], r2
+-ldxdw r1, [r10-1128]
++ldxdw r1, [r10-1112]
+ stxdw [r10-4080], r1
+ stxdw [r10-4088], r8
+ stxdw [r10-4096], r7
+ mov64 r1, r10
+ add64 r1, -968
+ mov64 r5, r10
+-ldxdw r2, [r10-1112]
++ldxdw r2, [r10-1096]
+ mov64 r3, r9
+-ldxdw r4, [r10-1120]
++ldxdw r4, [r10-1104]
+ call anchor_lang::accounts::boxed::<impl anchor_lang::Accounts<B> for alloc::boxed::Box<T>>::try_accounts#2610
+ ldxdw r2, [r10-960]
+ ldxdw r1, [r10-968]
+-jne r1, 2, +0x1110
+-stxdw [r10-1216], r2
+-ja +0x1140
++jne r1, 2, +0x1108
++stxdw [r10-1200], r2
++ja +0x1138
+ lddw r3, str("pool")
+ mov64 r4, 4
+ call anchor_lang::error::Error::with_account_name#7b9b
+ jne r0, 2, +0xdf8
+-stxdw [r10-1216], r1
+-ldxdw r1, [r10-1128]
++stxdw [r10-1200], r1
++ldxdw r1, [r10-1112]
+ stxdw [r10-4080], r1
+ stxdw [r10-4088], r8
+ stxdw [r10-4096], r7
+ mov64 r1, r10
+ add64 r1, -952
+ mov64 r5, r10
+-ldxdw r2, [r10-1112]
++ldxdw r2, [r10-1096]
+ mov64 r3, r9
+-ldxdw r4, [r10-1120]
++ldxdw r4, [r10-1104]
+ call anchor_lang::accounts::boxed::<impl anchor_lang::Accounts<B> for alloc::boxed::Box<T>>::try_accounts#7d73
+ ldxdw r2, [r10-944]
+ ldxdw r1, [r10-952]
+-jeq r1, 2, +0x11e0
++jeq r1, 2, +0x11d8
+ lddw r3, str("global_config")
+ mov64 r4, 13
+ call anchor_lang::error::Error::with_account_name#7b9b
+ mov64 r2, r1
+-jne r0, 2, +0x1ca8
+-stxdw [r10-1224], r2
++jne r0, 2, +0x1cb0
++stxdw [r10-1208], r2
+ ldxdw r1, [r9+8]
+-jeq r1, 0, +0x1248
++jeq r1, 0, +0x1228
+ add64 r1, -1
+ stxdw [r9+8], r1
+ ldxdw r2, [r9]
+ mov64 r1, r2
+ add64 r1, 48
+ stxdw [r9], r1
+-ja +0x12a0
+-ldxdw r1, [r10-1104]
+-stxdw [r1+16], r4
+-ja +0x1cb8
++ja +0x1280
+ mov64 r1, 3005
+ call <anchor_lang::error::Error as core::convert::From<anchor_lang::error::ErrorCode>>::from#ae9e
+ mov64 r2, r1
+-jeq r0, 2, +0x12a0
++jeq r0, 2, +0x1280
+ mov64 r1, r0
+ lddw r3, str("quote_mint")
+ mov64 r4, 10
+ call anchor_lang::error::Error::with_account_name#7b9b
+ mov64 r2, r1
+-jne r0, 2, +0x1ca8
+-stxdw [r10-1232], r2
++jne r0, 2, +0x1cb0
++stxdw [r10-1216], r2
+ stxdw [r10-936], r2
+-ldxdw r1, [r10-1128]
++ldxdw r1, [r10-1112]
+ stxdw [r10-4080], r1
+ stxdw [r10-4088], r8
+ stxdw [r10-4096], r7
+ mov64 r1, r10
+ add64 r1, -928
+ mov64 r5, r10
+-ldxdw r2, [r10-1112]
++ldxdw r2, [r10-1096]
+ mov64 r3, r9
+-ldxdw r4, [r10-1120]
+-call anchor_lang::accounts::boxed::<impl anchor_lang::Accounts<B> for alloc::boxed::Box<T>>::try_accounts#3de0
++ldxdw r4, [r10-1104]
++call anchor_lang::accounts::boxed::<impl anchor_lang::Accounts<B> for alloc::boxed::Box<T>>::try_accounts#0e9c
+ ldxdw r2, [r10-920]
+ ldxdw r1, [r10-928]
+-jne r1, 2, +0x1330
+-stxdw [r10-1240], r2
+-ja +0x1360
++jne r1, 2, +0x1310
++stxdw [r10-1224], r2
++ja +0x1340
+ lddw r3, str("pool_base_token_account")
+ mov64 r4, 23
+ call anchor_lang::error::Error::with_account_name#7b9b
+ jne r0, 2, +0xdf8
+-stxdw [r10-1240], r1
+-ldxdw r1, [r10-1128]
++stxdw [r10-1224], r1
++ldxdw r1, [r10-1112]
+ stxdw [r10-4080], r1
+ stxdw [r10-4088], r8
+ stxdw [r10-4096], r7
+ mov64 r1, r10
+ add64 r1, -912
+ mov64 r5, r10
+-ldxdw r2, [r10-1112]
++ldxdw r2, [r10-1096]
+ mov64 r3, r9
+-ldxdw r4, [r10-1120]
+-call anchor_lang::accounts::boxed::<impl anchor_lang::Accounts<B> for alloc::boxed::Box<T>>::try_accounts#3de0
++ldxdw r4, [r10-1104]
++call anchor_lang::accounts::boxed::<impl anchor_lang::Accounts<B> for alloc::boxed::Box<T>>::try_accounts#0e9c
+ ldxdw r2, [r10-904]
+ ldxdw r1, [r10-912]
+-jeq r1, 2, +0x1400
++jeq r1, 2, +0x13e0
+ lddw r3, str("pool_quote_token_account")
+ mov64 r4, 24
+ call anchor_lang::error::Error::with_account_name#7b9b
+ mov64 r2, r1
+-jne r0, 2, +0x1ca8
+-stxdw [r10-1248], r2
++jne r0, 2, +0x1cb0
++stxdw [r10-1232], r2
+ ldxdw r1, [r9+8]
+-jeq r1, 0, +0x1450
++jeq r1, 0, +0x1430
+ add64 r1, -1
+ stxdw [r9+8], r1
+ ldxdw r1, [r9]
+-stxdw [r10-1256], r1
++stxdw [r10-1240], r1
+ add64 r1, 48
+ stxdw [r9], r1
+-ja +0x14b8
++ja +0x1498
+ mov64 r1, 3005
+ call <anchor_lang::error::Error as core::convert::From<anchor_lang::error::ErrorCode>>::from#ae9e
+ mov64 r2, r1
+-jne r0, 2, +0x1480
+-stxdw [r10-1256], r2
+-ja +0x14b8
++jne r0, 2, +0x1460
++stxdw [r10-1240], r2
++ja +0x1498
+ mov64 r1, r0
+ lddw r3, str("protocol_fee_recipient")
+ mov64 r4, 22
+ call anchor_lang::error::Error::with_account_name#7b9b
+ jne r0, 2, +0xdf8
+-stxdw [r10-1256], r1
+-ldxdw r1, [r10-1128]
++stxdw [r10-1240], r1
++ldxdw r1, [r10-1112]
+ stxdw [r10-4080], r1
+ stxdw [r10-4088], r8
+ stxdw [r10-4096], r7
+ mov64 r1, r10
+ add64 r1, -896
+ mov64 r5, r10
+-ldxdw r2, [r10-1112]
++ldxdw r2, [r10-1096]
+ mov64 r3, r9
+-ldxdw r4, [r10-1120]
+-call anchor_lang::accounts::boxed::<impl anchor_lang::Accounts<B> for alloc::boxed::Box<T>>::try_accounts#3de0
++ldxdw r4, [r10-1104]
++call anchor_lang::accounts::boxed::<impl anchor_lang::Accounts<B> for alloc::boxed::Box<T>>::try_accounts#0e9c
+ ldxdw r2, [r10-888]
+ ldxdw r1, [r10-896]
+-jeq r1, 2, +0x1558
++jeq r1, 2, +0x1538
+ lddw r3, str("protocol_fee_recipient_token_account")
+ mov64 r4, 36
+ call anchor_lang::error::Error::with_account_name#7b9b
+ mov64 r2, r1
+-jne r0, 2, +0x1ca8
+-stxdw [r10-1264], r2
++jne r0, 2, +0x1cb0
++stxdw [r10-1248], r2
+ ldxdw r1, [r9+8]
+-jeq r1, 0, +0x15e0
++jeq r1, 0, +0x15c0
+ ldxdw r2, [r9]
+-stxdw [r10-1272], r2
++stxdw [r10-1256], r2
+ add64 r2, 48
+ stxdw [r9], r2
+ add64 r1, -1
+ stxdw [r9+8], r1
+-jeq r1, 0, +0x1608
++jeq r1, 0, +0x15e8
+ add64 r1, -1
+ stxdw [r9+8], r1
+ ldxdw r1, [r9]
+-stxdw [r10-1280], r1
++stxdw [r10-1264], r1
+ add64 r1, 48
+ stxdw [r9], r1
+-ja +0x1670
++ja +0x1650
+ mov64 r1, 3005
+ call <anchor_lang::error::Error as core::convert::From<anchor_lang::error::ErrorCode>>::from#ae9e
+ mov64 r2, r1
+-jne r0, 2, +0x1800
+-stxdw [r10-1272], r2
++jne r0, 2, +0x17c8
++stxdw [r10-1256], r2
+ mov64 r1, 3005
+ call <anchor_lang::error::Error as core::convert::From<anchor_lang::error::ErrorCode>>::from#ae9e
+ mov64 r2, r1
+-jne r0, 2, +0x1638
+-stxdw [r10-1280], r2
+-ja +0x1670
++jne r0, 2, +0x1618
++stxdw [r10-1264], r2
++ja +0x1650
+ mov64 r1, r0
+ lddw r3, str("pump_swap_program")
+ mov64 r4, 17
+ call anchor_lang::error::Error::with_account_name#7b9b
+ jne r0, 2, +0xdf8
+-stxdw [r10-1280], r1
+-ldxdw r1, [r10-1128]
++stxdw [r10-1264], r1
++ldxdw r1, [r10-1112]
+ stxdw [r10-4080], r1
+ stxdw [r10-4088], r8
+ stxdw [r10-4096], r7
+ mov64 r1, r10
+ add64 r1, -880
+ mov64 r5, r10
+-ldxdw r2, [r10-1112]
++ldxdw r2, [r10-1096]
+ mov64 r3, r9
+-ldxdw r4, [r10-1120]
+-call anchor_lang::accounts::boxed::<impl anchor_lang::Accounts<B> for alloc::boxed::Box<T>>::try_accounts#3de0
++ldxdw r4, [r10-1104]
++call anchor_lang::accounts::boxed::<impl anchor_lang::Accounts<B> for alloc::boxed::Box<T>>::try_accounts#0e9c
+ ldxdw r7, [r10-872]
+ ldxdw r1, [r10-880]
+-jeq r1, 2, +0x1718
++jeq r1, 2, +0x16f8
+ mov64 r2, r7
+ lddw r3, str("coin_creator_vault_ata")
+ mov64 r4, 22
+ call anchor_lang::error::Error::with_account_name#7b9b
+ mov64 r7, r1
+-jne r0, 2, +0x17e8
++jne r0, 2, +0x1cd0
+ ldxdw r3, [r9+8]
+-jeq r3, 0, +0x1798
++jeq r3, 0, +0x1778
+ ldxdw r8, [r9]
+ mov64 r2, r8
+ add64 r2, 48
+ stxdw [r9], r2
+ add64 r3, -1
+ stxdw [r9+8], r3
+-jeq r3, 0, +0x17b8
++jeq r3, 0, +0x1798
+ ldxdw r2, [r9]
+-stxdw [r10-1120], r2
++stxdw [r10-1104], r2
+ add64 r2, 48
+ stxdw [r9], r2
+ add64 r3, -1
+ stxdw [r9+8], r3
+-ja +0x1890
++ja +0x1858
+ mov64 r1, 3005
+ call <anchor_lang::error::Error as core::convert::From<anchor_lang::error::ErrorCode>>::from#ae9e
+ mov64 r8, r1
+-jne r0, 2, +0x1a60
++jne r0, 2, +0x1940
+ mov64 r1, 3005
+ call <anchor_lang::error::Error as core::convert::From<anchor_lang::error::ErrorCode>>::from#ae9e
+ mov64 r2, r1
+-jne r0, 2, +0x1850
+-stxdw [r10-1120], r2
+-ja +0x18d0
+-ldxdw r1, [r10-1104]
+-stxdw [r1+16], r7
+-ja +0x1cb8
++jne r0, 2, +0x1818
++stxdw [r10-1104], r2
++ja +0x1898
+ mov64 r1, r0
+ lddw r3, str("pump_swap_event_authority")
+ mov64 r4, 25
+ call anchor_lang::error::Error::with_account_name#7b9b
+ jne r0, 2, +0xdf8
+-stxdw [r10-1272], r1
++stxdw [r10-1256], r1
+ ldxdw r1, [r9+8]
+-jne r1, 0, +0x15a8
+-ja +0x1608
++jne r1, 0, +0x1588
++ja +0x15e8
+ mov64 r1, r0
+ lddw r3, str("global_volume_accumulator")
+ mov64 r4, 25
+ call anchor_lang::error::Error::with_account_name#7b9b
+-jne r0, 2, +0xdf8
+-stxdw [r10-1120], r1
++stxdw [r10-1104], r1
++jne r0, 2, +0x1e58
+ ldxdw r3, [r9+8]
+-jeq r3, 0, +0x18d0
+-ldxdw r2, [r9]
+-stxdw [r10-1128], r2
++jeq r3, 0, +0x1898
++ldxdw r1, [r9]
++mov64 r2, r1
+ add64 r2, 48
+ stxdw [r9], r2
+ add64 r3, -1
+ stxdw [r9+8], r3
+-ja +0x1940
++ja +0x1900
+ mov64 r1, 3005
+ call <anchor_lang::error::Error as core::convert::From<anchor_lang::error::ErrorCode>>::from#ae9e
+ mov64 r2, r1
+-jne r0, 2, +0x1900
+-stxdw [r10-1128], r2
+-ja +0x1980
++jne r0, 2, +0x18c8
++stxdw [r10-1112], r2
++ja +0x19a0
+ mov64 r1, r0
+ lddw r3, str("user_volume_accumulator")
+ mov64 r4, 23
+ call anchor_lang::error::Error::with_account_name#7b9b
+ jne r0, 2, +0xdf8
+-stxdw [r10-1128], r1
+ ldxdw r3, [r9+8]
+-jeq r3, 0, +0x1980
+-ldxdw r2, [r9]
+-stxdw [r10-1288], r2
++jeq r3, 0, +0x1998
++ldxdw r4, [r9]
++mov64 r2, r4
+ add64 r2, 48
+ stxdw [r9], r2
+ add64 r3, -1
+ stxdw [r9+8], r3
+-ja +0x19f0
++ja +0x1a18
++mov64 r1, r0
++mov64 r2, r8
++lddw r3, str("coin_creator_vault_authority")
++mov64 r4, 28
++call anchor_lang::error::Error::with_account_name#7b9b
++mov64 r8, r1
++jne r0, 2, +0x20c8
++ldxdw r3, [r9+8]
++jne r3, 0, +0x1740
++ja +0x1798
++stxdw [r10-1112], r1
+ mov64 r1, 3005
+ call <anchor_lang::error::Error as core::convert::From<anchor_lang::error::ErrorCode>>::from#ae9e
+ mov64 r2, r1
+-jne r0, 2, +0x19b0
+-stxdw [r10-1288], r2
+-ja +0x1a30
++jne r0, 2, +0x19d0
++stxdw [r10-1296], r2
++ja +0x1a90
+ mov64 r1, r0
+ lddw r3, str("fee_config")
+ mov64 r4, 10
+ call anchor_lang::error::Error::with_account_name#7b9b
+-jne r0, 2, +0xdf8
+-stxdw [r10-1288], r1
++mov64 r4, r1
++jne r0, 2, +0x1a78
+ ldxdw r3, [r9+8]
+-jeq r3, 0, +0x1a30
+-ldxdw r1, [r9]
+-mov64 r2, r1
++ldxdw r1, [r10-1112]
++stxdw [r10-1112], r1
++stxdw [r10-1296], r4
++jeq r3, 0, +0x1a90
++stxdw [r10-1288], r8
++stxdw [r10-1280], r7
++ldxdw r2, [r9]
++stxdw [r10-1272], r2
+ add64 r2, 48
+ stxdw [r9], r2
+ add64 r3, -1
+ stxdw [r9+8], r3
+-ja +0x1af0
++ja +0x1b10
++ldxdw r1, [r10-1088]
++stxdw [r1+16], r4
++ja +0x1cc0
+ mov64 r1, 3005
+ call <anchor_lang::error::Error as core::convert::From<anchor_lang::error::ErrorCode>>::from#ae9e
+ mov64 r2, r1
+-jne r0, 2, +0x1ab8
+-stxdw [r10-1296], r2
+-ja +0x1b38
+-mov64 r1, r0
+-mov64 r2, r8
+-lddw r3, str("coin_creator_vault_authority")
+-mov64 r4, 28
+-call anchor_lang::error::Error::with_account_name#7b9b
+-mov64 r8, r1
+-jne r0, 2, +0x1d18
+-ldxdw r3, [r9+8]
+-jne r3, 0, +0x1760
+-ja +0x17b8
++stxdw [r10-1280], r7
++stxdw [r10-1288], r8
++jne r0, 2, +0x1ad0
++stxdw [r10-1272], r2
++ja +0x1b50
+ mov64 r1, r0
+ lddw r3, str("fee_program")
+ mov64 r4, 11
+ call anchor_lang::error::Error::with_account_name#7b9b
+-jne r0, 2, +0xdf8
++stxdw [r10-1272], r1
++jne r0, 2, +0x20e0
+ ldxdw r3, [r9+8]
+-stxdw [r10-1296], r1
+-jeq r3, 0, +0x1b38
++jeq r3, 0, +0x1b50
+ add64 r3, -1
+ stxdw [r9+8], r3
+-ldxdw r1, [r9]
+-stxdw [r10-1312], r1
++ldxdw r7, [r9]
++mov64 r1, r7
+ add64 r1, 48
+ stxdw [r9], r1
+-ja +0x1ba0
++ja +0x1bb0
+ mov64 r1, 3005
+ call <anchor_lang::error::Error as core::convert::From<anchor_lang::error::ErrorCode>>::from#ae9e
+-mov64 r2, r1
+-jne r0, 2, +0x1b68
+-stxdw [r10-1312], r2
+-ja +0x1ba0
+-mov64 r1, r0
++mov64 r7, r1
++jeq r0, 2, +0x1bb0
++mov64 r1, r0
++mov64 r2, r7
+ lddw r3, str("event_authority")
+ mov64 r4, 15
+ call anchor_lang::error::Error::with_account_name#7b9b
+-jne r0, 2, +0xdf8
+-stxdw [r10-1312], r1
++mov64 r7, r1
++jne r0, 2, +0x1cd0
+ mov64 r1, r10
+ add64 r1, -864
+ mov64 r5, r10
+@@ -812,84 +815,84 @@
+ call <anchor_lang::accounts::program::Program<T> as anchor_lang::Accounts<B>>::try_accounts#0031
+ ldxdw r2, [r10-856]
+ ldxdw r1, [r10-864]
+-jeq r1, 2, +0x1c10
++stxdw [r10-1328], r7
++jeq r1, 2, +0x1c28
+ lddw r3, str("program")
+ mov64 r4, 7
+ call anchor_lang::error::Error::with_account_name#7b9b
+ mov64 r2, r1
+-jne r0, 2, +0x1ca8
+-stxdw [r10-1344], r2
++jne r0, 2, +0x1cb0
++stxdw [r10-1336], r2
+ ldxdw r1, [r9+8]
+-stxdw [r10-1336], r7
+-stxdw [r10-1320], r8
+-jeq r1, 0, +0x1cc8
++jeq r1, 0, +0x1ce8
++ldxdw r2, [r9]
++stxdw [r10-1312], r2
++add64 r2, 48
++stxdw [r9], r2
++add64 r1, -1
++stxdw [r9+8], r1
++jeq r1, 0, +0x1d08
+ ldxdw r2, [r9]
+ stxdw [r10-1304], r2
+ add64 r2, 48
+ stxdw [r9], r2
+ add64 r1, -1
+ stxdw [r9+8], r1
+-jeq r1, 0, +0x1ce8
+-ldxdw r2, [r9]
+-stxdw [r10-1328], r2
+-add64 r2, 48
+-stxdw [r9], r2
+-add64 r1, -1
+-stxdw [r9+8], r1
+ ja +0x1d70
+-ldxdw r1, [r10-1104]
++ldxdw r1, [r10-1088]
+ stxdw [r1+16], r2
+ stxdw [r1+8], r0
+ ja +0xbb8
++ldxdw r1, [r10-1088]
++stxdw [r1+16], r7
++ja +0x1cc0
+ mov64 r1, 3005
+ call <anchor_lang::error::Error as core::convert::From<anchor_lang::error::ErrorCode>>::from#ae9e
++stxdw [r10-1312], r1
++jne r0, 2, +0x20f8
++mov64 r1, 3005
++call <anchor_lang::error::Error as core::convert::From<anchor_lang::error::ErrorCode>>::from#ae9e
+ stxdw [r10-1304], r1
+-jne r0, 2, +0x20b0
+-mov64 r1, 3005
+-call <anchor_lang::error::Error as core::convert::From<anchor_lang::error::ErrorCode>>::from#ae9e
+-mov64 r2, r1
+-jne r0, 2, +0x1d30
+-stxdw [r10-1328], r2
+-ja +0x1db0
+-ldxdw r1, [r10-1104]
+-stxdw [r1+16], r8
+-ja +0x1cb8
+-mov64 r1, r0
++jeq r0, 2, +0x1db0
++mov64 r1, r0
++ldxdw r2, [r10-1304]
+ lddw r3, str("buyback_recipient")
+ mov64 r4, 17
+ call anchor_lang::error::Error::with_account_name#7b9b
+-stxdw [r10-1328], r1
+-jne r0, 2, +0x2138
++stxdw [r10-1304], r1
++jne r0, 2, +0x2168
+ ldxdw r1, [r9+8]
+ jeq r1, 0, +0x1db0
+ add64 r1, -1
+ stxdw [r9+8], r1
+ ldxdw r1, [r9]
+-stxdw [r10-1352], r1
++stxdw [r10-1320], r1
+ add64 r1, 48
+ stxdw [r9], r1
+-ja +0x1e18
++ja +0x1e10
+ mov64 r1, 3005
+ call <anchor_lang::error::Error as core::convert::From<anchor_lang::error::ErrorCode>>::from#ae9e
+-mov64 r2, r1
+-jne r0, 2, +0x1de0
+-stxdw [r10-1352], r2
+-ja +0x1e18
+-mov64 r1, r0
++stxdw [r10-1320], r1
++jeq r0, 2, +0x1e10
++mov64 r1, r0
++ldxdw r2, [r10-1320]
+ lddw r3, str("buyback_recipient_ata")
+ mov64 r4, 21
+ call anchor_lang::error::Error::with_account_name#7b9b
+-stxdw [r10-1352], r1
+-jne r0, 2, +0x2150
++stxdw [r10-1320], r1
++jne r0, 2, +0x2180
+ mov64 r1, r10
+ add64 r1, -256
+ call solana_sysvar::rent::<impl solana_sysvar::Sysvar for solana_rent::Rent>::get#3513
+ ldxw r1, [r10-256]
+-jne r1, 1, +0x1e60
++jne r1, 1, +0x1e70
+ ldxw r2, [r10-248]
+ ldxw r1, [r10-252]
+ call <anchor_lang::error::Error as core::convert::From<solana_program_error::ProgramError>>::from#507a
+ ja +0xdf8
++ldxdw r1, [r10-1088]
++ldxdw r2, [r10-1104]
++ja +0x1cb8
+ ldxdw r1, [r10-244]
+ stxdw [r10-844], r1
+ ldxdw r1, [r10-236]
+@@ -902,35 +905,36 @@
+ add64 r1, -1032
+ stxdw [r10-208], r1
+ mov64 r1, r10
+-add64 r1, -1056
++add64 r1, -1040
+ stxdw [r10-216], r1
+ mov64 r1, r10
+ add64 r1, -936
+ stxdw [r10-224], r1
+ mov64 r1, r10
+-add64 r1, -1064
++add64 r1, -1048
+ stxdw [r10-232], r1
+ mov64 r1, r10
+-add64 r1, -1096
++add64 r1, -1080
+ stxdw [r10-240], r1
+ mov64 r1, r10
+ add64 r1, -992
+ stxdw [r10-248], r1
+ mov64 r1, r10
+-add64 r1, -1072
++add64 r1, -1056
+ stxdw [r10-256], r1
+ mov64 r1, r10
+ add64 r1, -824
+ mov64 r2, r10
+ add64 r2, -256
+ call <mayhem_program::instructions::pump_amm_interface::buy_pump_swap::BuyPumpSwap as anchor_lang::Accounts<mayhem_program::instructions::pump_amm_interface::buy_pump_swap::BuyPumpSwapBumps>>::try_accounts::{{closure}}#26b9
+-ldxdw r3, [r10-816]
++ldxdw r1, [r10-816]
++stxdw [r10-1344], r1
+ ldxdw r1, [r10-824]
+-jne r1, 2, +0x2110
+-stxdw [r10-1360], r3
+-ldxdw r2, [r3+32]
++jne r1, 2, +0x2150
++ldxdw r1, [r10-1344]
++ldxdw r2, [r1+32]
+ ldxb r1, [r2+41]
+-jeq r1, 0, +0x2180
++jeq r1, 0, +0x21b0
+ mov64 r8, r10
+ add64 r8, -824
+ mov64 r1, r8
+@@ -938,7 +942,7 @@
+ mov64 r1, r8
+ call solana_account_info::AccountInfo::lamports#aa02
+ mov64 r8, r0
+-ldxdw r1, [r10-1360]
++ldxdw r1, [r10-1344]
+ ldxdw r2, [r1+32]
+ mov64 r9, r10
+ add64 r9, -256
+@@ -949,11 +953,11 @@
+ mov64 r2, r9
+ call solana_account_info::AccountInfo::try_data_len#ceae
+ ldxw r1, [r10-296]
+-jne r1, 1, +0x21c8
++jne r1, 1, +0x21f8
+ ldxw r2, [r10-288]
+ ldxw r1, [r10-292]
+ call <anchor_lang::error::Error as core::convert::From<solana_program_error::ProgramError>>::from#507a
+-ldxdw r2, [r10-1104]
++ldxdw r2, [r10-1088]
+ stxdw [r2+16], r1
+ stxdw [r2+8], r0
+ stdw [r2], 0
+@@ -964,31 +968,34 @@
+ add64 r1, -824
+ call core::ptr::drop_in_place<solana_account_info::AccountInfo>#6dcb
+ ja +0xbc0
+-mov64 r1, r0
+-ldxdw r2, [r10-1304]
++ldxdw r1, [r10-1088]
++stxdw [r1+16], r8
++ja +0x1cc0
++ldxdw r1, [r10-1088]
++ldxdw r2, [r10-1272]
++ja +0x1cb8
++mov64 r1, r0
++ldxdw r2, [r10-1312]
+ lddw r3, str("pool_v2")
+ mov64 r4, 7
+ call anchor_lang::error::Error::with_account_name#7b9b
+-stxdw [r10-1304], r1
+-jne r0, 2, +0x2168
++stxdw [r10-1312], r1
++jne r0, 2, +0x2198
+ ldxdw r1, [r9+8]
+-ldxdw r8, [r10-1320]
+-jne r1, 0, +0x1c70
+-ja +0x1ce8
+-ldxdw r2, [r10-1104]
+-stxdw [r2+16], r3
+-stxdw [r2+8], r1
+-stdw [r2], 0
+-ja +0xbc0
+-ldxdw r1, [r10-1104]
+-ldxdw r2, [r10-1328]
+-ja +0x1cb0
+-ldxdw r1, [r10-1104]
+-ldxdw r2, [r10-1352]
+-ja +0x1cb0
+-ldxdw r1, [r10-1104]
++jne r1, 0, +0x1c78
++ja +0x1d08
++ldxdw r2, [r10-1088]
++ldxdw r3, [r10-1344]
++ja +0xfb8
++ldxdw r1, [r10-1088]
+ ldxdw r2, [r10-1304]
+-ja +0x1cb0
++ja +0x1cb8
++ldxdw r1, [r10-1088]
++ldxdw r2, [r10-1320]
++ja +0x1cb8
++ldxdw r1, [r10-1088]
++ldxdw r2, [r10-1312]
++ja +0x1cb8
+ mov64 r1, 2000
+ call <anchor_lang::error::Error as core::convert::From<anchor_lang::error::ErrorCode>>::from#ae9e
+ mov64 r2, r1
+@@ -1009,7 +1016,7 @@
+ mov64 r1, r10
+ add64 r1, -824
+ call core::ptr::drop_in_place<solana_account_info::AccountInfo>#6dcb
+-jeq r8, 0, +0x2388
++jeq r8, 0, +0x23b8
+ lddw r1, .data.rel.ro+obj
+ ldxdw r2, [r1+24]
+ stxdw [r10-232], r2
+@@ -1028,7 +1035,7 @@
+ mov64 r1, r8
+ mov64 r3, 48
+ call memcpy
+-ldxdw r1, [r10-1144]
++ldxdw r1, [r10-1128]
+ ldxdw r1, [r1]
+ ldxdw r1, [r1]
+ ldxdw r2, [r1+24]
+@@ -1043,17 +1050,17 @@
+ add64 r2, -776
+ mov64 r1, r8
+ call hashbrown::map::HashMap<K,V,S,A>::insert#a745
+-jeq r0, 0, +0x2398
++jeq r0, 0, +0x23c8
+ mov64 r1, 2040
+ call <anchor_lang::error::Error as core::convert::From<anchor_lang::error::ErrorCode>>::from#ae9e
+ mov64 r2, r1
+ mov64 r1, r0
+ lddw r3, str("global_params")
+ mov64 r4, 13
+-ja +0x2908
++ja +0x2a00
+ mov64 r1, 2005
+-ja +0x2188
+-ldxdw r1, [r10-1152]
++ja +0x21b8
++ldxdw r1, [r10-1136]
+ ldxdw r1, [r1]
+ ldxdw r1, [r1]
+ ldxdw r2, [r1+24]
+@@ -1069,15 +1076,15 @@
+ mov64 r2, r10
+ add64 r2, -744
+ call hashbrown::map::HashMap<K,V,S,A>::insert#a745
+-jeq r0, 0, +0x2460
++jeq r0, 0, +0x2490
+ mov64 r1, 2040
+ call <anchor_lang::error::Error as core::convert::From<anchor_lang::error::ErrorCode>>::from#ae9e
+ mov64 r2, r1
+ mov64 r1, r0
+ lddw r3, str("mayhem_state")
+ mov64 r4, 12
+-ja +0x2908
+-ldxdw r1, [r10-1168]
++ja +0x2a00
++ldxdw r1, [r10-1152]
+ ldxdw r1, [r1+32]
+ ldxdw r1, [r1]
+ ldxdw r2, [r1+24]
+@@ -1093,15 +1100,15 @@
+ mov64 r2, r10
+ add64 r2, -712
+ call hashbrown::map::HashMap<K,V,S,A>::insert#a745
+-jeq r0, 0, +0x2528
++jeq r0, 0, +0x2558
+ mov64 r1, 2040
+ call <anchor_lang::error::Error as core::convert::From<anchor_lang::error::ErrorCode>>::from#ae9e
+ mov64 r2, r1
+ mov64 r1, r0
+ lddw r3, str("mayhem_token_vault")
+ mov64 r4, 18
+-ja +0x2908
+-ldxdw r1, [r10-1360]
++ja +0x2a00
++ldxdw r1, [r10-1344]
+ ldxdw r1, [r1+32]
+ ldxdw r1, [r1]
+ ldxdw r2, [r1+24]
+@@ -1117,15 +1124,15 @@
+ mov64 r2, r10
+ add64 r2, -680
+ call hashbrown::map::HashMap<K,V,S,A>::insert#a745
+-jeq r0, 0, +0x25f0
++jeq r0, 0, +0x2620
+ mov64 r1, 2040
+ call <anchor_lang::error::Error as core::convert::From<anchor_lang::error::ErrorCode>>::from#ae9e
+ mov64 r2, r1
+ mov64 r1, r0
+ lddw r3, str("mayhem_quote_vault")
+ mov64 r4, 18
+-ja +0x2908
+-ldxdw r1, [r10-1216]
++ja +0x2a00
++ldxdw r1, [r10-1200]
+ ldxdw r1, [r1]
+ ldxdw r1, [r1]
+ ldxdw r2, [r1+24]
+@@ -1141,15 +1148,15 @@
+ mov64 r2, r10
+ add64 r2, -648
+ call hashbrown::map::HashMap<K,V,S,A>::insert#a745
+-jeq r0, 0, +0x26b8
++jeq r0, 0, +0x26e8
+ mov64 r1, 2040
+ call <anchor_lang::error::Error as core::convert::From<anchor_lang::error::ErrorCode>>::from#ae9e
+ mov64 r2, r1
+ mov64 r1, r0
+ lddw r3, str("pool")
+ mov64 r4, 4
+-ja +0x2908
+-ldxdw r1, [r10-1240]
++ja +0x2a00
++ldxdw r1, [r10-1224]
+ ldxdw r1, [r1+32]
+ ldxdw r1, [r1]
+ ldxdw r2, [r1+24]
+@@ -1165,15 +1172,15 @@
+ mov64 r2, r10
+ add64 r2, -616
+ call hashbrown::map::HashMap<K,V,S,A>::insert#a745
+-jeq r0, 0, +0x2780
++jeq r0, 0, +0x27b0
+ mov64 r1, 2040
+ call <anchor_lang::error::Error as core::convert::From<anchor_lang::error::ErrorCode>>::from#ae9e
+ mov64 r2, r1
+ mov64 r1, r0
+ lddw r3, str("pool_base_token_account")
+ mov64 r4, 23
+-ja +0x2908
+-ldxdw r1, [r10-1248]
++ja +0x2a00
++ldxdw r1, [r10-1232]
+ ldxdw r1, [r1+32]
+ ldxdw r1, [r1]
+ ldxdw r2, [r1+24]
+@@ -1189,15 +1196,15 @@
+ mov64 r2, r10
+ add64 r2, -584
+ call hashbrown::map::HashMap<K,V,S,A>::insert#a745
+-jeq r0, 0, +0x2848
++jeq r0, 0, +0x2878
+ mov64 r1, 2040
+ call <anchor_lang::error::Error as core::convert::From<anchor_lang::error::ErrorCode>>::from#ae9e
+ mov64 r2, r1
+ mov64 r1, r0
+ lddw r3, str("pool_quote_token_account")
+ mov64 r4, 24
+-ja +0x2908
+-ldxdw r1, [r10-1264]
++ja +0x2a00
++ldxdw r1, [r10-1248]
+ ldxdw r1, [r1+32]
+ ldxdw r1, [r1]
+ ldxdw r2, [r1+24]
+@@ -1213,20 +1220,15 @@
+ mov64 r2, r10
+ add64 r2, -552
+ call hashbrown::map::HashMap<K,V,S,A>::insert#a745
+-jeq r0, 0, +0x2938
++jeq r0, 0, +0x2940
+ mov64 r1, 2040
+ call <anchor_lang::error::Error as core::convert::From<anchor_lang::error::ErrorCode>>::from#ae9e
+ mov64 r2, r1
+ mov64 r1, r0
+ lddw r3, str("protocol_fee_recipient_token_account")
+ mov64 r4, 36
+-call anchor_lang::error::Error::with_account_name#7b9b
+-ldxdw r2, [r10-1104]
+-stxdw [r2+8], r0
+-stxdw [r2+16], r1
+-stdw [r2], 0
+-ja +0xbc0
+-ldxdw r1, [r10-1336]
++ja +0x2a00
++ldxdw r1, [r10-1280]
+ ldxdw r1, [r1+32]
+ ldxdw r1, [r1]
+ ldxdw r2, [r1+24]
+@@ -1242,7 +1244,7 @@
+ mov64 r2, r10
+ add64 r2, -520
+ call hashbrown::map::HashMap<K,V,S,A>::insert#a745
+-jeq r0, 0, +0x2a08
++jeq r0, 0, +0x2a30
+ mov64 r1, 2040
+ call <anchor_lang::error::Error as core::convert::From<anchor_lang::error::ErrorCode>>::from#ae9e
+ mov64 r2, r1
+@@ -1250,9 +1252,13 @@
+ lddw r3, str("coin_creator_vault_ata")
+ mov64 r4, 22
+ call anchor_lang::error::Error::with_account_name#7b9b
+-ja +0xdf8
++ldxdw r2, [r10-1088]
++stxdw [r2+8], r0
++stxdw [r2+16], r1
++stdw [r2], 0
++ja +0xbc0
+ ldxb r1, [r6+41]
+-jeq r1, 0, +0x3d98
++jeq r1, 0, +0x3dc8
+ stb [r10-824], 255
+ mov64 r4, r10
+ add64 r4, -256
+@@ -1260,55 +1266,55 @@
+ add64 r5, -824
+ lddw r1, str("global-params")
+ mov64 r2, 1
+-ldxdw r3, [r10-1112]
++ldxdw r3, [r10-1096]
+ call sol_try_find_program_address
+-jne r0, 0, +0x4148
++jne r0, 0, +0x4178
+ ldxdw r1, [r10-232]
+-stxdw [r10-1368], r1
++stxdw [r10-1352], r1
+ ldxdw r8, [r10-240]
+ ldxdw r9, [r10-248]
+ ldxdw r7, [r10-256]
+ ldxb r1, [r10-824]
+-ldxdw r2, [r10-1136]
++ldxdw r2, [r10-1120]
+ stxb [r2], r1
+-ldxdw r1, [r10-1144]
++ldxdw r1, [r10-1128]
+ ldxdw r1, [r1]
+ ldxdw r2, [r1]
+ ldxdw r3, [r2]
+-jne r3, r7, +0x3de0
++jne r3, r7, +0x3e10
+ ldxdw r3, [r2+8]
+-jne r3, r9, +0x3de0
++jne r3, r9, +0x3e10
+ ldxdw r3, [r2+16]
+-jne r3, r8, +0x3de0
++jne r3, r8, +0x3e10
+ ldxdw r2, [r2+24]
+-ldxdw r3, [r10-1368]
+-jne r2, r3, +0x3de0
++ldxdw r3, [r10-1352]
++jne r2, r3, +0x3e10
+ ldxb r1, [r1+41]
+-jeq r1, 0, +0x3ed0
+-ldxdw r2, [r10-1144]
++jeq r1, 0, +0x3f00
++ldxdw r2, [r10-1128]
+ ldxdw r1, [r2+64]
+-stxdw [r10-1384], r1
++stxdw [r10-1368], r1
+ ldxdw r1, [r2+56]
+-stxdw [r10-1376], r1
++stxdw [r10-1360], r1
+ ldxdw r1, [r2+48]
+-stxdw [r10-1368], r1
++stxdw [r10-1352], r1
+ ldxdw r1, [r6]
+ ldxdw r3, [r1+24]
+-stxdw [r10-1392], r3
++stxdw [r10-1376], r3
+ ldxdw r7, [r1+16]
+ ldxdw r8, [r1+8]
+ ldxdw r2, [r2+40]
+ ldxdw r9, [r1]
+-stxdw [r10-1400], r2
+-jne r2, r9, +0x3f18
++stxdw [r10-1384], r2
++jne r2, r9, +0x3f48
++ldxdw r1, [r10-1352]
++jne r1, r8, +0x3f48
++ldxdw r1, [r10-1360]
++jne r1, r7, +0x3f48
+ ldxdw r1, [r10-1368]
+-jne r1, r8, +0x3f18
+-ldxdw r1, [r10-1376]
+-jne r1, r7, +0x3f18
+-ldxdw r1, [r10-1384]
+-ldxdw r2, [r10-1392]
+-jne r1, r2, +0x3f18
+-ldxdw r1, [r10-1160]
++ldxdw r2, [r10-1376]
++jne r1, r2, +0x3f48
++ldxdw r1, [r10-1144]
+ ldxdw r1, [r1+88]
+ ldxdw r1, [r1]
+ ldxdw r2, [r1]
+@@ -1334,34 +1340,34 @@
+ mov64 r5, r10
+ add64 r5, -257
+ mov64 r2, 2
+-ldxdw r3, [r10-1112]
++ldxdw r3, [r10-1096]
+ call sol_try_find_program_address
+-jne r0, 0, +0x4148
++jne r0, 0, +0x4178
+ ldxdw r1, [r10-232]
+-stxdw [r10-1368], r1
++stxdw [r10-1352], r1
+ ldxdw r8, [r10-240]
+ ldxdw r9, [r10-248]
+ ldxdw r7, [r10-256]
+ ldxb r1, [r10-257]
+-ldxdw r2, [r10-1136]
++ldxdw r2, [r10-1120]
+ stxb [r2+1], r1
+-ldxdw r1, [r10-1152]
++ldxdw r1, [r10-1136]
+ ldxdw r1, [r1]
+ ldxdw r2, [r1]
+ ldxdw r3, [r2]
+-jne r3, r7, +0x3fd0
++jne r3, r7, +0x4000
+ ldxdw r3, [r2+8]
+-jne r3, r9, +0x3fd0
++jne r3, r9, +0x4000
+ ldxdw r3, [r2+16]
+-jne r3, r8, +0x3fd0
++jne r3, r8, +0x4000
+ ldxdw r2, [r2+24]
+-ldxdw r3, [r10-1368]
+-jne r2, r3, +0x3fd0
++ldxdw r3, [r10-1352]
++jne r2, r3, +0x4000
+ ldxb r1, [r1+41]
+-jeq r1, 0, +0x4028
+-ldxdw r1, [r10-1168]
++jeq r1, 0, +0x4058
++ldxdw r1, [r10-1152]
+ ldxdw r7, [r1+32]
+-ldxdw r1, [r10-1160]
++ldxdw r1, [r10-1144]
+ ldxdw r2, [r1+88]
+ mov64 r1, r10
+ add64 r1, -256
+@@ -1370,26 +1376,26 @@
+ ldxdw r3, [r1]
+ ldxdw r2, [r7+24]
+ ldxdw r4, [r2]
+-jne r4, r3, +0x4070
++jne r4, r3, +0x40a0
+ ldxdw r3, [r1+8]
+ ldxdw r4, [r2+8]
+-jne r4, r3, +0x4070
++jne r4, r3, +0x40a0
+ ldxdw r3, [r1+16]
+ ldxdw r4, [r2+16]
+-jne r4, r3, +0x4070
++jne r4, r3, +0x40a0
+ ldxdw r1, [r1+24]
+ ldxdw r2, [r2+24]
+-jne r2, r1, +0x4070
++jne r2, r1, +0x40a0
+ mov64 r1, r10
+ add64 r1, -256
+ call core::ptr::drop_in_place<solana_account_info::AccountInfo>#6dcb
+-ldxdw r1, [r10-1168]
++ldxdw r1, [r10-1152]
+ ldxdw r2, [r1+96]
+-stxdw [r10-1368], r2
++stxdw [r10-1352], r2
+ ldxdw r9, [r1+88]
+ ldxdw r8, [r1+80]
+ ldxdw r7, [r1+72]
+-ldxdw r1, [r10-1176]
++ldxdw r1, [r10-1160]
+ ldxdw r1, [r1]
+ ldxdw r2, [r1+24]
+ stxdw [r10-464], r2
+@@ -1400,15 +1406,15 @@
+ ldxdw r1, [r1]
+ stxdw [r10-488], r1
+ ldxdw r1, [r10-488]
+-jne r7, r1, +0x4098
++jne r7, r1, +0x40c8
+ ldxdw r1, [r10-480]
+-jne r8, r1, +0x4098
++jne r8, r1, +0x40c8
+ ldxdw r1, [r10-472]
+-jne r9, r1, +0x4098
++jne r9, r1, +0x40c8
+ ldxdw r1, [r10-464]
+-ldxdw r2, [r10-1368]
+-jne r2, r1, +0x4098
+-ldxdw r1, [r10-1160]
++ldxdw r2, [r10-1352]
++jne r2, r1, +0x40c8
++ldxdw r1, [r10-1144]
+ ldxdw r2, [r1+88]
+ ldxdw r1, [r2]
+ ldxdw r3, [r1+24]
+@@ -1443,25 +1449,25 @@
+ call spl_associated_token_account_interface::address::get_associated_token_address_with_program_id#2b4d
+ mov64 r1, r8
+ call core::ptr::drop_in_place<solana_account_info::AccountInfo>#6dcb
+-ldxdw r1, [r10-1168]
++ldxdw r1, [r10-1152]
+ ldxdw r1, [r1+32]
+ ldxdw r2, [r1]
+ ldxdw r3, [r2+24]
+-stxdw [r10-1368], r3
++stxdw [r10-1352], r3
+ ldxdw r9, [r2+16]
+ ldxdw r8, [r2+8]
+ ldxdw r7, [r2]
+ ldxdw r2, [r10-456]
+-jne r7, r2, +0x41a8
++jne r7, r2, +0x41d8
+ ldxdw r2, [r10-448]
+-jne r8, r2, +0x41a8
++jne r8, r2, +0x41d8
+ ldxdw r2, [r10-440]
+-jne r9, r2, +0x41a8
++jne r9, r2, +0x41d8
+ ldxdw r2, [r10-432]
+-ldxdw r3, [r10-1368]
+-jne r3, r2, +0x41a8
++ldxdw r3, [r10-1352]
++jne r3, r2, +0x41d8
+ ldxb r1, [r1+41]
+-jeq r1, 0, +0x4260
++jeq r1, 0, +0x4290
+ stb [r10-824], 255
+ mov64 r4, r10
+ add64 r4, -256
+@@ -1469,84 +1475,84 @@
+ add64 r5, -824
+ lddw r1, str("sol-vault")
+ mov64 r2, 1
+-ldxdw r3, [r10-1112]
++ldxdw r3, [r10-1096]
+ call sol_try_find_program_address
+-jne r0, 0, +0x4148
++jne r0, 0, +0x4178
+ ldxdw r1, [r10-232]
+-stxdw [r10-1368], r1
++stxdw [r10-1352], r1
+ ldxdw r9, [r10-240]
+ ldxdw r8, [r10-248]
+ ldxdw r7, [r10-256]
+ ldxb r1, [r10-824]
+-ldxdw r2, [r10-1136]
++ldxdw r2, [r10-1120]
+ stxb [r2+2], r1
++ldxdw r1, [r10-1160]
++ldxdw r1, [r1]
++ldxdw r2, [r1]
++jne r2, r7, +0x42c8
++ldxdw r2, [r1+8]
++jne r2, r8, +0x42c8
++ldxdw r2, [r1+16]
++jne r2, r9, +0x42c8
++ldxdw r1, [r1+24]
++ldxdw r2, [r10-1352]
++jne r1, r2, +0x42c8
++ldxdw r1, [r10-1160]
++ldxb r1, [r1+41]
++jeq r1, 0, +0x4390
+ ldxdw r1, [r10-1176]
+ ldxdw r1, [r1]
+-ldxdw r2, [r1]
+-jne r2, r7, +0x4298
+-ldxdw r2, [r1+8]
+-jne r2, r8, +0x4298
+-ldxdw r2, [r1+16]
+-jne r2, r9, +0x4298
+-ldxdw r1, [r1+24]
+-ldxdw r2, [r10-1368]
+-jne r1, r2, +0x4298
+-ldxdw r1, [r10-1176]
+-ldxb r1, [r1+41]
+-jeq r1, 0, +0x4360
+-ldxdw r1, [r10-1192]
+-ldxdw r1, [r1]
+ ldxdw r2, [r1+24]
+-stxdw [r10-1368], r2
++stxdw [r10-1352], r2
+ ldxdw r9, [r1+16]
+ ldxdw r8, [r1+8]
+ ldxdw r7, [r1]
+ lddw r1, 0x93a165d7e1f6dd06
+-jne r7, r1, +0x43a8
++jne r7, r1, +0x43d8
+ lddw r1, 0xac79ebce46e1cbd9
+-jne r8, r1, +0x43a8
++jne r8, r1, +0x43d8
+ lddw r1, 0x91375b5fed85b41c
+-jne r9, r1, +0x43a8
++jne r9, r1, +0x43d8
+ lddw r1, 0xa900ff7e85f58c3a
+-ldxdw r2, [r10-1368]
+-jne r2, r1, +0x43a8
+-ldxdw r1, [r10-1216]
++ldxdw r2, [r10-1352]
++jne r2, r1, +0x43d8
++ldxdw r1, [r10-1200]
+ ldxdw r1, [r1]
+ ldxb r1, [r1+41]
+-jeq r1, 0, +0x4478
+-ldxdw r1, [r10-1240]
++jeq r1, 0, +0x44a8
++ldxdw r1, [r10-1224]
+ ldxdw r1, [r1+32]
+ ldxb r1, [r1+41]
+-jeq r1, 0, +0x44c0
+-ldxdw r1, [r10-1248]
++jeq r1, 0, +0x44f0
++ldxdw r1, [r10-1232]
+ ldxdw r1, [r1+32]
+ ldxb r1, [r1+41]
+-jeq r1, 0, +0x4508
+-ldxdw r1, [r10-1256]
++jeq r1, 0, +0x4538
++ldxdw r1, [r10-1240]
+ ldxb r1, [r1+41]
+-jeq r1, 0, +0x4550
+-ldxdw r1, [r10-1264]
++jeq r1, 0, +0x4580
++ldxdw r1, [r10-1248]
+ ldxdw r1, [r1+32]
+ ldxdw r1, [r1+24]
+ ldxdw r2, [r1]
+ lddw r3, 0x93a165d7e1f6dd06
+-jne r2, r3, +0x4088
++jne r2, r3, +0x40b8
+ ldxdw r2, [r1+8]
+ lddw r3, 0xac79ebce46e1cbd9
+-jne r2, r3, +0x4088
++jne r2, r3, +0x40b8
+ ldxdw r2, [r1+16]
+ lddw r3, 0x91375b5fed85b41c
+-jne r2, r3, +0x4088
++jne r2, r3, +0x40b8
+ ldxdw r1, [r1+24]
+ lddw r2, 0xa900ff7e85f58c3a
+-jne r1, r2, +0x4088
+-ldxdw r1, [r10-1264]
++jne r1, r2, +0x40b8
++ldxdw r1, [r10-1248]
+ ldxdw r2, [r1+96]
+-stxdw [r10-1368], r2
++stxdw [r10-1352], r2
+ ldxdw r9, [r1+88]
+ ldxdw r8, [r1+80]
+ ldxdw r7, [r1+72]
+-ldxdw r1, [r10-1256]
++ldxdw r1, [r10-1240]
+ ldxdw r4, [r1]
+ ldxdw r1, [r4+24]
+ stxdw [r10-400], r1
+@@ -1556,12 +1562,12 @@
+ stxdw [r10-416], r3
+ ldxdw r4, [r4]
+ stxdw [r10-424], r4
+-jne r7, r4, +0x4588
+-jne r8, r3, +0x4588
+-jne r9, r2, +0x4588
+-ldxdw r2, [r10-1368]
+-jne r2, r1, +0x4588
+-ldxdw r1, [r10-1232]
++jne r7, r4, +0x45c8
++jne r8, r3, +0x45c8
++jne r9, r2, +0x45c8
++ldxdw r2, [r10-1352]
++jne r2, r1, +0x45c8
++ldxdw r1, [r10-1216]
+ ldxdw r1, [r1]
+ ldxdw r2, [r1+24]
+ stxdw [r10-800], r2
+@@ -1571,7 +1577,7 @@
+ stxdw [r10-816], r2
+ ldxdw r1, [r1]
+ stxdw [r10-824], r1
+-ldxdw r1, [r10-1192]
++ldxdw r1, [r10-1176]
+ ldxdw r1, [r1]
+ ldxdw r2, [r1+24]
+ stxdw [r10-232], r2
+@@ -1590,65 +1596,66 @@
+ mov64 r4, r10
+ add64 r4, -256
+ call spl_associated_token_account_interface::address::get_associated_token_address_with_program_id#2b4d
+-ldxdw r1, [r10-1264]
++ldxdw r1, [r10-1248]
+ ldxdw r1, [r1+32]
+ ldxdw r2, [r1]
+ ldxdw r3, [r2+24]
+-stxdw [r10-1368], r3
++stxdw [r10-1352], r3
+ ldxdw r9, [r2+16]
+ ldxdw r8, [r2+8]
+ ldxdw r7, [r2]
+ ldxdw r2, [r10-392]
+-jne r7, r2, +0x4638
++jne r7, r2, +0x4678
+ ldxdw r2, [r10-384]
+-jne r8, r2, +0x4638
++jne r8, r2, +0x4678
+ ldxdw r2, [r10-376]
+-jne r9, r2, +0x4638
++jne r9, r2, +0x4678
+ ldxdw r2, [r10-368]
+-ldxdw r3, [r10-1368]
+-jne r3, r2, +0x4638
++ldxdw r3, [r10-1352]
++jne r3, r2, +0x4678
+ ldxb r1, [r1+41]
+-jeq r1, 0, +0x46e8
+-ldxdw r1, [r10-1280]
++jeq r1, 0, +0x4728
++ldxdw r1, [r10-1264]
+ ldxdw r1, [r1]
+ ldxdw r2, [r1+24]
+-stxdw [r10-1368], r2
++stxdw [r10-1352], r2
+ ldxdw r9, [r1+16]
+ ldxdw r8, [r1+8]
+ ldxdw r7, [r1]
+ lddw r1, 0x76c65e82fcde140c
+-jne r7, r1, +0x4730
++jne r7, r1, +0x4770
+ lddw r1, 0x654065bb18082594
+-jne r8, r1, +0x4730
++jne r8, r1, +0x4770
+ lddw r1, 0xb471d556318d29f4
+-jne r9, r1, +0x4730
++jne r9, r1, +0x4770
+ lddw r1, 0x63a8e9180c09f8d4
+-ldxdw r2, [r10-1368]
+-jne r2, r1, +0x4730
+-ldxdw r1, [r10-1192]
++ldxdw r2, [r10-1352]
++jne r2, r1, +0x4770
++ldxdw r1, [r10-1176]
+ ldxdw r1, [r1]
+ ldxdw r3, [r1]
+-ldxdw r2, [r10-1336]
++ldxdw r2, [r10-1280]
+ ldxdw r2, [r2+32]
+ ldxdw r2, [r2+24]
+ ldxdw r4, [r2]
+-jne r4, r3, +0x4088
++jne r4, r3, +0x40b8
+ ldxdw r3, [r1+8]
+ ldxdw r4, [r2+8]
+-jne r4, r3, +0x4088
++jne r4, r3, +0x40b8
+ ldxdw r3, [r1+16]
+ ldxdw r4, [r2+16]
+-jne r4, r3, +0x4088
++jne r4, r3, +0x40b8
+ ldxdw r1, [r1+24]
+ ldxdw r2, [r2+24]
+-jne r2, r1, +0x4088
+-ldxdw r1, [r10-1336]
++jne r2, r1, +0x40b8
++ldxdw r1, [r10-1280]
+ ldxdw r2, [r1+96]
+-stxdw [r10-1368], r2
++stxdw [r10-1352], r2
+ ldxdw r9, [r1+88]
+ ldxdw r8, [r1+80]
++stxdw [r10-1280], r1
+ ldxdw r7, [r1+72]
+-ldxdw r1, [r10-1320]
++ldxdw r1, [r10-1288]
+ ldxdw r4, [r1]
+ ldxdw r1, [r4+24]
+ stxdw [r10-336], r1
+@@ -1658,12 +1665,12 @@
+ stxdw [r10-352], r3
+ ldxdw r4, [r4]
+ stxdw [r10-360], r4
+-jne r7, r4, +0x4800
+-jne r8, r3, +0x4800
+-jne r9, r2, +0x4800
+-ldxdw r2, [r10-1368]
+-jne r2, r1, +0x4800
+-ldxdw r1, [r10-1232]
++jne r7, r4, +0x4840
++jne r8, r3, +0x4840
++jne r9, r2, +0x4840
++ldxdw r2, [r10-1352]
++jne r2, r1, +0x4840
++ldxdw r1, [r10-1216]
+ ldxdw r1, [r1]
+ ldxdw r2, [r1+24]
+ stxdw [r10-800], r2
+@@ -1673,7 +1680,7 @@
+ stxdw [r10-816], r2
+ ldxdw r1, [r1]
+ stxdw [r10-824], r1
+-ldxdw r1, [r10-1192]
++ldxdw r1, [r10-1176]
+ ldxdw r1, [r1]
+ ldxdw r2, [r1+24]
+ stxdw [r10-232], r2
+@@ -1692,31 +1699,31 @@
+ mov64 r4, r10
+ add64 r4, -256
+ call spl_associated_token_account_interface::address::get_associated_token_address_with_program_id#2b4d
+-ldxdw r1, [r10-1336]
++ldxdw r1, [r10-1280]
+ ldxdw r1, [r1+32]
+ ldxdw r2, [r1]
+ ldxdw r3, [r2+24]
+-stxdw [r10-1368], r3
++stxdw [r10-1352], r3
+ ldxdw r9, [r2+16]
+ ldxdw r8, [r2+8]
+ ldxdw r7, [r2]
+ ldxdw r2, [r10-328]
+-jne r7, r2, +0x48b0
++jne r7, r2, +0x48f0
+ ldxdw r2, [r10-320]
+-jne r8, r2, +0x48b0
++jne r8, r2, +0x48f0
+ ldxdw r2, [r10-312]
+-jne r9, r2, +0x48b0
++jne r9, r2, +0x48f0
+ ldxdw r2, [r10-304]
+-ldxdw r3, [r10-1368]
+-jne r3, r2, +0x48b0
++ldxdw r3, [r10-1352]
++jne r3, r2, +0x48f0
+ ldxb r1, [r1+41]
+-jeq r1, 0, +0x4960
+-ldxdw r1, [r10-1120]
++jeq r1, 0, +0x49a0
++ldxdw r1, [r10-1104]
+ ldxb r1, [r1+41]
+-jeq r1, 0, +0x4970
+-ldxdw r1, [r10-1128]
++jeq r1, 0, +0x49d8
++ldxdw r1, [r10-1112]
+ ldxb r1, [r1+41]
+-jeq r1, 0, +0x49b8
++jeq r1, 0, +0x4a20
+ stb [r10-824], 255
+ mov64 r4, r10
+ add64 r4, -256
+@@ -1724,29 +1731,29 @@
+ add64 r5, -824
+ lddw r1, str("__event_authority")
+ mov64 r2, 1
+-ldxdw r3, [r10-1112]
++ldxdw r3, [r10-1096]
+ call sol_try_find_program_address
+-jne r0, 0, +0x4148
++jne r0, 0, +0x4178
+ ldxdw r1, [r10-232]
+-stxdw [r10-1368], r1
++stxdw [r10-1352], r1
+ ldxdw r9, [r10-240]
+ ldxdw r8, [r10-248]
+ ldxdw r7, [r10-256]
+ ldxb r1, [r10-824]
+-ldxdw r2, [r10-1136]
++ldxdw r2, [r10-1120]
+ stxb [r2+3], r1
+-ldxdw r1, [r10-1312]
++ldxdw r1, [r10-1328]
+ ldxdw r1, [r1]
+ ldxdw r2, [r1]
+-jne r2, r7, +0x49f0
++jne r2, r7, +0x4a58
+ ldxdw r2, [r1+8]
+-jne r2, r8, +0x49f0
++jne r2, r8, +0x4a58
+ ldxdw r2, [r1+16]
+-jne r2, r9, +0x49f0
++jne r2, r9, +0x4a58
+ ldxdw r1, [r1+24]
+-ldxdw r2, [r10-1368]
+-jne r1, r2, +0x49f0
+-ldxdw r1, [r10-1160]
++ldxdw r2, [r10-1352]
++jne r1, r2, +0x4a58
++ldxdw r1, [r10-1144]
+ ldxdw r1, [r1+88]
+ ldxdw r1, [r1]
+ ldxdw r2, [r1]
+@@ -1772,91 +1779,91 @@
+ mov64 r5, r10
+ add64 r5, -257
+ mov64 r2, 2
+-ldxdw r3, [r10-1112]
++ldxdw r3, [r10-1096]
+ call sol_try_find_program_address
+-jne r0, 0, +0x4148
++jne r0, 0, +0x4178
+ ldxdw r1, [r10-232]
+-stxdw [r10-1112], r1
++stxdw [r10-1096], r1
+ ldxdw r9, [r10-240]
+ ldxdw r8, [r10-248]
+ ldxdw r7, [r10-256]
+ ldxb r1, [r10-257]
++ldxdw r2, [r10-1120]
++stxb [r2+4], r1
++ldxdw r1, [r10-1312]
++ldxdw r1, [r1]
++ldxdw r2, [r1]
++jne r2, r7, +0x4ab0
++ldxdw r2, [r1+8]
++jne r2, r8, +0x4ab0
++ldxdw r2, [r1+16]
++jne r2, r9, +0x4ab0
++ldxdw r1, [r1+24]
++ldxdw r2, [r10-1096]
++jne r1, r2, +0x4ab0
++ldxdw r1, [r10-1320]
++ldxb r1, [r1+41]
++jeq r1, 0, +0x4b58
++ldxdw r1, [r10-1088]
++ldxdw r2, [r10-1320]
++stxdw [r1+240], r2
++ldxdw r2, [r10-1304]
++stxdw [r1+232], r2
++ldxdw r2, [r10-1312]
++stxdw [r1+224], r2
++ldxdw r2, [r10-1336]
++stxdw [r1+216], r2
++ldxdw r2, [r10-1328]
++stxdw [r1+208], r2
++ldxdw r2, [r10-1272]
++stxdw [r1+200], r2
++ldxdw r2, [r10-1296]
++stxdw [r1+192], r2
++ldxdw r2, [r10-1112]
++stxdw [r1+184], r2
++ldxdw r2, [r10-1104]
++stxdw [r1+176], r2
++ldxdw r2, [r10-1288]
++stxdw [r1+168], r2
++ldxdw r2, [r10-1280]
++stxdw [r1+160], r2
++ldxdw r2, [r10-1264]
++stxdw [r1+152], r2
++ldxdw r2, [r10-1256]
++stxdw [r1+144], r2
++ldxdw r2, [r10-1248]
++stxdw [r1+136], r2
++ldxdw r2, [r10-1240]
++stxdw [r1+128], r2
++ldxdw r2, [r10-1232]
++stxdw [r1+120], r2
++ldxdw r2, [r10-1224]
++stxdw [r1+112], r2
++ldxdw r2, [r10-1216]
++stxdw [r1+104], r2
++ldxdw r2, [r10-1208]
++stxdw [r1+96], r2
++ldxdw r2, [r10-1200]
++stxdw [r1+88], r2
++ldxdw r2, [r10-1192]
++stxdw [r1+80], r2
++ldxdw r2, [r10-1184]
++stxdw [r1+72], r2
++ldxdw r2, [r10-1176]
++stxdw [r1+64], r2
++ldxdw r2, [r10-1168]
++stxdw [r1+56], r2
++ldxdw r2, [r10-1160]
++stxdw [r1+48], r2
++ldxdw r2, [r10-1344]
++stxdw [r1+40], r2
++ldxdw r2, [r10-1152]
++stxdw [r1+32], r2
++ldxdw r2, [r10-1144]
++stxdw [r1+24], r2
+ ldxdw r2, [r10-1136]
+-stxb [r2+4], r1
+-ldxdw r1, [r10-1304]
+-ldxdw r1, [r1]
+-ldxdw r2, [r1]
+-jne r2, r7, +0x4a48
+-ldxdw r2, [r1+8]
+-jne r2, r8, +0x4a48
+-ldxdw r2, [r1+16]
+-jne r2, r9, +0x4a48
+-ldxdw r1, [r1+24]
+-ldxdw r2, [r10-1112]
+-jne r1, r2, +0x4a48
+-ldxdw r1, [r10-1352]
+-ldxb r1, [r1+41]
+-jeq r1, 0, +0x4af0
+-ldxdw r1, [r10-1104]
+-ldxdw r2, [r10-1352]
+-stxdw [r1+240], r2
+-ldxdw r2, [r10-1328]
+-stxdw [r1+232], r2
+-ldxdw r2, [r10-1304]
+-stxdw [r1+224], r2
+-ldxdw r2, [r10-1344]
+-stxdw [r1+216], r2
+-ldxdw r2, [r10-1312]
+-stxdw [r1+208], r2
+-ldxdw r2, [r10-1296]
+-stxdw [r1+200], r2
+-ldxdw r2, [r10-1288]
+-stxdw [r1+192], r2
++stxdw [r1+16], r2
+ ldxdw r2, [r10-1128]
+-stxdw [r1+184], r2
+-ldxdw r2, [r10-1120]
+-stxdw [r1+176], r2
+-ldxdw r2, [r10-1320]
+-stxdw [r1+168], r2
+-ldxdw r2, [r10-1336]
+-stxdw [r1+160], r2
+-ldxdw r2, [r10-1280]
+-stxdw [r1+152], r2
+-ldxdw r2, [r10-1272]
+-stxdw [r1+144], r2
+-ldxdw r2, [r10-1264]
+-stxdw [r1+136], r2
+-ldxdw r2, [r10-1256]
+-stxdw [r1+128], r2
+-ldxdw r2, [r10-1248]
+-stxdw [r1+120], r2
+-ldxdw r2, [r10-1240]
+-stxdw [r1+112], r2
+-ldxdw r2, [r10-1232]
+-stxdw [r1+104], r2
+-ldxdw r2, [r10-1224]
+-stxdw [r1+96], r2
+-ldxdw r2, [r10-1216]
+-stxdw [r1+88], r2
+-ldxdw r2, [r10-1208]
+-stxdw [r1+80], r2
+-ldxdw r2, [r10-1200]
+-stxdw [r1+72], r2
+-ldxdw r2, [r10-1192]
+-stxdw [r1+64], r2
+-ldxdw r2, [r10-1184]
+-stxdw [r1+56], r2
+-ldxdw r2, [r10-1176]
+-stxdw [r1+48], r2
+-ldxdw r2, [r10-1360]
+-stxdw [r1+40], r2
+-ldxdw r2, [r10-1168]
+-stxdw [r1+32], r2
+-ldxdw r2, [r10-1160]
+-stxdw [r1+24], r2
+-ldxdw r2, [r10-1152]
+-stxdw [r1+16], r2
+-ldxdw r2, [r10-1144]
+ stxdw [r1+8], r2
+ stxdw [r1], r6
+ ja +0xbc0
+@@ -1876,7 +1883,7 @@
+ mov64 r4, 13
+ call anchor_lang::error::Error::with_account_name#7b9b
+ mov64 r2, r1
+-ldxdw r1, [r10-1144]
++ldxdw r1, [r10-1128]
+ ldxdw r1, [r1]
+ ldxdw r1, [r1]
+ ldxdw r3, [r1]
+@@ -1886,7 +1893,7 @@
+ stxdw [r10-224], r7
+ stxdw [r10-216], r9
+ stxdw [r10-208], r8
+-ldxdw r6, [r10-1368]
++ldxdw r6, [r10-1352]
+ stxdw [r10-200], r6
+ stxdw [r10-232], r1
+ stxdw [r10-240], r5
+@@ -1913,20 +1920,20 @@
+ mov64 r4, 13
+ call anchor_lang::error::Error::with_account_name#7b9b
+ mov64 r2, r1
+-ldxdw r1, [r10-1392]
++ldxdw r1, [r10-1376]
+ stxdw [r10-200], r1
+ stxdw [r10-208], r7
+ stxdw [r10-216], r8
+ stxdw [r10-224], r9
++ldxdw r1, [r10-1368]
++stxdw [r10-232], r1
++ldxdw r1, [r10-1360]
++stxdw [r10-240], r1
++ldxdw r1, [r10-1352]
++stxdw [r10-248], r1
+ ldxdw r1, [r10-1384]
+-stxdw [r10-232], r1
+-ldxdw r1, [r10-1376]
+-stxdw [r10-240], r1
+-ldxdw r1, [r10-1368]
+-stxdw [r10-248], r1
+-ldxdw r1, [r10-1400]
+ stxdw [r10-256], r1
+-ja +0x3ea8
++ja +0x3ed8
+ mov64 r1, 2006
+ call <anchor_lang::error::Error as core::convert::From<anchor_lang::error::ErrorCode>>::from#ae9e
+ mov64 r2, r1
+@@ -1935,8 +1942,8 @@
+ mov64 r4, 12
+ call anchor_lang::error::Error::with_account_name#7b9b
+ mov64 r2, r1
+-ldxdw r1, [r10-1152]
+-ja +0x3e30
++ldxdw r1, [r10-1136]
++ja +0x3e60
+ mov64 r1, 2000
+ call <anchor_lang::error::Error as core::convert::From<anchor_lang::error::ErrorCode>>::from#ae9e
+ mov64 r2, r1
+@@ -1958,7 +1965,7 @@
+ mov64 r4, 18
+ call anchor_lang::error::Error::with_account_name#7b9b
+ mov64 r2, r1
+-ldxdw r1, [r10-1368]
++ldxdw r1, [r10-1352]
+ stxdw [r10-232], r1
+ stxdw [r10-240], r9
+ stxdw [r10-248], r8
+@@ -1970,7 +1977,7 @@
+ ldxdw r1, [r10-472]
+ stxdw [r10-208], r1
+ ldxdw r1, [r10-464]
+-ja +0x4250
++ja +0x4280
+ lddw r1, str("Unable to find a viable program address bump seed")
+ stxdw [r10-256], r1
+ stdw [r10-224], 0
+@@ -1989,7 +1996,7 @@
+ mov64 r4, 18
+ call anchor_lang::error::Error::with_account_name#7b9b
+ mov64 r2, r1
+-ldxdw r1, [r10-1368]
++ldxdw r1, [r10-1352]
+ stxdw [r10-232], r1
+ stxdw [r10-240], r9
+ stxdw [r10-248], r8
+@@ -2002,13 +2009,13 @@
+ stxdw [r10-208], r1
+ ldxdw r1, [r10-432]
+ stxdw [r10-200], r1
+-ja +0x3ea8
++ja +0x3ed8
+ mov64 r1, 2000
+ call <anchor_lang::error::Error as core::convert::From<anchor_lang::error::ErrorCode>>::from#ae9e
+ mov64 r2, r1
+ mov64 r1, r0
+ lddw r3, .rodata[6d617968656d5f74]
+-ja +0x21b0
++ja +0x21e0
+ mov64 r1, 2006
+ call <anchor_lang::error::Error as core::convert::From<anchor_lang::error::ErrorCode>>::from#ae9e
+ mov64 r2, r1
+@@ -2017,7 +2024,7 @@
+ mov64 r4, 9
+ call anchor_lang::error::Error::with_account_name#7b9b
+ mov64 r2, r1
+-ldxdw r1, [r10-1176]
++ldxdw r1, [r10-1160]
+ ldxdw r1, [r1]
+ ldxdw r3, [r1+24]
+ stxdw [r10-232], r3
+@@ -2027,12 +2034,12 @@
+ stxdw [r10-248], r3
+ ldxdw r1, [r1]
+ stxdw [r10-256], r1
+-ldxdw r1, [r10-1368]
++ldxdw r1, [r10-1352]
+ stxdw [r10-200], r1
+ stxdw [r10-208], r9
+ stxdw [r10-216], r8
+ stxdw [r10-224], r7
+-ja +0x3ea8
++ja +0x3ed8
+ mov64 r1, 2000
+ call <anchor_lang::error::Error as core::convert::From<anchor_lang::error::ErrorCode>>::from#ae9e
+ mov64 r2, r1
+@@ -2051,7 +2058,7 @@
+ mov64 r2, r1
+ lddw r1, 0x93a165d7e1f6dd06
+ stxdw [r10-224], r1
+-ldxdw r1, [r10-1368]
++ldxdw r1, [r10-1352]
+ stxdw [r10-232], r1
+ stxdw [r10-240], r9
+ stxdw [r10-248], r8
+@@ -2061,7 +2068,7 @@
+ lddw r1, 0x91375b5fed85b41c
+ stxdw [r10-208], r1
+ lddw r1, 0xa900ff7e85f58c3a
+-ja +0x4250
++ja +0x4280
+ mov64 r1, 2000
+ call <anchor_lang::error::Error as core::convert::From<anchor_lang::error::ErrorCode>>::from#ae9e
+ mov64 r2, r1
+@@ -2090,8 +2097,10 @@
+ call <anchor_lang::error::Error as core::convert::From<anchor_lang::error::ErrorCode>>::from#ae9e
+ mov64 r2, r1
+ mov64 r1, r0
+-lddw r3, .rodata[70726f746f636f6c]
+-ja +0x29f0
++lddw r3, str("protocol_fee_recipient")
++mov64 r4, 22
++call anchor_lang::error::Error::with_account_name#7b9b
++ja +0xdf8
+ mov64 r1, 2015
+ call <anchor_lang::error::Error as core::convert::From<anchor_lang::error::ErrorCode>>::from#ae9e
+ mov64 r2, r1
+@@ -2100,7 +2109,7 @@
+ mov64 r4, 36
+ call anchor_lang::error::Error::with_account_name#7b9b
+ mov64 r2, r1
+-ldxdw r1, [r10-1368]
++ldxdw r1, [r10-1352]
+ stxdw [r10-232], r1
+ stxdw [r10-240], r9
+ stxdw [r10-248], r8
+@@ -2112,7 +2121,7 @@
+ ldxdw r1, [r10-408]
+ stxdw [r10-208], r1
+ ldxdw r1, [r10-400]
+-ja +0x4250
++ja +0x4280
+ mov64 r1, 2009
+ call <anchor_lang::error::Error as core::convert::From<anchor_lang::error::ErrorCode>>::from#ae9e
+ mov64 r2, r1
+@@ -2121,7 +2130,7 @@
+ mov64 r4, 36
+ call anchor_lang::error::Error::with_account_name#7b9b
+ mov64 r2, r1
+-ldxdw r1, [r10-1368]
++ldxdw r1, [r10-1352]
+ stxdw [r10-232], r1
+ stxdw [r10-240], r9
+ stxdw [r10-248], r8
+@@ -2133,7 +2142,7 @@
+ ldxdw r1, [r10-376]
+ stxdw [r10-208], r1
+ ldxdw r1, [r10-368]
+-ja +0x4250
++ja +0x4280
+ mov64 r1, 2000
+ call <anchor_lang::error::Error as core::convert::From<anchor_lang::error::ErrorCode>>::from#ae9e
+ mov64 r2, r1
+@@ -2152,7 +2161,7 @@
+ mov64 r2, r1
+ lddw r1, 0x76c65e82fcde140c
+ stxdw [r10-224], r1
+-ldxdw r1, [r10-1368]
++ldxdw r1, [r10-1352]
+ stxdw [r10-232], r1
+ stxdw [r10-240], r9
+ stxdw [r10-248], r8
+@@ -2162,7 +2171,7 @@
+ lddw r1, 0xb471d556318d29f4
+ stxdw [r10-208], r1
+ lddw r1, 0x63a8e9180c09f8d4
+-ja +0x4250
++ja +0x4280
+ mov64 r1, 2015
+ call <anchor_lang::error::Error as core::convert::From<anchor_lang::error::ErrorCode>>::from#ae9e
+ mov64 r2, r1
+@@ -2171,7 +2180,7 @@
+ mov64 r4, 22
+ call anchor_lang::error::Error::with_account_name#7b9b
+ mov64 r2, r1
+-ldxdw r1, [r10-1368]
++ldxdw r1, [r10-1352]
+ stxdw [r10-232], r1
+ stxdw [r10-240], r9
+ stxdw [r10-248], r8
+@@ -2183,7 +2192,7 @@
+ ldxdw r1, [r10-344]
+ stxdw [r10-208], r1
+ ldxdw r1, [r10-336]
+-ja +0x4250
++ja +0x4280
+ mov64 r1, 2009
+ call <anchor_lang::error::Error as core::convert::From<anchor_lang::error::ErrorCode>>::from#ae9e
+ mov64 r2, r1
+@@ -2192,7 +2201,7 @@
+ mov64 r4, 22
+ call anchor_lang::error::Error::with_account_name#7b9b
+ mov64 r2, r1
+-ldxdw r1, [r10-1368]
++ldxdw r1, [r10-1352]
+ stxdw [r10-232], r1
+ stxdw [r10-240], r9
+ stxdw [r10-248], r8
+@@ -2204,9 +2213,13 @@
+ ldxdw r1, [r10-312]
+ stxdw [r10-208], r1
+ ldxdw r1, [r10-304]
+-ja +0x4250
++ja +0x4280
+ mov64 r1, 2000
+-ja +0x29c8
++call <anchor_lang::error::Error as core::convert::From<anchor_lang::error::ErrorCode>>::from#ae9e
++mov64 r2, r1
++mov64 r1, r0
++lddw r3, .rodata[636f696e5f637265]
++ja +0x45b0
+ mov64 r1, 2000
+ call <anchor_lang::error::Error as core::convert::From<anchor_lang::error::ErrorCode>>::from#ae9e
+ mov64 r2, r1
+@@ -2220,7 +2233,7 @@
+ mov64 r2, r1
+ mov64 r1, r0
+ lddw r3, .rodata[757365725f766f6c]
+-ja +0x44f0
++ja +0x4520
+ mov64 r1, 2006
+ call <anchor_lang::error::Error as core::convert::From<anchor_lang::error::ErrorCode>>::from#ae9e
+ mov64 r2, r1
+@@ -2229,8 +2242,8 @@
+ mov64 r4, 15
+ call anchor_lang::error::Error::with_account_name#7b9b
+ mov64 r2, r1
+-ldxdw r1, [r10-1312]
+-ja +0x42e8
++ldxdw r1, [r10-1328]
++ja +0x4318
+ mov64 r1, 2006
+ call <anchor_lang::error::Error as core::convert::From<anchor_lang::error::ErrorCode>>::from#ae9e
+ mov64 r2, r1
+@@ -2239,7 +2252,7 @@
+ mov64 r4, 7
+ call anchor_lang::error::Error::with_account_name#7b9b
+ mov64 r2, r1
+-ldxdw r1, [r10-1304]
++ldxdw r1, [r10-1312]
+ ldxdw r1, [r1]
+ ldxdw r3, [r1+24]
+ stxdw [r10-232], r3
+@@ -2249,8 +2262,8 @@
+ stxdw [r10-248], r3
+ ldxdw r1, [r1]
+ stxdw [r10-256], r1
+-ldxdw r1, [r10-1112]
+-ja +0x4338
++ldxdw r1, [r10-1096]
++ja +0x4368
+ mov64 r1, 2000
+ call <anchor_lang::error::Error as core::convert::From<anchor_lang::error::ErrorCode>>::from#ae9e
+ mov64 r2, r1
