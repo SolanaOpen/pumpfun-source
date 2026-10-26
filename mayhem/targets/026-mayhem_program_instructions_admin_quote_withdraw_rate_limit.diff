@@ -1,0 +1,135 @@
+# mayhem_program::instructions::admin::quote_withdraw_rate_limit  (yours 480 B at .text+0xf108; original 768 B at .text+0x2b648)
+# distance 73 instructions; evidence: called-by mayhem_program::instructions::admin::withdraw_quote_admin#4232; same-callees 4/7
+--- original
++++ yours
+@@ -1,87 +1,57 @@
+ mov64 r6, r1
+ mov64 r1, r10
+-add64 r1, -232
++add64 r1, -160
+ call solana_sysvar::clock::<impl solana_sysvar::Sysvar for solana_clock::Clock>::get#06ec
+-ldxw r1, [r10-232]
++ldxw r1, [r10-160]
+ jne r1, 1, +0x50
+-ldxw r2, [r10-224]
+-ldxw r1, [r10-228]
++ldxw r2, [r10-152]
++ldxw r1, [r10-156]
+ call <anchor_lang::error::Error as core::convert::From<solana_program_error::ProgramError>>::from#507a
+-ja +0x250
+-ldxdw r1, [r10-192]
+-ldxdw r2, [r6+216]
+-jeq r2, 0, +0x240
+-ldxdw r0, [r6+208]
+-jeq r0, 0, +0x240
+-mov64 r5, 1
+-mov64 r3, 1
+-jsge r0, 0, +0x258
+-mov64 r4, r2
+-add64 r4, r0
+-jsge r4, r2, +0x278
+-xor64 r3, r5
+-and64 r3, 1
+-jne r3, 0, +0x298
+-jsge r1, r4, +0x240
++ja +0x180
++ldxdw r7, [r10-120]
++ldxdw r1, [r6+200]
++jeq r1, 0, +0x170
++ldxdw r5, [r6+192]
++jeq r5, 0, +0x170
++mov64 r4, 1
++mov64 r2, 1
++jsge r5, 0, +0x188
++mov64 r3, r1
++add64 r3, r5
++jsge r3, r1, +0x1a8
++xor64 r2, r4
++and64 r2, 1
++jne r2, 0, +0x1c8
++jsge r7, r3, +0x170
+ mov64 r1, r10
+-add64 r1, -72
++add64 r1, -128
+ lddw r2, .rodata[0e000000]
+-call mayhem_program::instructions::pump_amm_interface::pump_swap_types::PumpSwapError::name#fdf6
+-stdw [r10-32], 0
+-stdw [r10-40], 1
+-stdw [r10-48], 0
+-lddw r1, table[0:core::ptr::drop_in_place<alloc::string::String>#91b5, 3:<alloc::string::String as core::fmt::Write>::write_str#ca2d, 4:<alloc::string::String as core::fmt::Write>::write_char#6537, 5:core::fmt::Write::write_fmt#a290]
+-stxdw [r10-16], r1
++call mayhem_program::MayhemError::name#2984
+ mov64 r1, r10
+-add64 r1, -48
+-stxdw [r10-24], r1
+-lddw r1, 0xe0000020
+-stxdw [r10-8], r1
+-mov64 r2, r10
+-add64 r2, -24
+-lddw r1, .rodata[0e000000]
+-call <mayhem_program::instructions::pump_amm_interface::pump_swap_types::PumpSwapError as core::fmt::Display>::fmt#0036
+-jne r0, 0, +0x2b0
+-ldxdw r1, [r10-32]
+-stxdw [r10-160], r1
+-ldxdw r1, [r10-40]
+-stxdw [r10-168], r1
+-ldxdw r1, [r10-48]
+-stxdw [r10-176], r1
+-ldxdw r1, [r10-72]
+-stxdw [r10-200], r1
+-ldxdw r1, [r10-64]
+-stxdw [r10-192], r1
+-ldxdw r1, [r10-56]
+-stxdw [r10-184], r1
++add64 r1, -104
++mov64 r2, 14
++call <T as alloc::string::SpecToString>::spec_to_string#2731
+ lddw r1, .rodata[70726f6772616d73]
+-stxdw [r10-224], r1
+-stw [r10-80], 6014
+-stb [r10-152], 2
+-stw [r10-208], 125
+-stdw [r10-216], 36
+-stdw [r10-232], 0
++stxdw [r10-152], r1
++stb [r10-80], 2
++stw [r10-136], 126
++stdw [r10-144], 36
++stdw [r10-160], 0
++stw [r10-8], 6014
+ mov64 r1, r10
+-add64 r1, -232
++add64 r1, -160
+ call <anchor_lang::error::Error as core::convert::From<anchor_lang::error::AnchorError>>::from#5ca3
+-ja +0x250
+-stxdw [r6+216], r1
++jne r0, 2, +0x180
++stxdw [r6+200], r7
+ mov64 r0, 2
+ exit
+-mov64 r3, 0
+-mov64 r4, r2
+-add64 r4, r0
+-jslt r4, r2, +0xa8
+-mov64 r5, 0
+-xor64 r3, r5
+-and64 r3, 1
+-jeq r3, 0, +0xc0
+-lddw r1, panic_location(programs/mayhem-program/src/state.rs:122:23)
++mov64 r2, 0
++mov64 r3, r1
++add64 r3, r5
++jslt r3, r1, +0xa8
++mov64 r4, 0
++xor64 r2, r4
++and64 r2, 1
++jeq r2, 0, +0xc0
++lddw r1, panic_location(programs/mayhem-program/src/state.rs:123:27)
+ call core::panicking::panic_const::panic_const_add_overflow#3493
+-mov64 r3, r10
+-add64 r3, -232
+-lddw r1, str("a Display implementation returned an error unexpectedly")
+-mov64 r2, 55
+-lddw r4, table[3:<core::fmt::Error as core::fmt::Debug>::fmt#aaa5]
+-lddw r5, panic_location(/home/runner/work/platform-tools/platform-tools/out/rust/library/alloc/src/string.rs:2830:14)
+-call core::result::unwrap_failed#5a05

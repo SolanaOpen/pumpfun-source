@@ -53,7 +53,7 @@ pub mod mayhem_program {
     pub fn stop_trading(ctx: Context<Admin>) -> Result<()> { instructions::admin::stop_trading(ctx) }
     pub fn resume_trading(ctx: Context<Admin>) -> Result<()> { instructions::admin::resume_trading(ctx) }
     #[instruction(discriminator = [157, 189, 94, 72, 85, 69, 204, 45])]
-    pub fn unknown_2dcc(_ctx: Context<Admin>) -> Result<()> { Ok(()) }
+    pub fn initialize_mayhem_state(ctx: Context<InitializeMayhemState>) -> Result<()> { super::initialize_mayhem_state_impl(ctx) }
 }
 
 #[error_code]
@@ -70,6 +70,34 @@ pub enum MayhemError {
     AccountTypeNotSupported = 16,
     #[msg("Only 8 fee recipients supported")]
     MaxFeeRecipientsExceeded = 17,
+}
+
+#[derive(Accounts)]
+pub struct InitializeMayhemState<'info> {
+    #[account(mut)]
+    pub payer: Signer<'info>,
+    #[account(seeds = [b"global-params"], bump)]
+    pub global_params: Account<'info, GlobalParams>,
+    #[account(init, payer = payer, space = 8 + core::mem::size_of::<crate::state::MayhemState>(), seeds = [b"mayhem-state"], bump)]
+    pub mayhem_state: Account<'info, crate::state::MayhemState>,
+    /// CHECK: pda
+    #[account(mut, seeds = [b"mayhem-sol-vault"], bump)]
+    pub mayhem_sol_vault: UncheckedAccount<'info>,
+    /// CHECK: pda
+    #[account(seeds = [b"mayhem-authority"], bump)]
+    pub mayhem_authority: UncheckedAccount<'info>,
+    pub mint: InterfaceAccount<'info, anchor_spl::token_interface::Mint>,
+    #[account(init, payer = payer, associated_token::mint = mint, associated_token::authority = mayhem_authority, associated_token::token_program = token_program)]
+    pub mayhem_token_vault: InterfaceAccount<'info, anchor_spl::token_interface::TokenAccount>,
+    pub token_program: Interface<'info, anchor_spl::token_interface::TokenInterface>,
+    pub associated_token_program: Program<'info, anchor_spl::associated_token::AssociatedToken>,
+    pub system_program: Program<'info, System>,
+}
+
+#[inline(never)]
+fn initialize_mayhem_state_impl(ctx: Context<InitializeMayhemState>) -> Result<()> {
+    let _ = core::hint::black_box(ctx);
+    Ok(())
 }
 
 #[inline(never)]
