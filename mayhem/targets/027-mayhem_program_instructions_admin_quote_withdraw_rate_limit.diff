@@ -1,4 +1,4 @@
-# mayhem_program::instructions::admin::quote_withdraw_rate_limit  (yours 520 B at .text+0xf210; original 768 B at .text+0x2b348)
+# mayhem_program::instructions::admin::quote_withdraw_rate_limit  (yours 520 B at .text+0xf230; original 768 B at .text+0x2b348)
 # distance 82 instructions; evidence: same-callees 4/7
 --- original
 +++ yours
@@ -93,7 +93,7 @@
 -stdw [r10-232], 0
 +stxdw [r10-152], r1
 +stb [r10-80], 2
-+stw [r10-136], 232
++stw [r10-136], 234
 +stdw [r10-144], 49
 +stdw [r10-160], 0
 +stw [r10-8], 6014
@@ -128,7 +128,7 @@
 +xor64 r2, r3
 +and64 r2, 1
 +jeq r2, 0, +0xc0
-+lddw r1, panic_location(programs/mayhem-program/src/instructions/admin.rs:232:55)
++lddw r1, panic_location(programs/mayhem-program/src/instructions/admin.rs:234:55)
  call core::panicking::panic_const::panic_const_add_overflow#3493
 -mov64 r3, r10
 -add64 r3, -232

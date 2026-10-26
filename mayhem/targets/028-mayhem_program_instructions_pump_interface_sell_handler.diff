@@ -1,4 +1,4 @@
-# mayhem_program::instructions::pump_interface::sell::handler  (yours 7480 B at .text+0x1df70; original 12992 B at .text+0x1f100)
+# mayhem_program::instructions::pump_interface::sell::handler  (yours 7480 B at .text+0x1df90; original 12992 B at .text+0x1f100)
 # distance 1795 instructions; evidence: called-by mayhem_program::__private::__global::sell#c304; same-callees 20/25
 --- original
 +++ yours

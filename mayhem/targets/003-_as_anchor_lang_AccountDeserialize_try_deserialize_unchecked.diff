@@ -1,4 +1,4 @@
-# <mayhem_program::state::GlobalParams as anchor_lang::AccountDeserialize>::try_deserialize_unchecked  (yours 2632 B at .text+0x25658; original 2448 B at .text+0x679c0)
+# <mayhem_program::state::GlobalParams as anchor_lang::AccountDeserialize>::try_deserialize_unchecked  (yours 2632 B at .text+0x25678; original 2448 B at .text+0x679c0)
 # distance 416 instructions; evidence: called-by anchor_lang::accounts::account::Account<T>::try_from_unchecked#c2e4; called-by <mayhem_program::state::GlobalParams as anchor_lang::AccountDeserialize>::try_deserialize#853a; neighbours between the same matched functions as in your build
 --- original
 +++ yours

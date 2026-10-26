@@ -195,14 +195,16 @@ pub fn resume_trading(ctx: Context<Admin>) -> Result<()> {
 }
 pub fn withdraw_quote_admin(ctx: Context<WithdrawQuoteAdmin>, amount: u64) -> Result<()> {
     quote_withdraw_rate_limit(&mut ctx.accounts.global_params)?;
-    let bump = [ctx.bumps.sol_vault];
-    let seeds: &[&[u8]] = &[b"sol-vault", &bump];
-    anchor_spl::token::transfer(CpiContext::new_with_signer(
-        ctx.accounts.token_program.key(), anchor_spl::token::Transfer {
+    let program = ctx.accounts.token_program.key();
+    let accounts = anchor_spl::token::Transfer {
             from: ctx.accounts.sol_vault_quote_ata.to_account_info(),
             to: ctx.accounts.admin_quote_ata.to_account_info(),
             authority: ctx.accounts.sol_vault.to_account_info(),
-        }, &[seeds]), amount)
+        };
+    let bump = [ctx.bumps.sol_vault];
+    let seeds: &[&[u8]] = &[b"sol-vault", &bump];
+    anchor_spl::token::transfer(CpiContext::new_with_signer(program, accounts, &[seeds]), amount)?;
+    Ok(())
 }
 pub fn withdraw_admin(ctx: Context<WithdrawAdmin>, amount: u64) -> Result<()> {
     let now = Clock::get()?.unix_timestamp;

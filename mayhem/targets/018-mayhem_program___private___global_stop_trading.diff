@@ -1,4 +1,4 @@
-# mayhem_program::__private::__global::stop_trading  (yours 472 B at .text+0x73b18; original 368 B at .text+0x7fb08)
+# mayhem_program::__private::__global::stop_trading  (yours 472 B at .text+0x73b38; original 368 B at .text+0x7fb08)
 # distance 19 instructions; evidence: same-callees 3/3; neighbours between the same matched functions as in your build
 --- original
 +++ yours

@@ -1,4 +1,4 @@
-# mayhem_program::instructions::admin::withdraw_admin  (yours 1488 B at .text+0xec40; original 1064 B at .text+0xc018)
+# mayhem_program::instructions::admin::withdraw_admin  (yours 1488 B at .text+0xec60; original 1064 B at .text+0xc018)
 # distance 274 instructions; evidence: called-by mayhem_program::__private::__global::withdraw_admin#e357; neighbours between the same matched functions as in your build
 --- original
 +++ yours
@@ -49,7 +49,7 @@
 +lddw r1, .rodata[70726f6772616d73]
 +stxdw [r10-208], r1
 +stb [r10-136], 2
-+stw [r10-192], 214
++stw [r10-192], 216
 +stdw [r10-200], 49
 +stdw [r10-216], 0
 +stw [r10-64], 6014
@@ -308,6 +308,6 @@
 +xor64 r3, r4
 +and64 r3, 1
 +jeq r3, 0, +0xd0
-+lddw r1, panic_location(programs/mayhem-program/src/instructions/admin.rs:214:27)
++lddw r1, panic_location(programs/mayhem-program/src/instructions/admin.rs:216:27)
 +call core::panicking::panic_const::panic_const_add_overflow#3493
  call abort
