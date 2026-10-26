@@ -1,0 +1,15 @@
+# <mayhem_program::InitializeMayhemState as anchor_lang::Accounts<mayhem_program::InitializeMayhemStateBumps>>::try_accounts::{{closure}}  (yours 5032 B at .text+0x784d0; original 5032 B at .text+0x6c128)
+# distance 2 instructions; evidence: same-callees 15/15; neighbours between the same matched functions as in your build
+--- original
++++ yours
+@@ -58,8 +58,8 @@
+ stxdw [r10-440], r1
+ stw [r10-296], 4101
+ stb [r10-368], 2
+-stw [r10-424], 607
+-stdw [r10-432], 36
++stw [r10-424], 75
++stdw [r10-432], 34
+ stdw [r10-448], 0
+ mov64 r1, r10
+ add64 r1, -448

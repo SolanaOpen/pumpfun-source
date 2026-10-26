@@ -1,4 +1,4 @@
-# <mayhem_program::InitializeMayhemState as anchor_lang::Accounts<mayhem_program::InitializeMayhemStateBumps>>::try_accounts::{{closure}}  (yours 3016 B at .text+0x77708; original 3328 B at .text+0x6b428)
+# <mayhem_program::InitializeMayhemState as anchor_lang::Accounts<mayhem_program::InitializeMayhemStateBumps>>::try_accounts::{{closure}}  (yours 3016 B at .text+0x77908; original 3328 B at .text+0x6b428)
 # distance 653 instructions; evidence: same-callees 5/10
 --- original
 +++ yours

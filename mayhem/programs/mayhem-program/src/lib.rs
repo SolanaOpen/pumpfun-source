@@ -87,7 +87,7 @@ pub struct InitializeMayhemState<'info> {
     pub mint: InterfaceAccount<'info, anchor_spl::token_interface::Mint>,
     #[account(init, payer = payer, associated_token::mint = mint, associated_token::authority = mayhem_authority, associated_token::token_program = token_program)]
     pub mayhem_token_vault: InterfaceAccount<'info, anchor_spl::token_interface::TokenAccount>,
-    #[account(init, payer = payer, space = 8 + core::mem::size_of::<crate::state::MayhemState>(), seeds = [b"mayhem-state"], bump)]
+    #[account(init, payer = payer, space = 106, seeds = [b"mayhem-state", mint.key().as_ref()], bump)]
     pub mayhem_state: Account<'info, crate::state::MayhemState>,
     pub token_program: Interface<'info, anchor_spl::token_interface::TokenInterface>,
     pub associated_token_program: Program<'info, anchor_spl::associated_token::AssociatedToken>,
